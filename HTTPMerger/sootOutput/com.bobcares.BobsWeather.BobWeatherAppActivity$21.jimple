@@ -1,0 +1,48 @@
+class com.bobcares.BobsWeather.BobWeatherAppActivity$21 extends java.lang.Object implements java.lang.Runnable
+{
+    final com.bobcares.BobsWeather.BobWeatherAppActivity this$0;
+
+    void <init>(com.bobcares.BobsWeather.BobWeatherAppActivity)
+    {
+        com.bobcares.BobsWeather.BobWeatherAppActivity $r0;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$21 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.BobWeatherAppActivity$21;
+
+        $r0 := @parameter0: com.bobcares.BobsWeather.BobWeatherAppActivity;
+
+        $r1.<com.bobcares.BobsWeather.BobWeatherAppActivity$21: com.bobcares.BobsWeather.BobWeatherAppActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        android.graphics.drawable.AnimationDrawable $r0;
+        android.graphics.drawable.Drawable $r1;
+        android.widget.ImageView $r2;
+        android.view.View $r3;
+        com.bobcares.BobsWeather.BobWeatherAppActivity $r4;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$21 $r5;
+
+        $r5 := @this: com.bobcares.BobsWeather.BobWeatherAppActivity$21;
+
+        $r4 = $r5.<com.bobcares.BobsWeather.BobWeatherAppActivity$21: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r3 = virtualinvoke $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.View findViewById(int)>(2131427402);
+
+        $r2 = (android.widget.ImageView) $r3;
+
+        virtualinvoke $r2.<android.widget.ImageView: void setBackgroundResource(int)>(2130837607);
+
+        $r1 = virtualinvoke $r2.<android.widget.ImageView: android.graphics.drawable.Drawable getBackground()>();
+
+        $r0 = (android.graphics.drawable.AnimationDrawable) $r1;
+
+        virtualinvoke $r0.<android.graphics.drawable.AnimationDrawable: void start()>();
+
+        return;
+    }
+}

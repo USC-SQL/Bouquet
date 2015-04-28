@@ -1,0 +1,52 @@
+class com.android.buttonwidget.ShowCityList_3days$3$1 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.android.buttonwidget.ShowCityList_3days$3 this$1;
+
+    void <init>(com.android.buttonwidget.ShowCityList_3days$3)
+    {
+        com.android.buttonwidget.ShowCityList_3days$3 $r0;
+        com.android.buttonwidget.ShowCityList_3days$3$1 $r1;
+
+        $r1 := @this: com.android.buttonwidget.ShowCityList_3days$3$1;
+
+        $r0 := @parameter0: com.android.buttonwidget.ShowCityList_3days$3;
+
+        $r1.<com.android.buttonwidget.ShowCityList_3days$3$1: com.android.buttonwidget.ShowCityList_3days$3 this$1> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        android.content.Context $r0;
+        com.android.buttonwidget.ShowCityList_3days $r1, $r6;
+        com.android.buttonwidget.ShowCityList_3days$3 $r2, $r5;
+        int $i0, $i1;
+        android.content.DialogInterface $r3;
+        com.android.buttonwidget.ShowCityList_3days$3$1 $r4;
+
+        $r4 := @this: com.android.buttonwidget.ShowCityList_3days$3$1;
+
+        $r3 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r2 = $r4.<com.android.buttonwidget.ShowCityList_3days$3$1: com.android.buttonwidget.ShowCityList_3days$3 this$1>;
+
+        $r1 = staticinvoke <com.android.buttonwidget.ShowCityList_3days$3: com.android.buttonwidget.ShowCityList_3days access$0(com.android.buttonwidget.ShowCityList_3days$3)>($r2);
+
+        $r0 = $r1.<com.android.buttonwidget.ShowCityList_3days: android.content.Context c>;
+
+        $r5 = $r4.<com.android.buttonwidget.ShowCityList_3days$3$1: com.android.buttonwidget.ShowCityList_3days$3 this$1>;
+
+        $r6 = staticinvoke <com.android.buttonwidget.ShowCityList_3days$3: com.android.buttonwidget.ShowCityList_3days access$0(com.android.buttonwidget.ShowCityList_3days$3)>($r5);
+
+        $i1 = $r6.<com.android.buttonwidget.ShowCityList_3days: int mAppWidgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void updateWidgetWithBlankData(android.content.Context,int)>($r0, $i1);
+
+        return;
+    }
+}

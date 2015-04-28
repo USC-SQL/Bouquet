@@ -1,0 +1,24 @@
+public final class com.bobcares.BobsWeather.R$dimen extends java.lang.Object
+{
+    public static final int widget_margin;
+
+    public void <init>()
+    {
+        com.bobcares.BobsWeather.R$dimen $r0;
+
+        $r0 := @this: com.bobcares.BobsWeather.R$dimen;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.bobcares.BobsWeather.R$dimen: int widget_margin> = 2131230720;
+
+        <com.bobcares.BobsWeather.R$dimen: int widget_margin> = 2131230720;
+
+        return;
+    }
+}

@@ -1,0 +1,48 @@
+class com.bobcares.BobsWeather.BobWeatherAppActivity$12 extends java.lang.Object implements android.content.DialogInterface$OnShowListener
+{
+    final com.bobcares.BobsWeather.BobWeatherAppActivity this$0;
+
+    void <init>(com.bobcares.BobsWeather.BobWeatherAppActivity)
+    {
+        com.bobcares.BobsWeather.BobWeatherAppActivity $r0;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$12 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.BobWeatherAppActivity$12;
+
+        $r0 := @parameter0: com.bobcares.BobsWeather.BobWeatherAppActivity;
+
+        $r1.<com.bobcares.BobsWeather.BobWeatherAppActivity$12: com.bobcares.BobsWeather.BobWeatherAppActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onShow(android.content.DialogInterface)
+    {
+        android.widget.ListAdapter $r0;
+        android.app.AlertDialog $r1;
+        android.widget.ListView $r2;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$12$1 $r3;
+        android.content.DialogInterface $r4;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$12 $r5;
+
+        $r5 := @this: com.bobcares.BobsWeather.BobWeatherAppActivity$12;
+
+        $r4 := @parameter0: android.content.DialogInterface;
+
+        $r1 = (android.app.AlertDialog) $r4;
+
+        $r2 = virtualinvoke $r1.<android.app.AlertDialog: android.widget.ListView getListView()>();
+
+        $r0 = virtualinvoke $r2.<android.widget.ListView: android.widget.ListAdapter getAdapter()>();
+
+        $r3 = new com.bobcares.BobsWeather.BobWeatherAppActivity$12$1;
+
+        specialinvoke $r3.<com.bobcares.BobsWeather.BobWeatherAppActivity$12$1: void <init>(com.bobcares.BobsWeather.BobWeatherAppActivity$12,android.widget.ListAdapter)>($r5, $r0);
+
+        virtualinvoke $r2.<android.widget.ListView: void setAdapter(android.widget.ListAdapter)>($r3);
+
+        return;
+    }
+}

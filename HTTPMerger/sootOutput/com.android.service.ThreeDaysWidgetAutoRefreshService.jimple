@@ -1,0 +1,670 @@
+public class com.android.service.ThreeDaysWidgetAutoRefreshService extends android.app.Service
+{
+    private static final java.lang.String RESULT_OK;
+    java.lang.String ExactPlc;
+    android.appwidget.AppWidgetManager appWidgetManager;
+    android.content.Context c;
+    java.lang.String cityName;
+    java.lang.String latitude;
+    java.lang.String longitude;
+    int mAppWidgetId;
+    android.content.ComponentName thisWidget;
+    android.widget.RemoteViews views;
+    int widgetId;
+    int[] widgetIds;
+
+    static void <clinit>()
+    {
+        <com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String RESULT_OK> = null;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.android.service.ThreeDaysWidgetAutoRefreshService $r0;
+
+        $r0 := @this: com.android.service.ThreeDaysWidgetAutoRefreshService;
+
+        specialinvoke $r0.<android.app.Service: void <init>()>();
+
+        $r0.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String ExactPlc> = null;
+
+        $r0.<com.android.service.ThreeDaysWidgetAutoRefreshService: int mAppWidgetId> = 0;
+
+        $r0.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context c> = $r0;
+
+        $r0.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId> = 0;
+
+        return;
+    }
+
+    private void setResult(java.lang.String, android.content.Intent)
+    {
+        android.content.Intent $r0;
+        java.lang.String $r1;
+        com.android.service.ThreeDaysWidgetAutoRefreshService $r2;
+
+        $r2 := @this: com.android.service.ThreeDaysWidgetAutoRefreshService;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 := @parameter1: android.content.Intent;
+
+        return;
+    }
+
+    public android.os.IBinder onBind(android.content.Intent)
+    {
+        android.content.Intent $r0;
+        com.android.service.ThreeDaysWidgetAutoRefreshService $r1;
+
+        $r1 := @this: com.android.service.ThreeDaysWidgetAutoRefreshService;
+
+        $r0 := @parameter0: android.content.Intent;
+
+        return null;
+    }
+
+    public void onStart(android.content.Intent, int)
+    {
+        android.widget.Toast $r0;
+        android.content.res.Resources $r1;
+        com.bobcares.BobsWeather.XMLFeedParser $r2, $r64;
+        java.io.FileInputStream $r3;
+        int[] $r4, $r32, $r33;
+        android.content.ComponentName $r5, $r31;
+        android.appwidget.AppWidgetManager $r6, $r30;
+        android.content.Context $r7, $r28, $r29, $r35, $r37, $r46, $r49, $r50, $r53, $r55, $r58, $r61, $r68, $r69, $r71, $r73, $r74;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5;
+        android.os.Handler $r8;
+        java.io.File $r9, $r10;
+        com.android.buttonwidget.FetchFromAPI $r11, $r63;
+        java.lang.Exception $r12, $r13, $r14, $r15, $r16, $r17, $r18;
+        java.util.StringTokenizer $r19, $r59;
+        java.io.InputStreamReader $r20;
+        java.io.BufferedReader $r21;
+        java.lang.String $r22, $r23, $r24, $r25, $r34, $r36, $r38, $r39, $r40, $r41, $r42, $r43, $r44, $r45, $r47, $r48, $r51, $r52, $r54, $r56, $r57, $r60, $r62, $r65, $r66, $r67, $r70, $r72;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13, $i14, $i15, $i16, $i17, $i18, $i19, $i20, $i21, $i22, $i23, $i24, $i25, $i26, $i27, $i28, $i29, $i30, $i31;
+        android.content.Intent $r26;
+        com.android.service.ThreeDaysWidgetAutoRefreshService $r27;
+
+        $r27 := @this: com.android.service.ThreeDaysWidgetAutoRefreshService;
+
+        $r26 := @parameter0: android.content.Intent;
+
+        $i0 := @parameter1: int;
+
+        $z0 = staticinvoke <com.android.buttonwidget.AllMethodsClass: boolean checkInternetConnection(android.content.Context)>($r27);
+
+        if $z0 == 0 goto label56;
+
+        $r7 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $r6 = staticinvoke <android.appwidget.AppWidgetManager: android.appwidget.AppWidgetManager getInstance(android.content.Context)>($r7);
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.appwidget.AppWidgetManager appWidgetManager> = $r6;
+
+        $r5 = new android.content.ComponentName;
+
+        $r28 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        specialinvoke $r5.<android.content.ComponentName: void <init>(android.content.Context,java.lang.Class)>($r28, class "com/android/buttonwidget/BobsWidget_3days");
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.ComponentName thisWidget> = $r5;
+
+        $r29 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $r30 = staticinvoke <android.appwidget.AppWidgetManager: android.appwidget.AppWidgetManager getInstance(android.content.Context)>($r29);
+
+        $r31 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.ComponentName thisWidget>;
+
+        $r4 = virtualinvoke $r30.<android.appwidget.AppWidgetManager: int[] getAppWidgetIds(android.content.ComponentName)>($r31);
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int[] widgetIds> = $r4;
+
+        $i2 = 0;
+
+     label01:
+        $r32 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int[] widgetIds>;
+
+        $i1 = lengthof $r32;
+
+        if $i2 < $i1 goto label02;
+
+        return;
+
+     label02:
+        $r33 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int[] widgetIds>;
+
+        $i3 = $r33[$i2];
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId> = $i3;
+
+        $i4 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void startProgressBar(int)>($i4);
+
+        $i5 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int mAppWidgetId> = $i5;
+
+        $i6 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        $r23 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i6);
+
+        $r10 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.io.File getFilesDir()>();
+
+        $r9 = new java.io.File;
+
+        specialinvoke $r9.<java.io.File: void <init>(java.io.File,java.lang.String)>($r10, $r23);
+
+        $z1 = virtualinvoke $r9.<java.io.File: boolean exists()>();
+
+        if $z1 == 0 goto label55;
+
+        $r20 = new java.io.InputStreamReader;
+
+     label03:
+        $r3 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.io.FileInputStream openFileInput(java.lang.String)>($r23);
+
+        specialinvoke $r20.<java.io.InputStreamReader: void <init>(java.io.InputStream)>($r3);
+
+        $r21 = new java.io.BufferedReader;
+
+        specialinvoke $r21.<java.io.BufferedReader: void <init>(java.io.Reader)>($r20);
+
+        $r34 = virtualinvoke $r21.<java.io.BufferedReader: java.lang.String readLine()>();
+
+        if $r34 == null goto label15;
+
+        $z2 = virtualinvoke $r34.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("!CURRENT LOCATION");
+
+        if $z2 != 0 goto label05;
+
+        $z3 = virtualinvoke $r34.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("BLANK DATA");
+
+     label04:
+        if $z3 == 0 goto label33;
+
+     label05:
+        $r35 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context c>;
+
+        $z4 = staticinvoke <com.android.buttonwidget.AllMethodsClass: boolean checkInternetConnection(android.content.Context)>($r35);
+
+     label06:
+        if $z4 == 0 goto label25;
+
+        $r22 = null;
+
+     label07:
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String ExactPlc> = "!curr_loc";
+
+        $r36 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String ExactPlc>;
+
+        $r37 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i7 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        $r38 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String fetchFromCentralCache(java.lang.String,android.content.Context,int)>($r36, $r37, $i7);
+
+     label08:
+        if $r38 == null goto label12;
+
+     label09:
+        $r19 = new java.util.StringTokenizer;
+
+        specialinvoke $r19.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String)>($r38, "!");
+
+        $r39 = virtualinvoke $r19.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String ExactPlc> = $r39;
+
+     label10:
+        $i8 = 1;
+
+     label11:
+        if $i8 <= 19 goto label16;
+
+        $r40 = virtualinvoke $r19.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String latitude> = $r40;
+
+        $r41 = virtualinvoke $r19.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String longitude> = $r41;
+
+     label12:
+        $r11 = new com.android.buttonwidget.FetchFromAPI;
+
+        specialinvoke $r11.<com.android.buttonwidget.FetchFromAPI: void <init>()>();
+
+        $r2 = new com.bobcares.BobsWeather.XMLFeedParser;
+
+        specialinvoke $r2.<com.bobcares.BobsWeather.XMLFeedParser: void <init>()>();
+
+        $r24 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String latitude>;
+
+        $r25 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String longitude>;
+
+        $r42 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String ExactPlc>;
+
+        $r43 = virtualinvoke $r2.<com.bobcares.BobsWeather.XMLFeedParser: java.lang.String getWeatherForCurrentLocation(java.lang.String,java.lang.String,java.lang.String)>($r24, $r25, $r42);
+
+        $r22 = $r43;
+
+        $r44 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String getWeatherDataForWidgets(java.lang.String)>($r43);
+
+        $r22 = $r44;
+
+        $r45 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String getWeatherDataForWidgets(java.lang.String)>($r44);
+
+     label13:
+        $r22 = $r45;
+
+     label14:
+        $r46 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context c>;
+
+        $i9 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        $r47 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String latitude>;
+
+        $r48 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String longitude>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void WidgetUpdate(java.lang.String,android.content.Context,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r22, $r46, $i9, "!CURRENT LOCATION", "!curr_loc", $r47, $r48);
+
+        $r49 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i10 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens_3days(java.lang.String,android.content.Context,int)>($r22, $r49, $i10);
+
+        $i11 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i11);
+
+     label15:
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopSelf()>();
+
+        specialinvoke $r27.<android.app.Service: void onStart(android.content.Intent,int)>($r26, $i0);
+
+        $i2 = $i2 + 1;
+
+        goto label01;
+
+     label16:
+        virtualinvoke $r19.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+     label17:
+        $i8 = $i8 + 1;
+
+        goto label11;
+
+     label18:
+        $r12 := @caughtexception;
+
+     label19:
+        $r50 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $r1 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.res.Resources getResources()>();
+
+        $r51 = virtualinvoke $r1.<android.content.res.Resources: java.lang.String getString(int)>(2131361810);
+
+        $r0 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r50, $r51, 1);
+
+        virtualinvoke $r0.<android.widget.Toast: void show()>();
+
+        $i12 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i12);
+
+     label20:
+        goto label14;
+
+     label21:
+        $r13 := @caughtexception;
+
+     label22:
+        $i13 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i13);
+
+     label23:
+        goto label15;
+
+     label24:
+        $r14 := @caughtexception;
+
+        virtualinvoke $r14.<java.lang.Exception: void printStackTrace()>();
+
+        goto label15;
+
+     label25:
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String ExactPlc> = "!curr_loc";
+
+        $r52 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String ExactPlc>;
+
+        $r53 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i14 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        $r54 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String fetchFromCentralCache(java.lang.String,android.content.Context,int)>($r52, $r53, $i14);
+
+        if $r54 == null goto label31;
+
+        $r55 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i15 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        $r56 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String latitude>;
+
+        $r57 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String longitude>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void WidgetUpdate(java.lang.String,android.content.Context,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r54, $r55, $i15, "!CURRENT LOCATION", "!curr_loc", $r56, $r57);
+
+     label26:
+        $r58 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i16 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens_3days(java.lang.String,android.content.Context,int)>($r54, $r58, $i16);
+
+     label27:
+        goto label15;
+
+     label28:
+        $r15 := @caughtexception;
+
+     label29:
+        virtualinvoke $r15.<java.lang.Exception: void printStackTrace()>();
+
+        $i17 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i17);
+
+     label30:
+        goto label15;
+
+     label31:
+        $i18 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i18);
+
+     label32:
+        goto label15;
+
+     label33:
+        $r59 = new java.util.StringTokenizer;
+
+     label34:
+        specialinvoke $r59.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String)>($r34, "!");
+
+        $r60 = virtualinvoke $r59.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String cityName> = $r60;
+
+        $r8 = new android.os.Handler;
+
+        specialinvoke $r8.<android.os.Handler: void <init>()>();
+
+        $i19 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void startProgressBar(int)>($i19);
+
+        $r61 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context c>;
+
+        $z5 = staticinvoke <com.android.buttonwidget.AllMethodsClass: boolean checkInternetConnection(android.content.Context)>($r61);
+
+        if $z5 == 0 goto label47;
+
+     label35:
+        $r62 = " ";
+
+     label36:
+        $r63 = new com.android.buttonwidget.FetchFromAPI;
+
+        specialinvoke $r63.<com.android.buttonwidget.FetchFromAPI: void <init>()>();
+
+     label37:
+        $r64 = new com.bobcares.BobsWeather.XMLFeedParser;
+
+     label38:
+        specialinvoke $r64.<com.bobcares.BobsWeather.XMLFeedParser: void <init>()>();
+
+        $r65 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String cityName>;
+
+        $r66 = virtualinvoke $r64.<com.bobcares.BobsWeather.XMLFeedParser: java.lang.String getWeatherForRemoteLocation(java.lang.String)>($r65);
+
+        $r62 = $r66;
+
+        $r67 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String getWeatherDataForWidgets(java.lang.String)>($r66);
+
+     label39:
+        $r62 = $r67;
+
+     label40:
+        $r68 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context c>;
+
+        $i20 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void WidgetUpdate(java.lang.String,android.content.Context,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r62, $r68, $i20, $r62, "", "", "");
+
+        $r69 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i21 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens_3days(java.lang.String,android.content.Context,int)>($r62, $r69, $i21);
+
+        $i22 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i22);
+
+     label41:
+        goto label15;
+
+     label42:
+        $r16 := @caughtexception;
+
+     label43:
+        $i23 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i23);
+
+     label44:
+        goto label15;
+
+     label45:
+        $r17 := @caughtexception;
+
+        $i24 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i24);
+
+     label46:
+        goto label40;
+
+     label47:
+        $r70 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String cityName>;
+
+        $r71 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i25 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        $r72 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String fetchFromCentralCache(java.lang.String,android.content.Context,int)>($r70, $r71, $i25);
+
+        $r73 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i26 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void WidgetUpdate(java.lang.String,android.content.Context,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r72, $r73, $i26, $r72, $r72, "", "");
+
+     label48:
+        if $r72 == null goto label53;
+
+     label49:
+        $r74 = virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $i27 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens_3days(java.lang.String,android.content.Context,int)>($r72, $r74, $i27);
+
+     label50:
+        $i28 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i28);
+
+     label51:
+        goto label15;
+
+     label52:
+        $r18 := @caughtexception;
+
+        $i29 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i29);
+
+        virtualinvoke $r18.<java.lang.Exception: void printStackTrace()>();
+
+        goto label50;
+
+     label53:
+        $i30 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i30);
+
+     label54:
+        goto label15;
+
+     label55:
+        $i31 = $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: int widgetId>;
+
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopProgressbar(int)>($i31);
+
+        goto label15;
+
+     label56:
+        virtualinvoke $r27.<com.android.service.ThreeDaysWidgetAutoRefreshService: void stopSelf()>();
+
+        specialinvoke $r27.<android.app.Service: void onStart(android.content.Intent,int)>($r26, $i0);
+
+        return;
+
+        catch java.lang.Exception from label03 to label04 with label24;
+        catch java.lang.Exception from label05 to label06 with label21;
+        catch java.lang.Exception from label07 to label08 with label18;
+        catch java.lang.Exception from label09 to label10 with label18;
+        catch java.lang.Exception from label11 to label13 with label18;
+        catch java.lang.Exception from label14 to label15 with label21;
+        catch java.lang.Exception from label16 to label17 with label18;
+        catch java.lang.Exception from label19 to label20 with label21;
+        catch java.lang.Exception from label22 to label23 with label24;
+        catch java.lang.Exception from label25 to label26 with label21;
+        catch java.lang.Exception from label26 to label27 with label28;
+        catch java.lang.Exception from label29 to label30 with label21;
+        catch java.lang.Exception from label31 to label32 with label21;
+        catch java.lang.Exception from label34 to label35 with label24;
+        catch java.lang.Exception from label36 to label37 with label24;
+        catch java.lang.Exception from label38 to label39 with label45;
+        catch java.lang.Exception from label40 to label41 with label42;
+        catch java.lang.Exception from label43 to label44 with label24;
+        catch java.lang.Exception from label45 to label46 with label24;
+        catch java.lang.Exception from label47 to label48 with label24;
+        catch java.lang.Exception from label49 to label50 with label52;
+        catch java.lang.Exception from label50 to label51 with label24;
+        catch java.lang.Exception from label52 to label54 with label24;
+    }
+
+    protected void startProgressBar(int)
+    {
+        android.appwidget.AppWidgetManager $r0;
+        java.lang.String $r1, $r7;
+        android.content.Context $r2, $r6;
+        android.widget.RemoteViews $r3;
+        android.content.Intent $r4;
+        int $i0;
+        com.android.service.ThreeDaysWidgetAutoRefreshService $r5;
+
+        $r5 := @this: com.android.service.ThreeDaysWidgetAutoRefreshService;
+
+        $i0 := @parameter0: int;
+
+        $r3 = new android.widget.RemoteViews;
+
+        $r2 = virtualinvoke $r5.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $r1 = virtualinvoke $r2.<android.content.Context: java.lang.String getPackageName()>();
+
+        specialinvoke $r3.<android.widget.RemoteViews: void <init>(java.lang.String,int)>($r1, 2130903053);
+
+        virtualinvoke $r3.<android.widget.RemoteViews: void setViewVisibility(int,int)>(2131427495, 0);
+
+        virtualinvoke $r3.<android.widget.RemoteViews: void setViewVisibility(int,int)>(2131427494, 4);
+
+        $r6 = virtualinvoke $r5.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $r0 = staticinvoke <android.appwidget.AppWidgetManager: android.appwidget.AppWidgetManager getInstance(android.content.Context)>($r6);
+
+        virtualinvoke $r0.<android.appwidget.AppWidgetManager: void updateAppWidget(int,android.widget.RemoteViews)>($i0, $r3);
+
+        $r4 = new android.content.Intent;
+
+        specialinvoke $r4.<android.content.Intent: void <init>()>();
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>("appWidgetId", $i0);
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent setAction(java.lang.String)>("android.appwidget.action.APPWIDGET_UPDATE");
+
+        $r7 = <com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String RESULT_OK>;
+
+        specialinvoke $r5.<com.android.service.ThreeDaysWidgetAutoRefreshService: void setResult(java.lang.String,android.content.Intent)>($r7, $r4);
+
+        return;
+    }
+
+    public void stopProgressbar(int)
+    {
+        android.appwidget.AppWidgetManager $r0;
+        java.lang.String $r1, $r7;
+        android.content.Context $r2, $r6;
+        android.widget.RemoteViews $r3;
+        android.content.Intent $r4;
+        int $i0;
+        com.android.service.ThreeDaysWidgetAutoRefreshService $r5;
+
+        $r5 := @this: com.android.service.ThreeDaysWidgetAutoRefreshService;
+
+        $i0 := @parameter0: int;
+
+        $r3 = new android.widget.RemoteViews;
+
+        $r2 = virtualinvoke $r5.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $r1 = virtualinvoke $r2.<android.content.Context: java.lang.String getPackageName()>();
+
+        specialinvoke $r3.<android.widget.RemoteViews: void <init>(java.lang.String,int)>($r1, 2130903053);
+
+        virtualinvoke $r3.<android.widget.RemoteViews: void setViewVisibility(int,int)>(2131427495, 4);
+
+        virtualinvoke $r3.<android.widget.RemoteViews: void setViewVisibility(int,int)>(2131427494, 0);
+
+        $r6 = virtualinvoke $r5.<com.android.service.ThreeDaysWidgetAutoRefreshService: android.content.Context getApplicationContext()>();
+
+        $r0 = staticinvoke <android.appwidget.AppWidgetManager: android.appwidget.AppWidgetManager getInstance(android.content.Context)>($r6);
+
+        virtualinvoke $r0.<android.appwidget.AppWidgetManager: void updateAppWidget(int,android.widget.RemoteViews)>($i0, $r3);
+
+        $r4 = new android.content.Intent;
+
+        specialinvoke $r4.<android.content.Intent: void <init>()>();
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>("appWidgetId", $i0);
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent setAction(java.lang.String)>("android.appwidget.action.APPWIDGET_UPDATE");
+
+        $r7 = <com.android.service.ThreeDaysWidgetAutoRefreshService: java.lang.String RESULT_OK>;
+
+        specialinvoke $r5.<com.android.service.ThreeDaysWidgetAutoRefreshService: void setResult(java.lang.String,android.content.Intent)>($r7, $r4);
+
+        return;
+    }
+}

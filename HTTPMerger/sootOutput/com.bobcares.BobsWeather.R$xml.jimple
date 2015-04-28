@@ -1,0 +1,27 @@
+public final class com.bobcares.BobsWeather.R$xml extends java.lang.Object
+{
+    public static final int widget_layout;
+    public static final int widget_layout_3days;
+
+    public void <init>()
+    {
+        com.bobcares.BobsWeather.R$xml $r0;
+
+        $r0 := @this: com.bobcares.BobsWeather.R$xml;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.bobcares.BobsWeather.R$xml: int widget_layout> = 2131034112;
+
+        <com.bobcares.BobsWeather.R$xml: int widget_layout_3days> = 2131034113;
+
+        <com.bobcares.BobsWeather.R$xml: int widget_layout> = 2131034112;
+
+        return;
+    }
+}

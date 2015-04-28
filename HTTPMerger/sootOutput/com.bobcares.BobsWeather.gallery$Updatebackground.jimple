@@ -1,0 +1,161 @@
+class com.bobcares.BobsWeather.gallery$Updatebackground extends android.os.AsyncTask
+{
+    android.app.ProgressDialog dialog;
+    final com.bobcares.BobsWeather.gallery this$0;
+
+    private void <init>(com.bobcares.BobsWeather.gallery)
+    {
+        android.app.ProgressDialog $r0;
+        com.bobcares.BobsWeather.gallery $r1;
+        com.bobcares.BobsWeather.gallery$Updatebackground $r2;
+
+        $r2 := @this: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        $r1 := @parameter0: com.bobcares.BobsWeather.gallery;
+
+        $r2.<com.bobcares.BobsWeather.gallery$Updatebackground: com.bobcares.BobsWeather.gallery this$0> = $r1;
+
+        specialinvoke $r2.<android.os.AsyncTask: void <init>()>();
+
+        $r0 = new android.app.ProgressDialog;
+
+        specialinvoke $r0.<android.app.ProgressDialog: void <init>(android.content.Context)>($r1);
+
+        $r2.<com.bobcares.BobsWeather.gallery$Updatebackground: android.app.ProgressDialog dialog> = $r0;
+
+        return;
+    }
+
+    void <init>(com.bobcares.BobsWeather.gallery, com.bobcares.BobsWeather.gallery$Updatebackground)
+    {
+        com.bobcares.BobsWeather.gallery $r0;
+        com.bobcares.BobsWeather.gallery$Updatebackground $r1, $r2;
+
+        $r1 := @this: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        $r0 := @parameter0: com.bobcares.BobsWeather.gallery;
+
+        $r2 := @parameter1: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        specialinvoke $r1.<com.bobcares.BobsWeather.gallery$Updatebackground: void <init>(com.bobcares.BobsWeather.gallery)>($r0);
+
+        return;
+    }
+
+    static com.bobcares.BobsWeather.gallery access$3(com.bobcares.BobsWeather.gallery$Updatebackground)
+    {
+        com.bobcares.BobsWeather.gallery r0;
+        com.bobcares.BobsWeather.gallery$Updatebackground $r1;
+
+        $r1 := @parameter0: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        r0 = $r1.<com.bobcares.BobsWeather.gallery$Updatebackground: com.bobcares.BobsWeather.gallery this$0>;
+
+        return r0;
+    }
+
+    protected transient volatile java.lang.Object doInBackground(java.lang.Object[])
+    {
+        java.lang.String[] $r0;
+        java.lang.Void $r1;
+        java.lang.Object[] $r2;
+        com.bobcares.BobsWeather.gallery$Updatebackground $r3;
+
+        $r3 := @this: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        $r2 := @parameter0: java.lang.Object[];
+
+        $r0 = (java.lang.String[]) $r2;
+
+        $r1 = virtualinvoke $r3.<com.bobcares.BobsWeather.gallery$Updatebackground: java.lang.Void doInBackground(java.lang.String[])>($r0);
+
+        return $r1;
+    }
+
+    protected transient java.lang.Void doInBackground(java.lang.String[])
+    {
+        com.bobcares.BobsWeather.gallery$Updatebackground$1 $r0;
+        com.bobcares.BobsWeather.gallery $r1;
+        java.lang.String[] $r2;
+        com.bobcares.BobsWeather.gallery$Updatebackground $r3;
+
+        $r3 := @this: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        $r2 := @parameter0: java.lang.String[];
+
+        $r1 = $r3.<com.bobcares.BobsWeather.gallery$Updatebackground: com.bobcares.BobsWeather.gallery this$0>;
+
+        $r0 = new com.bobcares.BobsWeather.gallery$Updatebackground$1;
+
+        specialinvoke $r0.<com.bobcares.BobsWeather.gallery$Updatebackground$1: void <init>(com.bobcares.BobsWeather.gallery$Updatebackground)>($r3);
+
+        virtualinvoke $r1.<com.bobcares.BobsWeather.gallery: void runOnUiThread(java.lang.Runnable)>($r0);
+
+        return null;
+    }
+
+    protected volatile void onPostExecute(java.lang.Object)
+    {
+        java.lang.Void $r0;
+        java.lang.Object $r1;
+        com.bobcares.BobsWeather.gallery$Updatebackground $r2;
+
+        $r2 := @this: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = (java.lang.Void) $r1;
+
+        virtualinvoke $r2.<com.bobcares.BobsWeather.gallery$Updatebackground: void onPostExecute(java.lang.Void)>($r0);
+
+        return;
+    }
+
+    protected void onPostExecute(java.lang.Void)
+    {
+        android.app.ProgressDialog $r0;
+        java.lang.Void $r1;
+        com.bobcares.BobsWeather.gallery$Updatebackground $r2;
+
+        $r2 := @this: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        $r1 := @parameter0: java.lang.Void;
+
+        $r0 = $r2.<com.bobcares.BobsWeather.gallery$Updatebackground: android.app.ProgressDialog dialog>;
+
+        virtualinvoke $r0.<android.app.ProgressDialog: void dismiss()>();
+
+        return;
+    }
+
+    protected void onPreExecute()
+    {
+        android.app.ProgressDialog $r0, $r5, $r6;
+        java.lang.String $r1;
+        android.content.res.Resources $r2;
+        com.bobcares.BobsWeather.gallery $r3;
+        com.bobcares.BobsWeather.gallery$Updatebackground $r4;
+
+        $r4 := @this: com.bobcares.BobsWeather.gallery$Updatebackground;
+
+        $r3 = $r4.<com.bobcares.BobsWeather.gallery$Updatebackground: com.bobcares.BobsWeather.gallery this$0>;
+
+        $r2 = virtualinvoke $r3.<com.bobcares.BobsWeather.gallery: android.content.res.Resources getResources()>();
+
+        $r1 = virtualinvoke $r2.<android.content.res.Resources: java.lang.String getString(int)>(2131361817);
+
+        $r0 = $r4.<com.bobcares.BobsWeather.gallery$Updatebackground: android.app.ProgressDialog dialog>;
+
+        virtualinvoke $r0.<android.app.ProgressDialog: void setMessage(java.lang.CharSequence)>($r1);
+
+        $r5 = $r4.<com.bobcares.BobsWeather.gallery$Updatebackground: android.app.ProgressDialog dialog>;
+
+        virtualinvoke $r5.<android.app.ProgressDialog: void setTitle(java.lang.CharSequence)>("");
+
+        $r6 = $r4.<com.bobcares.BobsWeather.gallery$Updatebackground: android.app.ProgressDialog dialog>;
+
+        virtualinvoke $r6.<android.app.ProgressDialog: void show()>();
+
+        return;
+    }
+}

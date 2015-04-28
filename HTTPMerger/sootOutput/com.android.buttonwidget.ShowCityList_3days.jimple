@@ -1,0 +1,897 @@
+public class com.android.buttonwidget.ShowCityList_3days extends android.app.Activity
+{
+    public static final java.lang.String ACTION_MODIFY_WIDGET;
+    public static final java.lang.String ACTION_MODIFY_WIDGET_DAY1;
+    public static final java.lang.String ACTION_MODIFY_WIDGET_DAY2;
+    public static final java.lang.String ACTION_MODIFY_WIDGET_DAY3;
+    public static final java.lang.String ACTION_REFRESH_CITY;
+    public static final java.lang.String ACTION_REFRESH_WIDGET;
+    public static java.lang.String ACTION_TEMPERATURE_CONVERSION;
+    public static java.lang.String ACTION_WIDGET_CONFIGURE;
+    public static int MY_REQUEST_ID;
+    public static java.lang.String[][] citylist;
+    java.lang.String CityName;
+    java.lang.StringBuilder DataToSave;
+    java.lang.String Date1;
+    java.lang.String Date2;
+    java.lang.String Date3;
+    java.lang.String Date4;
+    java.lang.String Date5;
+    android.widget.EditText ET_search;
+    java.lang.String ExactPlc;
+    android.widget.TextView TV_Temp;
+    int a;
+    java.lang.String afternoon;
+    android.appwidget.AppWidgetManager awm;
+    android.widget.Button button;
+    android.content.Context c;
+    java.lang.String[] cities;
+    private android.widget.ListView cityList;
+    java.lang.String cityName;
+    int col;
+    android.content.Context context;
+    java.lang.String country;
+    java.lang.String[] countryList;
+    java.lang.String currentCondition;
+    java.lang.String currntDate;
+    java.lang.String currntTime;
+    java.lang.String descInfo1;
+    java.lang.String descInfo2;
+    java.lang.String descInfo3;
+    java.lang.String descInfo4;
+    java.lang.String descInfo5;
+    java.lang.String evening;
+    java.lang.String[] field;
+    java.io.FileOutputStream fos;
+    java.lang.Boolean isTimeOut;
+    double latitude;
+    java.lang.String line;
+    java.lang.String[][] list;
+    double longitude;
+    int mAppWidgetId;
+    java.lang.String morning;
+    java.lang.String night;
+    android.widget.RemoteViews remoteViews;
+    int row;
+    java.util.ArrayList search_result;
+    android.widget.EditText search_text;
+    java.lang.String tempInfo;
+    java.lang.Boolean temp_unit_saved;
+    java.lang.String temperature;
+    java.lang.String widgetId;
+
+    static void <clinit>()
+    {
+        java.lang.String[][] $r0;
+        java.lang.Object $r1;
+        int[] $r2;
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_MODIFY_WIDGET> = "ModifyCurrentWidget";
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_REFRESH_WIDGET> = "RefreshCurrentWidget";
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_REFRESH_CITY> = "RefreshCity";
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_MODIFY_WIDGET_DAY3> = "ModifyDay3Widget";
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_MODIFY_WIDGET_DAY2> = "ModifyDay2Widget";
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_MODIFY_WIDGET_DAY1> = "ModifyDay1Widget";
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_MODIFY_WIDGET> = "ModifyCurrentWidget";
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_WIDGET_CONFIGURE> = "ConfigureWidget";
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String ACTION_TEMPERATURE_CONVERSION> = "ActionReceiverWidget";
+
+        <com.android.buttonwidget.ShowCityList_3days: int MY_REQUEST_ID> = 123;
+
+        $r2 = newarray (int)[2];
+
+        $r2[0] = 1186;
+
+        $r2[1] = 10;
+
+        $r1 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>(class "java/lang/String", $r2);
+
+        $r0 = (java.lang.String[][]) $r1;
+
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] citylist> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        java.lang.StringBuilder $r0;
+        java.lang.String[][] $r1;
+        java.lang.Object $r2;
+        java.util.ArrayList $r3;
+        int[] $r4;
+        java.lang.String[] $r5, $r7, $r8;
+        com.android.buttonwidget.ShowCityList_3days $r6;
+
+        $r6 := @this: com.android.buttonwidget.ShowCityList_3days;
+
+        specialinvoke $r6.<android.app.Activity: void <init>()>();
+
+        $r5 = newarray (java.lang.String)[1186];
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] cities> = $r5;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<java.util.ArrayList: void <init>()>();
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.util.ArrayList search_result> = $r3;
+
+        $r7 = newarray (java.lang.String)[20];
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] field> = $r7;
+
+        $r4 = newarray (int)[2];
+
+        $r4[0] = 1186;
+
+        $r4[1] = 10;
+
+        $r2 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>(class "java/lang/String", $r4);
+
+        $r1 = (java.lang.String[][]) $r2;
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list> = $r1;
+
+        $r8 = newarray (java.lang.String)[1186];
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] countryList> = $r8;
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String country> = "";
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String line> = null;
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String CityName> = "NOCITY";
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: int row> = 0;
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: int col> = 0;
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: int a> = 0;
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String descInfo1> = "clear";
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String currentCondition> = "default";
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: int mAppWidgetId> = 0;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.StringBuilder DataToSave> = $r0;
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String ExactPlc> = null;
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String morning> = "Morning";
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String evening> = "Evening";
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String night> = "Night";
+
+        $r6.<com.android.buttonwidget.ShowCityList_3days: java.lang.String afternoon> = "Afternoon";
+
+        return;
+    }
+
+    static void access$0(com.android.buttonwidget.ShowCityList_3days, android.content.Context, android.widget.EditText)
+    {
+        android.widget.EditText $r0;
+        android.content.Context $r1;
+        com.android.buttonwidget.ShowCityList_3days $r2;
+
+        $r2 := @parameter0: com.android.buttonwidget.ShowCityList_3days;
+
+        $r1 := @parameter1: android.content.Context;
+
+        $r0 := @parameter2: android.widget.EditText;
+
+        specialinvoke $r2.<com.android.buttonwidget.ShowCityList_3days: void hideTheKeyboard(android.content.Context,android.widget.EditText)>($r1, $r0);
+
+        return;
+    }
+
+    static android.widget.ListView access$1(com.android.buttonwidget.ShowCityList_3days)
+    {
+        android.widget.ListView r0;
+        com.android.buttonwidget.ShowCityList_3days $r1;
+
+        $r1 := @parameter0: com.android.buttonwidget.ShowCityList_3days;
+
+        r0 = $r1.<com.android.buttonwidget.ShowCityList_3days: android.widget.ListView cityList>;
+
+        return r0;
+    }
+
+    private java.lang.String[][] getCityList() throws java.io.IOException
+    {
+        java.lang.String[][] $r0, $r11, $r16, $r18, $r21, $r23, $r27, $r29, $r31;
+        java.io.InputStream $r1;
+        android.content.res.Resources $r2;
+        android.content.Context $r3;
+        java.lang.String[] $r4, $r5, $r6, $r13, $r15, $r17, $r19, $r22, $r24, $r28, $r30, $r32;
+        java.io.InputStreamReader $r7;
+        java.lang.String $r8, $r12, $r14, $r20, $r25, $r26, $r33, $r34;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13, $i14, $i15, $i16, $i17, $i18, $i19, $i20, $i21, $i22;
+        java.io.BufferedReader $r9;
+        com.android.buttonwidget.ShowCityList_3days $r10;
+
+        $r10 := @this: com.android.buttonwidget.ShowCityList_3days;
+
+        $r3 = virtualinvoke $r10.<com.android.buttonwidget.ShowCityList_3days: android.content.Context getApplicationContext()>();
+
+        $r2 = virtualinvoke $r3.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r1 = virtualinvoke $r2.<android.content.res.Resources: java.io.InputStream openRawResource(int)>(2131099648);
+
+        if $r1 == null goto label03;
+
+        $r7 = new java.io.InputStreamReader;
+
+        specialinvoke $r7.<java.io.InputStreamReader: void <init>(java.io.InputStream)>($r1);
+
+        $r9 = new java.io.BufferedReader;
+
+        specialinvoke $r9.<java.io.BufferedReader: void <init>(java.io.Reader)>($r7);
+
+        $i0 = 0;
+
+     label01:
+        $r8 = virtualinvoke $r9.<java.io.BufferedReader: java.lang.String readLine()>();
+
+        $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String line> = $r8;
+
+        if $r8 != null goto label04;
+
+        $i1 = 0;
+
+     label02:
+        $r0 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        $i4 = lengthof $r0;
+
+        if $i1 < $i4 goto label08;
+
+     label03:
+        $r11 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        return $r11;
+
+     label04:
+        $r12 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String line>;
+
+        $r4 = virtualinvoke $r12.<java.lang.String: java.lang.String[] split(java.lang.String)>(",");
+
+        $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] field> = $r4;
+
+        $r5 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] countryList>;
+
+        $i5 = $i0 + 1;
+
+        $r6 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] field>;
+
+        $r13 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] field>;
+
+        $i2 = lengthof $r13;
+
+        $i6 = $i2 + -1;
+
+        $r14 = $r6[$i6];
+
+        $r5[$i0] = $r14;
+
+        $r15 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] field>;
+
+        $i7 = lengthof $r15;
+
+        $i3 = 0;
+
+     label05:
+        if $i3 < $i7 goto label06;
+
+        $r16 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        $i8 = $r10.<com.android.buttonwidget.ShowCityList_3days: int row>;
+
+        $r17 = $r16[$i8];
+
+        $r18 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        $i9 = $r10.<com.android.buttonwidget.ShowCityList_3days: int row>;
+
+        $r19 = $r18[$i9];
+
+        $i10 = $r10.<com.android.buttonwidget.ShowCityList_3days: int col>;
+
+        $i11 = $i10 + -2;
+
+        $r20 = $r19[$i11];
+
+        $r17[2] = $r20;
+
+        $r21 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        $i12 = $r10.<com.android.buttonwidget.ShowCityList_3days: int row>;
+
+        $r22 = $r21[$i12];
+
+        $r23 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        $i13 = $r10.<com.android.buttonwidget.ShowCityList_3days: int row>;
+
+        $r24 = $r23[$i13];
+
+        $i14 = $r10.<com.android.buttonwidget.ShowCityList_3days: int col>;
+
+        $i15 = $i14 + -1;
+
+        $r25 = $r24[$i15];
+
+        $r22[3] = $r25;
+
+        $i16 = $r10.<com.android.buttonwidget.ShowCityList_3days: int row>;
+
+        $i17 = $i16 + 1;
+
+        $r10.<com.android.buttonwidget.ShowCityList_3days: int row> = $i17;
+
+        $r10.<com.android.buttonwidget.ShowCityList_3days: int col> = 0;
+
+        $i0 = $i5;
+
+        goto label01;
+
+     label06:
+        $r26 = $r15[$i3];
+
+        $r27 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        $i18 = $r10.<com.android.buttonwidget.ShowCityList_3days: int row>;
+
+        $r28 = $r27[$i18];
+
+        $i19 = $r10.<com.android.buttonwidget.ShowCityList_3days: int col>;
+
+        $r28[$i19] = $r26;
+
+        $i20 = $r10.<com.android.buttonwidget.ShowCityList_3days: int col>;
+
+        $i21 = $i20 + 1;
+
+        $r10.<com.android.buttonwidget.ShowCityList_3days: int col> = $i21;
+
+        if $r26 == null goto label07;
+
+        $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String country> = $r26;
+
+     label07:
+        $i3 = $i3 + 1;
+
+        goto label05;
+
+     label08:
+        $i22 = 0;
+
+     label09:
+        if $i22 < 3 goto label10;
+
+        $i1 = $i1 + 1;
+
+        goto label02;
+
+     label10:
+        if $i22 != 1 goto label11;
+
+        $r29 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        $r30 = $r29[$i1];
+
+        $r31 = $r10.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] list>;
+
+        $r32 = $r31[$i1];
+
+        $r33 = $r32[$i22];
+
+        $r34 = virtualinvoke $r33.<java.lang.String: java.lang.String substring(int,int)>(0, 6);
+
+        $r30[$i22] = $r34;
+
+     label11:
+        $i22 = $i22 + 1;
+
+        goto label09;
+    }
+
+    private void hideTheKeyboard(android.content.Context, android.widget.EditText)
+    {
+        android.os.IBinder $r0;
+        android.view.inputmethod.InputMethodManager $r1;
+        java.lang.Object $r2;
+        java.lang.Exception $r3;
+        android.widget.EditText $r4;
+        android.content.Context $r5;
+        com.android.buttonwidget.ShowCityList_3days $r6;
+
+        $r6 := @this: com.android.buttonwidget.ShowCityList_3days;
+
+        $r5 := @parameter0: android.content.Context;
+
+        $r4 := @parameter1: android.widget.EditText;
+
+     label1:
+        $r2 = virtualinvoke $r5.<android.content.Context: java.lang.Object getSystemService(java.lang.String)>("input_method");
+
+        $r1 = (android.view.inputmethod.InputMethodManager) $r2;
+
+        $r0 = virtualinvoke $r4.<android.widget.EditText: android.os.IBinder getWindowToken()>();
+
+        virtualinvoke $r1.<android.view.inputmethod.InputMethodManager: boolean hideSoftInputFromWindow(android.os.IBinder,int)>($r0, 0);
+
+     label2:
+        return;
+
+     label3:
+        $r3 := @caughtexception;
+
+        virtualinvoke $r3.<java.lang.Exception: void printStackTrace()>();
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public void UpdateMethod()
+    {
+        int $i0, $i1;
+        android.content.Context $r0, $r8;
+        com.android.buttonwidget.FetchFromAPI $r1;
+        java.lang.Exception $r2;
+        java.lang.String $r3, $r6, $r7;
+        com.bobcares.BobsWeather.XMLFeedParser $r4;
+        com.android.buttonwidget.ShowCityList_3days $r5;
+
+        $r5 := @this: com.android.buttonwidget.ShowCityList_3days;
+
+        $r1 = new com.android.buttonwidget.FetchFromAPI;
+
+        specialinvoke $r1.<com.android.buttonwidget.FetchFromAPI: void <init>()>();
+
+        $r4 = new com.bobcares.BobsWeather.XMLFeedParser;
+
+        specialinvoke $r4.<com.bobcares.BobsWeather.XMLFeedParser: void <init>()>();
+
+        $r3 = $r5.<com.android.buttonwidget.ShowCityList_3days: java.lang.String CityName>;
+
+        $r6 = virtualinvoke $r4.<com.bobcares.BobsWeather.XMLFeedParser: java.lang.String getWeatherForRemoteLocation(java.lang.String)>($r3);
+
+        $r7 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String getWeatherDataForWidgets(java.lang.String)>($r6);
+
+        $r0 = $r5.<com.android.buttonwidget.ShowCityList_3days: android.content.Context c>;
+
+        $i0 = $r5.<com.android.buttonwidget.ShowCityList_3days: int mAppWidgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void WidgetUpdate(java.lang.String,android.content.Context,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r7, $r0, $i0, $r7, "", "", "");
+
+     label1:
+        $r8 = $r5.<com.android.buttonwidget.ShowCityList_3days: android.content.Context c>;
+
+        $i1 = $r5.<com.android.buttonwidget.ShowCityList_3days: int mAppWidgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens_3days(java.lang.String,android.content.Context,int)>($r7, $r8, $i1);
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public void clickListener()
+    {
+        com.android.buttonwidget.ShowCityList_3days$5 $r0;
+        android.app.AlertDialog $r1;
+        android.app.AlertDialog$Builder $r2;
+        java.lang.String[] $r3;
+        com.android.buttonwidget.ShowCityList_3days$UpdateCityweather $r4;
+        android.widget.Toast $r5;
+        android.content.res.Resources $r6;
+        boolean $z0, $z1;
+        android.content.Context $r7, $r17, $r19, $r21, $r22;
+        java.lang.String $r8, $r13, $r14, $r15, $r16, $r18, $r20;
+        android.text.Editable $r9;
+        int $i0, $i1;
+        android.widget.EditText $r10;
+        java.lang.Exception $r11;
+        com.android.buttonwidget.ShowCityList_3days $r12;
+
+        $r12 := @this: com.android.buttonwidget.ShowCityList_3days;
+
+        $r10 = $r12.<com.android.buttonwidget.ShowCityList_3days: android.widget.EditText search_text>;
+
+        $r9 = virtualinvoke $r10.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r8 = interfaceinvoke $r9.<android.text.Editable: java.lang.String toString()>();
+
+        $r12.<com.android.buttonwidget.ShowCityList_3days: java.lang.String CityName> = $r8;
+
+        $r13 = $r12.<com.android.buttonwidget.ShowCityList_3days: java.lang.String CityName>;
+
+        $r14 = virtualinvoke $r13.<java.lang.String: java.lang.String trim()>();
+
+        $r12.<com.android.buttonwidget.ShowCityList_3days: java.lang.String CityName> = $r14;
+
+        $r7 = $r12.<com.android.buttonwidget.ShowCityList_3days: android.content.Context c>;
+
+        $z0 = staticinvoke <com.android.buttonwidget.AllMethodsClass: boolean checkInternetConnection(android.content.Context)>($r7);
+
+        if $z0 == 0 goto label2;
+
+        $r15 = $r12.<com.android.buttonwidget.ShowCityList_3days: java.lang.String CityName>;
+
+        $z1 = virtualinvoke $r15.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z1 == 0 goto label1;
+
+        $r6 = virtualinvoke $r12.<com.android.buttonwidget.ShowCityList_3days: android.content.res.Resources getResources()>();
+
+        $r16 = virtualinvoke $r6.<android.content.res.Resources: java.lang.String getString(int)>(2131361823);
+
+        $r17 = virtualinvoke $r12.<com.android.buttonwidget.ShowCityList_3days: android.content.Context getApplicationContext()>();
+
+        $r5 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r17, $r16, 1);
+
+        virtualinvoke $r5.<android.widget.Toast: void show()>();
+
+        return;
+
+     label1:
+        $r4 = new com.android.buttonwidget.ShowCityList_3days$UpdateCityweather;
+
+        specialinvoke $r4.<com.android.buttonwidget.ShowCityList_3days$UpdateCityweather: void <init>(com.android.buttonwidget.ShowCityList_3days,com.android.buttonwidget.ShowCityList_3days$UpdateCityweather)>($r12, null);
+
+        $r3 = newarray (java.lang.String)[0];
+
+        virtualinvoke $r4.<com.android.buttonwidget.ShowCityList_3days$UpdateCityweather: android.os.AsyncTask execute(java.lang.Object[])>($r3);
+
+        return;
+
+     label2:
+        $r18 = $r12.<com.android.buttonwidget.ShowCityList_3days: java.lang.String CityName>;
+
+        $r19 = $r12.<com.android.buttonwidget.ShowCityList_3days: android.content.Context c>;
+
+        $i0 = $r12.<com.android.buttonwidget.ShowCityList_3days: int mAppWidgetId>;
+
+        $r20 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String fetchFromCentralCache(java.lang.String,android.content.Context,int)>($r18, $r19, $i0);
+
+        if $r20 == null goto label6;
+
+     label3:
+        $r21 = $r12.<com.android.buttonwidget.ShowCityList_3days: android.content.Context c>;
+
+        $i1 = $r12.<com.android.buttonwidget.ShowCityList_3days: int mAppWidgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens_3days(java.lang.String,android.content.Context,int)>($r20, $r21, $i1);
+
+     label4:
+        virtualinvoke $r12.<com.android.buttonwidget.ShowCityList_3days: void finish()>();
+
+        return;
+
+     label5:
+        $r11 := @caughtexception;
+
+        virtualinvoke $r11.<java.lang.Exception: void printStackTrace()>();
+
+        goto label4;
+
+     label6:
+        $r2 = new android.app.AlertDialog$Builder;
+
+        $r22 = $r12.<com.android.buttonwidget.ShowCityList_3days: android.content.Context c>;
+
+        specialinvoke $r2.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r22);
+
+        $r1 = virtualinvoke $r2.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r1.<android.app.AlertDialog: void setTitle(int)>(2131361807);
+
+        virtualinvoke $r1.<android.app.AlertDialog: void setMessage(java.lang.CharSequence)>("No Internet Connection");
+
+        $r0 = new com.android.buttonwidget.ShowCityList_3days$5;
+
+        specialinvoke $r0.<com.android.buttonwidget.ShowCityList_3days$5: void <init>(com.android.buttonwidget.ShowCityList_3days)>($r12);
+
+        virtualinvoke $r1.<android.app.AlertDialog: void setButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("OK", $r0);
+
+        virtualinvoke $r1.<android.app.AlertDialog: void show()>();
+
+        return;
+
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        java.io.IOException $r0;
+        java.lang.StringBuilder $r1, $r33, $r36;
+        com.android.buttonwidget.ShowCityList_3days$4 $r2;
+        com.android.buttonwidget.ShowCityList_3days$3 $r3;
+        android.content.Context $r4;
+        android.widget.ListView $r5, $r24, $r25;
+        java.lang.String[][] $r6, $r28;
+        com.android.buttonwidget.ShowCityList_3days$2 $r7;
+        android.widget.EditText $r8, $r26;
+        com.android.buttonwidget.ShowCityList_3days$1 $r9;
+        android.widget.Button $r10, $r22;
+        android.view.View $r11, $r20, $r21, $r23;
+        java.lang.String $r12, $r29, $r31, $r32, $r35, $r37;
+        android.content.Intent $r13;
+        java.lang.String[] $r14, $r15, $r27, $r30, $r34;
+        android.widget.ArrayAdapter $r16;
+        int $i0, $i1, $i2;
+        android.os.Bundle $r17, $r19;
+        com.android.buttonwidget.ShowCityList_3days $r18;
+
+        $r18 := @this: com.android.buttonwidget.ShowCityList_3days;
+
+        $r17 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r18.<android.app.Activity: void onCreate(android.os.Bundle)>($r17);
+
+        virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: boolean requestWindowFeature(int)>(1);
+
+        virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: void setResult(int)>(0);
+
+        virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: void setRequestedOrientation(int)>(1);
+
+        virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: void setContentView(int)>(2130903045);
+
+        $r18.<com.android.buttonwidget.ShowCityList_3days: android.content.Context c> = $r18;
+
+        $r13 = virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: android.content.Intent getIntent()>();
+
+        $r19 = virtualinvoke $r13.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        if $r19 == null goto label1;
+
+        $i0 = virtualinvoke $r19.<android.os.Bundle: int getInt(java.lang.String,int)>("appWidgetId", 0);
+
+        $r18.<com.android.buttonwidget.ShowCityList_3days: int mAppWidgetId> = $i0;
+
+     label1:
+        $i1 = $r18.<com.android.buttonwidget.ShowCityList_3days: int mAppWidgetId>;
+
+        $r12 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i1);
+
+        $r18.<com.android.buttonwidget.ShowCityList_3days: java.lang.String widgetId> = $r12;
+
+        $r11 = virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: android.view.View findViewById(int)>(2131427338);
+
+        $r10 = (android.widget.Button) $r11;
+
+        $r9 = new com.android.buttonwidget.ShowCityList_3days$1;
+
+        specialinvoke $r9.<com.android.buttonwidget.ShowCityList_3days$1: void <init>(com.android.buttonwidget.ShowCityList_3days)>($r18);
+
+        virtualinvoke $r10.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r9);
+
+        $r20 = virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: android.view.View findViewById(int)>(2131427334);
+
+        $r8 = (android.widget.EditText) $r20;
+
+        $r18.<com.android.buttonwidget.ShowCityList_3days: android.widget.EditText search_text> = $r8;
+
+        $r21 = virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: android.view.View findViewById(int)>(2131427335);
+
+        $r22 = (android.widget.Button) $r21;
+
+        $r7 = new com.android.buttonwidget.ShowCityList_3days$2;
+
+        specialinvoke $r7.<com.android.buttonwidget.ShowCityList_3days$2: void <init>(com.android.buttonwidget.ShowCityList_3days)>($r18);
+
+        virtualinvoke $r22.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r7);
+
+     label2:
+        $r6 = specialinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] getCityList()>();
+
+     label3:
+        <com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] citylist> = $r6;
+
+     label4:
+        $i2 = 0;
+
+     label5:
+        if $i2 < 1186 goto label6;
+
+        $r23 = virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: android.view.View findViewById(int)>(2131427336);
+
+        $r5 = (android.widget.ListView) $r23;
+
+        $r18.<com.android.buttonwidget.ShowCityList_3days: android.widget.ListView cityList> = $r5;
+
+        $r24 = $r18.<com.android.buttonwidget.ShowCityList_3days: android.widget.ListView cityList>;
+
+        $r16 = new android.widget.ArrayAdapter;
+
+        $r4 = virtualinvoke $r18.<com.android.buttonwidget.ShowCityList_3days: android.content.Context getBaseContext()>();
+
+        $r14 = $r18.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] cities>;
+
+        specialinvoke $r16.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,int,java.lang.Object[])>($r4, 2130903042, 16908308, $r14);
+
+        virtualinvoke $r24.<android.widget.ListView: void setAdapter(android.widget.ListAdapter)>($r16);
+
+        $r25 = $r18.<com.android.buttonwidget.ShowCityList_3days: android.widget.ListView cityList>;
+
+        $r3 = new com.android.buttonwidget.ShowCityList_3days$3;
+
+        specialinvoke $r3.<com.android.buttonwidget.ShowCityList_3days$3: void <init>(com.android.buttonwidget.ShowCityList_3days)>($r18);
+
+        virtualinvoke $r25.<android.widget.ListView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)>($r3);
+
+        $r26 = $r18.<com.android.buttonwidget.ShowCityList_3days: android.widget.EditText search_text>;
+
+        $r2 = new com.android.buttonwidget.ShowCityList_3days$4;
+
+        specialinvoke $r2.<com.android.buttonwidget.ShowCityList_3days$4: void <init>(com.android.buttonwidget.ShowCityList_3days)>($r18);
+
+        virtualinvoke $r26.<android.widget.EditText: void addTextChangedListener(android.text.TextWatcher)>($r2);
+
+        return;
+
+     label6:
+        $r27 = $r18.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] cities>;
+
+        $r28 = <com.android.buttonwidget.ShowCityList_3days: java.lang.String[][] citylist>;
+
+        $r15 = $r28[$i2];
+
+        $r29 = $r15[0];
+
+        $r27[$i2] = $r29;
+
+        $r30 = $r18.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] cities>;
+
+        $r31 = $r30[$i2];
+
+        $r1 = new java.lang.StringBuilder;
+
+        $r32 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r31);
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>($r32);
+
+        $r33 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $r34 = $r18.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] countryList>;
+
+        $r35 = $r34[$i2];
+
+        $r36 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r35);
+
+        $r37 = virtualinvoke $r36.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r30[$i2] = $r37;
+
+        $i2 = $i2 + 1;
+
+        goto label5;
+
+     label7:
+        $r0 := @caughtexception;
+
+        goto label4;
+
+        catch java.io.IOException from label2 to label3 with label7;
+    }
+
+    protected java.util.ArrayList searchCityList(java.lang.CharSequence)
+    {
+        java.util.ArrayList $r0, $r10, $r19;
+        boolean $z0, $z1;
+        java.lang.String[] $r1, $r11, $r13, $r20;
+        java.lang.String $r2, $r3, $r4, $r12, $r14, $r18, $r21;
+        java.lang.StringBuilder $r5, $r8, $r9, $r15, $r16, $r17;
+        int $i0, $i1;
+        java.lang.CharSequence $r6;
+        com.android.buttonwidget.ShowCityList_3days $r7;
+
+        $r7 := @this: com.android.buttonwidget.ShowCityList_3days;
+
+        $r6 := @parameter0: java.lang.CharSequence;
+
+        $r2 = interfaceinvoke $r6.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $i0 = 1;
+
+     label1:
+        if $i0 < 1186 goto label3;
+
+        $i1 = 1;
+
+     label2:
+        if $i1 < 1186 goto label5;
+
+        $r0 = $r7.<com.android.buttonwidget.ShowCityList_3days: java.util.ArrayList search_result>;
+
+        return $r0;
+
+     label3:
+        $r1 = $r7.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] cities>;
+
+        $r3 = $r1[$i0];
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("(?i)");
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".*");
+
+        $r4 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean matches(java.lang.String)>($r4);
+
+        if $z0 == 0 goto label4;
+
+        $r10 = $r7.<com.android.buttonwidget.ShowCityList_3days: java.util.ArrayList search_result>;
+
+        $r11 = $r7.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] cities>;
+
+        $r12 = $r11[$i0];
+
+        virtualinvoke $r10.<java.util.ArrayList: boolean add(java.lang.Object)>($r12);
+
+     label4:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label5:
+        $r13 = $r7.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] countryList>;
+
+        $r14 = $r13[$i1];
+
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<java.lang.StringBuilder: void <init>(java.lang.String)>("(?i)");
+
+        $r16 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".*");
+
+        $r18 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z1 = virtualinvoke $r14.<java.lang.String: boolean matches(java.lang.String)>($r18);
+
+        if $z1 == 0 goto label6;
+
+        $r19 = $r7.<com.android.buttonwidget.ShowCityList_3days: java.util.ArrayList search_result>;
+
+        $r20 = $r7.<com.android.buttonwidget.ShowCityList_3days: java.lang.String[] cities>;
+
+        $r21 = $r20[$i1];
+
+        virtualinvoke $r19.<java.util.ArrayList: boolean add(java.lang.Object)>($r21);
+
+     label6:
+        $i1 = $i1 + 1;
+
+        goto label2;
+    }
+}

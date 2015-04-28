@@ -1,0 +1,133 @@
+class com.android.service.UpdateThreeDaysWidgetService$1 extends java.lang.Object implements java.lang.Runnable
+{
+    final com.android.service.UpdateThreeDaysWidgetService this$0;
+    private final int val$widgetId;
+
+    void <init>(com.android.service.UpdateThreeDaysWidgetService, int)
+    {
+        int $i0;
+        com.android.service.UpdateThreeDaysWidgetService $r0;
+        com.android.service.UpdateThreeDaysWidgetService$1 $r1;
+
+        $r1 := @this: com.android.service.UpdateThreeDaysWidgetService$1;
+
+        $r0 := @parameter0: com.android.service.UpdateThreeDaysWidgetService;
+
+        $i0 := @parameter1: int;
+
+        $r1.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0> = $r0;
+
+        $r1.<com.android.service.UpdateThreeDaysWidgetService$1: int val$widgetId> = $i0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        com.bobcares.BobsWeather.XMLFeedParser $r0;
+        android.content.Context $r1, $r14, $r16;
+        boolean $z0;
+        com.android.buttonwidget.FetchFromAPI $r2;
+        java.lang.Exception $r3, $r4;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        com.android.service.UpdateThreeDaysWidgetService $r5, $r9, $r10, $r13, $r15, $r17, $r18, $r19;
+        java.lang.String $r6, $r7, $r11, $r12;
+        com.android.service.UpdateThreeDaysWidgetService$1 $r8;
+
+        $r8 := @this: com.android.service.UpdateThreeDaysWidgetService$1;
+
+        $r5 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0>;
+
+        $i0 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: int val$widgetId>;
+
+        virtualinvoke $r5.<com.android.service.UpdateThreeDaysWidgetService: void startProgressBar(int)>($i0);
+
+        $r9 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0>;
+
+        $r1 = $r9.<com.android.service.UpdateThreeDaysWidgetService: android.content.Context c>;
+
+        $z0 = staticinvoke <com.android.buttonwidget.AllMethodsClass: boolean checkInternetConnection(android.content.Context)>($r1);
+
+        if $z0 == 0 goto label6;
+
+        $r6 = " ";
+
+        $r2 = new com.android.buttonwidget.FetchFromAPI;
+
+        specialinvoke $r2.<com.android.buttonwidget.FetchFromAPI: void <init>()>();
+
+        $r0 = new com.bobcares.BobsWeather.XMLFeedParser;
+
+     label1:
+        specialinvoke $r0.<com.bobcares.BobsWeather.XMLFeedParser: void <init>()>();
+
+        $r10 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0>;
+
+        $r7 = $r10.<com.android.service.UpdateThreeDaysWidgetService: java.lang.String cityName>;
+
+        $r11 = virtualinvoke $r0.<com.bobcares.BobsWeather.XMLFeedParser: java.lang.String getWeatherForRemoteLocation(java.lang.String)>($r7);
+
+        $r6 = $r11;
+
+        $r12 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String getWeatherDataForWidgets(java.lang.String)>($r11);
+
+     label2:
+        $r6 = $r12;
+
+     label3:
+        $r13 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0>;
+
+        $r14 = $r13.<com.android.service.UpdateThreeDaysWidgetService: android.content.Context c>;
+
+        $i1 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: int val$widgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void WidgetUpdate(java.lang.String,android.content.Context,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r6, $r14, $i1, $r6, "", "", "");
+
+        $r15 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0>;
+
+        $r16 = virtualinvoke $r15.<com.android.service.UpdateThreeDaysWidgetService: android.content.Context getApplicationContext()>();
+
+        $i2 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: int val$widgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens_3days(java.lang.String,android.content.Context,int)>($r6, $r16, $i2);
+
+        $r17 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0>;
+
+        $i3 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: int val$widgetId>;
+
+        virtualinvoke $r17.<com.android.service.UpdateThreeDaysWidgetService: void stopProgressbar(int)>($i3);
+
+     label4:
+        return;
+
+     label5:
+        $r3 := @caughtexception;
+
+        $r18 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0>;
+
+        $i4 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: int val$widgetId>;
+
+        virtualinvoke $r18.<com.android.service.UpdateThreeDaysWidgetService: void stopProgressbar(int)>($i4);
+
+        return;
+
+     label6:
+        $r19 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: com.android.service.UpdateThreeDaysWidgetService this$0>;
+
+        $i5 = $r8.<com.android.service.UpdateThreeDaysWidgetService$1: int val$widgetId>;
+
+        virtualinvoke $r19.<com.android.service.UpdateThreeDaysWidgetService: void stopProgressbar(int)>($i5);
+
+        return;
+
+     label7:
+        $r4 := @caughtexception;
+
+        goto label3;
+
+        catch java.lang.Exception from label1 to label2 with label7;
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+}

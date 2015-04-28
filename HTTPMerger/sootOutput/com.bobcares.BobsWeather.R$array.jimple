@@ -1,0 +1,27 @@
+public final class com.bobcares.BobsWeather.R$array extends java.lang.Object
+{
+    public static final int weather_images;
+    public static final int weather_images3days;
+
+    public void <init>()
+    {
+        com.bobcares.BobsWeather.R$array $r0;
+
+        $r0 := @this: com.bobcares.BobsWeather.R$array;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.bobcares.BobsWeather.R$array: int weather_images> = 2131296256;
+
+        <com.bobcares.BobsWeather.R$array: int weather_images3days> = 2131296257;
+
+        <com.bobcares.BobsWeather.R$array: int weather_images> = 2131296256;
+
+        return;
+    }
+}

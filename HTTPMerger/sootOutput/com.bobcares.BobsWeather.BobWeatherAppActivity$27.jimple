@@ -1,0 +1,109 @@
+class com.bobcares.BobsWeather.BobWeatherAppActivity$27 extends java.lang.Object implements java.lang.Runnable
+{
+    final com.bobcares.BobsWeather.BobWeatherAppActivity this$0;
+
+    void <init>(com.bobcares.BobsWeather.BobWeatherAppActivity)
+    {
+        com.bobcares.BobsWeather.BobWeatherAppActivity $r0;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$27 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.BobWeatherAppActivity$27;
+
+        $r0 := @parameter0: com.bobcares.BobsWeather.BobWeatherAppActivity;
+
+        $r1.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        android.widget.ImageView $r0, $r20;
+        android.view.animation.Animation $r1, $r6, $r9, $r11, $r13, $r15, $r17, $r22, $r24, $r26;
+        android.view.View $r2, $r19;
+        com.bobcares.BobsWeather.BobWeatherAppActivity $r3, $r5, $r7, $r8, $r10, $r12, $r14, $r16, $r18, $r21, $r23, $r25;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$27 $r4;
+
+        $r4 := @this: com.bobcares.BobsWeather.BobWeatherAppActivity$27;
+
+        $r3 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r1 = $r3.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation6>;
+
+        virtualinvoke $r1.<android.view.animation.Animation: void reset()>();
+
+        $r5 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r6 = $r5.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation6>;
+
+        virtualinvoke $r6.<android.view.animation.Animation: void setDuration(long)>(800L);
+
+        $r7 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r2 = virtualinvoke $r7.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.View findViewById(int)>(2131427411);
+
+        $r0 = (android.widget.ImageView) $r2;
+
+        $r8 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r9 = $r8.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation6>;
+
+        virtualinvoke $r9.<android.view.animation.Animation: void setRepeatCount(int)>(-1);
+
+        $r10 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r11 = $r10.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation6>;
+
+        virtualinvoke $r0.<android.widget.ImageView: void startAnimation(android.view.animation.Animation)>($r11);
+
+        virtualinvoke $r0.<android.widget.ImageView: void setVisibility(int)>(0);
+
+        $r12 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r13 = $r12.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation6>;
+
+        virtualinvoke $r13.<android.view.animation.Animation: void startNow()>();
+
+        $r14 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r15 = $r14.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation7>;
+
+        virtualinvoke $r15.<android.view.animation.Animation: void reset()>();
+
+        $r16 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r17 = $r16.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation7>;
+
+        virtualinvoke $r17.<android.view.animation.Animation: void setDuration(long)>(35000L);
+
+        $r18 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r19 = virtualinvoke $r18.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.View findViewById(int)>(2131427405);
+
+        $r20 = (android.widget.ImageView) $r19;
+
+        virtualinvoke $r20.<android.widget.ImageView: void setVisibility(int)>(0);
+
+        $r21 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r22 = $r21.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation7>;
+
+        virtualinvoke $r22.<android.view.animation.Animation: void setRepeatCount(int)>(-1);
+
+        $r23 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r24 = $r23.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation7>;
+
+        virtualinvoke $r20.<android.widget.ImageView: void startAnimation(android.view.animation.Animation)>($r24);
+
+        $r25 = $r4.<com.bobcares.BobsWeather.BobWeatherAppActivity$27: com.bobcares.BobsWeather.BobWeatherAppActivity this$0>;
+
+        $r26 = $r25.<com.bobcares.BobsWeather.BobWeatherAppActivity: android.view.animation.Animation animation7>;
+
+        virtualinvoke $r26.<android.view.animation.Animation: void startNow()>();
+
+        return;
+    }
+}

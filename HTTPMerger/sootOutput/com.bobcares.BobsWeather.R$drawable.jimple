@@ -1,0 +1,417 @@
+public final class com.bobcares.BobsWeather.R$drawable extends java.lang.Object
+{
+    public static final int add;
+    public static final int background;
+    public static final int bg1;
+    public static final int bg2;
+    public static final int bg3;
+    public static final int bg4;
+    public static final int birdfling1;
+    public static final int birdfling2;
+    public static final int birdfling3;
+    public static final int birdfling4;
+    public static final int birdfling5;
+    public static final int blackstrip;
+    public static final int block1;
+    public static final int bluesky;
+    public static final int button_prop;
+    public static final int clear_evening;
+    public static final int cloud;
+    public static final int cloud_3days;
+    public static final int cloud_drawer;
+    public static final int clouds;
+    public static final int cloudy_cond;
+    public static final int cloudy_evening;
+    public static final int cloudy_widget;
+    public static final int couds1;
+    public static final int couds2;
+    public static final int cristals1;
+    public static final int cristals2;
+    public static final int current_loc;
+    public static final int darkclouds2;
+    public static final int darklayer;
+    public static final int darksky;
+    public static final int day_info;
+    public static final int detail_bg;
+    public static final int down;
+    public static final int down1;
+    public static final int drawer_handle;
+    public static final int drops1;
+    public static final int drops2;
+    public static final int evening_bg;
+    public static final int fog_widget;
+    public static final int foggy;
+    public static final int frame1;
+    public static final int frame2;
+    public static final int frame3;
+    public static final int frame4;
+    public static final int frame5;
+    public static final int frame6;
+    public static final int fullmoon;
+    public static final int humidity;
+    public static final int ic_launcher;
+    public static final int images;
+    public static final int img_widget_bottom;
+    public static final int img_widget_top;
+    public static final int itriangle;
+    public static final int lastblock;
+    public static final int layer1;
+    public static final int layer2;
+    public static final int layer_line;
+    public static final int line;
+    public static final int location_singledaywidget;
+    public static final int mist;
+    public static final int mist_3days;
+    public static final int mist_drawer;
+    public static final int moon;
+    public static final int moon4;
+    public static final int my_shape_file;
+    public static final int myshape;
+    public static final int night;
+    public static final int night_widget;
+    public static final int partly_cloudy2;
+    public static final int partly_cloudy_evening;
+    public static final int partly_cloudy_widget;
+    public static final int pcloudy_cond;
+    public static final int place_layer;
+    public static final int precip;
+    public static final int pressure;
+    public static final int rain;
+    public static final int rain_3days;
+    public static final int rain_drawer;
+    public static final int rain_widget;
+    public static final int rainlayer1;
+    public static final int rainlayer2;
+    public static final int rainy_cond;
+    public static final int refresh;
+    public static final int refresh_singledaywidget;
+    public static final int reload;
+    public static final int search;
+    public static final int shape_file;
+    public static final int shape_file_bottom;
+    public static final int shape_file_top;
+    public static final int sky;
+    public static final int snow;
+    public static final int snow_cond;
+    public static final int snow_drawer;
+    public static final int snow_widget;
+    public static final int snowlayer1;
+    public static final int snowlayer2;
+    public static final int splash_screen;
+    public static final int sun;
+    public static final int sun_3days;
+    public static final int sun_drawer;
+    public static final int sun_widget;
+    public static final int sunny_cond;
+    public static final int sunnyanim;
+    public static final int sunrise;
+    public static final int sunset;
+    public static final int temp_layer;
+    public static final int tframe1;
+    public static final int tframe2;
+    public static final int tframe3;
+    public static final int tframe4;
+    public static final int tframe5;
+    public static final int tframe6;
+    public static final int thunder;
+    public static final int thunder_cond;
+    public static final int thunderstorm;
+    public static final int thunderstorm_3days;
+    public static final int thunderstorm_widget;
+    public static final int triangle;
+    public static final int up;
+    public static final int weather_icon;
+    public static final int weather_layer;
+    public static final int whitecloudlayer1;
+    public static final int whitecloudlayer2;
+    public static final int widgetbg_1day;
+    public static final int widgetbg_2day;
+    public static final int widgetbg_3day;
+    public static final int widgetevening;
+    public static final int widgeteveningbig;
+    public static final int widgeteveningnew;
+    public static final int widgeteveningsmall;
+    public static final int wind;
+
+    public void <init>()
+    {
+        com.bobcares.BobsWeather.R$drawable $r0;
+
+        $r0 := @this: com.bobcares.BobsWeather.R$drawable;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.bobcares.BobsWeather.R$drawable: int add> = 2130837504;
+
+        <com.bobcares.BobsWeather.R$drawable: int wind> = 2130837635;
+
+        <com.bobcares.BobsWeather.R$drawable: int widgeteveningsmall> = 2130837634;
+
+        <com.bobcares.BobsWeather.R$drawable: int widgeteveningnew> = 2130837633;
+
+        <com.bobcares.BobsWeather.R$drawable: int widgeteveningbig> = 2130837632;
+
+        <com.bobcares.BobsWeather.R$drawable: int widgetevening> = 2130837631;
+
+        <com.bobcares.BobsWeather.R$drawable: int widgetbg_3day> = 2130837630;
+
+        <com.bobcares.BobsWeather.R$drawable: int widgetbg_2day> = 2130837629;
+
+        <com.bobcares.BobsWeather.R$drawable: int widgetbg_1day> = 2130837628;
+
+        <com.bobcares.BobsWeather.R$drawable: int whitecloudlayer2> = 2130837627;
+
+        <com.bobcares.BobsWeather.R$drawable: int whitecloudlayer1> = 2130837626;
+
+        <com.bobcares.BobsWeather.R$drawable: int weather_layer> = 2130837625;
+
+        <com.bobcares.BobsWeather.R$drawable: int weather_icon> = 2130837624;
+
+        <com.bobcares.BobsWeather.R$drawable: int up> = 2130837623;
+
+        <com.bobcares.BobsWeather.R$drawable: int triangle> = 2130837622;
+
+        <com.bobcares.BobsWeather.R$drawable: int thunderstorm_widget> = 2130837621;
+
+        <com.bobcares.BobsWeather.R$drawable: int thunderstorm_3days> = 2130837620;
+
+        <com.bobcares.BobsWeather.R$drawable: int thunderstorm> = 2130837619;
+
+        <com.bobcares.BobsWeather.R$drawable: int thunder_cond> = 2130837618;
+
+        <com.bobcares.BobsWeather.R$drawable: int thunder> = 2130837617;
+
+        <com.bobcares.BobsWeather.R$drawable: int tframe6> = 2130837616;
+
+        <com.bobcares.BobsWeather.R$drawable: int tframe5> = 2130837615;
+
+        <com.bobcares.BobsWeather.R$drawable: int tframe4> = 2130837614;
+
+        <com.bobcares.BobsWeather.R$drawable: int tframe3> = 2130837613;
+
+        <com.bobcares.BobsWeather.R$drawable: int tframe2> = 2130837612;
+
+        <com.bobcares.BobsWeather.R$drawable: int tframe1> = 2130837611;
+
+        <com.bobcares.BobsWeather.R$drawable: int temp_layer> = 2130837610;
+
+        <com.bobcares.BobsWeather.R$drawable: int sunset> = 2130837609;
+
+        <com.bobcares.BobsWeather.R$drawable: int sunrise> = 2130837608;
+
+        <com.bobcares.BobsWeather.R$drawable: int sunnyanim> = 2130837607;
+
+        <com.bobcares.BobsWeather.R$drawable: int sunny_cond> = 2130837606;
+
+        <com.bobcares.BobsWeather.R$drawable: int sun_widget> = 2130837605;
+
+        <com.bobcares.BobsWeather.R$drawable: int sun_drawer> = 2130837604;
+
+        <com.bobcares.BobsWeather.R$drawable: int sun_3days> = 2130837603;
+
+        <com.bobcares.BobsWeather.R$drawable: int sun> = 2130837602;
+
+        <com.bobcares.BobsWeather.R$drawable: int splash_screen> = 2130837601;
+
+        <com.bobcares.BobsWeather.R$drawable: int snowlayer2> = 2130837600;
+
+        <com.bobcares.BobsWeather.R$drawable: int snowlayer1> = 2130837599;
+
+        <com.bobcares.BobsWeather.R$drawable: int snow_widget> = 2130837598;
+
+        <com.bobcares.BobsWeather.R$drawable: int snow_drawer> = 2130837597;
+
+        <com.bobcares.BobsWeather.R$drawable: int snow_cond> = 2130837596;
+
+        <com.bobcares.BobsWeather.R$drawable: int snow> = 2130837595;
+
+        <com.bobcares.BobsWeather.R$drawable: int sky> = 2130837594;
+
+        <com.bobcares.BobsWeather.R$drawable: int shape_file_top> = 2130837593;
+
+        <com.bobcares.BobsWeather.R$drawable: int shape_file_bottom> = 2130837592;
+
+        <com.bobcares.BobsWeather.R$drawable: int shape_file> = 2130837591;
+
+        <com.bobcares.BobsWeather.R$drawable: int search> = 2130837590;
+
+        <com.bobcares.BobsWeather.R$drawable: int reload> = 2130837589;
+
+        <com.bobcares.BobsWeather.R$drawable: int refresh_singledaywidget> = 2130837588;
+
+        <com.bobcares.BobsWeather.R$drawable: int refresh> = 2130837587;
+
+        <com.bobcares.BobsWeather.R$drawable: int rainy_cond> = 2130837586;
+
+        <com.bobcares.BobsWeather.R$drawable: int rainlayer2> = 2130837585;
+
+        <com.bobcares.BobsWeather.R$drawable: int rainlayer1> = 2130837584;
+
+        <com.bobcares.BobsWeather.R$drawable: int rain_widget> = 2130837583;
+
+        <com.bobcares.BobsWeather.R$drawable: int rain_drawer> = 2130837582;
+
+        <com.bobcares.BobsWeather.R$drawable: int rain_3days> = 2130837581;
+
+        <com.bobcares.BobsWeather.R$drawable: int rain> = 2130837580;
+
+        <com.bobcares.BobsWeather.R$drawable: int pressure> = 2130837579;
+
+        <com.bobcares.BobsWeather.R$drawable: int precip> = 2130837578;
+
+        <com.bobcares.BobsWeather.R$drawable: int place_layer> = 2130837577;
+
+        <com.bobcares.BobsWeather.R$drawable: int pcloudy_cond> = 2130837576;
+
+        <com.bobcares.BobsWeather.R$drawable: int partly_cloudy_widget> = 2130837575;
+
+        <com.bobcares.BobsWeather.R$drawable: int partly_cloudy_evening> = 2130837574;
+
+        <com.bobcares.BobsWeather.R$drawable: int partly_cloudy2> = 2130837573;
+
+        <com.bobcares.BobsWeather.R$drawable: int night_widget> = 2130837572;
+
+        <com.bobcares.BobsWeather.R$drawable: int night> = 2130837571;
+
+        <com.bobcares.BobsWeather.R$drawable: int myshape> = 2130837570;
+
+        <com.bobcares.BobsWeather.R$drawable: int my_shape_file> = 2130837569;
+
+        <com.bobcares.BobsWeather.R$drawable: int moon4> = 2130837568;
+
+        <com.bobcares.BobsWeather.R$drawable: int moon> = 2130837567;
+
+        <com.bobcares.BobsWeather.R$drawable: int mist_drawer> = 2130837566;
+
+        <com.bobcares.BobsWeather.R$drawable: int mist_3days> = 2130837565;
+
+        <com.bobcares.BobsWeather.R$drawable: int mist> = 2130837564;
+
+        <com.bobcares.BobsWeather.R$drawable: int location_singledaywidget> = 2130837563;
+
+        <com.bobcares.BobsWeather.R$drawable: int line> = 2130837562;
+
+        <com.bobcares.BobsWeather.R$drawable: int layer_line> = 2130837561;
+
+        <com.bobcares.BobsWeather.R$drawable: int layer2> = 2130837560;
+
+        <com.bobcares.BobsWeather.R$drawable: int layer1> = 2130837559;
+
+        <com.bobcares.BobsWeather.R$drawable: int lastblock> = 2130837558;
+
+        <com.bobcares.BobsWeather.R$drawable: int itriangle> = 2130837557;
+
+        <com.bobcares.BobsWeather.R$drawable: int img_widget_top> = 2130837556;
+
+        <com.bobcares.BobsWeather.R$drawable: int img_widget_bottom> = 2130837555;
+
+        <com.bobcares.BobsWeather.R$drawable: int images> = 2130837554;
+
+        <com.bobcares.BobsWeather.R$drawable: int ic_launcher> = 2130837553;
+
+        <com.bobcares.BobsWeather.R$drawable: int humidity> = 2130837552;
+
+        <com.bobcares.BobsWeather.R$drawable: int fullmoon> = 2130837551;
+
+        <com.bobcares.BobsWeather.R$drawable: int frame6> = 2130837550;
+
+        <com.bobcares.BobsWeather.R$drawable: int frame5> = 2130837549;
+
+        <com.bobcares.BobsWeather.R$drawable: int frame4> = 2130837548;
+
+        <com.bobcares.BobsWeather.R$drawable: int frame3> = 2130837547;
+
+        <com.bobcares.BobsWeather.R$drawable: int frame2> = 2130837546;
+
+        <com.bobcares.BobsWeather.R$drawable: int frame1> = 2130837545;
+
+        <com.bobcares.BobsWeather.R$drawable: int foggy> = 2130837544;
+
+        <com.bobcares.BobsWeather.R$drawable: int fog_widget> = 2130837543;
+
+        <com.bobcares.BobsWeather.R$drawable: int evening_bg> = 2130837542;
+
+        <com.bobcares.BobsWeather.R$drawable: int drops2> = 2130837541;
+
+        <com.bobcares.BobsWeather.R$drawable: int drops1> = 2130837540;
+
+        <com.bobcares.BobsWeather.R$drawable: int drawer_handle> = 2130837539;
+
+        <com.bobcares.BobsWeather.R$drawable: int down1> = 2130837538;
+
+        <com.bobcares.BobsWeather.R$drawable: int down> = 2130837537;
+
+        <com.bobcares.BobsWeather.R$drawable: int detail_bg> = 2130837536;
+
+        <com.bobcares.BobsWeather.R$drawable: int day_info> = 2130837535;
+
+        <com.bobcares.BobsWeather.R$drawable: int darksky> = 2130837534;
+
+        <com.bobcares.BobsWeather.R$drawable: int darklayer> = 2130837533;
+
+        <com.bobcares.BobsWeather.R$drawable: int darkclouds2> = 2130837532;
+
+        <com.bobcares.BobsWeather.R$drawable: int current_loc> = 2130837531;
+
+        <com.bobcares.BobsWeather.R$drawable: int cristals2> = 2130837530;
+
+        <com.bobcares.BobsWeather.R$drawable: int cristals1> = 2130837529;
+
+        <com.bobcares.BobsWeather.R$drawable: int couds2> = 2130837528;
+
+        <com.bobcares.BobsWeather.R$drawable: int couds1> = 2130837527;
+
+        <com.bobcares.BobsWeather.R$drawable: int cloudy_widget> = 2130837526;
+
+        <com.bobcares.BobsWeather.R$drawable: int cloudy_evening> = 2130837525;
+
+        <com.bobcares.BobsWeather.R$drawable: int cloudy_cond> = 2130837524;
+
+        <com.bobcares.BobsWeather.R$drawable: int clouds> = 2130837523;
+
+        <com.bobcares.BobsWeather.R$drawable: int cloud_drawer> = 2130837522;
+
+        <com.bobcares.BobsWeather.R$drawable: int cloud_3days> = 2130837521;
+
+        <com.bobcares.BobsWeather.R$drawable: int cloud> = 2130837520;
+
+        <com.bobcares.BobsWeather.R$drawable: int clear_evening> = 2130837519;
+
+        <com.bobcares.BobsWeather.R$drawable: int button_prop> = 2130837518;
+
+        <com.bobcares.BobsWeather.R$drawable: int bluesky> = 2130837517;
+
+        <com.bobcares.BobsWeather.R$drawable: int block1> = 2130837516;
+
+        <com.bobcares.BobsWeather.R$drawable: int blackstrip> = 2130837515;
+
+        <com.bobcares.BobsWeather.R$drawable: int birdfling5> = 2130837514;
+
+        <com.bobcares.BobsWeather.R$drawable: int birdfling4> = 2130837513;
+
+        <com.bobcares.BobsWeather.R$drawable: int birdfling3> = 2130837512;
+
+        <com.bobcares.BobsWeather.R$drawable: int birdfling2> = 2130837511;
+
+        <com.bobcares.BobsWeather.R$drawable: int birdfling1> = 2130837510;
+
+        <com.bobcares.BobsWeather.R$drawable: int bg4> = 2130837509;
+
+        <com.bobcares.BobsWeather.R$drawable: int bg3> = 2130837508;
+
+        <com.bobcares.BobsWeather.R$drawable: int bg2> = 2130837507;
+
+        <com.bobcares.BobsWeather.R$drawable: int bg1> = 2130837506;
+
+        <com.bobcares.BobsWeather.R$drawable: int background> = 2130837505;
+
+        <com.bobcares.BobsWeather.R$drawable: int add> = 2130837504;
+
+        return;
+    }
+}

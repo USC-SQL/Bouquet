@@ -1,0 +1,34 @@
+public class com.bobcares.BobsWeather.About extends android.app.Activity
+{
+
+    public void <init>()
+    {
+        com.bobcares.BobsWeather.About $r0;
+
+        $r0 := @this: com.bobcares.BobsWeather.About;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    protected void onCreate(android.os.Bundle)
+    {
+        android.os.Bundle $r0;
+        com.bobcares.BobsWeather.About $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.About;
+
+        $r0 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r1.<android.app.Activity: void onCreate(android.os.Bundle)>($r0);
+
+        virtualinvoke $r1.<com.bobcares.BobsWeather.About: boolean requestWindowFeature(int)>(1);
+
+        virtualinvoke $r1.<com.bobcares.BobsWeather.About: void setContentView(int)>(2130903040);
+
+        virtualinvoke $r1.<com.bobcares.BobsWeather.About: void setRequestedOrientation(int)>(1);
+
+        return;
+    }
+}

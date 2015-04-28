@@ -1,0 +1,35 @@
+class com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder$1 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder this$1;
+
+    void <init>(com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder)
+    {
+        com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder $r0;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder$1 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder$1;
+
+        $r0 := @parameter0: com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder;
+
+        $r1.<com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder$1: com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder this$1> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        int $i0;
+        android.content.DialogInterface $r0;
+        com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder$1 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.BobWeatherAppActivity$CustomAlertDialogBuilder$1;
+
+        $r0 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        return;
+    }
+}

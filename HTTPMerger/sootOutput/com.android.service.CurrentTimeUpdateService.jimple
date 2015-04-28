@@ -1,0 +1,283 @@
+public class com.android.service.CurrentTimeUpdateService extends android.app.Service
+{
+    private static final java.lang.String RESULT_OK;
+    android.appwidget.AppWidgetManager appWidgetManager;
+    android.widget.RemoteViews remoteViews;
+    android.content.ComponentName thisWidget;
+    int[] widgetIds;
+    android.appwidget.AppWidgetManager widgetManager;
+
+    static void <clinit>()
+    {
+        <com.android.service.CurrentTimeUpdateService: java.lang.String RESULT_OK> = null;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.android.service.CurrentTimeUpdateService $r0;
+
+        $r0 := @this: com.android.service.CurrentTimeUpdateService;
+
+        specialinvoke $r0.<android.app.Service: void <init>()>();
+
+        return;
+    }
+
+    private void setResult(java.lang.String, android.content.Intent)
+    {
+        android.content.Intent $r0;
+        java.lang.String $r1;
+        com.android.service.CurrentTimeUpdateService $r2;
+
+        $r2 := @this: com.android.service.CurrentTimeUpdateService;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 := @parameter1: android.content.Intent;
+
+        return;
+    }
+
+    public android.os.IBinder onBind(android.content.Intent)
+    {
+        android.content.Intent $r0;
+        com.android.service.CurrentTimeUpdateService $r1;
+
+        $r1 := @this: com.android.service.CurrentTimeUpdateService;
+
+        $r0 := @parameter0: android.content.Intent;
+
+        return null;
+    }
+
+    public void onStart(android.content.Intent, int)
+    {
+        java.io.FileInputStream $r0;
+        boolean $z0, $z1, $z2;
+        int[] $r1, $r23, $r24, $r27, $r30, $r32, $r34;
+        android.content.ComponentName $r2, $r22;
+        android.appwidget.AppWidgetManager $r3, $r21;
+        android.content.Context $r4, $r19, $r20, $r26, $r29, $r31, $r33;
+        java.io.File $r5, $r6;
+        java.io.FileNotFoundException $r7;
+        java.io.IOException $r8;
+        java.lang.Exception $r9, $r10, $r11;
+        java.lang.String $r12, $r13, $r25, $r28;
+        java.io.InputStreamReader $r14, $r15;
+        java.io.BufferedReader $r16;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7;
+        android.content.Intent $r17;
+        com.android.service.CurrentTimeUpdateService $r18;
+
+        $r18 := @this: com.android.service.CurrentTimeUpdateService;
+
+        $r17 := @parameter0: android.content.Intent;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r18.<android.app.Service: void onStart(android.content.Intent,int)>($r17, $i0);
+
+     label01:
+        $r4 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: android.content.Context getApplicationContext()>();
+
+        $r3 = staticinvoke <android.appwidget.AppWidgetManager: android.appwidget.AppWidgetManager getInstance(android.content.Context)>($r4);
+
+        $r18.<com.android.service.CurrentTimeUpdateService: android.appwidget.AppWidgetManager appWidgetManager> = $r3;
+
+        $r2 = new android.content.ComponentName;
+
+        $r19 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: android.content.Context getApplicationContext()>();
+
+        specialinvoke $r2.<android.content.ComponentName: void <init>(android.content.Context,java.lang.Class)>($r19, class "com/android/buttonwidget/BobsWidget");
+
+        $r18.<com.android.service.CurrentTimeUpdateService: android.content.ComponentName thisWidget> = $r2;
+
+        $r20 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: android.content.Context getApplicationContext()>();
+
+        $r21 = staticinvoke <android.appwidget.AppWidgetManager: android.appwidget.AppWidgetManager getInstance(android.content.Context)>($r20);
+
+        $r22 = $r18.<com.android.service.CurrentTimeUpdateService: android.content.ComponentName thisWidget>;
+
+        $r1 = virtualinvoke $r21.<android.appwidget.AppWidgetManager: int[] getAppWidgetIds(android.content.ComponentName)>($r22);
+
+        $r18.<com.android.service.CurrentTimeUpdateService: int[] widgetIds> = $r1;
+
+        $i2 = 0;
+
+     label02:
+        $r23 = $r18.<com.android.service.CurrentTimeUpdateService: int[] widgetIds>;
+
+        $i1 = lengthof $r23;
+
+     label03:
+        if $i2 < $i1 goto label05;
+
+     label04:
+        virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: void stopSelf()>();
+
+        return;
+
+     label05:
+        $r24 = $r18.<com.android.service.CurrentTimeUpdateService: int[] widgetIds>;
+
+        $i3 = $r24[$i2];
+
+        $r12 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i3);
+
+        $r6 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: java.io.File getFilesDir()>();
+
+        $r5 = new java.io.File;
+
+        specialinvoke $r5.<java.io.File: void <init>(java.io.File,java.lang.String)>($r6, $r12);
+
+        $z0 = virtualinvoke $r5.<java.io.File: boolean exists()>();
+
+     label06:
+        if $z0 == 0 goto label17;
+
+        $r14 = null;
+
+        $r15 = new java.io.InputStreamReader;
+
+     label07:
+        $r0 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: java.io.FileInputStream openFileInput(java.lang.String)>($r12);
+
+        specialinvoke $r15.<java.io.InputStreamReader: void <init>(java.io.InputStream)>($r0);
+
+     label08:
+        $r14 = $r15;
+
+     label09:
+        $r16 = new java.io.BufferedReader;
+
+     label10:
+        specialinvoke $r16.<java.io.BufferedReader: void <init>(java.io.Reader)>($r14);
+
+     label11:
+        $r25 = null;
+
+     label12:
+        $r13 = virtualinvoke $r16.<java.io.BufferedReader: java.lang.String readLine()>();
+
+     label13:
+        $r25 = $r13;
+
+     label14:
+        if $r25 == null goto label17;
+
+     label15:
+        $z1 = virtualinvoke $r25.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("!CURRENT LOCATION");
+
+        if $z1 == 0 goto label27;
+
+        $r26 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: android.content.Context getApplicationContext()>();
+
+        $r27 = $r18.<com.android.service.CurrentTimeUpdateService: int[] widgetIds>;
+
+        $i4 = $r27[$i2];
+
+        $r28 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String fetchFromCentralCache(java.lang.String,android.content.Context,int)>("!curr_loc", $r26, $i4);
+
+     label16:
+        $r29 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: android.content.Context getApplicationContext()>();
+
+        $r30 = $r18.<com.android.service.CurrentTimeUpdateService: int[] widgetIds>;
+
+        $i5 = $r30[$i2];
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens(java.lang.String,android.content.Context,int)>($r28, $r29, $i5);
+
+     label17:
+        $i2 = $i2 + 1;
+
+        goto label02;
+
+     label18:
+        $r7 := @caughtexception;
+
+     label19:
+        virtualinvoke $r7.<java.io.FileNotFoundException: void printStackTrace()>();
+
+     label20:
+        goto label09;
+
+     label21:
+        $r9 := @caughtexception;
+
+        virtualinvoke $r9.<java.lang.Exception: void printStackTrace()>();
+
+        goto label04;
+
+     label22:
+        $r8 := @caughtexception;
+
+     label23:
+        virtualinvoke $r8.<java.io.IOException: void printStackTrace()>();
+
+     label24:
+        goto label14;
+
+     label25:
+        $r10 := @caughtexception;
+
+        virtualinvoke $r10.<java.lang.Exception: void printStackTrace()>();
+
+     label26:
+        goto label17;
+
+     label27:
+        $z2 = virtualinvoke $r25.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("BLANK DATA");
+
+        if $z2 == 0 goto label29;
+
+        $r31 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: android.content.Context getApplicationContext()>();
+
+        $r32 = $r18.<com.android.service.CurrentTimeUpdateService: int[] widgetIds>;
+
+        $i6 = $r32[$i2];
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void noLocationData(android.content.Context,int)>($r31, $i6);
+
+     label28:
+        goto label17;
+
+     label29:
+        $r33 = virtualinvoke $r18.<com.android.service.CurrentTimeUpdateService: android.content.Context getApplicationContext()>();
+
+        $r34 = $r18.<com.android.service.CurrentTimeUpdateService: int[] widgetIds>;
+
+        $i7 = $r34[$i2];
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens(java.lang.String,android.content.Context,int)>($r25, $r33, $i7);
+
+     label30:
+        goto label17;
+
+     label31:
+        $r11 := @caughtexception;
+
+     label32:
+        virtualinvoke $r11.<java.lang.Exception: void printStackTrace()>();
+
+     label33:
+        goto label17;
+
+        catch java.lang.Exception from label01 to label03 with label21;
+        catch java.lang.Exception from label05 to label06 with label21;
+        catch java.io.FileNotFoundException from label07 to label08 with label18;
+        catch java.lang.Exception from label07 to label08 with label21;
+        catch java.lang.Exception from label10 to label11 with label21;
+        catch java.io.IOException from label12 to label13 with label22;
+        catch java.lang.Exception from label12 to label13 with label21;
+        catch java.lang.Exception from label15 to label16 with label21;
+        catch java.lang.Exception from label16 to label17 with label25;
+        catch java.lang.Exception from label19 to label20 with label21;
+        catch java.lang.Exception from label23 to label24 with label21;
+        catch java.lang.Exception from label25 to label26 with label21;
+        catch java.lang.Exception from label27 to label28 with label21;
+        catch java.lang.Exception from label29 to label30 with label31;
+        catch java.lang.Exception from label32 to label33 with label21;
+    }
+}

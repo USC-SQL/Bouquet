@@ -1,0 +1,35 @@
+class com.bobcares.BobsWeather.gallery$ImageAdapter$1$2 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.bobcares.BobsWeather.gallery$ImageAdapter$1 this$2;
+
+    void <init>(com.bobcares.BobsWeather.gallery$ImageAdapter$1)
+    {
+        com.bobcares.BobsWeather.gallery$ImageAdapter$1 $r0;
+        com.bobcares.BobsWeather.gallery$ImageAdapter$1$2 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.gallery$ImageAdapter$1$2;
+
+        $r0 := @parameter0: com.bobcares.BobsWeather.gallery$ImageAdapter$1;
+
+        $r1.<com.bobcares.BobsWeather.gallery$ImageAdapter$1$2: com.bobcares.BobsWeather.gallery$ImageAdapter$1 this$2> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        int $i0;
+        android.content.DialogInterface $r0;
+        com.bobcares.BobsWeather.gallery$ImageAdapter$1$2 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.gallery$ImageAdapter$1$2;
+
+        $r0 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        return;
+    }
+}

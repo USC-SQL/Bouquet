@@ -1,0 +1,205 @@
+class com.bobcares.BobsWeather.gallery$ImageAdapter extends android.widget.BaseAdapter
+{
+    private android.content.Context context;
+    final com.bobcares.BobsWeather.gallery this$0;
+
+    public void <init>(com.bobcares.BobsWeather.gallery, android.content.Context)
+    {
+        android.content.Context $r0;
+        com.bobcares.BobsWeather.gallery $r1;
+        com.bobcares.BobsWeather.gallery$ImageAdapter $r2;
+
+        $r2 := @this: com.bobcares.BobsWeather.gallery$ImageAdapter;
+
+        $r1 := @parameter0: com.bobcares.BobsWeather.gallery;
+
+        $r0 := @parameter1: android.content.Context;
+
+        $r2.<com.bobcares.BobsWeather.gallery$ImageAdapter: com.bobcares.BobsWeather.gallery this$0> = $r1;
+
+        specialinvoke $r2.<android.widget.BaseAdapter: void <init>()>();
+
+        $r2.<com.bobcares.BobsWeather.gallery$ImageAdapter: android.content.Context context> = $r0;
+
+        return;
+    }
+
+    static com.bobcares.BobsWeather.gallery access$0(com.bobcares.BobsWeather.gallery$ImageAdapter)
+    {
+        com.bobcares.BobsWeather.gallery r0;
+        com.bobcares.BobsWeather.gallery$ImageAdapter $r1;
+
+        $r1 := @parameter0: com.bobcares.BobsWeather.gallery$ImageAdapter;
+
+        r0 = $r1.<com.bobcares.BobsWeather.gallery$ImageAdapter: com.bobcares.BobsWeather.gallery this$0>;
+
+        return r0;
+    }
+
+    public int getCount()
+    {
+        int $i0;
+        android.database.Cursor $r0;
+        com.bobcares.BobsWeather.gallery $r1;
+        com.bobcares.BobsWeather.gallery$ImageAdapter $r2;
+
+        $r2 := @this: com.bobcares.BobsWeather.gallery$ImageAdapter;
+
+        $r1 = $r2.<com.bobcares.BobsWeather.gallery$ImageAdapter: com.bobcares.BobsWeather.gallery this$0>;
+
+        $r0 = staticinvoke <com.bobcares.BobsWeather.gallery: android.database.Cursor access$0(com.bobcares.BobsWeather.gallery)>($r1);
+
+        $i0 = interfaceinvoke $r0.<android.database.Cursor: int getCount()>();
+
+        return $i0;
+    }
+
+    public java.lang.Object getItem(int)
+    {
+        java.lang.Integer $r0;
+        int $i0;
+        com.bobcares.BobsWeather.gallery$ImageAdapter $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.gallery$ImageAdapter;
+
+        $i0 := @parameter0: int;
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        return $r0;
+    }
+
+    public long getItemId(int)
+    {
+        long $l0;
+        int $i1;
+        com.bobcares.BobsWeather.gallery$ImageAdapter $r0;
+
+        $r0 := @this: com.bobcares.BobsWeather.gallery$ImageAdapter;
+
+        $i1 := @parameter0: int;
+
+        $l0 = (long) $i1;
+
+        return $l0;
+    }
+
+    public android.view.View getView(int, android.view.View, android.view.ViewGroup)
+    {
+        com.bobcares.BobsWeather.gallery$ImageAdapter$1 $r0;
+        android.net.Uri $r1;
+        java.lang.String $r2;
+        java.lang.Object $r3;
+        java.util.ArrayList $r4;
+        android.widget.AbsListView$LayoutParams $r5;
+        android.widget.ImageView$ScaleType $r6;
+        android.database.Cursor $r7, $r19;
+        android.content.Context $r8;
+        android.view.Display $r9;
+        android.view.WindowManager $r10;
+        com.bobcares.BobsWeather.gallery $r11, $r17, $r18, $r20, $r21;
+        android.widget.ImageView $r12;
+        android.util.DisplayMetrics $r13;
+        float $f0, $f1, $f2;
+        android.view.ViewGroup $r14;
+        android.view.View $r15;
+        int $i0, $i1, $i2, $i3, $i4;
+        com.bobcares.BobsWeather.gallery$ImageAdapter $r16;
+
+        $r16 := @this: com.bobcares.BobsWeather.gallery$ImageAdapter;
+
+        $i0 := @parameter0: int;
+
+        $r15 := @parameter1: android.view.View;
+
+        $r14 := @parameter2: android.view.ViewGroup;
+
+        if $r15 != null goto label2;
+
+        $r13 = new android.util.DisplayMetrics;
+
+        specialinvoke $r13.<android.util.DisplayMetrics: void <init>()>();
+
+        $r11 = $r16.<com.bobcares.BobsWeather.gallery$ImageAdapter: com.bobcares.BobsWeather.gallery this$0>;
+
+        $r10 = virtualinvoke $r11.<com.bobcares.BobsWeather.gallery: android.view.WindowManager getWindowManager()>();
+
+        $r9 = interfaceinvoke $r10.<android.view.WindowManager: android.view.Display getDefaultDisplay()>();
+
+        virtualinvoke $r9.<android.view.Display: void getMetrics(android.util.DisplayMetrics)>($r13);
+
+        $i1 = $r13.<android.util.DisplayMetrics: int widthPixels>;
+
+        $f1 = (float) $i1;
+
+        $i3 = $r13.<android.util.DisplayMetrics: int heightPixels>;
+
+        $f0 = (float) $i3;
+
+        $f2 = $f1 / 3.0F;
+
+        $i4 = (int) $f2;
+
+        $r12 = new android.widget.ImageView;
+
+        $r8 = $r16.<com.bobcares.BobsWeather.gallery$ImageAdapter: android.content.Context context>;
+
+        specialinvoke $r12.<android.widget.ImageView: void <init>(android.content.Context)>($r8);
+
+        $r17 = $r16.<com.bobcares.BobsWeather.gallery$ImageAdapter: com.bobcares.BobsWeather.gallery this$0>;
+
+        $r7 = staticinvoke <com.bobcares.BobsWeather.gallery: android.database.Cursor access$0(com.bobcares.BobsWeather.gallery)>($r17);
+
+        interfaceinvoke $r7.<android.database.Cursor: boolean moveToPosition(int)>($i0);
+
+        $r18 = $r16.<com.bobcares.BobsWeather.gallery$ImageAdapter: com.bobcares.BobsWeather.gallery this$0>;
+
+        $r19 = staticinvoke <com.bobcares.BobsWeather.gallery: android.database.Cursor access$0(com.bobcares.BobsWeather.gallery)>($r18);
+
+        $r20 = $r16.<com.bobcares.BobsWeather.gallery$ImageAdapter: com.bobcares.BobsWeather.gallery this$0>;
+
+        $i2 = staticinvoke <com.bobcares.BobsWeather.gallery: int access$1(com.bobcares.BobsWeather.gallery)>($r20);
+
+        interfaceinvoke $r19.<android.database.Cursor: int getInt(int)>($i2);
+
+        $r6 = <android.widget.ImageView$ScaleType: android.widget.ImageView$ScaleType FIT_XY>;
+
+        virtualinvoke $r12.<android.widget.ImageView: void setScaleType(android.widget.ImageView$ScaleType)>($r6);
+
+        virtualinvoke $r12.<android.widget.ImageView: void setPadding(int,int,int,int)>(8, 8, 8, 0);
+
+        $r5 = new android.widget.AbsListView$LayoutParams;
+
+        specialinvoke $r5.<android.widget.AbsListView$LayoutParams: void <init>(int,int)>($i4, $i4);
+
+        virtualinvoke $r12.<android.widget.ImageView: void setLayoutParams(android.view.ViewGroup$LayoutParams)>($r5);
+
+     label1:
+        $r21 = $r16.<com.bobcares.BobsWeather.gallery$ImageAdapter: com.bobcares.BobsWeather.gallery this$0>;
+
+        $r4 = $r21.<com.bobcares.BobsWeather.gallery: java.util.ArrayList listOfAllImages>;
+
+        $r3 = virtualinvoke $r4.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r2 = (java.lang.String) $r3;
+
+        $r1 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r2);
+
+        virtualinvoke $r12.<android.widget.ImageView: void setImageURI(android.net.Uri)>($r1);
+
+        virtualinvoke $r12.<android.widget.ImageView: void setId(int)>($i0);
+
+        $r0 = new com.bobcares.BobsWeather.gallery$ImageAdapter$1;
+
+        specialinvoke $r0.<com.bobcares.BobsWeather.gallery$ImageAdapter$1: void <init>(com.bobcares.BobsWeather.gallery$ImageAdapter)>($r16);
+
+        virtualinvoke $r12.<android.widget.ImageView: void setOnClickListener(android.view.View$OnClickListener)>($r0);
+
+        return $r12;
+
+     label2:
+        $r12 = (android.widget.ImageView) $r15;
+
+        goto label1;
+    }
+}

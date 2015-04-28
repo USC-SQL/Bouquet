@@ -1,0 +1,132 @@
+class com.bobcares.BobsWeather.ConfigureApp$3 extends java.lang.Object implements android.text.TextWatcher
+{
+    final com.bobcares.BobsWeather.ConfigureApp this$0;
+
+    void <init>(com.bobcares.BobsWeather.ConfigureApp)
+    {
+        com.bobcares.BobsWeather.ConfigureApp $r0;
+        com.bobcares.BobsWeather.ConfigureApp$3 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.ConfigureApp$3;
+
+        $r0 := @parameter0: com.bobcares.BobsWeather.ConfigureApp;
+
+        $r1.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void afterTextChanged(android.text.Editable)
+    {
+        java.lang.Exception $r0;
+        java.util.ArrayList $r1;
+        android.widget.ArrayAdapter $r2;
+        android.widget.ListView $r3, $r13;
+        android.view.View $r4;
+        android.widget.EditText $r5;
+        com.bobcares.BobsWeather.ConfigureApp $r6, $r7, $r11, $r12, $r14, $r15;
+        android.text.Editable $r8, $r10;
+        com.bobcares.BobsWeather.ConfigureApp$3 $r9;
+
+        $r9 := @this: com.bobcares.BobsWeather.ConfigureApp$3;
+
+        $r8 := @parameter0: android.text.Editable;
+
+        $r6 = $r9.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0>;
+
+        $r5 = $r6.<com.bobcares.BobsWeather.ConfigureApp: android.widget.EditText search_text>;
+
+        $r10 = virtualinvoke $r5.<android.widget.EditText: android.text.Editable getText()>();
+
+        interfaceinvoke $r10.<android.text.Editable: java.lang.String toString()>();
+
+     label1:
+        $r11 = $r9.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0>;
+
+        $r7 = $r9.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0>;
+
+        $r4 = virtualinvoke $r7.<com.bobcares.BobsWeather.ConfigureApp: android.view.View findViewById(int)>(2131427336);
+
+        $r3 = (android.widget.ListView) $r4;
+
+        staticinvoke <com.bobcares.BobsWeather.ConfigureApp: void access$1(com.bobcares.BobsWeather.ConfigureApp,android.widget.ListView)>($r11, $r3);
+
+        $r12 = $r9.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0>;
+
+        $r13 = staticinvoke <com.bobcares.BobsWeather.ConfigureApp: android.widget.ListView access$2(com.bobcares.BobsWeather.ConfigureApp)>($r12);
+
+        $r2 = new android.widget.ArrayAdapter;
+
+        $r14 = $r9.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0>;
+
+        $r15 = $r9.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0>;
+
+        $r1 = $r15.<com.bobcares.BobsWeather.ConfigureApp: java.util.ArrayList search_result>;
+
+        specialinvoke $r2.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,java.util.List)>($r14, 2130903042, $r1);
+
+        virtualinvoke $r13.<android.widget.ListView: void setAdapter(android.widget.ListAdapter)>($r2);
+
+     label2:
+        return;
+
+     label3:
+        $r0 := @caughtexception;
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public void beforeTextChanged(java.lang.CharSequence, int, int, int)
+    {
+        int $i0, $i1, $i2;
+        java.lang.CharSequence $r0;
+        com.bobcares.BobsWeather.ConfigureApp$3 $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.ConfigureApp$3;
+
+        $r0 := @parameter0: java.lang.CharSequence;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        return;
+    }
+
+    public void onTextChanged(java.lang.CharSequence, int, int, int)
+    {
+        java.util.ArrayList $r0;
+        com.bobcares.BobsWeather.ConfigureApp $r1, $r4;
+        int $i0, $i1, $i2;
+        java.lang.CharSequence $r2;
+        com.bobcares.BobsWeather.ConfigureApp$3 $r3;
+
+        $r3 := @this: com.bobcares.BobsWeather.ConfigureApp$3;
+
+        $r2 := @parameter0: java.lang.CharSequence;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        $r1 = $r3.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0>;
+
+        $r0 = $r1.<com.bobcares.BobsWeather.ConfigureApp: java.util.ArrayList search_result>;
+
+        virtualinvoke $r0.<java.util.ArrayList: void clear()>();
+
+        $r4 = $r3.<com.bobcares.BobsWeather.ConfigureApp$3: com.bobcares.BobsWeather.ConfigureApp this$0>;
+
+        virtualinvoke $r4.<com.bobcares.BobsWeather.ConfigureApp: java.util.ArrayList searchCityList(java.lang.CharSequence)>($r2);
+
+        return;
+    }
+}

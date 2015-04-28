@@ -1,0 +1,148 @@
+public class com.bobcares.BobsWeather.gallery extends android.app.Activity
+{
+    java.lang.String absolutePathOfImage;
+    private int columnIndex;
+    private android.database.Cursor cursor;
+    java.util.ArrayList listOfAllImages;
+
+    public void <init>()
+    {
+        java.util.ArrayList $r0;
+        com.bobcares.BobsWeather.gallery $r1;
+
+        $r1 := @this: com.bobcares.BobsWeather.gallery;
+
+        specialinvoke $r1.<android.app.Activity: void <init>()>();
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: void <init>()>();
+
+        $r1.<com.bobcares.BobsWeather.gallery: java.util.ArrayList listOfAllImages> = $r0;
+
+        $r1.<com.bobcares.BobsWeather.gallery: java.lang.String absolutePathOfImage> = null;
+
+        return;
+    }
+
+    static android.database.Cursor access$0(com.bobcares.BobsWeather.gallery)
+    {
+        android.database.Cursor r0;
+        com.bobcares.BobsWeather.gallery $r1;
+
+        $r1 := @parameter0: com.bobcares.BobsWeather.gallery;
+
+        r0 = $r1.<com.bobcares.BobsWeather.gallery: android.database.Cursor cursor>;
+
+        return r0;
+    }
+
+    static int access$1(com.bobcares.BobsWeather.gallery)
+    {
+        int i0;
+        com.bobcares.BobsWeather.gallery $r0;
+
+        $r0 := @parameter0: com.bobcares.BobsWeather.gallery;
+
+        i0 = $r0.<com.bobcares.BobsWeather.gallery: int columnIndex>;
+
+        return i0;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        java.util.ArrayList $r0;
+        java.lang.String $r1, $r17;
+        com.bobcares.BobsWeather.gallery$ImageAdapter $r2;
+        android.widget.GridView $r3;
+        android.view.View $r4;
+        boolean $z0;
+        android.database.Cursor $r5, $r11, $r12, $r13, $r14, $r15, $r16;
+        android.net.Uri $r6;
+        android.content.ContentResolver $r7;
+        int $i0, $i1, $i2, $i3;
+        java.lang.String[] $r8;
+        android.os.Bundle $r9;
+        com.bobcares.BobsWeather.gallery $r10;
+
+        $r10 := @this: com.bobcares.BobsWeather.gallery;
+
+        $r9 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r10.<android.app.Activity: void onCreate(android.os.Bundle)>($r9);
+
+        virtualinvoke $r10.<com.bobcares.BobsWeather.gallery: void setContentView(int)>(2130903041);
+
+        $r8 = newarray (java.lang.String)[2];
+
+        $r8[0] = "_data";
+
+        $r8[1] = "_id";
+
+        $r7 = virtualinvoke $r10.<com.bobcares.BobsWeather.gallery: android.content.ContentResolver getContentResolver()>();
+
+        $r6 = <android.provider.MediaStore$Images$Thumbnails: android.net.Uri EXTERNAL_CONTENT_URI>;
+
+        $r5 = virtualinvoke $r7.<android.content.ContentResolver: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>($r6, $r8, null, null, "_id");
+
+        $r10.<com.bobcares.BobsWeather.gallery: android.database.Cursor cursor> = $r5;
+
+        $r11 = $r10.<com.bobcares.BobsWeather.gallery: android.database.Cursor cursor>;
+
+        $i0 = interfaceinvoke $r11.<android.database.Cursor: int getColumnIndexOrThrow(java.lang.String)>("_id");
+
+        $r10.<com.bobcares.BobsWeather.gallery: int columnIndex> = $i0;
+
+        $i2 = 0;
+
+     label1:
+        $r12 = $r10.<com.bobcares.BobsWeather.gallery: android.database.Cursor cursor>;
+
+        $z0 = interfaceinvoke $r12.<android.database.Cursor: boolean moveToNext()>();
+
+        if $z0 != 0 goto label2;
+
+        $r4 = virtualinvoke $r10.<com.bobcares.BobsWeather.gallery: android.view.View findViewById(int)>(2131427331);
+
+        $r3 = (android.widget.GridView) $r4;
+
+        $r2 = new com.bobcares.BobsWeather.gallery$ImageAdapter;
+
+        specialinvoke $r2.<com.bobcares.BobsWeather.gallery$ImageAdapter: void <init>(com.bobcares.BobsWeather.gallery,android.content.Context)>($r10, $r10);
+
+        virtualinvoke $r3.<android.widget.GridView: void setAdapter(android.widget.ListAdapter)>($r2);
+
+        return;
+
+     label2:
+        $r13 = $r10.<com.bobcares.BobsWeather.gallery: android.database.Cursor cursor>;
+
+        interfaceinvoke $r13.<android.database.Cursor: boolean moveToPosition(int)>($i2);
+
+        $r14 = $r10.<com.bobcares.BobsWeather.gallery: android.database.Cursor cursor>;
+
+        $i1 = $r10.<com.bobcares.BobsWeather.gallery: int columnIndex>;
+
+        interfaceinvoke $r14.<android.database.Cursor: int getInt(int)>($i1);
+
+        $r15 = $r10.<com.bobcares.BobsWeather.gallery: android.database.Cursor cursor>;
+
+        $i3 = interfaceinvoke $r15.<android.database.Cursor: int getColumnIndex(java.lang.String)>("_data");
+
+        $r16 = $r10.<com.bobcares.BobsWeather.gallery: android.database.Cursor cursor>;
+
+        $r1 = interfaceinvoke $r16.<android.database.Cursor: java.lang.String getString(int)>($i3);
+
+        $r10.<com.bobcares.BobsWeather.gallery: java.lang.String absolutePathOfImage> = $r1;
+
+        $r0 = $r10.<com.bobcares.BobsWeather.gallery: java.util.ArrayList listOfAllImages>;
+
+        $r17 = $r10.<com.bobcares.BobsWeather.gallery: java.lang.String absolutePathOfImage>;
+
+        virtualinvoke $r0.<java.util.ArrayList: boolean add(java.lang.Object)>($r17);
+
+        $i2 = $i2 + 1;
+
+        goto label1;
+    }
+}

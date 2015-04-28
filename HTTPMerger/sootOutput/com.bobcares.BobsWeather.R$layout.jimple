@@ -1,0 +1,63 @@
+public final class com.bobcares.BobsWeather.R$layout extends java.lang.Object
+{
+    public static final int about;
+    public static final int activity_sdcard;
+    public static final int citylist;
+    public static final int configure;
+    public static final int configurecheckbox;
+    public static final int current_loc;
+    public static final int gallery_item;
+    public static final int image_selector;
+    public static final int loadingscreen;
+    public static final int main;
+    public static final int setcity;
+    public static final int start;
+    public static final int widget_main;
+    public static final int widget_main_3days;
+
+    public void <init>()
+    {
+        com.bobcares.BobsWeather.R$layout $r0;
+
+        $r0 := @this: com.bobcares.BobsWeather.R$layout;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.bobcares.BobsWeather.R$layout: int about> = 2130903040;
+
+        <com.bobcares.BobsWeather.R$layout: int widget_main_3days> = 2130903053;
+
+        <com.bobcares.BobsWeather.R$layout: int widget_main> = 2130903052;
+
+        <com.bobcares.BobsWeather.R$layout: int start> = 2130903051;
+
+        <com.bobcares.BobsWeather.R$layout: int setcity> = 2130903050;
+
+        <com.bobcares.BobsWeather.R$layout: int main> = 2130903049;
+
+        <com.bobcares.BobsWeather.R$layout: int loadingscreen> = 2130903048;
+
+        <com.bobcares.BobsWeather.R$layout: int image_selector> = 2130903047;
+
+        <com.bobcares.BobsWeather.R$layout: int gallery_item> = 2130903046;
+
+        <com.bobcares.BobsWeather.R$layout: int current_loc> = 2130903045;
+
+        <com.bobcares.BobsWeather.R$layout: int configurecheckbox> = 2130903044;
+
+        <com.bobcares.BobsWeather.R$layout: int configure> = 2130903043;
+
+        <com.bobcares.BobsWeather.R$layout: int citylist> = 2130903042;
+
+        <com.bobcares.BobsWeather.R$layout: int activity_sdcard> = 2130903041;
+
+        <com.bobcares.BobsWeather.R$layout: int about> = 2130903040;
+
+        return;
+    }
+}

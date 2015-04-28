@@ -1,0 +1,398 @@
+public class com.android.buttonwidget.ConfigureApp extends android.app.Activity
+{
+    public static final java.lang.String ACTION_MODIFY_WIDGET;
+    public static final java.lang.String ACTION_REFRESH_WIDGET;
+    public static java.lang.String ACTION_TEMPERATURE_CONVERSION;
+    public static java.lang.String ACTION_WIDGET_CONFIGURE;
+    java.lang.String ExactPlc;
+    java.lang.String baseUrl;
+    android.content.Context c;
+    java.lang.Boolean isTimeOut;
+    java.lang.String lat;
+    java.lang.String latitude;
+    java.lang.String lon;
+    java.lang.String longitude;
+    int mAppWidgetId;
+    java.lang.String rear_Url;
+    java.lang.Boolean temp_unit_saved;
+    java.lang.String widgetId;
+
+    static void <clinit>()
+    {
+        <com.android.buttonwidget.ConfigureApp: java.lang.String ACTION_MODIFY_WIDGET> = "ModifyCurrentWidget";
+
+        <com.android.buttonwidget.ConfigureApp: java.lang.String ACTION_REFRESH_WIDGET> = "RefreshCurrentWidget";
+
+        <com.android.buttonwidget.ConfigureApp: java.lang.String ACTION_MODIFY_WIDGET> = "ModifyCurrentWidget";
+
+        <com.android.buttonwidget.ConfigureApp: java.lang.String ACTION_WIDGET_CONFIGURE> = "ConfigureWidget";
+
+        <com.android.buttonwidget.ConfigureApp: java.lang.String ACTION_TEMPERATURE_CONVERSION> = "ActionReceiverWidget";
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.android.buttonwidget.ConfigureApp $r0;
+
+        $r0 := @this: com.android.buttonwidget.ConfigureApp;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r0.<com.android.buttonwidget.ConfigureApp: java.lang.String baseUrl> = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=";
+
+        $r0.<com.android.buttonwidget.ConfigureApp: java.lang.String rear_Url> = "&format=xml&num_of_days=5&key=umre32dzkzma6bkwm9k88zgf";
+
+        $r0.<com.android.buttonwidget.ConfigureApp: int mAppWidgetId> = 0;
+
+        $r0.<com.android.buttonwidget.ConfigureApp: java.lang.String ExactPlc> = null;
+
+        $r0.<com.android.buttonwidget.ConfigureApp: java.lang.String lat> = "a";
+
+        $r0.<com.android.buttonwidget.ConfigureApp: java.lang.String lon> = "b";
+
+        $r0.<com.android.buttonwidget.ConfigureApp: java.lang.String longitude> = "a";
+
+        return;
+    }
+
+    private java.lang.String findDay(int)
+    {
+        int $i0;
+        com.android.buttonwidget.ConfigureApp $r0;
+
+        $r0 := @this: com.android.buttonwidget.ConfigureApp;
+
+        $i0 := @parameter0: int;
+
+        lookupswitch($i0)
+        {
+            case 1: goto label02;
+            case 2: goto label03;
+            case 3: goto label04;
+            case 4: goto label05;
+            case 5: goto label06;
+            case 6: goto label07;
+            case 7: goto label08;
+            case 8: goto label09;
+            case 9: goto label10;
+            case 10: goto label11;
+            case 11: goto label12;
+            default: goto label01;
+        };
+
+     label01:
+        return null;
+
+     label02:
+        return "Sun";
+
+     label03:
+        return "Mon";
+
+     label04:
+        return "Tue";
+
+     label05:
+        return "Wed";
+
+     label06:
+        return "Thu";
+
+     label07:
+        return "Fri";
+
+     label08:
+        return "Sat";
+
+     label09:
+        return "Sun";
+
+     label10:
+        return "Mon";
+
+     label11:
+        return "Tue";
+
+     label12:
+        return "Wed";
+    }
+
+    public void UpdateMethod()
+    {
+        com.android.buttonwidget.ConfigureApp$2 $r0;
+        int $i0, $i1, $i2;
+        com.bobcares.BobsWeather.XMLFeedParser $r1;
+        java.util.StringTokenizer $r2;
+        com.android.buttonwidget.FetchFromAPI $r3;
+        java.lang.Exception $r4, $r5;
+        java.lang.String $r6, $r7, $r8, $r11, $r12, $r13, $r14, $r15, $r16, $r18, $r19;
+        android.content.Context $r9, $r17, $r20, $r21;
+        com.android.buttonwidget.ConfigureApp $r10;
+
+        $r10 := @this: com.android.buttonwidget.ConfigureApp;
+
+     label1:
+        $r9 = $r10.<com.android.buttonwidget.ConfigureApp: android.content.Context c>;
+
+        $r8 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String fetchCurrentLocation(android.content.Context)>($r9);
+
+        $r2 = new java.util.StringTokenizer;
+
+        specialinvoke $r2.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String)>($r8, "!");
+
+        $r11 = virtualinvoke $r2.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        $r10.<com.android.buttonwidget.ConfigureApp: java.lang.String latitude> = $r11;
+
+        $r12 = virtualinvoke $r2.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        $r10.<com.android.buttonwidget.ConfigureApp: java.lang.String longitude> = $r12;
+
+        $r13 = virtualinvoke $r2.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        $r10.<com.android.buttonwidget.ConfigureApp: java.lang.String ExactPlc> = $r13;
+
+        $r3 = new com.android.buttonwidget.FetchFromAPI;
+
+        specialinvoke $r3.<com.android.buttonwidget.FetchFromAPI: void <init>()>();
+
+        $r1 = new com.bobcares.BobsWeather.XMLFeedParser;
+
+        specialinvoke $r1.<com.bobcares.BobsWeather.XMLFeedParser: void <init>()>();
+
+        $r6 = $r10.<com.android.buttonwidget.ConfigureApp: java.lang.String latitude>;
+
+        $r7 = $r10.<com.android.buttonwidget.ConfigureApp: java.lang.String longitude>;
+
+        $r14 = $r10.<com.android.buttonwidget.ConfigureApp: java.lang.String ExactPlc>;
+
+        $r15 = virtualinvoke $r1.<com.bobcares.BobsWeather.XMLFeedParser: java.lang.String getWeatherForCurrentLocation(java.lang.String,java.lang.String,java.lang.String)>($r6, $r7, $r14);
+
+        $r16 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String getWeatherDataForWidgets(java.lang.String)>($r15);
+
+        $r17 = $r10.<com.android.buttonwidget.ConfigureApp: android.content.Context c>;
+
+        $i0 = $r10.<com.android.buttonwidget.ConfigureApp: int mAppWidgetId>;
+
+        $r18 = $r10.<com.android.buttonwidget.ConfigureApp: java.lang.String latitude>;
+
+        $r19 = $r10.<com.android.buttonwidget.ConfigureApp: java.lang.String longitude>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void WidgetUpdate(java.lang.String,android.content.Context,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($r16, $r17, $i0, "!CURRENT LOCATION", "!curr_loc", $r18, $r19);
+
+     label2:
+        $r20 = $r10.<com.android.buttonwidget.ConfigureApp: android.content.Context c>;
+
+        $i1 = $r10.<com.android.buttonwidget.ConfigureApp: int mAppWidgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens(java.lang.String,android.content.Context,int)>($r16, $r20, $i1);
+
+     label3:
+        return;
+
+     label4:
+        $r4 := @caughtexception;
+
+     label5:
+        virtualinvoke $r4.<java.lang.Exception: void printStackTrace()>();
+
+     label6:
+        return;
+
+     label7:
+        $r5 := @caughtexception;
+
+        $r0 = new com.android.buttonwidget.ConfigureApp$2;
+
+        specialinvoke $r0.<com.android.buttonwidget.ConfigureApp$2: void <init>(com.android.buttonwidget.ConfigureApp)>($r10);
+
+        virtualinvoke $r10.<com.android.buttonwidget.ConfigureApp: void runOnUiThread(java.lang.Runnable)>($r0);
+
+        $r21 = $r10.<com.android.buttonwidget.ConfigureApp: android.content.Context c>;
+
+        $i2 = $r10.<com.android.buttonwidget.ConfigureApp: int mAppWidgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void noLocationData(android.content.Context,int)>($r21, $i2);
+
+        virtualinvoke $r5.<java.lang.Exception: void printStackTrace()>();
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label7;
+        catch java.lang.Exception from label2 to label3 with label4;
+        catch java.lang.Exception from label5 to label6 with label7;
+    }
+
+    public boolean checkNetworkTimeout(java.lang.String)
+    {
+        java.lang.StringBuilder $r0, $r5, $r7;
+        java.lang.String $r1, $r2, $r4, $r6;
+        com.android.buttonwidget.ConfigureApp $r3;
+
+        $r3 := @this: com.android.buttonwidget.ConfigureApp;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = new java.lang.StringBuilder;
+
+        $r2 = $r3.<com.android.buttonwidget.ConfigureApp: java.lang.String baseUrl>;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r2);
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r5 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r6 = $r3.<com.android.buttonwidget.ConfigureApp: java.lang.String rear_Url>;
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return 1;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        com.android.buttonwidget.ConfigureApp$1 $r0;
+        android.app.AlertDialog $r1;
+        android.app.AlertDialog$Builder $r2;
+        java.lang.String[] $r3;
+        com.android.buttonwidget.ConfigureApp$UpdateCityweather $r4;
+        boolean $z0;
+        android.content.Context $r5, $r17, $r19, $r20;
+        java.lang.String $r6, $r16, $r18;
+        android.content.Intent $r7;
+        android.view.Display $r8;
+        android.view.WindowManager $r9;
+        int $i0, $i1, $i2, $i3;
+        android.util.DisplayMetrics $r10;
+        java.lang.Exception $r11, $r12;
+        android.os.Bundle $r13, $r15;
+        com.android.buttonwidget.ConfigureApp $r14;
+
+        $r14 := @this: com.android.buttonwidget.ConfigureApp;
+
+        $r13 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r14.<android.app.Activity: void onCreate(android.os.Bundle)>($r13);
+
+        virtualinvoke $r14.<com.android.buttonwidget.ConfigureApp: boolean requestWindowFeature(int)>(1);
+
+        virtualinvoke $r14.<com.android.buttonwidget.ConfigureApp: void setResult(int)>(0);
+
+        virtualinvoke $r14.<com.android.buttonwidget.ConfigureApp: void setRequestedOrientation(int)>(1);
+
+        $r10 = new android.util.DisplayMetrics;
+
+        specialinvoke $r10.<android.util.DisplayMetrics: void <init>()>();
+
+        $r9 = virtualinvoke $r14.<com.android.buttonwidget.ConfigureApp: android.view.WindowManager getWindowManager()>();
+
+        $r8 = interfaceinvoke $r9.<android.view.WindowManager: android.view.Display getDefaultDisplay()>();
+
+        virtualinvoke $r8.<android.view.Display: void getMetrics(android.util.DisplayMetrics)>($r10);
+
+        $r14.<com.android.buttonwidget.ConfigureApp: android.content.Context c> = $r14;
+
+        $r7 = virtualinvoke $r14.<com.android.buttonwidget.ConfigureApp: android.content.Intent getIntent()>();
+
+        $r15 = virtualinvoke $r7.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        if $r15 == null goto label1;
+
+        $i0 = virtualinvoke $r15.<android.os.Bundle: int getInt(java.lang.String,int)>("appWidgetId", 0);
+
+        $r14.<com.android.buttonwidget.ConfigureApp: int mAppWidgetId> = $i0;
+
+     label1:
+        $i1 = $r14.<com.android.buttonwidget.ConfigureApp: int mAppWidgetId>;
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i1);
+
+        $r14.<com.android.buttonwidget.ConfigureApp: java.lang.String widgetId> = $r6;
+
+        $r5 = $r14.<com.android.buttonwidget.ConfigureApp: android.content.Context c>;
+
+        $z0 = staticinvoke <com.android.buttonwidget.AllMethodsClass: boolean checkInternetConnection(android.content.Context)>($r5);
+
+        if $z0 == 0 goto label4;
+
+        $r4 = new com.android.buttonwidget.ConfigureApp$UpdateCityweather;
+
+     label2:
+        specialinvoke $r4.<com.android.buttonwidget.ConfigureApp$UpdateCityweather: void <init>(com.android.buttonwidget.ConfigureApp)>($r14);
+
+        $r3 = newarray (java.lang.String)[0];
+
+        virtualinvoke $r4.<com.android.buttonwidget.ConfigureApp$UpdateCityweather: android.os.AsyncTask execute(java.lang.Object[])>($r3);
+
+     label3:
+        return;
+
+     label4:
+        $r14.<com.android.buttonwidget.ConfigureApp: java.lang.String ExactPlc> = "curr_loc";
+
+        $r16 = $r14.<com.android.buttonwidget.ConfigureApp: java.lang.String ExactPlc>;
+
+        $r17 = $r14.<com.android.buttonwidget.ConfigureApp: android.content.Context c>;
+
+        $i2 = $r14.<com.android.buttonwidget.ConfigureApp: int mAppWidgetId>;
+
+        $r18 = staticinvoke <com.android.buttonwidget.AllMethodsClass: java.lang.String fetchFromCentralCache(java.lang.String,android.content.Context,int)>($r16, $r17, $i2);
+
+        if $r18 == null goto label8;
+
+     label5:
+        $r19 = $r14.<com.android.buttonwidget.ConfigureApp: android.content.Context c>;
+
+        $i3 = $r14.<com.android.buttonwidget.ConfigureApp: int mAppWidgetId>;
+
+        staticinvoke <com.android.buttonwidget.AllMethodsClass: void parseTokens(java.lang.String,android.content.Context,int)>($r18, $r19, $i3);
+
+     label6:
+        virtualinvoke $r14.<com.android.buttonwidget.ConfigureApp: void finish()>();
+
+        return;
+
+     label7:
+        $r11 := @caughtexception;
+
+        virtualinvoke $r11.<java.lang.Exception: void printStackTrace()>();
+
+        goto label6;
+
+     label8:
+        $r2 = new android.app.AlertDialog$Builder;
+
+        $r20 = $r14.<com.android.buttonwidget.ConfigureApp: android.content.Context c>;
+
+        specialinvoke $r2.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r20);
+
+        $r1 = virtualinvoke $r2.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r1.<android.app.AlertDialog: void setTitle(int)>(2131361807);
+
+        virtualinvoke $r1.<android.app.AlertDialog: void setMessage(java.lang.CharSequence)>("No Internet Connection");
+
+        $r0 = new com.android.buttonwidget.ConfigureApp$1;
+
+        specialinvoke $r0.<com.android.buttonwidget.ConfigureApp$1: void <init>(com.android.buttonwidget.ConfigureApp)>($r14);
+
+        virtualinvoke $r1.<android.app.AlertDialog: void setButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("OK", $r0);
+
+        virtualinvoke $r1.<android.app.AlertDialog: void show()>();
+
+        return;
+
+     label9:
+        $r12 := @caughtexception;
+
+        return;
+
+        catch java.lang.Exception from label2 to label3 with label9;
+        catch java.lang.Exception from label5 to label6 with label7;
+    }
+}

@@ -1,0 +1,24 @@
+public final class com.bobcares.BobsWeather.BuildConfig extends java.lang.Object
+{
+    public static final boolean DEBUG;
+
+    public void <init>()
+    {
+        com.bobcares.BobsWeather.BuildConfig $r0;
+
+        $r0 := @this: com.bobcares.BobsWeather.BuildConfig;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.bobcares.BobsWeather.BuildConfig: boolean DEBUG> = 1;
+
+        <com.bobcares.BobsWeather.BuildConfig: boolean DEBUG> = 1;
+
+        return;
+    }
+}

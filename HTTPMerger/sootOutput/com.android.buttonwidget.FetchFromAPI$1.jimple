@@ -1,0 +1,37 @@
+class com.android.buttonwidget.FetchFromAPI$1 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.android.buttonwidget.FetchFromAPI this$0;
+
+    void <init>(com.android.buttonwidget.FetchFromAPI)
+    {
+        com.android.buttonwidget.FetchFromAPI $r0;
+        com.android.buttonwidget.FetchFromAPI$1 $r1;
+
+        $r1 := @this: com.android.buttonwidget.FetchFromAPI$1;
+
+        $r0 := @parameter0: com.android.buttonwidget.FetchFromAPI;
+
+        $r1.<com.android.buttonwidget.FetchFromAPI$1: com.android.buttonwidget.FetchFromAPI this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        int $i0;
+        android.content.DialogInterface $r0;
+        com.android.buttonwidget.FetchFromAPI$1 $r1;
+
+        $r1 := @this: com.android.buttonwidget.FetchFromAPI$1;
+
+        $r0 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        interfaceinvoke $r0.<android.content.DialogInterface: void dismiss()>();
+
+        return;
+    }
+}
