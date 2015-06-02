@@ -1,0 +1,135 @@
+class org.simpleframework.xml.transform.GregorianCalendarTransform extends java.lang.Object implements org.simpleframework.xml.transform.Transform
+{
+    private final org.simpleframework.xml.transform.DateTransform transform;
+
+    public void <init>() throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.GregorianCalendarTransform $r0;
+
+        $r0 := @this: org.simpleframework.xml.transform.GregorianCalendarTransform;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.GregorianCalendarTransform: void <init>(java.lang.Class)>(class "java/util/Date");
+
+        return;
+    }
+
+    public void <init>(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.DateTransform $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.transform.GregorianCalendarTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.GregorianCalendarTransform;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.transform.DateTransform;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.DateTransform: void <init>(java.lang.Class)>($r1);
+
+        $r2.<org.simpleframework.xml.transform.GregorianCalendarTransform: org.simpleframework.xml.transform.DateTransform transform> = $r0;
+
+        return;
+    }
+
+    private java.util.GregorianCalendar read(java.util.Date) throws java.lang.Exception
+    {
+        java.util.GregorianCalendar $r0;
+        java.util.Date $r1;
+        org.simpleframework.xml.transform.GregorianCalendarTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.GregorianCalendarTransform;
+
+        $r1 := @parameter0: java.util.Date;
+
+        $r0 = new java.util.GregorianCalendar;
+
+        specialinvoke $r0.<java.util.GregorianCalendar: void <init>()>();
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r0.<java.util.GregorianCalendar: void setTime(java.util.Date)>($r1);
+
+        return $r0;
+
+     label1:
+        return $r0;
+    }
+
+    public volatile java.lang.Object read(java.lang.String) throws java.lang.Exception
+    {
+        java.util.GregorianCalendar $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.GregorianCalendarTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.GregorianCalendarTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.transform.GregorianCalendarTransform: java.util.GregorianCalendar read(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public java.util.GregorianCalendar read(java.lang.String) throws java.lang.Exception
+    {
+        java.util.GregorianCalendar $r0;
+        java.util.Date $r1;
+        org.simpleframework.xml.transform.DateTransform $r2;
+        java.lang.String $r3;
+        org.simpleframework.xml.transform.GregorianCalendarTransform $r4;
+
+        $r4 := @this: org.simpleframework.xml.transform.GregorianCalendarTransform;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 = $r4.<org.simpleframework.xml.transform.GregorianCalendarTransform: org.simpleframework.xml.transform.DateTransform transform>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.transform.DateTransform: java.util.Date read(java.lang.String)>($r3);
+
+        $r0 = specialinvoke $r4.<org.simpleframework.xml.transform.GregorianCalendarTransform: java.util.GregorianCalendar read(java.util.Date)>($r1);
+
+        return $r0;
+    }
+
+    public volatile java.lang.String write(java.lang.Object) throws java.lang.Exception
+    {
+        java.util.GregorianCalendar $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.transform.GregorianCalendarTransform $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.GregorianCalendarTransform;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r0 = (java.util.GregorianCalendar) $r2;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.transform.GregorianCalendarTransform: java.lang.String write(java.util.GregorianCalendar)>($r0);
+
+        return $r1;
+    }
+
+    public java.lang.String write(java.util.GregorianCalendar) throws java.lang.Exception
+    {
+        java.lang.String $r0;
+        java.util.Date $r1;
+        org.simpleframework.xml.transform.DateTransform $r2;
+        java.util.GregorianCalendar $r3;
+        org.simpleframework.xml.transform.GregorianCalendarTransform $r4;
+
+        $r4 := @this: org.simpleframework.xml.transform.GregorianCalendarTransform;
+
+        $r3 := @parameter0: java.util.GregorianCalendar;
+
+        $r2 = $r4.<org.simpleframework.xml.transform.GregorianCalendarTransform: org.simpleframework.xml.transform.DateTransform transform>;
+
+        $r1 = virtualinvoke $r3.<java.util.GregorianCalendar: java.util.Date getTime()>();
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.transform.DateTransform: java.lang.String write(java.util.Date)>($r1);
+
+        return $r0;
+    }
+}

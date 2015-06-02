@@ -1,0 +1,92 @@
+final enum class org.jsoup.parser.TokeniserState$41 extends org.jsoup.parser.TokeniserState
+{
+
+    void <init>(java.lang.String, int)
+    {
+        int $i0;
+        java.lang.String $r0;
+        org.jsoup.parser.TokeniserState$41 $r1;
+
+        $r1 := @this: org.jsoup.parser.TokeniserState$41;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r1.<org.jsoup.parser.TokeniserState: void <init>(java.lang.String,int,org.jsoup.parser.TokeniserState$1)>($r0, $i0, null);
+
+        return;
+    }
+
+    void read(org.jsoup.parser.Tokeniser, org.jsoup.parser.CharacterReader)
+    {
+        char $c0;
+        org.jsoup.parser.TokeniserState $r0, $r4, $r5, $r6, $r7;
+        org.jsoup.parser.CharacterReader $r1;
+        org.jsoup.parser.Tokeniser $r2;
+        org.jsoup.parser.TokeniserState$41 $r3;
+
+        $r3 := @this: org.jsoup.parser.TokeniserState$41;
+
+        $r2 := @parameter0: org.jsoup.parser.Tokeniser;
+
+        $r1 := @parameter1: org.jsoup.parser.CharacterReader;
+
+        $c0 = virtualinvoke $r1.<org.jsoup.parser.CharacterReader: char consume()>();
+
+        lookupswitch($c0)
+        {
+            case 9: goto label2;
+            case 10: goto label2;
+            case 12: goto label2;
+            case 32: goto label2;
+            case 47: goto label3;
+            case 62: goto label4;
+            case 65535: goto label5;
+            default: goto label1;
+        };
+
+     label1:
+        virtualinvoke $r2.<org.jsoup.parser.Tokeniser: void error(org.jsoup.parser.TokeniserState)>($r3);
+
+        virtualinvoke $r1.<org.jsoup.parser.CharacterReader: void unconsume()>();
+
+        $r0 = <org.jsoup.parser.TokeniserState$41: org.jsoup.parser.TokeniserState BeforeAttributeName>;
+
+        virtualinvoke $r2.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r0);
+
+        return;
+
+     label2:
+        $r4 = <org.jsoup.parser.TokeniserState$41: org.jsoup.parser.TokeniserState BeforeAttributeName>;
+
+        virtualinvoke $r2.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r4);
+
+        return;
+
+     label3:
+        $r5 = <org.jsoup.parser.TokeniserState$41: org.jsoup.parser.TokeniserState SelfClosingStartTag>;
+
+        virtualinvoke $r2.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r5);
+
+        return;
+
+     label4:
+        virtualinvoke $r2.<org.jsoup.parser.Tokeniser: void emitTagPending()>();
+
+        $r6 = <org.jsoup.parser.TokeniserState$41: org.jsoup.parser.TokeniserState Data>;
+
+        virtualinvoke $r2.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r6);
+
+        return;
+
+     label5:
+        virtualinvoke $r2.<org.jsoup.parser.Tokeniser: void eofError(org.jsoup.parser.TokeniserState)>($r3);
+
+        $r7 = <org.jsoup.parser.TokeniserState$41: org.jsoup.parser.TokeniserState Data>;
+
+        virtualinvoke $r2.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r7);
+
+        return;
+    }
+}

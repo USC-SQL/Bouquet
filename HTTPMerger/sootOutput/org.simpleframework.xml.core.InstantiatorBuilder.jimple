@@ -1,0 +1,921 @@
+class org.simpleframework.xml.core.InstantiatorBuilder extends java.lang.Object
+{
+    private org.simpleframework.xml.core.LabelMap attributes;
+    private org.simpleframework.xml.core.Comparer comparer;
+    private org.simpleframework.xml.core.LabelMap elements;
+    private org.simpleframework.xml.core.Instantiator factory;
+    private java.util.List options;
+    private org.simpleframework.xml.core.Scanner scanner;
+    private org.simpleframework.xml.core.LabelMap texts;
+    private java.lang.Class type;
+
+    public void <init>(org.simpleframework.xml.core.Scanner, java.lang.Class)
+    {
+        org.simpleframework.xml.core.LabelMap $r0, $r6, $r7;
+        org.simpleframework.xml.core.Comparer $r1;
+        java.util.ArrayList $r2;
+        java.lang.Class $r3;
+        org.simpleframework.xml.core.Scanner $r4;
+        org.simpleframework.xml.core.InstantiatorBuilder $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r4 := @parameter0: org.simpleframework.xml.core.Scanner;
+
+        $r3 := @parameter1: java.lang.Class;
+
+        specialinvoke $r5.<java.lang.Object: void <init>()>();
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r5.<org.simpleframework.xml.core.InstantiatorBuilder: java.util.List options> = $r2;
+
+        $r1 = new org.simpleframework.xml.core.Comparer;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.Comparer: void <init>()>();
+
+        $r5.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Comparer comparer> = $r1;
+
+        $r0 = new org.simpleframework.xml.core.LabelMap;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.LabelMap: void <init>()>();
+
+        $r5.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap attributes> = $r0;
+
+        $r6 = new org.simpleframework.xml.core.LabelMap;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.LabelMap: void <init>()>();
+
+        $r5.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap elements> = $r6;
+
+        $r7 = new org.simpleframework.xml.core.LabelMap;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.LabelMap: void <init>()>();
+
+        $r5.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap texts> = $r7;
+
+        $r5.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Scanner scanner> = $r4;
+
+        $r5.<org.simpleframework.xml.core.InstantiatorBuilder: java.lang.Class type> = $r3;
+
+        return;
+    }
+
+    private org.simpleframework.xml.core.Instantiator build(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Instantiator $r0, $r3, $r4;
+        java.lang.Class $r1;
+        org.simpleframework.xml.core.InstantiatorBuilder $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r0 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator factory>;
+
+        if $r0 != null goto label1;
+
+        $r3 = specialinvoke $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator create(java.lang.Class)>($r1);
+
+        $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator factory> = $r3;
+
+     label1:
+        $r4 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator factory>;
+
+        return $r4;
+    }
+
+    private org.simpleframework.xml.core.Creator create(org.simpleframework.xml.core.Signature)
+    {
+        java.util.List $r0;
+        org.simpleframework.xml.core.SignatureCreator $r1;
+        org.simpleframework.xml.core.Signature $r2;
+        org.simpleframework.xml.core.InstantiatorBuilder $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Signature;
+
+        $r1 = new org.simpleframework.xml.core.SignatureCreator;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.SignatureCreator: void <init>(org.simpleframework.xml.core.Signature)>($r2);
+
+        if $r2 == null goto label1;
+
+        $r0 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: java.util.List options>;
+
+        interfaceinvoke $r0.<java.util.List: boolean add(java.lang.Object)>($r1);
+
+        return $r1;
+
+     label1:
+        return $r1;
+    }
+
+    private org.simpleframework.xml.core.Instantiator create(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.ClassInstantiator $r0;
+        org.simpleframework.xml.core.ParameterMap $r1;
+        org.simpleframework.xml.core.Signature $r2;
+        java.util.List $r3;
+        org.simpleframework.xml.core.Scanner $r4, $r8;
+        org.simpleframework.xml.core.SignatureCreator $r5;
+        java.lang.Class $r6;
+        org.simpleframework.xml.core.InstantiatorBuilder $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r6 := @parameter0: java.lang.Class;
+
+        $r4 = $r7.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Scanner scanner>;
+
+        $r2 = virtualinvoke $r4.<org.simpleframework.xml.core.Scanner: org.simpleframework.xml.core.Signature getSignature()>();
+
+        $r8 = $r7.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Scanner scanner>;
+
+        $r1 = virtualinvoke $r8.<org.simpleframework.xml.core.Scanner: org.simpleframework.xml.core.ParameterMap getParameters()>();
+
+        $r5 = null;
+
+        if $r2 == null goto label1;
+
+        $r5 = new org.simpleframework.xml.core.SignatureCreator;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.SignatureCreator: void <init>(org.simpleframework.xml.core.Signature)>($r2);
+
+     label1:
+        $r0 = new org.simpleframework.xml.core.ClassInstantiator;
+
+        $r3 = $r7.<org.simpleframework.xml.core.InstantiatorBuilder: java.util.List options>;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.ClassInstantiator: void <init>(java.util.List,org.simpleframework.xml.core.Creator,org.simpleframework.xml.core.ParameterMap,java.lang.Class)>($r3, $r5, $r1, $r6);
+
+        return $r0;
+    }
+
+    private org.simpleframework.xml.core.Parameter create(org.simpleframework.xml.core.Parameter) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Label $r0;
+        org.simpleframework.xml.core.CacheParameter $r1;
+        org.simpleframework.xml.core.Parameter $r2;
+        org.simpleframework.xml.core.InstantiatorBuilder $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Parameter;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Label resolve(org.simpleframework.xml.core.Parameter)>($r2);
+
+        if $r0 == null goto label1;
+
+        $r1 = new org.simpleframework.xml.core.CacheParameter;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.CacheParameter: void <init>(org.simpleframework.xml.core.Parameter,org.simpleframework.xml.core.Label)>($r2, $r0);
+
+        return $r1;
+
+     label1:
+        return null;
+    }
+
+    private void populate(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Signature $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.util.Iterator $r2;
+        java.util.List $r3;
+        org.simpleframework.xml.core.Scanner $r4;
+        java.lang.Class $r5;
+        org.simpleframework.xml.core.InstantiatorBuilder $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r5 := @parameter0: java.lang.Class;
+
+        $r4 = $r6.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Scanner scanner>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.Scanner: java.util.List getSignatures()>();
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.simpleframework.xml.core.Signature) $r1;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.InstantiatorBuilder: void populate(org.simpleframework.xml.core.Signature)>($r0);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void populate(org.simpleframework.xml.core.Signature) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Parameter $r0, $r6;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.util.Iterator $r2;
+        org.simpleframework.xml.core.Signature $r3, $r4;
+        org.simpleframework.xml.core.InstantiatorBuilder $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r3 := @parameter0: org.simpleframework.xml.core.Signature;
+
+        $r4 = new org.simpleframework.xml.core.Signature;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.Signature: void <init>(org.simpleframework.xml.core.Signature)>($r3);
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.Signature: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.simpleframework.xml.core.Parameter) $r1;
+
+        $r6 = specialinvoke $r5.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Parameter create(org.simpleframework.xml.core.Parameter)>($r0);
+
+        if $r6 == null goto label1;
+
+        virtualinvoke $r4.<org.simpleframework.xml.core.Signature: void add(org.simpleframework.xml.core.Parameter)>($r6);
+
+        goto label1;
+
+     label2:
+        specialinvoke $r5.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Creator create(org.simpleframework.xml.core.Signature)>($r4);
+
+        return;
+    }
+
+    private void register(org.simpleframework.xml.core.Label, org.simpleframework.xml.core.LabelMap) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        boolean $z0, $z1;
+        java.lang.String $r1, $r2, $r3;
+        org.simpleframework.xml.core.LabelMap $r4;
+        org.simpleframework.xml.core.Label $r5, $r6;
+        org.simpleframework.xml.core.InstantiatorBuilder $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r4 := @parameter1: org.simpleframework.xml.core.LabelMap;
+
+        $r1 = interfaceinvoke $r5.<org.simpleframework.xml.core.Label: java.lang.String getName()>();
+
+        $r2 = interfaceinvoke $r5.<org.simpleframework.xml.core.Label: java.lang.String getPath()>();
+
+        $z0 = virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: boolean containsKey(java.lang.Object)>($r1);
+
+        if $z0 == 0 goto label2;
+
+        $r0 = virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r6 = (org.simpleframework.xml.core.Label) $r0;
+
+        $r3 = interfaceinvoke $r6.<org.simpleframework.xml.core.Label: java.lang.String getPath()>();
+
+        $z1 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r1);
+
+        if $z1 != 0 goto label1;
+
+        virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, null);
+
+     label1:
+        virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r5);
+
+        return;
+
+     label2:
+        virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r5);
+
+        goto label1;
+    }
+
+    private org.simpleframework.xml.core.Label resolve(org.simpleframework.xml.core.Parameter) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Label $r0, $r5, $r7;
+        org.simpleframework.xml.core.LabelMap $r1, $r4, $r6;
+        boolean $z0, $z1;
+        org.simpleframework.xml.core.Parameter $r2;
+        org.simpleframework.xml.core.InstantiatorBuilder $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Parameter;
+
+        $z0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Parameter: boolean isAttribute()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap attributes>;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Label resolve(org.simpleframework.xml.core.Parameter,org.simpleframework.xml.core.LabelMap)>($r2, $r1);
+
+        return $r0;
+
+     label1:
+        $z1 = interfaceinvoke $r2.<org.simpleframework.xml.core.Parameter: boolean isText()>();
+
+        if $z1 == 0 goto label2;
+
+        $r4 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap texts>;
+
+        $r5 = specialinvoke $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Label resolve(org.simpleframework.xml.core.Parameter,org.simpleframework.xml.core.LabelMap)>($r2, $r4);
+
+        return $r5;
+
+     label2:
+        $r6 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r7 = specialinvoke $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Label resolve(org.simpleframework.xml.core.Parameter,org.simpleframework.xml.core.LabelMap)>($r2, $r6);
+
+        return $r7;
+    }
+
+    private org.simpleframework.xml.core.Label resolve(org.simpleframework.xml.core.Parameter, org.simpleframework.xml.core.LabelMap) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Label $r0, $r8;
+        java.lang.Object $r1, $r7;
+        java.lang.String $r2, $r3;
+        org.simpleframework.xml.core.LabelMap $r4;
+        org.simpleframework.xml.core.Parameter $r5;
+        org.simpleframework.xml.core.InstantiatorBuilder $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Parameter;
+
+        $r4 := @parameter1: org.simpleframework.xml.core.LabelMap;
+
+        $r2 = interfaceinvoke $r5.<org.simpleframework.xml.core.Parameter: java.lang.String getName()>();
+
+        $r3 = interfaceinvoke $r5.<org.simpleframework.xml.core.Parameter: java.lang.String getPath()>();
+
+        $r1 = virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r0 = (org.simpleframework.xml.core.Label) $r1;
+
+        if $r0 != null goto label1;
+
+        $r7 = virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r2);
+
+        $r8 = (org.simpleframework.xml.core.Label) $r7;
+
+        return $r8;
+
+     label1:
+        return $r0;
+    }
+
+    private void validate(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.ConstructorException $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.core.Label $r3;
+        org.simpleframework.xml.core.Parameter $r4;
+        java.lang.Object $r5;
+        boolean $z0;
+        java.util.Iterator $r6;
+        java.util.List $r7;
+        org.simpleframework.xml.core.ParameterMap $r8;
+        org.simpleframework.xml.core.Scanner $r9;
+        java.lang.Class $r10;
+        org.simpleframework.xml.core.InstantiatorBuilder $r11;
+
+        $r11 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r10 := @parameter0: java.lang.Class;
+
+        $r9 = $r11.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Scanner scanner>;
+
+        $r8 = virtualinvoke $r9.<org.simpleframework.xml.core.Scanner: org.simpleframework.xml.core.ParameterMap getParameters()>();
+
+        $r7 = virtualinvoke $r8.<org.simpleframework.xml.core.ParameterMap: java.util.List getAll()>();
+
+        $r6 = interfaceinvoke $r7.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r6.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r6.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = (org.simpleframework.xml.core.Parameter) $r5;
+
+        $r3 = specialinvoke $r11.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Label resolve(org.simpleframework.xml.core.Parameter)>($r4);
+
+        $r2 = interfaceinvoke $r4.<org.simpleframework.xml.core.Parameter: java.lang.String getPath()>();
+
+        if $r3 != null goto label2;
+
+        $r1 = new org.simpleframework.xml.core.ConstructorException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r2;
+
+        $r0[1] = $r10;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ConstructorException: void <init>(java.lang.String,java.lang.Object[])>("Parameter \'%s\' does not have a match in %s", $r0);
+
+        throw $r1;
+
+     label2:
+        specialinvoke $r11.<org.simpleframework.xml.core.InstantiatorBuilder: void validateParameter(org.simpleframework.xml.core.Label,org.simpleframework.xml.core.Parameter)>($r3, $r4);
+
+        goto label1;
+
+     label3:
+        specialinvoke $r11.<org.simpleframework.xml.core.InstantiatorBuilder: void validateConstructors()>();
+
+        return;
+    }
+
+    private void validateAnnotations(org.simpleframework.xml.core.Label, org.simpleframework.xml.core.Parameter) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.ConstructorException $r1;
+        java.lang.Class $r2, $r3;
+        boolean $z0, $z1;
+        java.lang.String $r4;
+        java.lang.annotation.Annotation $r5, $r6;
+        org.simpleframework.xml.core.Comparer $r7;
+        org.simpleframework.xml.core.Parameter $r8;
+        org.simpleframework.xml.core.Label $r9;
+        org.simpleframework.xml.core.InstantiatorBuilder $r10;
+
+        $r10 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r9 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r8 := @parameter1: org.simpleframework.xml.core.Parameter;
+
+        $r5 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.lang.annotation.Annotation getAnnotation()>();
+
+        $r6 = interfaceinvoke $r8.<org.simpleframework.xml.core.Parameter: java.lang.annotation.Annotation getAnnotation()>();
+
+        $r4 = interfaceinvoke $r8.<org.simpleframework.xml.core.Parameter: java.lang.String getName()>();
+
+        $r7 = $r10.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Comparer comparer>;
+
+        $z0 = virtualinvoke $r7.<org.simpleframework.xml.core.Comparer: boolean equals(java.lang.annotation.Annotation,java.lang.annotation.Annotation)>($r5, $r6);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = interfaceinvoke $r5.<java.lang.annotation.Annotation: java.lang.Class annotationType()>();
+
+        $r3 = interfaceinvoke $r6.<java.lang.annotation.Annotation: java.lang.Class annotationType()>();
+
+        $z1 = virtualinvoke $r2.<java.lang.Object: boolean equals(java.lang.Object)>($r3);
+
+        if $z1 != 0 goto label2;
+
+        $r1 = new org.simpleframework.xml.core.ConstructorException;
+
+        $r0 = newarray (java.lang.Object)[4];
+
+        $r0[0] = $r3;
+
+        $r0[1] = $r2;
+
+        $r0[2] = $r4;
+
+        $r0[3] = $r8;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ConstructorException: void <init>(java.lang.String,java.lang.Object[])>("Annotation %s does not match %s for \'%s\' in %s", $r0);
+
+        throw $r1;
+
+     label1:
+        return;
+
+     label2:
+        return;
+    }
+
+    private void validateConstructor(org.simpleframework.xml.core.Label, java.util.List) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Parameter $r0;
+        org.simpleframework.xml.core.Contact $r1;
+        org.simpleframework.xml.core.Signature $r2;
+        org.simpleframework.xml.core.Creator $r3;
+        java.lang.Object $r4, $r9;
+        boolean $z0, $z1;
+        java.util.Iterator $r5;
+        java.util.List $r6;
+        org.simpleframework.xml.core.Label $r7;
+        org.simpleframework.xml.core.InstantiatorBuilder $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r7 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r6 := @parameter1: java.util.List;
+
+        $r5 = interfaceinvoke $r6.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r3 = (org.simpleframework.xml.core.Creator) $r4;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.core.Creator: org.simpleframework.xml.core.Signature getSignature()>();
+
+        $r1 = interfaceinvoke $r7.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Contact getContact()>();
+
+        $r9 = interfaceinvoke $r7.<org.simpleframework.xml.core.Label: java.lang.Object getKey()>();
+
+        $z1 = interfaceinvoke $r1.<org.simpleframework.xml.core.Contact: boolean isReadOnly()>();
+
+        if $z1 == 0 goto label1;
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.core.Signature: org.simpleframework.xml.core.Parameter get(java.lang.Object)>($r9);
+
+        if $r0 != null goto label1;
+
+        interfaceinvoke $r5.<java.util.Iterator: void remove()>();
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void validateConstructors() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.LabelMap $r0, $r5, $r6, $r7;
+        boolean $z0, $z1;
+        java.util.List $r1;
+        org.simpleframework.xml.core.Instantiator $r2, $r4;
+        org.simpleframework.xml.core.InstantiatorBuilder $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r2 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator factory>;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.core.Instantiator: java.util.List getCreators()>();
+
+        $r4 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator factory>;
+
+        $z0 = interfaceinvoke $r4.<org.simpleframework.xml.core.Instantiator: boolean isDefault()>();
+
+        if $z0 == 0 goto label1;
+
+        $r0 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap elements>;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.InstantiatorBuilder: void validateConstructors(org.simpleframework.xml.core.LabelMap)>($r0);
+
+        $r5 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap attributes>;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.InstantiatorBuilder: void validateConstructors(org.simpleframework.xml.core.LabelMap)>($r5);
+
+     label1:
+        $z1 = interfaceinvoke $r1.<java.util.List: boolean isEmpty()>();
+
+        if $z1 != 0 goto label2;
+
+        $r6 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap elements>;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.InstantiatorBuilder: void validateConstructors(org.simpleframework.xml.core.LabelMap,java.util.List)>($r6, $r1);
+
+        $r7 = $r3.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap attributes>;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.InstantiatorBuilder: void validateConstructors(org.simpleframework.xml.core.LabelMap,java.util.List)>($r7, $r1);
+
+        return;
+
+     label2:
+        return;
+    }
+
+    private void validateConstructors(org.simpleframework.xml.core.LabelMap) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.ConstructorException $r1;
+        org.simpleframework.xml.core.Contact $r2;
+        org.simpleframework.xml.core.Label $r3;
+        java.lang.Object $r4;
+        boolean $z0, $z1;
+        java.util.Iterator $r5;
+        java.lang.Class $r6;
+        org.simpleframework.xml.core.LabelMap $r7;
+        org.simpleframework.xml.core.InstantiatorBuilder $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r7 := @parameter0: org.simpleframework.xml.core.LabelMap;
+
+        $r5 = virtualinvoke $r7.<org.simpleframework.xml.core.LabelMap: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r3 = (org.simpleframework.xml.core.Label) $r4;
+
+        if $r3 == null goto label1;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Contact getContact()>();
+
+        $z1 = interfaceinvoke $r2.<org.simpleframework.xml.core.Contact: boolean isReadOnly()>();
+
+        if $z1 == 0 goto label1;
+
+        $r1 = new org.simpleframework.xml.core.ConstructorException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r3;
+
+        $r6 = $r8.<org.simpleframework.xml.core.InstantiatorBuilder: java.lang.Class type>;
+
+        $r0[1] = $r6;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ConstructorException: void <init>(java.lang.String,java.lang.Object[])>("Default constructor can not accept read only %s in %s", $r0);
+
+        throw $r1;
+
+     label2:
+        return;
+    }
+
+    private void validateConstructors(org.simpleframework.xml.core.LabelMap, java.util.List) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.ConstructorException $r1;
+        org.simpleframework.xml.core.Label $r2;
+        java.lang.Object $r3;
+        boolean $z0, $z1;
+        java.util.Iterator $r4;
+        java.lang.Class $r5;
+        java.util.List $r6;
+        org.simpleframework.xml.core.LabelMap $r7;
+        org.simpleframework.xml.core.InstantiatorBuilder $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r7 := @parameter0: org.simpleframework.xml.core.LabelMap;
+
+        $r6 := @parameter1: java.util.List;
+
+        $r4 = virtualinvoke $r7.<org.simpleframework.xml.core.LabelMap: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r2 = (org.simpleframework.xml.core.Label) $r3;
+
+        if $r2 == null goto label1;
+
+        specialinvoke $r8.<org.simpleframework.xml.core.InstantiatorBuilder: void validateConstructor(org.simpleframework.xml.core.Label,java.util.List)>($r2, $r6);
+
+        goto label1;
+
+     label2:
+        $z1 = interfaceinvoke $r6.<java.util.List: boolean isEmpty()>();
+
+        if $z1 == 0 goto label3;
+
+        $r1 = new org.simpleframework.xml.core.ConstructorException;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r5 = $r8.<org.simpleframework.xml.core.InstantiatorBuilder: java.lang.Class type>;
+
+        $r0[0] = $r5;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ConstructorException: void <init>(java.lang.String,java.lang.Object[])>("No constructor accepts all read only values in %s", $r0);
+
+        throw $r1;
+
+     label3:
+        return;
+    }
+
+    private void validateNames(org.simpleframework.xml.core.Label, org.simpleframework.xml.core.Parameter) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0, $r9;
+        org.simpleframework.xml.core.ConstructorException $r1, $r8;
+        boolean $z0, $z1;
+        java.lang.String $r2, $r3;
+        java.util.Collection $r4;
+        org.simpleframework.xml.core.Parameter $r5;
+        org.simpleframework.xml.core.Label $r6;
+        org.simpleframework.xml.core.InstantiatorBuilder $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r6 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r5 := @parameter1: org.simpleframework.xml.core.Parameter;
+
+        $r4 = interfaceinvoke $r6.<org.simpleframework.xml.core.Label: java.util.Collection getNames()>();
+
+        $r2 = interfaceinvoke $r5.<org.simpleframework.xml.core.Parameter: java.lang.String getName()>();
+
+        $z0 = interfaceinvoke $r4.<java.util.Collection: boolean contains(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label3;
+
+        $r3 = interfaceinvoke $r6.<org.simpleframework.xml.core.Label: java.lang.String getName()>();
+
+        if $r2 == $r3 goto label4;
+
+        if $r2 == null goto label1;
+
+        if $r3 != null goto label2;
+
+     label1:
+        $r1 = new org.simpleframework.xml.core.ConstructorException;
+
+        $r0 = newarray (java.lang.Object)[3];
+
+        $r0[0] = $r6;
+
+        $r0[1] = $r2;
+
+        $r0[2] = $r5;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ConstructorException: void <init>(java.lang.String,java.lang.Object[])>("Annotation does not match %s for \'%s\' in %s", $r0);
+
+        throw $r1;
+
+     label2:
+        $z1 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z1 != 0 goto label5;
+
+        $r8 = new org.simpleframework.xml.core.ConstructorException;
+
+        $r9 = newarray (java.lang.Object)[3];
+
+        $r9[0] = $r6;
+
+        $r9[1] = $r2;
+
+        $r9[2] = $r5;
+
+        specialinvoke $r8.<org.simpleframework.xml.core.ConstructorException: void <init>(java.lang.String,java.lang.Object[])>("Annotation does not match %s for \'%s\' in %s", $r9);
+
+        throw $r8;
+
+     label3:
+        return;
+
+     label4:
+        return;
+
+     label5:
+        return;
+    }
+
+    private void validateParameter(org.simpleframework.xml.core.Label, org.simpleframework.xml.core.Parameter) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.ConstructorException $r1;
+        boolean $z0;
+        java.lang.Class $r2, $r3;
+        java.lang.String $r4;
+        org.simpleframework.xml.core.Contact $r5;
+        org.simpleframework.xml.core.Parameter $r6;
+        org.simpleframework.xml.core.Label $r7;
+        org.simpleframework.xml.core.InstantiatorBuilder $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r7 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r6 := @parameter1: org.simpleframework.xml.core.Parameter;
+
+        $r5 = interfaceinvoke $r7.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Contact getContact()>();
+
+        $r4 = interfaceinvoke $r6.<org.simpleframework.xml.core.Parameter: java.lang.String getName()>();
+
+        $r2 = interfaceinvoke $r6.<org.simpleframework.xml.core.Parameter: java.lang.Class getType()>();
+
+        $r3 = interfaceinvoke $r5.<org.simpleframework.xml.core.Contact: java.lang.Class getType()>();
+
+        $z0 = staticinvoke <org.simpleframework.xml.core.Support: boolean isAssignable(java.lang.Class,java.lang.Class)>($r2, $r3);
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new org.simpleframework.xml.core.ConstructorException;
+
+        $r0 = newarray (java.lang.Object)[3];
+
+        $r0[0] = $r7;
+
+        $r0[1] = $r4;
+
+        $r0[2] = $r6;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ConstructorException: void <init>(java.lang.String,java.lang.Object[])>("Type is not compatible with %s for \'%s\' in %s", $r0);
+
+        throw $r1;
+
+     label1:
+        specialinvoke $r8.<org.simpleframework.xml.core.InstantiatorBuilder: void validateNames(org.simpleframework.xml.core.Label,org.simpleframework.xml.core.Parameter)>($r7, $r6);
+
+        specialinvoke $r8.<org.simpleframework.xml.core.InstantiatorBuilder: void validateAnnotations(org.simpleframework.xml.core.Label,org.simpleframework.xml.core.Parameter)>($r7, $r6);
+
+        return;
+    }
+
+    public org.simpleframework.xml.core.Instantiator build() throws java.lang.Exception
+    {
+        java.lang.Class $r0, $r3, $r4;
+        org.simpleframework.xml.core.Instantiator $r1, $r5;
+        org.simpleframework.xml.core.InstantiatorBuilder $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r1 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator factory>;
+
+        if $r1 != null goto label1;
+
+        $r0 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: java.lang.Class type>;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiatorBuilder: void populate(java.lang.Class)>($r0);
+
+        $r3 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: java.lang.Class type>;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator build(java.lang.Class)>($r3);
+
+        $r4 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: java.lang.Class type>;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiatorBuilder: void validate(java.lang.Class)>($r4);
+
+     label1:
+        $r5 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.Instantiator factory>;
+
+        return $r5;
+    }
+
+    public void register(org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.LabelMap $r0, $r3, $r4;
+        boolean $z0, $z1;
+        org.simpleframework.xml.core.Label $r1;
+        org.simpleframework.xml.core.InstantiatorBuilder $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.InstantiatorBuilder;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Label: boolean isAttribute()>();
+
+        if $z0 == 0 goto label1;
+
+        $r0 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap attributes>;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiatorBuilder: void register(org.simpleframework.xml.core.Label,org.simpleframework.xml.core.LabelMap)>($r1, $r0);
+
+        return;
+
+     label1:
+        $z1 = interfaceinvoke $r1.<org.simpleframework.xml.core.Label: boolean isText()>();
+
+        if $z1 == 0 goto label2;
+
+        $r3 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap texts>;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiatorBuilder: void register(org.simpleframework.xml.core.Label,org.simpleframework.xml.core.LabelMap)>($r1, $r3);
+
+        return;
+
+     label2:
+        $r4 = $r2.<org.simpleframework.xml.core.InstantiatorBuilder: org.simpleframework.xml.core.LabelMap elements>;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiatorBuilder: void register(org.simpleframework.xml.core.Label,org.simpleframework.xml.core.LabelMap)>($r1, $r4);
+
+        return;
+    }
+}

@@ -1,0 +1,301 @@
+class org.simpleframework.xml.stream.InputElement extends java.lang.Object implements org.simpleframework.xml.stream.InputNode
+{
+    private final org.simpleframework.xml.stream.InputNodeMap map;
+    private final org.simpleframework.xml.stream.EventNode node;
+    private final org.simpleframework.xml.stream.InputNode parent;
+    private final org.simpleframework.xml.stream.NodeReader reader;
+
+    public void <init>(org.simpleframework.xml.stream.InputNode, org.simpleframework.xml.stream.NodeReader, org.simpleframework.xml.stream.EventNode)
+    {
+        org.simpleframework.xml.stream.InputNodeMap $r0;
+        org.simpleframework.xml.stream.EventNode $r1;
+        org.simpleframework.xml.stream.NodeReader $r2;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.stream.InputElement $r4;
+
+        $r4 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 := @parameter1: org.simpleframework.xml.stream.NodeReader;
+
+        $r1 := @parameter2: org.simpleframework.xml.stream.EventNode;
+
+        specialinvoke $r4.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.stream.InputNodeMap;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.InputNodeMap: void <init>(org.simpleframework.xml.stream.InputNode,org.simpleframework.xml.stream.EventNode)>($r4, $r1);
+
+        $r4.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.InputNodeMap map> = $r0;
+
+        $r4.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.NodeReader reader> = $r2;
+
+        $r4.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.InputNode parent> = $r3;
+
+        $r4.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.EventNode node> = $r1;
+
+        return;
+    }
+
+    public org.simpleframework.xml.stream.InputNode getAttribute(java.lang.String)
+    {
+        org.simpleframework.xml.stream.InputNode $r0;
+        org.simpleframework.xml.stream.InputNodeMap $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.stream.InputElement $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = $r3.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.InputNodeMap map>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.InputNodeMap: org.simpleframework.xml.stream.InputNode get(java.lang.String)>($r2);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.NodeMap getAttributes()
+    {
+        org.simpleframework.xml.stream.InputNodeMap r0;
+        org.simpleframework.xml.stream.InputElement $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.InputElement;
+
+        r0 = $r1.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.InputNodeMap map>;
+
+        return r0;
+    }
+
+    public java.lang.String getName()
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.EventNode $r1;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.EventNode node>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventNode: java.lang.String getName()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.InputNode getNext() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.InputNode $r0;
+        org.simpleframework.xml.stream.NodeReader $r1;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.NodeReader reader>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputNode readElement(org.simpleframework.xml.stream.InputNode)>($r2);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.InputNode getNext(java.lang.String) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.InputNode $r0;
+        org.simpleframework.xml.stream.NodeReader $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.stream.InputElement $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = $r3.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.NodeReader reader>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputNode readElement(org.simpleframework.xml.stream.InputNode,java.lang.String)>($r3, $r2);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.InputNode getParent()
+    {
+        org.simpleframework.xml.stream.InputNode r0;
+        org.simpleframework.xml.stream.InputElement $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.InputElement;
+
+        r0 = $r1.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.InputNode parent>;
+
+        return r0;
+    }
+
+    public volatile org.simpleframework.xml.stream.Node getParent()
+    {
+        org.simpleframework.xml.stream.InputNode $r0;
+        org.simpleframework.xml.stream.InputElement $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.InputNode getParent()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.Position getPosition()
+    {
+        org.simpleframework.xml.stream.EventNode $r0;
+        org.simpleframework.xml.stream.InputPosition $r1;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r1 = new org.simpleframework.xml.stream.InputPosition;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.EventNode node>;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.InputPosition: void <init>(org.simpleframework.xml.stream.EventNode)>($r0);
+
+        return $r1;
+    }
+
+    public java.lang.String getPrefix()
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.EventNode $r1;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.EventNode node>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventNode: java.lang.String getPrefix()>();
+
+        return $r0;
+    }
+
+    public java.lang.String getReference()
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.EventNode $r1;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.EventNode node>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventNode: java.lang.String getReference()>();
+
+        return $r0;
+    }
+
+    public java.lang.Object getSource()
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.EventNode $r1;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.EventNode node>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventNode: java.lang.Object getSource()>();
+
+        return $r0;
+    }
+
+    public java.lang.String getValue() throws java.lang.Exception
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.NodeReader $r1;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.NodeReader reader>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.NodeReader: java.lang.String readValue(org.simpleframework.xml.stream.InputNode)>($r2);
+
+        return $r0;
+    }
+
+    public boolean isElement()
+    {
+        org.simpleframework.xml.stream.InputElement $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.InputElement;
+
+        return 1;
+    }
+
+    public boolean isEmpty() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.NodeReader $r0;
+        boolean $z0, $z1;
+        org.simpleframework.xml.stream.InputNodeMap $r1;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.InputNodeMap map>;
+
+        $z0 = virtualinvoke $r1.<org.simpleframework.xml.stream.InputNodeMap: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r0 = $r2.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.NodeReader reader>;
+
+        $z1 = virtualinvoke $r0.<org.simpleframework.xml.stream.NodeReader: boolean isEmpty(org.simpleframework.xml.stream.InputNode)>($r2);
+
+        return $z1;
+    }
+
+    public boolean isRoot()
+    {
+        boolean $z0;
+        org.simpleframework.xml.stream.NodeReader $r0;
+        org.simpleframework.xml.stream.InputElement $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r0 = $r1.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.NodeReader reader>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.stream.NodeReader: boolean isRoot(org.simpleframework.xml.stream.InputNode)>($r1);
+
+        return $z0;
+    }
+
+    public void skip() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.NodeReader $r0;
+        org.simpleframework.xml.stream.InputElement $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r0 = $r1.<org.simpleframework.xml.stream.InputElement: org.simpleframework.xml.stream.NodeReader reader>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.stream.NodeReader: void skipElement(org.simpleframework.xml.stream.InputNode)>($r1);
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.Object[] $r0;
+        java.lang.String $r1, $r3;
+        org.simpleframework.xml.stream.InputElement $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.InputElement;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.stream.InputElement: java.lang.String getName()>();
+
+        $r0[0] = $r1;
+
+        $r3 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("element %s", $r0);
+
+        return $r3;
+    }
+}

@@ -1,0 +1,29 @@
+class org.simpleframework.xml.core.ContactMap extends java.util.LinkedHashMap implements java.lang.Iterable
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.core.ContactMap $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.ContactMap;
+
+        specialinvoke $r0.<java.util.LinkedHashMap: void <init>()>();
+
+        return;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        java.util.Iterator $r0;
+        java.util.Collection $r1;
+        org.simpleframework.xml.core.ContactMap $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ContactMap;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.ContactMap: java.util.Collection values()>();
+
+        $r0 = interfaceinvoke $r1.<java.util.Collection: java.util.Iterator iterator()>();
+
+        return $r0;
+    }
+}

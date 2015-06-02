@@ -1,0 +1,219 @@
+class org.simpleframework.xml.stream.PrefixResolver extends java.util.LinkedHashMap implements org.simpleframework.xml.stream.NamespaceMap
+{
+    private final org.simpleframework.xml.stream.OutputNode source;
+
+    public void <init>(org.simpleframework.xml.stream.OutputNode)
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.PrefixResolver $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r0 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        specialinvoke $r1.<java.util.LinkedHashMap: void <init>()>();
+
+        $r1.<org.simpleframework.xml.stream.PrefixResolver: org.simpleframework.xml.stream.OutputNode source> = $r0;
+
+        return;
+    }
+
+    private java.lang.String resolvePrefix(java.lang.String)
+    {
+        boolean $z0;
+        org.simpleframework.xml.stream.NamespaceMap $r0;
+        org.simpleframework.xml.stream.OutputNode $r1;
+        java.lang.String $r2, $r4;
+        org.simpleframework.xml.stream.PrefixResolver $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = $r3.<org.simpleframework.xml.stream.PrefixResolver: org.simpleframework.xml.stream.OutputNode source>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.NamespaceMap getNamespaces()>();
+
+        if $r0 == null goto label1;
+
+        $r4 = interfaceinvoke $r0.<org.simpleframework.xml.stream.NamespaceMap: java.lang.String getPrefix(java.lang.String)>($r2);
+
+        $z0 = virtualinvoke $r3.<org.simpleframework.xml.stream.PrefixResolver: boolean containsValue(java.lang.Object)>($r4);
+
+        if $z0 != 0 goto label1;
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    private java.lang.String resolveReference(java.lang.String)
+    {
+        org.simpleframework.xml.stream.NamespaceMap $r0;
+        org.simpleframework.xml.stream.OutputNode $r1;
+        java.lang.String $r2, $r4;
+        org.simpleframework.xml.stream.PrefixResolver $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = $r3.<org.simpleframework.xml.stream.PrefixResolver: org.simpleframework.xml.stream.OutputNode source>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.NamespaceMap getNamespaces()>();
+
+        if $r0 == null goto label1;
+
+        $r4 = interfaceinvoke $r0.<org.simpleframework.xml.stream.NamespaceMap: java.lang.String getReference(java.lang.String)>($r2);
+
+        return $r4;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.String getPrefix()
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.OutputNode $r1;
+        org.simpleframework.xml.stream.PrefixResolver $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.PrefixResolver: org.simpleframework.xml.stream.OutputNode source>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.OutputNode: java.lang.String getPrefix()>();
+
+        return $r0;
+    }
+
+    public java.lang.String getPrefix(java.lang.String)
+    {
+        java.lang.Object $r0;
+        int $i0;
+        java.lang.String $r1, $r2, $r4;
+        org.simpleframework.xml.stream.PrefixResolver $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 = virtualinvoke $r3.<org.simpleframework.xml.stream.PrefixResolver: int size()>();
+
+        if $i0 <= 0 goto label1;
+
+        $r0 = virtualinvoke $r3.<org.simpleframework.xml.stream.PrefixResolver: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r2 = (java.lang.String) $r0;
+
+        if $r2 == null goto label1;
+
+        return $r2;
+
+     label1:
+        $r4 = specialinvoke $r3.<org.simpleframework.xml.stream.PrefixResolver: java.lang.String resolvePrefix(java.lang.String)>($r1);
+
+        return $r4;
+    }
+
+    public java.lang.String getReference(java.lang.String)
+    {
+        java.lang.Object $r0, $r6;
+        java.util.Iterator $r1;
+        boolean $z0, $z1, $z2;
+        java.lang.String $r2, $r3, $r4, $r7;
+        org.simpleframework.xml.stream.PrefixResolver $r5;
+
+        $r5 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $z0 = virtualinvoke $r5.<org.simpleframework.xml.stream.PrefixResolver: boolean containsValue(java.lang.Object)>($r2);
+
+        if $z0 == 0 goto label2;
+
+        $r1 = virtualinvoke $r5.<org.simpleframework.xml.stream.PrefixResolver: java.util.Iterator iterator()>();
+
+     label1:
+        $z1 = interfaceinvoke $r1.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label2;
+
+        $r0 = interfaceinvoke $r1.<java.util.Iterator: java.lang.Object next()>();
+
+        $r3 = (java.lang.String) $r0;
+
+        $r6 = virtualinvoke $r5.<org.simpleframework.xml.stream.PrefixResolver: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r4 = (java.lang.String) $r6;
+
+        if $r4 == null goto label1;
+
+        $z2 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r2);
+
+        if $z2 == 0 goto label1;
+
+        return $r3;
+
+     label2:
+        $r7 = specialinvoke $r5.<org.simpleframework.xml.stream.PrefixResolver: java.lang.String resolveReference(java.lang.String)>($r2);
+
+        return $r7;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        java.util.Iterator $r0;
+        java.util.Set $r1;
+        org.simpleframework.xml.stream.PrefixResolver $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.stream.PrefixResolver: java.util.Set keySet()>();
+
+        $r0 = interfaceinvoke $r1.<java.util.Set: java.util.Iterator iterator()>();
+
+        return $r0;
+    }
+
+    public java.lang.String setReference(java.lang.String)
+    {
+        java.lang.String $r0, $r2;
+        org.simpleframework.xml.stream.PrefixResolver $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r2 = virtualinvoke $r1.<org.simpleframework.xml.stream.PrefixResolver: java.lang.String setReference(java.lang.String,java.lang.String)>($r0, "");
+
+        return $r2;
+    }
+
+    public java.lang.String setReference(java.lang.String, java.lang.String)
+    {
+        java.lang.Object $r0;
+        java.lang.String $r1, $r2, $r3, $r5;
+        org.simpleframework.xml.stream.PrefixResolver $r4;
+
+        $r4 := @this: org.simpleframework.xml.stream.PrefixResolver;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = specialinvoke $r4.<org.simpleframework.xml.stream.PrefixResolver: java.lang.String resolvePrefix(java.lang.String)>($r1);
+
+        if $r3 == null goto label1;
+
+        return null;
+
+     label1:
+        $r0 = virtualinvoke $r4.<org.simpleframework.xml.stream.PrefixResolver: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        $r5 = (java.lang.String) $r0;
+
+        return $r5;
+    }
+}

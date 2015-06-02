@@ -1,0 +1,130 @@
+class org.simpleframework.xml.core.PrimitiveFactory extends org.simpleframework.xml.core.Factory
+{
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type)
+    {
+        org.simpleframework.xml.strategy.Type $r0;
+        org.simpleframework.xml.core.Context $r1;
+        org.simpleframework.xml.core.PrimitiveFactory $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.PrimitiveFactory;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r0 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.Factory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r1, $r0);
+
+        return;
+    }
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type, java.lang.Class)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.strategy.Type $r1;
+        org.simpleframework.xml.core.Context $r2;
+        org.simpleframework.xml.core.PrimitiveFactory $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.PrimitiveFactory;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r1 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        $r0 := @parameter2: java.lang.Class;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.Factory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type,java.lang.Class)>($r2, $r1, $r0);
+
+        return;
+    }
+
+    public java.lang.Object getInstance(java.lang.String, java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.core.Support $r1;
+        java.lang.Class $r2;
+        java.lang.String $r3;
+        org.simpleframework.xml.core.PrimitiveFactory $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveFactory;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r1 = $r4.<org.simpleframework.xml.core.PrimitiveFactory: org.simpleframework.xml.core.Support support>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Support: java.lang.Object read(java.lang.String,java.lang.Class)>($r3, $r2);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.ObjectInstance $r0;
+        org.simpleframework.xml.core.Instance $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.strategy.Value $r3;
+        org.simpleframework.xml.core.Context $r4, $r7;
+        org.simpleframework.xml.stream.InputNode $r5;
+        org.simpleframework.xml.core.PrimitiveFactory $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.PrimitiveFactory;
+
+        $r5 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 = virtualinvoke $r6.<org.simpleframework.xml.core.PrimitiveFactory: org.simpleframework.xml.strategy.Value getOverride(org.simpleframework.xml.stream.InputNode)>($r5);
+
+        $r2 = virtualinvoke $r6.<org.simpleframework.xml.core.PrimitiveFactory: java.lang.Class getType()>();
+
+        if $r3 != null goto label1;
+
+        $r4 = $r6.<org.simpleframework.xml.core.PrimitiveFactory: org.simpleframework.xml.core.Context context>;
+
+        $r1 = interfaceinvoke $r4.<org.simpleframework.xml.core.Context: org.simpleframework.xml.core.Instance getInstance(java.lang.Class)>($r2);
+
+        return $r1;
+
+     label1:
+        $r0 = new org.simpleframework.xml.core.ObjectInstance;
+
+        $r7 = $r6.<org.simpleframework.xml.core.PrimitiveFactory: org.simpleframework.xml.core.Context context>;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.ObjectInstance: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Value)>($r7, $r3);
+
+        return $r0;
+    }
+
+    public java.lang.String getText(java.lang.Object) throws java.lang.Exception
+    {
+        java.lang.String $r0, $r6;
+        org.simpleframework.xml.core.Support $r1, $r5;
+        boolean $z0;
+        java.lang.Class $r2;
+        java.lang.Object $r3;
+        org.simpleframework.xml.core.PrimitiveFactory $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveFactory;
+
+        $r3 := @parameter0: java.lang.Object;
+
+        $r2 = virtualinvoke $r3.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isEnum()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r4.<org.simpleframework.xml.core.PrimitiveFactory: org.simpleframework.xml.core.Support support>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Support: java.lang.String write(java.lang.Object,java.lang.Class)>($r3, $r2);
+
+        return $r0;
+
+     label1:
+        $r5 = $r4.<org.simpleframework.xml.core.PrimitiveFactory: org.simpleframework.xml.core.Support support>;
+
+        $r6 = virtualinvoke $r5.<org.simpleframework.xml.core.Support: java.lang.String write(java.lang.Object,java.lang.Class)>($r3, $r2);
+
+        return $r6;
+    }
+}

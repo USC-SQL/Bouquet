@@ -1,0 +1,197 @@
+class org.simpleframework.xml.transform.StringArrayTransform extends java.lang.Object implements org.simpleframework.xml.transform.Transform
+{
+    private final java.util.regex.Pattern pattern;
+    private final java.lang.String token;
+
+    public void <init>()
+    {
+        org.simpleframework.xml.transform.StringArrayTransform $r0;
+
+        $r0 := @this: org.simpleframework.xml.transform.StringArrayTransform;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.StringArrayTransform: void <init>(java.lang.String)>(",");
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        java.util.regex.Pattern $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.StringArrayTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.StringArrayTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0 = staticinvoke <java.util.regex.Pattern: java.util.regex.Pattern compile(java.lang.String)>($r1);
+
+        $r2.<org.simpleframework.xml.transform.StringArrayTransform: java.util.regex.Pattern pattern> = $r0;
+
+        $r2.<org.simpleframework.xml.transform.StringArrayTransform: java.lang.String token> = $r1;
+
+        return;
+    }
+
+    private java.lang.String[] read(java.lang.String, java.lang.String)
+    {
+        java.lang.String[] $r0;
+        java.util.regex.Pattern $r1;
+        int $i0, $i1;
+        java.lang.String $r2, $r3, $r5, $r6;
+        org.simpleframework.xml.transform.StringArrayTransform $r4;
+
+        $r4 := @this: org.simpleframework.xml.transform.StringArrayTransform;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: java.lang.String;
+
+        $r1 = $r4.<org.simpleframework.xml.transform.StringArrayTransform: java.util.regex.Pattern pattern>;
+
+        $r0 = virtualinvoke $r1.<java.util.regex.Pattern: java.lang.String[] split(java.lang.CharSequence)>($r2);
+
+        $i0 = 0;
+
+     label1:
+        $i1 = lengthof $r0;
+
+        if $i0 >= $i1 goto label3;
+
+        $r5 = $r0[$i0];
+
+        if $r5 == null goto label2;
+
+        $r6 = virtualinvoke $r5.<java.lang.String: java.lang.String trim()>();
+
+        $r0[$i0] = $r6;
+
+     label2:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        return $r0;
+    }
+
+    private java.lang.String write(java.lang.String[], java.lang.String)
+    {
+        java.lang.StringBuilder $r0;
+        int $i0, $i1, $i2;
+        java.lang.String $r1, $r2, $r5;
+        java.lang.String[] $r3;
+        org.simpleframework.xml.transform.StringArrayTransform $r4;
+
+        $r4 := @this: org.simpleframework.xml.transform.StringArrayTransform;
+
+        $r3 := @parameter0: java.lang.String[];
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+        $i0 = 0;
+
+     label1:
+        $i1 = lengthof $r3;
+
+        if $i0 >= $i1 goto label4;
+
+        $r2 = $r3[$i0];
+
+        if $r2 == null goto label3;
+
+        $i2 = virtualinvoke $r0.<java.lang.StringBuilder: int length()>();
+
+        if $i2 <= 0 goto label2;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(32);
+
+     label2:
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+     label3:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r5 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r5;
+    }
+
+    public volatile java.lang.Object read(java.lang.String) throws java.lang.Exception
+    {
+        java.lang.String[] $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.StringArrayTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.StringArrayTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.transform.StringArrayTransform: java.lang.String[] read(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public java.lang.String[] read(java.lang.String)
+    {
+        java.lang.String[] $r0;
+        java.lang.String $r1, $r2;
+        org.simpleframework.xml.transform.StringArrayTransform $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.StringArrayTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 = $r3.<org.simpleframework.xml.transform.StringArrayTransform: java.lang.String token>;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.transform.StringArrayTransform: java.lang.String[] read(java.lang.String,java.lang.String)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public volatile java.lang.String write(java.lang.Object) throws java.lang.Exception
+    {
+        java.lang.String[] $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.transform.StringArrayTransform $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.StringArrayTransform;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r0 = (java.lang.String[]) $r2;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.transform.StringArrayTransform: java.lang.String write(java.lang.String[])>($r0);
+
+        return $r1;
+    }
+
+    public java.lang.String write(java.lang.String[])
+    {
+        java.lang.String $r0, $r3;
+        java.lang.String[] $r1;
+        org.simpleframework.xml.transform.StringArrayTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.StringArrayTransform;
+
+        $r1 := @parameter0: java.lang.String[];
+
+        $r0 = $r2.<org.simpleframework.xml.transform.StringArrayTransform: java.lang.String token>;
+
+        $r3 = specialinvoke $r2.<org.simpleframework.xml.transform.StringArrayTransform: java.lang.String write(java.lang.String[],java.lang.String)>($r1, $r0);
+
+        return $r3;
+    }
+}

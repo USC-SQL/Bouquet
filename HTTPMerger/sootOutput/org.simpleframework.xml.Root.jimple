@@ -1,0 +1,7 @@
+public annotation interface  org.simpleframework.xml.Root extends java.lang.Object implements java.lang.annotation.Annotation
+{
+
+    public abstract java.lang.String name();
+
+    public abstract boolean strict();
+}

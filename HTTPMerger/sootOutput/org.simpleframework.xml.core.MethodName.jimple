@@ -1,0 +1,70 @@
+class org.simpleframework.xml.core.MethodName extends java.lang.Object
+{
+    private java.lang.reflect.Method method;
+    private java.lang.String name;
+    private org.simpleframework.xml.core.MethodType type;
+
+    public void <init>(java.lang.reflect.Method, org.simpleframework.xml.core.MethodType, java.lang.String)
+    {
+        java.lang.String $r0, $r4;
+        org.simpleframework.xml.core.MethodType $r1;
+        java.lang.reflect.Method $r2;
+        org.simpleframework.xml.core.MethodName $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.MethodName;
+
+        $r2 := @parameter0: java.lang.reflect.Method;
+
+        $r1 := @parameter1: org.simpleframework.xml.core.MethodType;
+
+        $r0 := @parameter2: java.lang.String;
+
+        specialinvoke $r3.<java.lang.Object: void <init>()>();
+
+        $r4 = virtualinvoke $r0.<java.lang.String: java.lang.String intern()>();
+
+        $r3.<org.simpleframework.xml.core.MethodName: java.lang.String name> = $r4;
+
+        $r3.<org.simpleframework.xml.core.MethodName: java.lang.reflect.Method method> = $r2;
+
+        $r3.<org.simpleframework.xml.core.MethodName: org.simpleframework.xml.core.MethodType type> = $r1;
+
+        return;
+    }
+
+    public java.lang.reflect.Method getMethod()
+    {
+        java.lang.reflect.Method r0;
+        org.simpleframework.xml.core.MethodName $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.MethodName;
+
+        r0 = $r1.<org.simpleframework.xml.core.MethodName: java.lang.reflect.Method method>;
+
+        return r0;
+    }
+
+    public java.lang.String getName()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.MethodName $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.MethodName;
+
+        r0 = $r1.<org.simpleframework.xml.core.MethodName: java.lang.String name>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.MethodType getType()
+    {
+        org.simpleframework.xml.core.MethodType r0;
+        org.simpleframework.xml.core.MethodName $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.MethodName;
+
+        r0 = $r1.<org.simpleframework.xml.core.MethodName: org.simpleframework.xml.core.MethodType type>;
+
+        return r0;
+    }
+}

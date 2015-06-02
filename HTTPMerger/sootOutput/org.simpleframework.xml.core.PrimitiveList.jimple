@@ -1,0 +1,284 @@
+class org.simpleframework.xml.core.PrimitiveList extends java.lang.Object implements org.simpleframework.xml.core.Converter
+{
+    private final org.simpleframework.xml.strategy.Type entry;
+    private final org.simpleframework.xml.core.CollectionFactory factory;
+    private final java.lang.String parent;
+    private final org.simpleframework.xml.core.Primitive root;
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type, org.simpleframework.xml.strategy.Type, java.lang.String)
+    {
+        org.simpleframework.xml.core.Primitive $r0;
+        org.simpleframework.xml.core.CollectionFactory $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.strategy.Type $r3, $r4;
+        org.simpleframework.xml.core.Context $r5;
+        org.simpleframework.xml.core.PrimitiveList $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.PrimitiveList;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r3 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        $r4 := @parameter2: org.simpleframework.xml.strategy.Type;
+
+        $r2 := @parameter3: java.lang.String;
+
+        specialinvoke $r6.<java.lang.Object: void <init>()>();
+
+        $r1 = new org.simpleframework.xml.core.CollectionFactory;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.CollectionFactory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r5, $r3);
+
+        $r6.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.CollectionFactory factory> = $r1;
+
+        $r0 = new org.simpleframework.xml.core.Primitive;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.Primitive: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r5, $r4);
+
+        $r6.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.Primitive root> = $r0;
+
+        $r6.<org.simpleframework.xml.core.PrimitiveList: java.lang.String parent> = $r2;
+
+        $r6.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.strategy.Type entry> = $r4;
+
+        return;
+    }
+
+    private boolean isOverridden(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.strategy.Type $r0;
+        org.simpleframework.xml.core.CollectionFactory $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.stream.OutputNode $r3;
+        org.simpleframework.xml.core.PrimitiveList $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveList;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r1 = $r4.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.CollectionFactory factory>;
+
+        $r0 = $r4.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.strategy.Type entry>;
+
+        $z0 = virtualinvoke $r1.<org.simpleframework.xml.core.CollectionFactory: boolean setOverride(org.simpleframework.xml.strategy.Type,java.lang.Object,org.simpleframework.xml.stream.OutputNode)>($r0, $r2, $r3);
+
+        return $z0;
+    }
+
+    private java.lang.Object populate(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        java.util.Collection $r0;
+        org.simpleframework.xml.core.Primitive $r1;
+        java.lang.Object $r2, $r6;
+        org.simpleframework.xml.stream.InputNode $r3, $r4;
+        org.simpleframework.xml.core.PrimitiveList $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.PrimitiveList;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r0 = (java.util.Collection) $r2;
+
+     label1:
+        $r4 = interfaceinvoke $r3.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext()>();
+
+        if $r4 != null goto label2;
+
+        return $r0;
+
+     label2:
+        $r1 = $r5.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.Primitive root>;
+
+        $r6 = virtualinvoke $r1.<org.simpleframework.xml.core.Primitive: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r4);
+
+        interfaceinvoke $r0.<java.util.Collection: boolean add(java.lang.Object)>($r6);
+
+        goto label1;
+    }
+
+    private boolean validate(org.simpleframework.xml.stream.InputNode, java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Primitive $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.stream.InputNode $r2, $r3;
+        org.simpleframework.xml.core.PrimitiveList $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveList;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r1 := @parameter1: java.lang.Class;
+
+     label1:
+        $r3 = interfaceinvoke $r2.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext()>();
+
+        if $r3 != null goto label2;
+
+        return 1;
+
+     label2:
+        $r0 = $r4.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.Primitive root>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Primitive: boolean validate(org.simpleframework.xml.stream.InputNode)>($r3);
+
+        goto label1;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        boolean $z0;
+        java.lang.Object $r0, $r5;
+        org.simpleframework.xml.core.Instance $r1;
+        org.simpleframework.xml.core.CollectionFactory $r2;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.core.PrimitiveList $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveList;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 = $r4.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.CollectionFactory factory>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.stream.InputNode)>($r3);
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: java.lang.Object getInstance()>();
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: boolean isReference()>();
+
+        if $z0 != 0 goto label1;
+
+        $r5 = specialinvoke $r4.<org.simpleframework.xml.core.PrimitiveList: java.lang.Object populate(org.simpleframework.xml.stream.InputNode,java.lang.Object)>($r3, $r0);
+
+        return $r5;
+
+     label1:
+        return $r0;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Instance $r0;
+        org.simpleframework.xml.core.CollectionFactory $r1;
+        java.lang.Object $r2, $r5, $r6;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.core.PrimitiveList $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveList;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r1 = $r4.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.CollectionFactory factory>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.stream.InputNode)>($r3);
+
+        $z0 = interfaceinvoke $r0.<org.simpleframework.xml.core.Instance: boolean isReference()>();
+
+        if $z0 == 0 goto label1;
+
+        $r5 = interfaceinvoke $r0.<org.simpleframework.xml.core.Instance: java.lang.Object getInstance()>();
+
+        return $r5;
+
+     label1:
+        interfaceinvoke $r0.<org.simpleframework.xml.core.Instance: java.lang.Object setInstance(java.lang.Object)>($r2);
+
+        if $r2 == null goto label2;
+
+        $r6 = specialinvoke $r4.<org.simpleframework.xml.core.PrimitiveList: java.lang.Object populate(org.simpleframework.xml.stream.InputNode,java.lang.Object)>($r3, $r2);
+
+        return $r6;
+
+     label2:
+        return $r2;
+    }
+
+    public boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.Class $r0;
+        boolean $z0, $z1;
+        org.simpleframework.xml.core.Instance $r1;
+        org.simpleframework.xml.core.CollectionFactory $r2;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.core.PrimitiveList $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveList;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 = $r4.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.CollectionFactory factory>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.stream.InputNode)>($r3);
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: boolean isReference()>();
+
+        if $z0 != 0 goto label1;
+
+        interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: java.lang.Object setInstance(java.lang.Object)>(null);
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: java.lang.Class getType()>();
+
+        $z1 = specialinvoke $r4.<org.simpleframework.xml.core.PrimitiveList: boolean validate(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r3, $r0);
+
+        return $z1;
+
+     label1:
+        return 1;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Primitive $r0;
+        java.lang.String $r1;
+        boolean $z0, $z1;
+        java.util.Collection $r2;
+        java.util.Iterator $r3;
+        java.lang.Object $r4, $r8;
+        org.simpleframework.xml.stream.OutputNode $r5, $r6;
+        org.simpleframework.xml.core.PrimitiveList $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.PrimitiveList;
+
+        $r5 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r4 := @parameter1: java.lang.Object;
+
+        $r2 = (java.util.Collection) $r4;
+
+        $r3 = interfaceinvoke $r2.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r8 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        if $r8 == null goto label1;
+
+        $r1 = $r7.<org.simpleframework.xml.core.PrimitiveList: java.lang.String parent>;
+
+        $r6 = interfaceinvoke $r5.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.OutputNode getChild(java.lang.String)>($r1);
+
+        $z1 = specialinvoke $r7.<org.simpleframework.xml.core.PrimitiveList: boolean isOverridden(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r6, $r8);
+
+        if $z1 != 0 goto label1;
+
+        $r0 = $r7.<org.simpleframework.xml.core.PrimitiveList: org.simpleframework.xml.core.Primitive root>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Primitive: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r6, $r8);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+}

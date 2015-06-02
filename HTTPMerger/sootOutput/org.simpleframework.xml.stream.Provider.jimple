@@ -1,0 +1,7 @@
+interface  org.simpleframework.xml.stream.Provider extends java.lang.Object
+{
+
+    public abstract org.simpleframework.xml.stream.EventReader provide(java.io.InputStream) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.stream.EventReader provide(java.io.Reader) throws java.lang.Exception;
+}

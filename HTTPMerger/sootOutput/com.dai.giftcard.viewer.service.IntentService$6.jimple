@@ -1,0 +1,77 @@
+final class com.dai.giftcard.viewer.service.IntentService$6 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final android.app.Activity val$activity;
+
+    void <init>(android.app.Activity)
+    {
+        android.app.Activity $r0;
+        com.dai.giftcard.viewer.service.IntentService$6 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.service.IntentService$6;
+
+        $r0 := @parameter0: android.app.Activity;
+
+        $r1.<com.dai.giftcard.viewer.service.IntentService$6: android.app.Activity val$activity> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        android.widget.Toast $r0;
+        android.net.Uri $r1;
+        java.lang.String $r2;
+        android.app.Activity $r3, $r9, $r10;
+        android.content.Context $r4, $r11;
+        android.content.Intent $r5;
+        android.content.ActivityNotFoundException $r6;
+        int $i0;
+        android.content.DialogInterface $r7;
+        com.dai.giftcard.viewer.service.IntentService$6 $r8;
+
+        $r8 := @this: com.dai.giftcard.viewer.service.IntentService$6;
+
+        $r7 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r5 = new android.content.Intent;
+
+     label1:
+        specialinvoke $r5.<android.content.Intent: void <init>(java.lang.String)>("android.intent.action.VIEW");
+
+        $r3 = $r8.<com.dai.giftcard.viewer.service.IntentService$6: android.app.Activity val$activity>;
+
+        $r4 = virtualinvoke $r3.<android.app.Activity: android.content.Context getApplicationContext()>();
+
+        $r2 = staticinvoke <com.dai.giftcard.viewer.service.ValueService: java.lang.String GetMarketUrl(android.content.Context)>($r4);
+
+        $r1 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r2);
+
+        virtualinvoke $r5.<android.content.Intent: android.content.Intent setData(android.net.Uri)>($r1);
+
+        $r9 = $r8.<com.dai.giftcard.viewer.service.IntentService$6: android.app.Activity val$activity>;
+
+        virtualinvoke $r9.<android.app.Activity: void startActivity(android.content.Intent)>($r5);
+
+     label2:
+        return;
+
+     label3:
+        $r6 := @caughtexception;
+
+        $r10 = $r8.<com.dai.giftcard.viewer.service.IntentService$6: android.app.Activity val$activity>;
+
+        $r11 = virtualinvoke $r10.<android.app.Activity: android.content.Context getApplicationContext()>();
+
+        $r0 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r11, "Could not open Android Market.", 0);
+
+        virtualinvoke $r0.<android.widget.Toast: void show()>();
+
+        return;
+
+        catch android.content.ActivityNotFoundException from label1 to label2 with label3;
+    }
+}

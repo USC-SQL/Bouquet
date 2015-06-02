@@ -1,0 +1,251 @@
+class org.simpleframework.xml.core.CollectionFactory extends org.simpleframework.xml.core.Factory
+{
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type)
+    {
+        org.simpleframework.xml.strategy.Type $r0;
+        org.simpleframework.xml.core.Context $r1;
+        org.simpleframework.xml.core.CollectionFactory $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.CollectionFactory;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r0 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.Factory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r1, $r0);
+
+        return;
+    }
+
+    private boolean isCollection(java.lang.Class)
+    {
+        boolean $z0;
+        java.lang.Class $r0, $r1;
+        org.simpleframework.xml.core.CollectionFactory $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.CollectionFactory;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 = class "java/util/Collection";
+
+        $z0 = virtualinvoke $r1.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r0);
+
+        return $z0;
+    }
+
+    public java.lang.Class getConversion(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.InstantiationException $r1;
+        boolean $z0, $z1, $z2;
+        org.simpleframework.xml.strategy.Type $r2;
+        java.lang.Class $r3;
+        org.simpleframework.xml.core.CollectionFactory $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CollectionFactory;
+
+        $r3 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r3.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>(class "java/util/ArrayList");
+
+        if $z0 == 0 goto label1;
+
+        return class "java/util/ArrayList";
+
+     label1:
+        $z1 = virtualinvoke $r3.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>(class "java/util/HashSet");
+
+        if $z1 == 0 goto label2;
+
+        return class "java/util/HashSet";
+
+     label2:
+        $z2 = virtualinvoke $r3.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>(class "java/util/TreeSet");
+
+        if $z2 == 0 goto label3;
+
+        return class "java/util/TreeSet";
+
+     label3:
+        $r1 = new org.simpleframework.xml.core.InstantiationException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r3;
+
+        $r2 = $r4.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.strategy.Type type>;
+
+        $r0[1] = $r2;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.InstantiationException: void <init>(java.lang.String,java.lang.Object[])>("Cannot instantiate %s for %s", $r0);
+
+        throw $r1;
+    }
+
+    public java.lang.Object getInstance() throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.InstantiationException $r2;
+        boolean $z0, $z1;
+        org.simpleframework.xml.strategy.Type $r3;
+        java.lang.Class $r4, $r5;
+        org.simpleframework.xml.core.CollectionFactory $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.CollectionFactory;
+
+        $r5 = virtualinvoke $r6.<org.simpleframework.xml.core.CollectionFactory: java.lang.Class getType()>();
+
+        $r4 = $r5;
+
+        $z0 = staticinvoke <org.simpleframework.xml.core.CollectionFactory: boolean isInstantiable(java.lang.Class)>($r5);
+
+        if $z0 != 0 goto label1;
+
+        $r4 = virtualinvoke $r6.<org.simpleframework.xml.core.CollectionFactory: java.lang.Class getConversion(java.lang.Class)>($r5);
+
+     label1:
+        $z1 = specialinvoke $r6.<org.simpleframework.xml.core.CollectionFactory: boolean isCollection(java.lang.Class)>($r4);
+
+        if $z1 != 0 goto label2;
+
+        $r2 = new org.simpleframework.xml.core.InstantiationException;
+
+        $r1 = newarray (java.lang.Object)[2];
+
+        $r1[0] = $r5;
+
+        $r3 = $r6.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.strategy.Type type>;
+
+        $r1[1] = $r3;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiationException: void <init>(java.lang.String,java.lang.Object[])>("Invalid collection %s for %s", $r1);
+
+        throw $r2;
+
+     label2:
+        $r0 = virtualinvoke $r4.<java.lang.Class: java.lang.Object newInstance()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.strategy.Value) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Context $r0;
+        org.simpleframework.xml.core.ConversionInstance $r1;
+        java.lang.Object[] $r2;
+        org.simpleframework.xml.core.InstantiationException $r3;
+        boolean $z0, $z1;
+        org.simpleframework.xml.strategy.Type $r4;
+        java.lang.Class $r5, $r6;
+        org.simpleframework.xml.strategy.Value $r7;
+        org.simpleframework.xml.core.CollectionFactory $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.CollectionFactory;
+
+        $r7 := @parameter0: org.simpleframework.xml.strategy.Value;
+
+        $r6 = interfaceinvoke $r7.<org.simpleframework.xml.strategy.Value: java.lang.Class getType()>();
+
+        $r5 = $r6;
+
+        $z0 = staticinvoke <org.simpleframework.xml.core.CollectionFactory: boolean isInstantiable(java.lang.Class)>($r6);
+
+        if $z0 != 0 goto label1;
+
+        $r5 = virtualinvoke $r8.<org.simpleframework.xml.core.CollectionFactory: java.lang.Class getConversion(java.lang.Class)>($r6);
+
+     label1:
+        $z1 = specialinvoke $r8.<org.simpleframework.xml.core.CollectionFactory: boolean isCollection(java.lang.Class)>($r5);
+
+        if $z1 != 0 goto label2;
+
+        $r3 = new org.simpleframework.xml.core.InstantiationException;
+
+        $r2 = newarray (java.lang.Object)[2];
+
+        $r2[0] = $r5;
+
+        $r4 = $r8.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.strategy.Type type>;
+
+        $r2[1] = $r4;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.InstantiationException: void <init>(java.lang.String,java.lang.Object[])>("Invalid collection %s for %s", $r2);
+
+        throw $r3;
+
+     label2:
+        $r1 = new org.simpleframework.xml.core.ConversionInstance;
+
+        $r0 = $r8.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.core.Context context>;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ConversionInstance: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Value,java.lang.Class)>($r0, $r7, $r5);
+
+        return $r1;
+    }
+
+    public org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Context $r0;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.InstantiationException $r2;
+        boolean $z0, $z1;
+        org.simpleframework.xml.core.Instance $r3, $r10;
+        org.simpleframework.xml.strategy.Value $r4;
+        org.simpleframework.xml.strategy.Type $r5;
+        java.lang.Class $r6, $r7;
+        org.simpleframework.xml.stream.InputNode $r8;
+        org.simpleframework.xml.core.CollectionFactory $r9;
+
+        $r9 := @this: org.simpleframework.xml.core.CollectionFactory;
+
+        $r8 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 = virtualinvoke $r9.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.strategy.Value getOverride(org.simpleframework.xml.stream.InputNode)>($r8);
+
+        $r7 = virtualinvoke $r9.<org.simpleframework.xml.core.CollectionFactory: java.lang.Class getType()>();
+
+        $r6 = $r7;
+
+        if $r4 == null goto label1;
+
+        $r3 = virtualinvoke $r9.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.strategy.Value)>($r4);
+
+        return $r3;
+
+     label1:
+        $z0 = staticinvoke <org.simpleframework.xml.core.CollectionFactory: boolean isInstantiable(java.lang.Class)>($r7);
+
+        if $z0 != 0 goto label2;
+
+        $r6 = virtualinvoke $r9.<org.simpleframework.xml.core.CollectionFactory: java.lang.Class getConversion(java.lang.Class)>($r7);
+
+     label2:
+        $z1 = specialinvoke $r9.<org.simpleframework.xml.core.CollectionFactory: boolean isCollection(java.lang.Class)>($r6);
+
+        if $z1 != 0 goto label3;
+
+        $r2 = new org.simpleframework.xml.core.InstantiationException;
+
+        $r1 = newarray (java.lang.Object)[2];
+
+        $r1[0] = $r6;
+
+        $r5 = $r9.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.strategy.Type type>;
+
+        $r1[1] = $r5;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiationException: void <init>(java.lang.String,java.lang.Object[])>("Invalid collection %s for %s", $r1);
+
+        throw $r2;
+
+     label3:
+        $r0 = $r9.<org.simpleframework.xml.core.CollectionFactory: org.simpleframework.xml.core.Context context>;
+
+        $r10 = interfaceinvoke $r0.<org.simpleframework.xml.core.Context: org.simpleframework.xml.core.Instance getInstance(java.lang.Class)>($r6);
+
+        return $r10;
+    }
+}

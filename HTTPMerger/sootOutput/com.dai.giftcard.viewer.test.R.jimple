@@ -1,0 +1,14 @@
+public final class com.dai.giftcard.viewer.test.R extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.test.R $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.test.R;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

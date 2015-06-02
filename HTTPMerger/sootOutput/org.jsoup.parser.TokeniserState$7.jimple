@@ -1,0 +1,70 @@
+final enum class org.jsoup.parser.TokeniserState$7 extends org.jsoup.parser.TokeniserState
+{
+
+    void <init>(java.lang.String, int)
+    {
+        int $i0;
+        java.lang.String $r0;
+        org.jsoup.parser.TokeniserState$7 $r1;
+
+        $r1 := @this: org.jsoup.parser.TokeniserState$7;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r1.<org.jsoup.parser.TokeniserState: void <init>(java.lang.String,int,org.jsoup.parser.TokeniserState$1)>($r0, $i0, null);
+
+        return;
+    }
+
+    void read(org.jsoup.parser.Tokeniser, org.jsoup.parser.CharacterReader)
+    {
+        org.jsoup.parser.Token$EOF $r0;
+        java.lang.String $r1;
+        char $c0;
+        org.jsoup.parser.CharacterReader $r2;
+        org.jsoup.parser.Tokeniser $r3;
+        org.jsoup.parser.TokeniserState$7 $r4;
+
+        $r4 := @this: org.jsoup.parser.TokeniserState$7;
+
+        $r3 := @parameter0: org.jsoup.parser.Tokeniser;
+
+        $r2 := @parameter1: org.jsoup.parser.CharacterReader;
+
+        $c0 = virtualinvoke $r2.<org.jsoup.parser.CharacterReader: char current()>();
+
+        lookupswitch($c0)
+        {
+            case 0: goto label2;
+            case 65535: goto label3;
+            default: goto label1;
+        };
+
+     label1:
+        $r1 = virtualinvoke $r2.<org.jsoup.parser.CharacterReader: java.lang.String consumeTo(char)>(0);
+
+        virtualinvoke $r3.<org.jsoup.parser.Tokeniser: void emit(java.lang.String)>($r1);
+
+        return;
+
+     label2:
+        virtualinvoke $r3.<org.jsoup.parser.Tokeniser: void error(org.jsoup.parser.TokeniserState)>($r4);
+
+        virtualinvoke $r2.<org.jsoup.parser.CharacterReader: void advance()>();
+
+        virtualinvoke $r3.<org.jsoup.parser.Tokeniser: void emit(char)>(65533);
+
+        return;
+
+     label3:
+        $r0 = new org.jsoup.parser.Token$EOF;
+
+        specialinvoke $r0.<org.jsoup.parser.Token$EOF: void <init>()>();
+
+        virtualinvoke $r3.<org.jsoup.parser.Tokeniser: void emit(org.jsoup.parser.Token)>($r0);
+
+        return;
+    }
+}

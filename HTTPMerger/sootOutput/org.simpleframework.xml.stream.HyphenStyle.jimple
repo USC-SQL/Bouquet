@@ -1,0 +1,105 @@
+public class org.simpleframework.xml.stream.HyphenStyle extends java.lang.Object implements org.simpleframework.xml.stream.Style
+{
+    private final org.simpleframework.xml.stream.Builder builder;
+    private final org.simpleframework.xml.stream.Style style;
+
+    public void <init>()
+    {
+        org.simpleframework.xml.stream.Builder $r0;
+        org.simpleframework.xml.stream.Style $r1;
+        org.simpleframework.xml.stream.HyphenBuilder $r2;
+        org.simpleframework.xml.stream.HyphenStyle $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.HyphenStyle;
+
+        specialinvoke $r3.<java.lang.Object: void <init>()>();
+
+        $r2 = new org.simpleframework.xml.stream.HyphenBuilder;
+
+        specialinvoke $r2.<org.simpleframework.xml.stream.HyphenBuilder: void <init>()>();
+
+        $r3.<org.simpleframework.xml.stream.HyphenStyle: org.simpleframework.xml.stream.Style style> = $r2;
+
+        $r0 = new org.simpleframework.xml.stream.Builder;
+
+        $r1 = $r3.<org.simpleframework.xml.stream.HyphenStyle: org.simpleframework.xml.stream.Style style>;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.Builder: void <init>(org.simpleframework.xml.stream.Style)>($r1);
+
+        $r3.<org.simpleframework.xml.stream.HyphenStyle: org.simpleframework.xml.stream.Builder builder> = $r0;
+
+        return;
+    }
+
+    public java.lang.String getAttribute(java.lang.String)
+    {
+        org.simpleframework.xml.stream.Builder $r0;
+        java.lang.String $r1, $r3;
+        org.simpleframework.xml.stream.HyphenStyle $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.HyphenStyle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.HyphenStyle: org.simpleframework.xml.stream.Builder builder>;
+
+        $r3 = virtualinvoke $r0.<org.simpleframework.xml.stream.Builder: java.lang.String getAttribute(java.lang.String)>($r1);
+
+        return $r3;
+    }
+
+    public java.lang.String getElement(java.lang.String)
+    {
+        org.simpleframework.xml.stream.Builder $r0;
+        java.lang.String $r1, $r3;
+        org.simpleframework.xml.stream.HyphenStyle $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.HyphenStyle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.HyphenStyle: org.simpleframework.xml.stream.Builder builder>;
+
+        $r3 = virtualinvoke $r0.<org.simpleframework.xml.stream.Builder: java.lang.String getElement(java.lang.String)>($r1);
+
+        return $r3;
+    }
+
+    public void setAttribute(java.lang.String, java.lang.String)
+    {
+        org.simpleframework.xml.stream.Builder $r0;
+        java.lang.String $r1, $r2;
+        org.simpleframework.xml.stream.HyphenStyle $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.HyphenStyle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r0 = $r3.<org.simpleframework.xml.stream.HyphenStyle: org.simpleframework.xml.stream.Builder builder>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.stream.Builder: void setAttribute(java.lang.String,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+
+    public void setElement(java.lang.String, java.lang.String)
+    {
+        org.simpleframework.xml.stream.Builder $r0;
+        java.lang.String $r1, $r2;
+        org.simpleframework.xml.stream.HyphenStyle $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.HyphenStyle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r0 = $r3.<org.simpleframework.xml.stream.HyphenStyle: org.simpleframework.xml.stream.Builder builder>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.stream.Builder: void setElement(java.lang.String,java.lang.String)>($r1, $r2);
+
+        return;
+    }
+}

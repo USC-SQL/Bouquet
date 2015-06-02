@@ -1,0 +1,20 @@
+class org.simpleframework.xml.stream.Builder$Cache extends java.util.concurrent.ConcurrentHashMap
+{
+    final org.simpleframework.xml.stream.Builder this$0;
+
+    public void <init>(org.simpleframework.xml.stream.Builder)
+    {
+        org.simpleframework.xml.stream.Builder $r0;
+        org.simpleframework.xml.stream.Builder$Cache $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Builder$Cache;
+
+        $r0 := @parameter0: org.simpleframework.xml.stream.Builder;
+
+        $r1.<org.simpleframework.xml.stream.Builder$Cache: org.simpleframework.xml.stream.Builder this$0> = $r0;
+
+        specialinvoke $r1.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        return;
+    }
+}

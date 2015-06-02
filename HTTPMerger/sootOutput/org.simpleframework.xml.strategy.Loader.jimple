@@ -1,0 +1,63 @@
+class org.simpleframework.xml.strategy.Loader extends java.lang.Object
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.strategy.Loader $r0;
+
+        $r0 := @this: org.simpleframework.xml.strategy.Loader;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private static java.lang.ClassLoader getCallerClassLoader() throws java.lang.Exception
+    {
+        java.lang.ClassLoader $r0;
+        java.lang.Class $r1;
+
+        $r1 = class "org/simpleframework/xml/strategy/Loader";
+
+        $r0 = virtualinvoke $r1.<java.lang.Class: java.lang.ClassLoader getClassLoader()>();
+
+        return $r0;
+    }
+
+    private static java.lang.ClassLoader getClassLoader() throws java.lang.Exception
+    {
+        java.lang.ClassLoader $r0;
+        java.lang.Thread $r1;
+
+        $r1 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $r0 = virtualinvoke $r1.<java.lang.Thread: java.lang.ClassLoader getContextClassLoader()>();
+
+        return $r0;
+    }
+
+    public java.lang.Class load(java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Class $r0;
+        java.lang.ClassLoader $r1, $r2;
+        java.lang.String $r3;
+        org.simpleframework.xml.strategy.Loader $r4;
+
+        $r4 := @this: org.simpleframework.xml.strategy.Loader;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 = staticinvoke <org.simpleframework.xml.strategy.Loader: java.lang.ClassLoader getClassLoader()>();
+
+        $r1 = $r2;
+
+        if $r2 != null goto label1;
+
+        $r1 = staticinvoke <org.simpleframework.xml.strategy.Loader: java.lang.ClassLoader getCallerClassLoader()>();
+
+     label1:
+        $r0 = virtualinvoke $r1.<java.lang.ClassLoader: java.lang.Class loadClass(java.lang.String)>($r3);
+
+        return $r0;
+    }
+}

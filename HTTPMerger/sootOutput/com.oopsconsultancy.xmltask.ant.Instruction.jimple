@@ -1,0 +1,9 @@
+public interface  com.oopsconsultancy.xmltask.ant.Instruction extends java.lang.Object
+{
+
+    public abstract void process(com.oopsconsultancy.xmltask.ant.XmlTask) throws java.lang.Exception;
+
+    public abstract void setIf(java.lang.String);
+
+    public abstract void setUnless(java.lang.String);
+}

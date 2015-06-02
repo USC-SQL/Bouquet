@@ -1,0 +1,26 @@
+class org.simpleframework.xml.core.EmptyMatcher extends java.lang.Object implements org.simpleframework.xml.transform.Matcher
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.core.EmptyMatcher $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.EmptyMatcher;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public org.simpleframework.xml.transform.Transform match(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.EmptyMatcher $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.EmptyMatcher;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        return null;
+    }
+}

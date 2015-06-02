@@ -1,0 +1,95 @@
+class org.simpleframework.xml.convert.RegistryBinder extends java.lang.Object
+{
+    private final org.simpleframework.xml.convert.ClassCache cache;
+    private final org.simpleframework.xml.convert.ConverterFactory factory;
+
+    public void <init>()
+    {
+        org.simpleframework.xml.convert.ClassCache $r0;
+        org.simpleframework.xml.convert.ConverterFactory $r1;
+        org.simpleframework.xml.convert.RegistryBinder $r2;
+
+        $r2 := @this: org.simpleframework.xml.convert.RegistryBinder;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r1 = new org.simpleframework.xml.convert.ConverterFactory;
+
+        specialinvoke $r1.<org.simpleframework.xml.convert.ConverterFactory: void <init>()>();
+
+        $r2.<org.simpleframework.xml.convert.RegistryBinder: org.simpleframework.xml.convert.ConverterFactory factory> = $r1;
+
+        $r0 = new org.simpleframework.xml.convert.ClassCache;
+
+        specialinvoke $r0.<org.simpleframework.xml.convert.ClassCache: void <init>()>();
+
+        $r2.<org.simpleframework.xml.convert.RegistryBinder: org.simpleframework.xml.convert.ClassCache cache> = $r0;
+
+        return;
+    }
+
+    private org.simpleframework.xml.convert.Converter create(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.convert.Converter $r0;
+        org.simpleframework.xml.convert.ConverterFactory $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.convert.RegistryBinder $r3;
+
+        $r3 := @this: org.simpleframework.xml.convert.RegistryBinder;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.convert.RegistryBinder: org.simpleframework.xml.convert.ConverterFactory factory>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.convert.ConverterFactory: org.simpleframework.xml.convert.Converter getInstance(java.lang.Class)>($r2);
+
+        return $r0;
+    }
+
+    public void bind(java.lang.Class, java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.convert.ClassCache $r0;
+        java.lang.Class $r1, $r2;
+        org.simpleframework.xml.convert.RegistryBinder $r3;
+
+        $r3 := @this: org.simpleframework.xml.convert.RegistryBinder;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: java.lang.Class;
+
+        $r0 = $r3.<org.simpleframework.xml.convert.RegistryBinder: org.simpleframework.xml.convert.ClassCache cache>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.convert.ClassCache: void cache(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    public org.simpleframework.xml.convert.Converter lookup(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.convert.Converter $r0;
+        java.lang.Object $r1;
+        org.simpleframework.xml.convert.ClassCache $r2;
+        java.lang.Class $r3, $r5;
+        org.simpleframework.xml.convert.RegistryBinder $r4;
+
+        $r4 := @this: org.simpleframework.xml.convert.RegistryBinder;
+
+        $r3 := @parameter0: java.lang.Class;
+
+        $r2 = $r4.<org.simpleframework.xml.convert.RegistryBinder: org.simpleframework.xml.convert.ClassCache cache>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.convert.ClassCache: java.lang.Object fetch(java.lang.Object)>($r3);
+
+        $r5 = (java.lang.Class) $r1;
+
+        if $r5 == null goto label1;
+
+        $r0 = specialinvoke $r4.<org.simpleframework.xml.convert.RegistryBinder: org.simpleframework.xml.convert.Converter create(java.lang.Class)>($r5);
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+}

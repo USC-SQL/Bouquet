@@ -1,0 +1,112 @@
+final enum class org.jsoup.parser.TokeniserState$52 extends org.jsoup.parser.TokeniserState
+{
+
+    void <init>(java.lang.String, int)
+    {
+        int $i0;
+        java.lang.String $r0;
+        org.jsoup.parser.TokeniserState$52 $r1;
+
+        $r1 := @this: org.jsoup.parser.TokeniserState$52;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r1.<org.jsoup.parser.TokeniserState: void <init>(java.lang.String,int,org.jsoup.parser.TokeniserState$1)>($r0, $i0, null);
+
+        return;
+    }
+
+    void read(org.jsoup.parser.Tokeniser, org.jsoup.parser.CharacterReader)
+    {
+        java.lang.StringBuilder $r0, $r8;
+        org.jsoup.parser.Token$Doctype $r1, $r7, $r10;
+        char $c0;
+        org.jsoup.parser.TokeniserState $r2, $r6, $r9, $r11;
+        boolean $z0;
+        org.jsoup.parser.CharacterReader $r3;
+        org.jsoup.parser.Tokeniser $r4;
+        org.jsoup.parser.TokeniserState$52 $r5;
+
+        $r5 := @this: org.jsoup.parser.TokeniserState$52;
+
+        $r4 := @parameter0: org.jsoup.parser.Tokeniser;
+
+        $r3 := @parameter1: org.jsoup.parser.CharacterReader;
+
+        $z0 = virtualinvoke $r3.<org.jsoup.parser.CharacterReader: boolean matchesLetter()>();
+
+        if $z0 == 0 goto label2;
+
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void createDoctypePending()>();
+
+        $r2 = <org.jsoup.parser.TokeniserState$52: org.jsoup.parser.TokeniserState DoctypeName>;
+
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r2);
+
+     label1:
+        return;
+
+     label2:
+        $c0 = virtualinvoke $r3.<org.jsoup.parser.CharacterReader: char consume()>();
+
+        lookupswitch($c0)
+        {
+            case 0: goto label4;
+            case 9: goto label1;
+            case 10: goto label1;
+            case 12: goto label1;
+            case 32: goto label1;
+            case 65535: goto label5;
+            default: goto label3;
+        };
+
+     label3:
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void createDoctypePending()>();
+
+        $r1 = $r4.<org.jsoup.parser.Tokeniser: org.jsoup.parser.Token$Doctype doctypePending>;
+
+        $r0 = $r1.<org.jsoup.parser.Token$Doctype: java.lang.StringBuilder name>;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c0);
+
+        $r6 = <org.jsoup.parser.TokeniserState$52: org.jsoup.parser.TokeniserState DoctypeName>;
+
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r6);
+
+        return;
+
+     label4:
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void error(org.jsoup.parser.TokeniserState)>($r5);
+
+        $r7 = $r4.<org.jsoup.parser.Tokeniser: org.jsoup.parser.Token$Doctype doctypePending>;
+
+        $r8 = $r7.<org.jsoup.parser.Token$Doctype: java.lang.StringBuilder name>;
+
+        virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(65533);
+
+        $r9 = <org.jsoup.parser.TokeniserState$52: org.jsoup.parser.TokeniserState DoctypeName>;
+
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r9);
+
+        return;
+
+     label5:
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void eofError(org.jsoup.parser.TokeniserState)>($r5);
+
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void createDoctypePending()>();
+
+        $r10 = $r4.<org.jsoup.parser.Tokeniser: org.jsoup.parser.Token$Doctype doctypePending>;
+
+        $r10.<org.jsoup.parser.Token$Doctype: boolean forceQuirks> = 1;
+
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void emitDoctypePending()>();
+
+        $r11 = <org.jsoup.parser.TokeniserState$52: org.jsoup.parser.TokeniserState Data>;
+
+        virtualinvoke $r4.<org.jsoup.parser.Tokeniser: void transition(org.jsoup.parser.TokeniserState)>($r11);
+
+        return;
+    }
+}

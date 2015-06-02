@@ -1,0 +1,456 @@
+class org.simpleframework.xml.core.CacheLabel extends java.lang.Object implements org.simpleframework.xml.core.Label
+{
+    private final java.lang.annotation.Annotation 'annotation';
+    private final boolean attribute;
+    private final boolean collection;
+    private final org.simpleframework.xml.core.Contact contact;
+    private final boolean data;
+    private final org.simpleframework.xml.core.Decorator decorator;
+    private final org.simpleframework.xml.strategy.Type depend;
+    private final java.lang.String entry;
+    private final org.simpleframework.xml.core.Expression expression;
+    private final boolean inline;
+    private final java.lang.Object key;
+    private final org.simpleframework.xml.core.Label label;
+    private final java.lang.String name;
+    private final java.util.Collection names;
+    private final java.lang.String override;
+    private final java.lang.String path;
+    private final java.util.Collection paths;
+    private final boolean required;
+    private final boolean text;
+    private final java.lang.Class type;
+    private final boolean union;
+
+    public void <init>(org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        java.lang.Class $r1;
+        java.util.Collection $r2, $r11;
+        java.lang.String $r3, $r12, $r13, $r14;
+        org.simpleframework.xml.strategy.Type $r4;
+        org.simpleframework.xml.core.Contact $r5;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6;
+        org.simpleframework.xml.core.Decorator $r6;
+        org.simpleframework.xml.core.Expression $r7;
+        java.lang.annotation.Annotation $r8;
+        org.simpleframework.xml.core.Label $r9;
+        org.simpleframework.xml.core.CacheLabel $r10;
+
+        $r10 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        $r9 := @parameter0: org.simpleframework.xml.core.Label;
+
+        specialinvoke $r10.<java.lang.Object: void <init>()>();
+
+        $r8 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.lang.annotation.Annotation getAnnotation()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.lang.annotation.Annotation 'annotation'> = $r8;
+
+        $r7 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Expression getExpression()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Expression expression> = $r7;
+
+        $r6 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Decorator getDecorator()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Decorator decorator> = $r6;
+
+        $z0 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: boolean isAttribute()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: boolean attribute> = $z0;
+
+        $z1 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: boolean isCollection()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: boolean collection> = $z1;
+
+        $r5 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Contact getContact()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Contact contact> = $r5;
+
+        $r4 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: org.simpleframework.xml.strategy.Type getDependent()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.strategy.Type depend> = $r4;
+
+        $z2 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: boolean isRequired()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: boolean required> = $z2;
+
+        $r3 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.lang.String getOverride()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.lang.String override> = $r3;
+
+        $z3 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: boolean isInline()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: boolean inline> = $z3;
+
+        $z4 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: boolean isUnion()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: boolean union> = $z4;
+
+        $r2 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.util.Collection getNames()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.util.Collection names> = $r2;
+
+        $r11 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.util.Collection getPaths()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.util.Collection paths> = $r11;
+
+        $r12 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.lang.String getPath()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.lang.String path> = $r12;
+
+        $r1 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.lang.Class getType()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.lang.Class type> = $r1;
+
+        $r13 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.lang.String getName()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.lang.String name> = $r13;
+
+        $r14 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.lang.String getEntry()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.lang.String entry> = $r14;
+
+        $z5 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: boolean isData()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: boolean data> = $z5;
+
+        $z6 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: boolean isText()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: boolean text> = $z6;
+
+        $r0 = interfaceinvoke $r9.<org.simpleframework.xml.core.Label: java.lang.Object getKey()>();
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: java.lang.Object key> = $r0;
+
+        $r10.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Label label> = $r9;
+
+        return;
+    }
+
+    public java.lang.annotation.Annotation getAnnotation()
+    {
+        java.lang.annotation.Annotation r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.lang.annotation.Annotation 'annotation'>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Contact getContact()
+    {
+        org.simpleframework.xml.core.Contact r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Contact contact>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Converter getConverter(org.simpleframework.xml.core.Context) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Converter $r0;
+        org.simpleframework.xml.core.Label $r1;
+        org.simpleframework.xml.core.Context $r2;
+        org.simpleframework.xml.core.CacheLabel $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r1 = $r3.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Label label>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Converter getConverter(org.simpleframework.xml.core.Context)>($r2);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Decorator getDecorator() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Decorator r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Decorator decorator>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.strategy.Type getDependent() throws java.lang.Exception
+    {
+        org.simpleframework.xml.strategy.Type r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.strategy.Type depend>;
+
+        return r0;
+    }
+
+    public java.lang.Object getEmpty(org.simpleframework.xml.core.Context) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.core.Label $r1;
+        org.simpleframework.xml.core.Context $r2;
+        org.simpleframework.xml.core.CacheLabel $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r1 = $r3.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Label label>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Label: java.lang.Object getEmpty(org.simpleframework.xml.core.Context)>($r2);
+
+        return $r0;
+    }
+
+    public java.lang.String getEntry() throws java.lang.Exception
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.lang.String entry>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Expression getExpression() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Expression r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Expression expression>;
+
+        return r0;
+    }
+
+    public java.lang.Object getKey() throws java.lang.Exception
+    {
+        java.lang.Object r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.lang.Object key>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Label getLabel(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Label $r0, $r3;
+        java.lang.Class $r1;
+        org.simpleframework.xml.core.CacheLabel $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r0 = $r2.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Label label>;
+
+        $r3 = interfaceinvoke $r0.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Label getLabel(java.lang.Class)>($r1);
+
+        return $r3;
+    }
+
+    public java.lang.String getName() throws java.lang.Exception
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.lang.String name>;
+
+        return r0;
+    }
+
+    public java.util.Collection getNames() throws java.lang.Exception
+    {
+        java.util.Collection r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.util.Collection names>;
+
+        return r0;
+    }
+
+    public java.lang.String getOverride()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.lang.String override>;
+
+        return r0;
+    }
+
+    public java.lang.String getPath() throws java.lang.Exception
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.lang.String path>;
+
+        return r0;
+    }
+
+    public java.util.Collection getPaths() throws java.lang.Exception
+    {
+        java.util.Collection r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.util.Collection paths>;
+
+        return r0;
+    }
+
+    public java.lang.Class getType()
+    {
+        java.lang.Class r0;
+        org.simpleframework.xml.core.CacheLabel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        r0 = $r1.<org.simpleframework.xml.core.CacheLabel: java.lang.Class type>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.strategy.Type getType(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.strategy.Type $r0;
+        org.simpleframework.xml.core.Label $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.CacheLabel $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Label label>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Label: org.simpleframework.xml.strategy.Type getType(java.lang.Class)>($r2);
+
+        return $r0;
+    }
+
+    public boolean isAttribute()
+    {
+        boolean z0;
+        org.simpleframework.xml.core.CacheLabel $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        z0 = $r0.<org.simpleframework.xml.core.CacheLabel: boolean attribute>;
+
+        return z0;
+    }
+
+    public boolean isCollection()
+    {
+        boolean z0;
+        org.simpleframework.xml.core.CacheLabel $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        z0 = $r0.<org.simpleframework.xml.core.CacheLabel: boolean collection>;
+
+        return z0;
+    }
+
+    public boolean isData()
+    {
+        boolean z0;
+        org.simpleframework.xml.core.CacheLabel $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        z0 = $r0.<org.simpleframework.xml.core.CacheLabel: boolean data>;
+
+        return z0;
+    }
+
+    public boolean isInline()
+    {
+        boolean z0;
+        org.simpleframework.xml.core.CacheLabel $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        z0 = $r0.<org.simpleframework.xml.core.CacheLabel: boolean inline>;
+
+        return z0;
+    }
+
+    public boolean isRequired()
+    {
+        boolean z0;
+        org.simpleframework.xml.core.CacheLabel $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        z0 = $r0.<org.simpleframework.xml.core.CacheLabel: boolean required>;
+
+        return z0;
+    }
+
+    public boolean isText()
+    {
+        boolean z0;
+        org.simpleframework.xml.core.CacheLabel $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        z0 = $r0.<org.simpleframework.xml.core.CacheLabel: boolean text>;
+
+        return z0;
+    }
+
+    public boolean isUnion()
+    {
+        boolean z0;
+        org.simpleframework.xml.core.CacheLabel $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        z0 = $r0.<org.simpleframework.xml.core.CacheLabel: boolean union>;
+
+        return z0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.core.Label $r1;
+        org.simpleframework.xml.core.CacheLabel $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.CacheLabel;
+
+        $r1 = $r2.<org.simpleframework.xml.core.CacheLabel: org.simpleframework.xml.core.Label label>;
+
+        $r0 = virtualinvoke $r1.<java.lang.Object: java.lang.String toString()>();
+
+        return $r0;
+    }
+}

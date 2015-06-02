@@ -1,0 +1,49 @@
+public class com.dai.giftcard.viewer.model.StringPair extends java.lang.Object implements org.apache.http.NameValuePair
+{
+    public java.lang.String Key;
+    public java.lang.String Value;
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+        com.dai.giftcard.viewer.model.StringPair $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.model.StringPair;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r2.<com.dai.giftcard.viewer.model.StringPair: java.lang.String Key> = $r0;
+
+        $r2.<com.dai.giftcard.viewer.model.StringPair: java.lang.String Value> = $r1;
+
+        return;
+    }
+
+    public java.lang.String getName()
+    {
+        java.lang.String r0;
+        com.dai.giftcard.viewer.model.StringPair $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.model.StringPair;
+
+        r0 = $r1.<com.dai.giftcard.viewer.model.StringPair: java.lang.String Key>;
+
+        return r0;
+    }
+
+    public java.lang.String getValue()
+    {
+        java.lang.String r0;
+        com.dai.giftcard.viewer.model.StringPair $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.model.StringPair;
+
+        r0 = $r1.<com.dai.giftcard.viewer.model.StringPair: java.lang.String Value>;
+
+        return r0;
+    }
+}

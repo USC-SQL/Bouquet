@@ -1,0 +1,93 @@
+public class com.oopsconsultancy.xmltask.ant.Entity extends java.lang.Object
+{
+    private java.lang.String local;
+    private java.lang.String remote;
+    private com.oopsconsultancy.xmltask.ant.XmlTask task;
+
+    public void <init>(com.oopsconsultancy.xmltask.ant.XmlTask)
+    {
+        com.oopsconsultancy.xmltask.ant.XmlTask $r0;
+        com.oopsconsultancy.xmltask.ant.Entity $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Entity;
+
+        $r0 := @parameter0: com.oopsconsultancy.xmltask.ant.XmlTask;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Entity: com.oopsconsultancy.xmltask.ant.XmlTask task> = null;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Entity: java.lang.String remote> = null;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Entity: java.lang.String local> = null;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Entity: com.oopsconsultancy.xmltask.ant.XmlTask task> = $r0;
+
+        return;
+    }
+
+    private void register()
+    {
+        com.oopsconsultancy.xmltask.ant.XmlTask $r0;
+        java.lang.String $r1, $r2, $r4, $r5;
+        com.oopsconsultancy.xmltask.ant.Entity $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.ant.Entity;
+
+        $r1 = $r3.<com.oopsconsultancy.xmltask.ant.Entity: java.lang.String remote>;
+
+        if $r1 == null goto label1;
+
+        $r2 = $r3.<com.oopsconsultancy.xmltask.ant.Entity: java.lang.String local>;
+
+        if $r2 == null goto label2;
+
+        $r0 = $r3.<com.oopsconsultancy.xmltask.ant.Entity: com.oopsconsultancy.xmltask.ant.XmlTask task>;
+
+        $r4 = $r3.<com.oopsconsultancy.xmltask.ant.Entity: java.lang.String remote>;
+
+        $r5 = $r3.<com.oopsconsultancy.xmltask.ant.Entity: java.lang.String local>;
+
+        virtualinvoke $r0.<com.oopsconsultancy.xmltask.ant.XmlTask: void registerEntity(java.lang.String,java.lang.String)>($r4, $r5);
+
+        return;
+
+     label1:
+        return;
+
+     label2:
+        return;
+    }
+
+    public void setLocal(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Entity $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Entity;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Entity: java.lang.String local> = $r0;
+
+        specialinvoke $r1.<com.oopsconsultancy.xmltask.ant.Entity: void register()>();
+
+        return;
+    }
+
+    public void setRemote(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Entity $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Entity;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Entity: java.lang.String remote> = $r0;
+
+        specialinvoke $r1.<com.oopsconsultancy.xmltask.ant.Entity: void register()>();
+
+        return;
+    }
+}

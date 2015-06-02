@@ -1,0 +1,30 @@
+public final class com.dai.giftcard.viewer.us.R$menu extends java.lang.Object
+{
+    public static final int menucardform;
+    public static final int menucardmanageform;
+    public static final int menuhome;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.us.R$menu $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.us.R$menu;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.dai.giftcard.viewer.us.R$menu: int menucardform> = 2131230720;
+
+        <com.dai.giftcard.viewer.us.R$menu: int menuhome> = 2131230722;
+
+        <com.dai.giftcard.viewer.us.R$menu: int menucardmanageform> = 2131230721;
+
+        <com.dai.giftcard.viewer.us.R$menu: int menucardform> = 2131230720;
+
+        return;
+    }
+}

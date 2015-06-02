@@ -1,0 +1,7 @@
+public interface  org.simpleframework.xml.stream.Position extends java.lang.Object
+{
+
+    public abstract int getLine();
+
+    public abstract java.lang.String toString();
+}

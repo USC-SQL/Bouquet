@@ -63,10 +63,6 @@ public class Instrumenter extends BodyTransformer{
             if(stmt.containsInvokeExpr())
             {
                 InvokeExpr invoke=stmt.getInvokeExpr();
-                if(invoke.getMethod().getSignature().startsWith("<java.net.URL: java.net.URLConnection openConnection"))
-                {
-                    flag=true;
-                }
                 SootMethod agent=AgentClassConstants.QueryAgentMethod(invoke.getMethod().getSignature());
                 if(agent!=null)
                 {
@@ -100,6 +96,7 @@ public class Instrumenter extends BodyTransformer{
 
         }
         body.validate();
+        /*
         try {
             if(flag)
             {
@@ -117,7 +114,7 @@ public class Instrumenter extends BodyTransformer{
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 

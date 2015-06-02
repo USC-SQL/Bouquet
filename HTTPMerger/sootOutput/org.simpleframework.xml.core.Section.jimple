@@ -1,0 +1,23 @@
+interface  org.simpleframework.xml.core.Section extends java.lang.Object implements java.lang.Iterable
+{
+
+    public abstract java.lang.String getAttribute(java.lang.String) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.LabelMap getAttributes() throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Label getElement(java.lang.String) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.LabelMap getElements() throws java.lang.Exception;
+
+    public abstract java.lang.String getName();
+
+    public abstract java.lang.String getPath(java.lang.String) throws java.lang.Exception;
+
+    public abstract java.lang.String getPrefix();
+
+    public abstract org.simpleframework.xml.core.Section getSection(java.lang.String) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Label getText() throws java.lang.Exception;
+
+    public abstract boolean isSection(java.lang.String) throws java.lang.Exception;
+}

@@ -1,0 +1,21 @@
+public interface  org.json.simple.parser.ContentHandler extends java.lang.Object
+{
+
+    public abstract boolean endArray() throws org.json.simple.parser.ParseException, java.io.IOException;
+
+    public abstract void endJSON() throws org.json.simple.parser.ParseException, java.io.IOException;
+
+    public abstract boolean endObject() throws org.json.simple.parser.ParseException, java.io.IOException;
+
+    public abstract boolean endObjectEntry() throws org.json.simple.parser.ParseException, java.io.IOException;
+
+    public abstract boolean primitive(java.lang.Object) throws org.json.simple.parser.ParseException, java.io.IOException;
+
+    public abstract boolean startArray() throws org.json.simple.parser.ParseException, java.io.IOException;
+
+    public abstract void startJSON() throws org.json.simple.parser.ParseException, java.io.IOException;
+
+    public abstract boolean startObject() throws org.json.simple.parser.ParseException, java.io.IOException;
+
+    public abstract boolean startObjectEntry(java.lang.String) throws org.json.simple.parser.ParseException, java.io.IOException;
+}

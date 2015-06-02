@@ -1,0 +1,14 @@
+class org.simpleframework.xml.core.ConstructorCache extends java.util.concurrent.ConcurrentHashMap
+{
+
+    public void <init>()
+    {
+        org.simpleframework.xml.core.ConstructorCache $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.ConstructorCache;
+
+        specialinvoke $r0.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        return;
+    }
+}

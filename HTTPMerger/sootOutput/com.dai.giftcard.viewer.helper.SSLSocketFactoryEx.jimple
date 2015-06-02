@@ -1,0 +1,84 @@
+public class com.dai.giftcard.viewer.helper.SSLSocketFactoryEx extends org.apache.http.conn.ssl.SSLSocketFactory
+{
+    javax.net.ssl.SSLContext sslContext;
+
+    public void <init>(java.security.KeyStore) throws java.security.NoSuchAlgorithmException, java.security.KeyManagementException, java.security.KeyStoreException, java.security.UnrecoverableKeyException
+    {
+        javax.net.ssl.TrustManager[] $r0;
+        javax.net.ssl.SSLContext $r1, $r5;
+        com.dai.giftcard.viewer.helper.SSLSocketFactoryEx$1 $r2;
+        java.security.KeyStore $r3;
+        com.dai.giftcard.viewer.helper.SSLSocketFactoryEx $r4;
+
+        $r4 := @this: com.dai.giftcard.viewer.helper.SSLSocketFactoryEx;
+
+        $r3 := @parameter0: java.security.KeyStore;
+
+        specialinvoke $r4.<org.apache.http.conn.ssl.SSLSocketFactory: void <init>(java.security.KeyStore)>($r3);
+
+        $r1 = staticinvoke <javax.net.ssl.SSLContext: javax.net.ssl.SSLContext getInstance(java.lang.String)>("TLS");
+
+        $r4.<com.dai.giftcard.viewer.helper.SSLSocketFactoryEx: javax.net.ssl.SSLContext sslContext> = $r1;
+
+        $r2 = new com.dai.giftcard.viewer.helper.SSLSocketFactoryEx$1;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.helper.SSLSocketFactoryEx$1: void <init>(com.dai.giftcard.viewer.helper.SSLSocketFactoryEx)>($r4);
+
+        $r5 = $r4.<com.dai.giftcard.viewer.helper.SSLSocketFactoryEx: javax.net.ssl.SSLContext sslContext>;
+
+        $r0 = newarray (javax.net.ssl.TrustManager)[1];
+
+        $r0[0] = $r2;
+
+        virtualinvoke $r5.<javax.net.ssl.SSLContext: void init(javax.net.ssl.KeyManager[],javax.net.ssl.TrustManager[],java.security.SecureRandom)>(null, $r0, null);
+
+        return;
+    }
+
+    public java.net.Socket createSocket() throws java.io.IOException
+    {
+        java.net.Socket $r0;
+        javax.net.ssl.SSLSocketFactory $r1;
+        javax.net.ssl.SSLContext $r2;
+        com.dai.giftcard.viewer.helper.SSLSocketFactoryEx $r3;
+
+        $r3 := @this: com.dai.giftcard.viewer.helper.SSLSocketFactoryEx;
+
+        $r2 = $r3.<com.dai.giftcard.viewer.helper.SSLSocketFactoryEx: javax.net.ssl.SSLContext sslContext>;
+
+        $r1 = virtualinvoke $r2.<javax.net.ssl.SSLContext: javax.net.ssl.SSLSocketFactory getSocketFactory()>();
+
+        $r0 = virtualinvoke $r1.<javax.net.ssl.SSLSocketFactory: java.net.Socket createSocket()>();
+
+        return $r0;
+    }
+
+    public java.net.Socket createSocket(java.net.Socket, java.lang.String, int, boolean) throws java.io.IOException, java.net.UnknownHostException
+    {
+        javax.net.ssl.SSLSocketFactory $r0;
+        javax.net.ssl.SSLContext $r1;
+        boolean $z0;
+        int $i0;
+        java.lang.String $r2;
+        java.net.Socket $r3, $r5;
+        com.dai.giftcard.viewer.helper.SSLSocketFactoryEx $r4;
+
+        $r4 := @this: com.dai.giftcard.viewer.helper.SSLSocketFactoryEx;
+
+        $r3 := @parameter0: java.net.Socket;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $i0 := @parameter2: int;
+
+        $z0 := @parameter3: boolean;
+
+        $r1 = $r4.<com.dai.giftcard.viewer.helper.SSLSocketFactoryEx: javax.net.ssl.SSLContext sslContext>;
+
+        $r0 = virtualinvoke $r1.<javax.net.ssl.SSLContext: javax.net.ssl.SSLSocketFactory getSocketFactory()>();
+
+        $r5 = virtualinvoke $r0.<javax.net.ssl.SSLSocketFactory: java.net.Socket createSocket(java.net.Socket,java.lang.String,int,boolean)>($r3, $r2, $i0, $z0);
+
+        return $r5;
+    }
+}

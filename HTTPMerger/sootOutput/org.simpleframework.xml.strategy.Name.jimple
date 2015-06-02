@@ -1,0 +1,22 @@
+interface  org.simpleframework.xml.strategy.Name extends java.lang.Object
+{
+    public static final java.lang.String LABEL;
+    public static final java.lang.String LENGTH;
+    public static final java.lang.String MARK;
+    public static final java.lang.String REFER;
+
+    public static void <clinit>()
+    {
+        <org.simpleframework.xml.strategy.Name: java.lang.String LABEL> = "class";
+
+        <org.simpleframework.xml.strategy.Name: java.lang.String REFER> = "reference";
+
+        <org.simpleframework.xml.strategy.Name: java.lang.String MARK> = "id";
+
+        <org.simpleframework.xml.strategy.Name: java.lang.String LENGTH> = "length";
+
+        <org.simpleframework.xml.strategy.Name: java.lang.String LABEL> = "class";
+
+        return;
+    }
+}

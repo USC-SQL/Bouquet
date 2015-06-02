@@ -1,0 +1,1191 @@
+class org.simpleframework.xml.core.TreeModel extends java.lang.Object implements org.simpleframework.xml.core.Model
+{
+    private org.simpleframework.xml.core.LabelMap attributes;
+    private org.simpleframework.xml.core.LabelMap elements;
+    private org.simpleframework.xml.core.Expression expression;
+    private int index;
+    private org.simpleframework.xml.core.ModelMap models;
+    private java.lang.String name;
+    private org.simpleframework.xml.core.TreeModel$OrderList order;
+    private org.simpleframework.xml.core.Policy policy;
+    private java.lang.String prefix;
+    private org.simpleframework.xml.core.Label text;
+    private java.lang.Class type;
+
+    public void <init>(org.simpleframework.xml.core.Policy, java.lang.Class)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.Policy $r1;
+        org.simpleframework.xml.core.TreeModel $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Policy;
+
+        $r0 := @parameter1: java.lang.Class;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.TreeModel: void <init>(org.simpleframework.xml.core.Policy,java.lang.Class,java.lang.String,java.lang.String,int)>($r1, $r0, null, null, 1);
+
+        return;
+    }
+
+    public void <init>(org.simpleframework.xml.core.Policy, java.lang.Class, java.lang.String, java.lang.String, int)
+    {
+        org.simpleframework.xml.core.TreeModel$OrderList $r0;
+        org.simpleframework.xml.core.ModelMap $r1;
+        org.simpleframework.xml.core.LabelMap $r2, $r8;
+        int $i0;
+        java.lang.String $r3, $r4;
+        java.lang.Class $r5;
+        org.simpleframework.xml.core.Policy $r6;
+        org.simpleframework.xml.core.TreeModel $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r6 := @parameter0: org.simpleframework.xml.core.Policy;
+
+        $r5 := @parameter1: java.lang.Class;
+
+        $r3 := @parameter2: java.lang.String;
+
+        $r4 := @parameter3: java.lang.String;
+
+        $i0 := @parameter4: int;
+
+        specialinvoke $r7.<java.lang.Object: void <init>()>();
+
+        $r2 = new org.simpleframework.xml.core.LabelMap;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.LabelMap: void <init>(org.simpleframework.xml.core.Policy)>($r6);
+
+        $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes> = $r2;
+
+        $r8 = new org.simpleframework.xml.core.LabelMap;
+
+        specialinvoke $r8.<org.simpleframework.xml.core.LabelMap: void <init>(org.simpleframework.xml.core.Policy)>($r6);
+
+        $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements> = $r8;
+
+        $r1 = new org.simpleframework.xml.core.ModelMap;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ModelMap: void <init>(java.lang.Class)>($r5);
+
+        $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models> = $r1;
+
+        $r0 = new org.simpleframework.xml.core.TreeModel$OrderList;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.TreeModel$OrderList: void <init>()>();
+
+        $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.TreeModel$OrderList order> = $r0;
+
+        $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Policy policy> = $r6;
+
+        $r7.<org.simpleframework.xml.core.TreeModel: java.lang.String prefix> = $r4;
+
+        $r7.<org.simpleframework.xml.core.TreeModel: int index> = $i0;
+
+        $r7.<org.simpleframework.xml.core.TreeModel: java.lang.String name> = $r3;
+
+        $r7.<org.simpleframework.xml.core.TreeModel: java.lang.Class type> = $r5;
+
+        return;
+    }
+
+    private org.simpleframework.xml.core.Model create(java.lang.String, java.lang.String, int) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.TreeModel$OrderList $r0;
+        org.simpleframework.xml.core.ModelMap $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Policy $r3;
+        int $i0;
+        java.lang.String $r4, $r5;
+        org.simpleframework.xml.core.TreeModel $r6, $r7;
+
+        $r6 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r4 := @parameter0: java.lang.String;
+
+        $r5 := @parameter1: java.lang.String;
+
+        $i0 := @parameter2: int;
+
+        $r7 = new org.simpleframework.xml.core.TreeModel;
+
+        $r3 = $r6.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Policy policy>;
+
+        $r2 = $r6.<org.simpleframework.xml.core.TreeModel: java.lang.Class type>;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.TreeModel: void <init>(org.simpleframework.xml.core.Policy,java.lang.Class,java.lang.String,java.lang.String,int)>($r3, $r2, $r4, $r5, $i0);
+
+        if $r4 == null goto label1;
+
+        $r1 = $r6.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.ModelMap: void register(java.lang.String,org.simpleframework.xml.core.Model)>($r4, $r7);
+
+        $r0 = $r6.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.TreeModel$OrderList order>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.TreeModel$OrderList: boolean add(java.lang.Object)>($r4);
+
+        return $r7;
+
+     label1:
+        return $r7;
+    }
+
+    private void validateAttributes(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.AttributeException $r1;
+        org.simpleframework.xml.core.Label $r2;
+        java.lang.String $r3;
+        java.lang.Object $r4, $r11;
+        boolean $z0;
+        java.util.Iterator $r5;
+        java.util.Set $r6;
+        org.simpleframework.xml.core.LabelMap $r7, $r10;
+        java.lang.Class $r8;
+        org.simpleframework.xml.core.TreeModel $r9;
+
+        $r9 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r8 := @parameter0: java.lang.Class;
+
+        $r7 = $r9.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        $r6 = virtualinvoke $r7.<org.simpleframework.xml.core.LabelMap: java.util.Set keySet()>();
+
+        $r5 = interfaceinvoke $r6.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r4 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r3 = (java.lang.String) $r4;
+
+        $r10 = $r9.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        $r11 = virtualinvoke $r10.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r2 = (org.simpleframework.xml.core.Label) $r11;
+
+        if $r2 != null goto label1;
+
+        $r1 = new org.simpleframework.xml.core.AttributeException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r3;
+
+        $r0[1] = $r8;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.AttributeException: void <init>(java.lang.String,java.lang.Object[])>("Ordered attribute \'%s\' does not exist in %s", $r0);
+
+        throw $r1;
+
+     label2:
+        return;
+    }
+
+    private void validateElements(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0, $r16;
+        org.simpleframework.xml.core.ElementException $r1, $r15;
+        org.simpleframework.xml.core.Label $r2;
+        org.simpleframework.xml.core.ModelList $r3;
+        org.simpleframework.xml.core.ModelMap $r4;
+        java.lang.String $r5;
+        java.lang.Object $r6, $r12, $r14;
+        boolean $z0, $z1;
+        java.util.Iterator $r7;
+        java.util.Set $r8;
+        org.simpleframework.xml.core.LabelMap $r9, $r13;
+        java.lang.Class $r10;
+        org.simpleframework.xml.core.TreeModel $r11;
+
+        $r11 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r10 := @parameter0: java.lang.Class;
+
+        $r9 = $r11.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r8 = virtualinvoke $r9.<org.simpleframework.xml.core.LabelMap: java.util.Set keySet()>();
+
+        $r7 = interfaceinvoke $r8.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r6 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (java.lang.String) $r6;
+
+        $r4 = $r11.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        $r12 = virtualinvoke $r4.<org.simpleframework.xml.core.ModelMap: java.lang.Object get(java.lang.Object)>($r5);
+
+        $r3 = (org.simpleframework.xml.core.ModelList) $r12;
+
+        $r13 = $r11.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r14 = virtualinvoke $r13.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r5);
+
+        $r2 = (org.simpleframework.xml.core.Label) $r14;
+
+        if $r3 != null goto label2;
+
+        if $r2 != null goto label2;
+
+        $r1 = new org.simpleframework.xml.core.ElementException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r5;
+
+        $r0[1] = $r10;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ElementException: void <init>(java.lang.String,java.lang.Object[])>("Ordered element \'%s\' does not exist in %s", $r0);
+
+        throw $r1;
+
+     label2:
+        if $r3 == null goto label1;
+
+        if $r2 == null goto label1;
+
+        $z1 = virtualinvoke $r3.<org.simpleframework.xml.core.ModelList: boolean isEmpty()>();
+
+        if $z1 != 0 goto label1;
+
+        $r15 = new org.simpleframework.xml.core.ElementException;
+
+        $r16 = newarray (java.lang.Object)[2];
+
+        $r16[0] = $r5;
+
+        $r16[1] = $r10;
+
+        specialinvoke $r15.<org.simpleframework.xml.core.ElementException: void <init>(java.lang.String,java.lang.Object[])>("Element \'%s\' is also a path name in %s", $r16);
+
+        throw $r15;
+
+     label3:
+        return;
+    }
+
+    private void validateExpression(org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.PathException $r1;
+        boolean $z0;
+        java.lang.String $r2, $r3;
+        java.lang.Class $r4;
+        org.simpleframework.xml.core.Expression $r5, $r6, $r9;
+        org.simpleframework.xml.core.Label $r7;
+        org.simpleframework.xml.core.TreeModel $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r7 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r6 = interfaceinvoke $r7.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Expression getExpression()>();
+
+        $r5 = $r8.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Expression expression>;
+
+        if $r5 == null goto label1;
+
+        $r9 = $r8.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Expression expression>;
+
+        $r2 = interfaceinvoke $r9.<org.simpleframework.xml.core.Expression: java.lang.String getPath()>();
+
+        $r3 = interfaceinvoke $r6.<org.simpleframework.xml.core.Expression: java.lang.String getPath()>();
+
+        $z0 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 != 0 goto label2;
+
+        $r1 = new org.simpleframework.xml.core.PathException;
+
+        $r0 = newarray (java.lang.Object)[3];
+
+        $r0[0] = $r2;
+
+        $r0[1] = $r3;
+
+        $r4 = $r8.<org.simpleframework.xml.core.TreeModel: java.lang.Class type>;
+
+        $r0[2] = $r4;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.PathException: void <init>(java.lang.String,java.lang.Object[])>("Path \'%s\' does not match \'%s\' in %s", $r0);
+
+        throw $r1;
+
+     label1:
+        $r8.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Expression expression> = $r6;
+
+        return;
+
+     label2:
+        return;
+    }
+
+    private void validateExpressions(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Label $r0, $r9, $r10, $r11;
+        java.lang.Object $r1, $r8;
+        boolean $z0, $z1;
+        java.util.Iterator $r2, $r7;
+        org.simpleframework.xml.core.LabelMap $r3, $r6;
+        java.lang.Class $r4;
+        org.simpleframework.xml.core.TreeModel $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r3 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.LabelMap: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.simpleframework.xml.core.Label) $r1;
+
+        if $r0 == null goto label1;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.TreeModel: void validateExpression(org.simpleframework.xml.core.Label)>($r0);
+
+        goto label1;
+
+     label2:
+        $r6 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        $r7 = virtualinvoke $r6.<org.simpleframework.xml.core.LabelMap: java.util.Iterator iterator()>();
+
+     label3:
+        $z1 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label4;
+
+        $r8 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r9 = (org.simpleframework.xml.core.Label) $r8;
+
+        if $r9 == null goto label3;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.TreeModel: void validateExpression(org.simpleframework.xml.core.Label)>($r9);
+
+        goto label3;
+
+     label4:
+        $r10 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text>;
+
+        if $r10 == null goto label5;
+
+        $r11 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text>;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.TreeModel: void validateExpression(org.simpleframework.xml.core.Label)>($r11);
+
+        return;
+
+     label5:
+        return;
+    }
+
+    private void validateModels(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Integer $r0;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.ElementException $r2;
+        java.lang.String $r3;
+        org.simpleframework.xml.core.Model $r4;
+        org.simpleframework.xml.core.ModelList $r5;
+        java.lang.Object $r6, $r12;
+        boolean $z0, $z1;
+        java.util.Iterator $r7, $r8;
+        org.simpleframework.xml.core.ModelMap $r9;
+        int $i0, $i1;
+        java.lang.Class $r10;
+        org.simpleframework.xml.core.TreeModel $r11;
+
+        $r11 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r10 := @parameter0: java.lang.Class;
+
+        $r9 = $r11.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        $r7 = virtualinvoke $r9.<org.simpleframework.xml.core.ModelMap: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label4;
+
+        $r6 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (org.simpleframework.xml.core.ModelList) $r6;
+
+        $i0 = 1;
+
+        $r8 = virtualinvoke $r5.<org.simpleframework.xml.core.ModelList: java.util.Iterator iterator()>();
+
+     label2:
+        $z1 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label1;
+
+        $r12 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = (org.simpleframework.xml.core.Model) $r12;
+
+        if $r4 == null goto label2;
+
+        $r3 = interfaceinvoke $r4.<org.simpleframework.xml.core.Model: java.lang.String getName()>();
+
+        $i1 = interfaceinvoke $r4.<org.simpleframework.xml.core.Model: int getIndex()>();
+
+        if $i1 == $i0 goto label3;
+
+        $r2 = new org.simpleframework.xml.core.ElementException;
+
+        $r1 = newarray (java.lang.Object)[3];
+
+        $r1[0] = $r3;
+
+        $r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $r1[1] = $r0;
+
+        $r1[2] = $r10;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ElementException: void <init>(java.lang.String,java.lang.Object[])>("Path section \'%s[%s]\' is out of sequence in %s", $r1);
+
+        throw $r2;
+
+     label3:
+        interfaceinvoke $r4.<org.simpleframework.xml.core.Model: void validate(java.lang.Class)>($r10);
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label4:
+        return;
+    }
+
+    private void validateText(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0, $r8;
+        org.simpleframework.xml.core.TextException $r1, $r7;
+        org.simpleframework.xml.core.LabelMap $r2;
+        boolean $z0, $z1;
+        org.simpleframework.xml.core.Label $r3, $r6, $r9;
+        java.lang.Class $r4;
+        org.simpleframework.xml.core.TreeModel $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r3 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text>;
+
+        if $r3 == null goto label2;
+
+        $r2 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.core.LabelMap: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new org.simpleframework.xml.core.TextException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r6 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text>;
+
+        $r0[0] = $r6;
+
+        $r0[1] = $r4;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.TextException: void <init>(java.lang.String,java.lang.Object[])>("Text annotation %s used with elements in %s", $r0);
+
+        throw $r1;
+
+     label1:
+        $z1 = virtualinvoke $r5.<org.simpleframework.xml.core.TreeModel: boolean isComposite()>();
+
+        if $z1 == 0 goto label3;
+
+        $r7 = new org.simpleframework.xml.core.TextException;
+
+        $r8 = newarray (java.lang.Object)[2];
+
+        $r9 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text>;
+
+        $r8[0] = $r9;
+
+        $r8[1] = $r4;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.TextException: void <init>(java.lang.String,java.lang.Object[])>("Text annotation %s can not be used with paths in %s", $r8);
+
+        throw $r7;
+
+     label2:
+        return;
+
+     label3:
+        return;
+    }
+
+    public org.simpleframework.xml.core.LabelMap getAttributes() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.LabelMap $r0, $r2;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r0 = $r1.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        $r2 = virtualinvoke $r0.<org.simpleframework.xml.core.LabelMap: org.simpleframework.xml.core.LabelMap getLabels()>();
+
+        return $r2;
+    }
+
+    public org.simpleframework.xml.core.LabelMap getElements() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.LabelMap $r0, $r2;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r0 = $r1.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r2 = virtualinvoke $r0.<org.simpleframework.xml.core.LabelMap: org.simpleframework.xml.core.LabelMap getLabels()>();
+
+        return $r2;
+    }
+
+    public org.simpleframework.xml.core.Expression getExpression()
+    {
+        org.simpleframework.xml.core.Expression r0;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        r0 = $r1.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Expression expression>;
+
+        return r0;
+    }
+
+    public int getIndex()
+    {
+        int i0;
+        org.simpleframework.xml.core.TreeModel $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.TreeModel;
+
+        i0 = $r0.<org.simpleframework.xml.core.TreeModel: int index>;
+
+        return i0;
+    }
+
+    public org.simpleframework.xml.core.ModelMap getModels() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.ModelMap $r0, $r2;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r0 = $r1.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        $r2 = virtualinvoke $r0.<org.simpleframework.xml.core.ModelMap: org.simpleframework.xml.core.ModelMap getModels()>();
+
+        return $r2;
+    }
+
+    public java.lang.String getName()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        r0 = $r1.<org.simpleframework.xml.core.TreeModel: java.lang.String name>;
+
+        return r0;
+    }
+
+    public java.lang.String getPrefix()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        r0 = $r1.<org.simpleframework.xml.core.TreeModel: java.lang.String prefix>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Label getText()
+    {
+        org.simpleframework.xml.core.Label r0;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        r0 = $r1.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text>;
+
+        return r0;
+    }
+
+    public boolean isAttribute(java.lang.String)
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.LabelMap $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.core.TreeModel $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.LabelMap: boolean containsKey(java.lang.Object)>($r1);
+
+        return $z0;
+    }
+
+    public boolean isComposite()
+    {
+        org.simpleframework.xml.core.Model $r0;
+        org.simpleframework.xml.core.ModelList $r1;
+        java.lang.Object $r2, $r7;
+        boolean $z0, $z1, $z2, $z3;
+        java.util.Iterator $r3, $r4;
+        org.simpleframework.xml.core.ModelMap $r5, $r8;
+        org.simpleframework.xml.core.TreeModel $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r5 = $r6.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        $r3 = virtualinvoke $r5.<org.simpleframework.xml.core.ModelMap: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r2 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r1 = (org.simpleframework.xml.core.ModelList) $r2;
+
+        $r4 = virtualinvoke $r1.<org.simpleframework.xml.core.ModelList: java.util.Iterator iterator()>();
+
+     label2:
+        $z1 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label1;
+
+        $r7 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.simpleframework.xml.core.Model) $r7;
+
+        if $r0 == null goto label2;
+
+        $z2 = interfaceinvoke $r0.<org.simpleframework.xml.core.Model: boolean isEmpty()>();
+
+        if $z2 != 0 goto label2;
+
+        return 1;
+
+     label3:
+        $r8 = $r6.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        $z3 = virtualinvoke $r8.<org.simpleframework.xml.core.ModelMap: boolean isEmpty()>();
+
+        if $z3 == 0 goto label4;
+
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    public boolean isElement(java.lang.String)
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.LabelMap $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.core.TreeModel $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.LabelMap: boolean containsKey(java.lang.Object)>($r1);
+
+        return $z0;
+    }
+
+    public boolean isEmpty()
+    {
+        org.simpleframework.xml.core.LabelMap $r0, $r3;
+        boolean $z0, $z1, $z2;
+        org.simpleframework.xml.core.Label $r1;
+        org.simpleframework.xml.core.TreeModel $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r1 = $r2.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text>;
+
+        if $r1 == null goto label1;
+
+        return 0;
+
+     label1:
+        $r0 = $r2.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.LabelMap: boolean isEmpty()>();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = $r2.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        $z1 = virtualinvoke $r3.<org.simpleframework.xml.core.LabelMap: boolean isEmpty()>();
+
+        if $z1 == 0 goto label3;
+
+        $z2 = virtualinvoke $r2.<org.simpleframework.xml.core.TreeModel: boolean isComposite()>();
+
+        if $z2 != 0 goto label4;
+
+        return 1;
+
+     label2:
+        return 0;
+
+     label3:
+        return 0;
+
+     label4:
+        return 0;
+    }
+
+    public boolean isModel(java.lang.String)
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.ModelMap $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.core.TreeModel $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.ModelMap: boolean containsKey(java.lang.Object)>($r1);
+
+        return $z0;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        java.lang.String $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.util.Iterator $r2, $r6;
+        org.simpleframework.xml.core.TreeModel$OrderList $r3;
+        java.util.ArrayList $r4;
+        org.simpleframework.xml.core.TreeModel $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<java.util.ArrayList: void <init>()>();
+
+        $r3 = $r5.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.TreeModel$OrderList order>;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.TreeModel$OrderList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (java.lang.String) $r1;
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r0);
+
+        goto label1;
+
+     label2:
+        $r6 = interfaceinvoke $r4.<java.util.List: java.util.Iterator iterator()>();
+
+        return $r6;
+    }
+
+    public org.simpleframework.xml.core.Model lookup(java.lang.String, int)
+    {
+        org.simpleframework.xml.core.Model $r0;
+        org.simpleframework.xml.core.ModelMap $r1;
+        int $i0;
+        java.lang.String $r2;
+        org.simpleframework.xml.core.TreeModel $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r1 = $r3.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ModelMap: org.simpleframework.xml.core.Model lookup(java.lang.String,int)>($r2, $i0);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Model lookup(org.simpleframework.xml.core.Expression)
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Model $r0, $r5;
+        int $i0;
+        java.lang.String $r1;
+        org.simpleframework.xml.core.Expression $r2, $r4;
+        org.simpleframework.xml.core.TreeModel $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Expression;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.core.Expression: java.lang.String getFirst()>();
+
+        $i0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Expression: int getIndex()>();
+
+        $r0 = virtualinvoke $r3.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Model lookup(java.lang.String,int)>($r1, $i0);
+
+        $z0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Expression: boolean isPath()>();
+
+        if $z0 == 0 goto label1;
+
+        $r4 = interfaceinvoke $r2.<org.simpleframework.xml.core.Expression: org.simpleframework.xml.core.Expression getPath(int,int)>(1, 0);
+
+        if $r0 == null goto label2;
+
+        $r5 = interfaceinvoke $r0.<org.simpleframework.xml.core.Model: org.simpleframework.xml.core.Model lookup(org.simpleframework.xml.core.Expression)>($r4);
+
+        return $r5;
+
+     label1:
+        return $r0;
+
+     label2:
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Model register(java.lang.String, java.lang.String, int) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Model $r0, $r5;
+        org.simpleframework.xml.core.ModelMap $r1;
+        int $i0;
+        java.lang.String $r2, $r3;
+        org.simpleframework.xml.core.TreeModel $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: java.lang.String;
+
+        $i0 := @parameter2: int;
+
+        $r1 = $r4.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.ModelMap models>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ModelMap: org.simpleframework.xml.core.Model lookup(java.lang.String,int)>($r2, $i0);
+
+        if $r0 != null goto label1;
+
+        $r5 = specialinvoke $r4.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Model create(java.lang.String,java.lang.String,int)>($r2, $r3, $i0);
+
+        return $r5;
+
+     label1:
+        return $r0;
+    }
+
+    public void register(org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        boolean $z0, $z1;
+        org.simpleframework.xml.core.Label $r0;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r0 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $z0 = interfaceinvoke $r0.<org.simpleframework.xml.core.Label: boolean isAttribute()>();
+
+        if $z0 == 0 goto label1;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.TreeModel: void registerAttribute(org.simpleframework.xml.core.Label)>($r0);
+
+        return;
+
+     label1:
+        $z1 = interfaceinvoke $r0.<org.simpleframework.xml.core.Label: boolean isText()>();
+
+        if $z1 == 0 goto label2;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.TreeModel: void registerText(org.simpleframework.xml.core.Label)>($r0);
+
+        return;
+
+     label2:
+        virtualinvoke $r1.<org.simpleframework.xml.core.TreeModel: void registerElement(org.simpleframework.xml.core.Label)>($r0);
+
+        return;
+    }
+
+    public void registerAttribute(java.lang.String) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.LabelMap $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.core.TreeModel $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.LabelMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, null);
+
+        return;
+    }
+
+    public void registerAttribute(org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.AttributeException $r1;
+        java.lang.Object $r2;
+        java.lang.String $r3;
+        org.simpleframework.xml.core.LabelMap $r4, $r7;
+        org.simpleframework.xml.core.Label $r5;
+        org.simpleframework.xml.core.TreeModel $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r3 = interfaceinvoke $r5.<org.simpleframework.xml.core.Label: java.lang.String getName()>();
+
+        $r4 = $r6.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        $r2 = virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r3);
+
+        if $r2 == null goto label1;
+
+        $r1 = new org.simpleframework.xml.core.AttributeException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r3;
+
+        $r0[1] = $r5;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.AttributeException: void <init>(java.lang.String,java.lang.Object[])>("Duplicate annotation of name \'%s\' on %s", $r0);
+
+        throw $r1;
+
+     label1:
+        $r7 = $r6.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap attributes>;
+
+        virtualinvoke $r7.<org.simpleframework.xml.core.LabelMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r3, $r5);
+
+        return;
+    }
+
+    public void registerElement(java.lang.String) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.LabelMap $r0;
+        boolean $z0;
+        org.simpleframework.xml.core.TreeModel$OrderList $r1, $r4;
+        java.lang.String $r2;
+        org.simpleframework.xml.core.TreeModel $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = $r3.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.TreeModel$OrderList order>;
+
+        $z0 = virtualinvoke $r1.<org.simpleframework.xml.core.TreeModel$OrderList: boolean contains(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label1;
+
+        $r4 = $r3.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.TreeModel$OrderList order>;
+
+        virtualinvoke $r4.<org.simpleframework.xml.core.TreeModel$OrderList: boolean add(java.lang.Object)>($r2);
+
+     label1:
+        $r0 = $r3.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.LabelMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, null);
+
+        return;
+    }
+
+    public void registerElement(org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.TreeModel$OrderList $r0, $r8;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.ElementException $r2;
+        java.lang.Object $r3;
+        java.lang.String $r4;
+        org.simpleframework.xml.core.LabelMap $r5, $r9;
+        org.simpleframework.xml.core.Label $r6;
+        org.simpleframework.xml.core.TreeModel $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r6 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r4 = interfaceinvoke $r6.<org.simpleframework.xml.core.Label: java.lang.String getName()>();
+
+        $r5 = $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r3 = virtualinvoke $r5.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r4);
+
+        if $r3 == null goto label1;
+
+        $r2 = new org.simpleframework.xml.core.ElementException;
+
+        $r1 = newarray (java.lang.Object)[2];
+
+        $r1[0] = $r4;
+
+        $r1[1] = $r6;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ElementException: void <init>(java.lang.String,java.lang.Object[])>("Duplicate annotation of name \'%s\' on %s", $r1);
+
+        throw $r2;
+
+     label1:
+        $r0 = $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.TreeModel$OrderList order>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.TreeModel$OrderList: boolean contains(java.lang.Object)>($r4);
+
+        if $z0 != 0 goto label2;
+
+        $r8 = $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.TreeModel$OrderList order>;
+
+        virtualinvoke $r8.<org.simpleframework.xml.core.TreeModel$OrderList: boolean add(java.lang.Object)>($r4);
+
+     label2:
+        $r9 = $r7.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.LabelMap elements>;
+
+        virtualinvoke $r9.<org.simpleframework.xml.core.LabelMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r4, $r6);
+
+        return;
+    }
+
+    public void registerText(org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.TextException $r1;
+        org.simpleframework.xml.core.Label $r2, $r3;
+        org.simpleframework.xml.core.TreeModel $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r3 = $r4.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text>;
+
+        if $r3 == null goto label1;
+
+        $r1 = new org.simpleframework.xml.core.TextException;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = $r2;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.TextException: void <init>(java.lang.String,java.lang.Object[])>("Duplicate text annotation on %s", $r0);
+
+        throw $r1;
+
+     label1:
+        $r4.<org.simpleframework.xml.core.TreeModel: org.simpleframework.xml.core.Label text> = $r2;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        int $i0;
+        java.lang.Object[] $r0;
+        java.lang.Integer $r1;
+        java.lang.String $r2, $r4;
+        org.simpleframework.xml.core.TreeModel $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r2 = $r3.<org.simpleframework.xml.core.TreeModel: java.lang.String name>;
+
+        $r0[0] = $r2;
+
+        $i0 = $r3.<org.simpleframework.xml.core.TreeModel: int index>;
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r0[1] = $r1;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("model \'%s[%s]\'", $r0);
+
+        return $r4;
+    }
+
+    public void validate(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.TreeModel $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TreeModel;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.TreeModel: void validateExpressions(java.lang.Class)>($r0);
+
+        specialinvoke $r1.<org.simpleframework.xml.core.TreeModel: void validateAttributes(java.lang.Class)>($r0);
+
+        specialinvoke $r1.<org.simpleframework.xml.core.TreeModel: void validateElements(java.lang.Class)>($r0);
+
+        specialinvoke $r1.<org.simpleframework.xml.core.TreeModel: void validateModels(java.lang.Class)>($r0);
+
+        specialinvoke $r1.<org.simpleframework.xml.core.TreeModel: void validateText(java.lang.Class)>($r0);
+
+        return;
+    }
+}

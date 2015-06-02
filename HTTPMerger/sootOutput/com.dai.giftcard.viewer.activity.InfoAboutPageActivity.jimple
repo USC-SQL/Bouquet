@@ -1,0 +1,152 @@
+public class com.dai.giftcard.viewer.activity.InfoAboutPageActivity extends android.app.Activity
+{
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.activity.InfoAboutPageActivity $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.activity.InfoAboutPageActivity;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        java.lang.Exception $r0;
+        boolean $z0;
+        java.lang.Long $r1;
+        long $l0, $l1, $l3;
+        android.content.SharedPreferences $r2;
+        android.content.Context $r3;
+        int $i2;
+        java.lang.StringBuilder $r4, $r14, $r16, $r17, $r18, $r22, $r23, $r26, $r28, $r29, $r30, $r31, $r33, $r34, $r35;
+        android.widget.TextView $r5, $r21, $r38;
+        android.view.View $r6, $r20, $r37;
+        android.content.pm.PackageInfo $r7;
+        java.lang.String $r8, $r15, $r19, $r24, $r25, $r27, $r32, $r36;
+        android.content.pm.PackageManager $r9;
+        java.text.SimpleDateFormat $r10;
+        java.util.Date $r11;
+        android.os.Bundle $r12;
+        com.dai.giftcard.viewer.activity.InfoAboutPageActivity $r13;
+
+        $r13 := @this: com.dai.giftcard.viewer.activity.InfoAboutPageActivity;
+
+        $r12 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r13.<android.app.Activity: void onCreate(android.os.Bundle)>($r12);
+
+        virtualinvoke $r13.<com.dai.giftcard.viewer.activity.InfoAboutPageActivity: void setContentView(int)>(2130903049);
+
+     label1:
+        $r9 = virtualinvoke $r13.<com.dai.giftcard.viewer.activity.InfoAboutPageActivity: android.content.pm.PackageManager getPackageManager()>();
+
+        $r8 = virtualinvoke $r13.<com.dai.giftcard.viewer.activity.InfoAboutPageActivity: java.lang.String getPackageName()>();
+
+        $r7 = virtualinvoke $r9.<android.content.pm.PackageManager: android.content.pm.PackageInfo getPackageInfo(java.lang.String,int)>($r8, 0);
+
+        $r6 = virtualinvoke $r13.<com.dai.giftcard.viewer.activity.InfoAboutPageActivity: android.view.View findViewById(int)>(2131296312);
+
+        $r5 = (android.widget.TextView) $r6;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r14 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Version: v");
+
+        $r15 = $r7.<android.content.pm.PackageInfo: java.lang.String versionName>;
+
+        $r16 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r15);
+
+        $r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".");
+
+        $i2 = $r7.<android.content.pm.PackageInfo: int versionCode>;
+
+        $r18 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i2);
+
+        $r19 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r5.<android.widget.TextView: void setText(java.lang.CharSequence)>($r19);
+
+        $r20 = virtualinvoke $r13.<com.dai.giftcard.viewer.activity.InfoAboutPageActivity: android.view.View findViewById(int)>(2131296313);
+
+        $r21 = (android.widget.TextView) $r20;
+
+        $r22 = new java.lang.StringBuilder;
+
+        specialinvoke $r22.<java.lang.StringBuilder: void <init>()>();
+
+        $r23 = virtualinvoke $r22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Edition: ");
+
+        $r24 = $r7.<android.content.pm.PackageInfo: java.lang.String packageName>;
+
+        $r25 = virtualinvoke $r24.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("com.dai.", "");
+
+        $r26 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r25);
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r21.<android.widget.TextView: void setText(java.lang.CharSequence)>($r27);
+
+     label2:
+        $r3 = virtualinvoke $r13.<com.dai.giftcard.viewer.activity.InfoAboutPageActivity: android.content.Context getApplicationContext()>();
+
+        $r2 = virtualinvoke $r3.<android.content.Context: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>("apprater", 0);
+
+        $l0 = interfaceinvoke $r2.<android.content.SharedPreferences: long getLong(java.lang.String,long)>("launch_count", 0L);
+
+        $l1 = interfaceinvoke $r2.<android.content.SharedPreferences: long getLong(java.lang.String,long)>("date_firstlaunch", 0L);
+
+        $r1 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l1);
+
+        $z0 = interfaceinvoke $r2.<android.content.SharedPreferences: boolean getBoolean(java.lang.String,boolean)>("dontshowagain", 0);
+
+        $r10 = new java.text.SimpleDateFormat;
+
+        specialinvoke $r10.<java.text.SimpleDateFormat: void <init>(java.lang.String)>("dd/MM/yyyy");
+
+        $r11 = new java.util.Date;
+
+        $l3 = virtualinvoke $r1.<java.lang.Long: long longValue()>();
+
+        specialinvoke $r11.<java.util.Date: void <init>(long)>($l3);
+
+        $r28 = new java.lang.StringBuilder;
+
+        specialinvoke $r28.<java.lang.StringBuilder: void <init>()>();
+
+        $r29 = virtualinvoke $r28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Launch Count:");
+
+        $r30 = virtualinvoke $r29.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($l0);
+
+        $r31 = virtualinvoke $r30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\nFirst Launch:");
+
+        $r32 = virtualinvoke $r10.<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>($r11);
+
+        $r33 = virtualinvoke $r31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r32);
+
+        $r34 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\nRate:");
+
+        $r35 = virtualinvoke $r34.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
+
+        $r36 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r37 = virtualinvoke $r13.<com.dai.giftcard.viewer.activity.InfoAboutPageActivity: android.view.View findViewById(int)>(2131296314);
+
+        $r38 = (android.widget.TextView) $r37;
+
+        virtualinvoke $r38.<android.widget.TextView: void setText(java.lang.CharSequence)>($r36);
+
+        return;
+
+     label3:
+        $r0 := @caughtexception;
+
+        goto label2;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+}

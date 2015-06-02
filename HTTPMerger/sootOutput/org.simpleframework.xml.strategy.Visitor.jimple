@@ -1,0 +1,7 @@
+public interface  org.simpleframework.xml.strategy.Visitor extends java.lang.Object
+{
+
+    public abstract void read(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.stream.NodeMap) throws java.lang.Exception;
+
+    public abstract void write(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.stream.NodeMap) throws java.lang.Exception;
+}

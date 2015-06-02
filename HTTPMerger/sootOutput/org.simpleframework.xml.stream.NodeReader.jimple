@@ -1,0 +1,402 @@
+class org.simpleframework.xml.stream.NodeReader extends java.lang.Object
+{
+    private final org.simpleframework.xml.stream.EventReader reader;
+    private final org.simpleframework.xml.stream.InputStack stack;
+
+    public void <init>(org.simpleframework.xml.stream.EventReader)
+    {
+        org.simpleframework.xml.stream.InputStack $r0;
+        org.simpleframework.xml.stream.EventReader $r1;
+        org.simpleframework.xml.stream.NodeReader $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.EventReader;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.stream.InputStack;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.InputStack: void <init>()>();
+
+        $r2.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack> = $r0;
+
+        $r2.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader> = $r1;
+
+        return;
+    }
+
+    private boolean isName(org.simpleframework.xml.stream.EventNode, java.lang.String)
+    {
+        boolean $z0;
+        java.lang.String $r0, $r1;
+        org.simpleframework.xml.stream.EventNode $r2;
+        org.simpleframework.xml.stream.NodeReader $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.EventNode;
+
+        $r0 := @parameter1: java.lang.String;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.stream.EventNode: java.lang.String getName()>();
+
+        if $r1 != null goto label1;
+
+        return 0;
+
+     label1:
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r0);
+
+        return $z0;
+    }
+
+    private org.simpleframework.xml.stream.InputNode readStart(org.simpleframework.xml.stream.InputNode, org.simpleframework.xml.stream.EventNode) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.InputStack $r1;
+        boolean $z0;
+        org.simpleframework.xml.stream.InputElement $r2;
+        org.simpleframework.xml.stream.EventNode $r3;
+        org.simpleframework.xml.stream.InputNode $r4, $r6;
+        org.simpleframework.xml.stream.NodeReader $r5;
+
+        $r5 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 := @parameter1: org.simpleframework.xml.stream.EventNode;
+
+        $r2 = new org.simpleframework.xml.stream.InputElement;
+
+        specialinvoke $r2.<org.simpleframework.xml.stream.InputElement: void <init>(org.simpleframework.xml.stream.InputNode,org.simpleframework.xml.stream.NodeReader,org.simpleframework.xml.stream.EventNode)>($r4, $r5, $r3);
+
+        $z0 = interfaceinvoke $r3.<org.simpleframework.xml.stream.EventNode: boolean isStart()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r5.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.InputStack: java.lang.Object push(java.lang.Object)>($r2);
+
+        $r6 = (org.simpleframework.xml.stream.InputNode) $r0;
+
+        return $r6;
+
+     label1:
+        return $r2;
+    }
+
+    public boolean isEmpty(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.stream.EventNode $r0;
+        org.simpleframework.xml.stream.EventReader $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.stream.InputStack $r3;
+        org.simpleframework.xml.stream.InputNode $r4;
+        org.simpleframework.xml.stream.NodeReader $r5;
+
+        $r5 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 = $r5.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.stream.InputStack: java.lang.Object top()>();
+
+        if $r2 != $r4 goto label1;
+
+        $r1 = $r5.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventReader: org.simpleframework.xml.stream.EventNode peek()>();
+
+        $z0 = interfaceinvoke $r0.<org.simpleframework.xml.stream.EventNode: boolean isEnd()>();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isRoot(org.simpleframework.xml.stream.InputNode)
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.InputStack $r1;
+        org.simpleframework.xml.stream.InputNode $r2;
+        org.simpleframework.xml.stream.NodeReader $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r1 = $r3.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.InputStack: java.lang.Object bottom()>();
+
+        if $r0 != $r2 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public org.simpleframework.xml.stream.InputNode readElement(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.EventReader $r1, $r7;
+        boolean $z0, $z1, $z2;
+        org.simpleframework.xml.stream.InputStack $r2, $r6;
+        org.simpleframework.xml.stream.EventNode $r3;
+        org.simpleframework.xml.stream.InputNode $r4, $r8;
+        org.simpleframework.xml.stream.NodeReader $r5;
+
+        $r5 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 = $r5.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.stream.InputStack: boolean isRelevant(org.simpleframework.xml.stream.InputNode)>($r4);
+
+        if $z0 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $r1 = $r5.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader>;
+
+        $r3 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventReader: org.simpleframework.xml.stream.EventNode next()>();
+
+     label2:
+        if $r3 == null goto label5;
+
+        $z1 = interfaceinvoke $r3.<org.simpleframework.xml.stream.EventNode: boolean isEnd()>();
+
+        if $z1 == 0 goto label4;
+
+        $r6 = $r5.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $r0 = virtualinvoke $r6.<org.simpleframework.xml.stream.InputStack: java.lang.Object pop()>();
+
+        if $r0 == $r4 goto label6;
+
+     label3:
+        $r7 = $r5.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader>;
+
+        $r3 = interfaceinvoke $r7.<org.simpleframework.xml.stream.EventReader: org.simpleframework.xml.stream.EventNode next()>();
+
+        goto label2;
+
+     label4:
+        $z2 = interfaceinvoke $r3.<org.simpleframework.xml.stream.EventNode: boolean isStart()>();
+
+        if $z2 == 0 goto label3;
+
+        $r8 = specialinvoke $r5.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputNode readStart(org.simpleframework.xml.stream.InputNode,org.simpleframework.xml.stream.EventNode)>($r4, $r3);
+
+        return $r8;
+
+     label5:
+        return null;
+
+     label6:
+        return null;
+    }
+
+    public org.simpleframework.xml.stream.InputNode readElement(org.simpleframework.xml.stream.InputNode, java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.EventReader $r1, $r9, $r10;
+        boolean $z0, $z1, $z2, $z3;
+        org.simpleframework.xml.stream.InputStack $r2, $r7, $r8;
+        org.simpleframework.xml.stream.EventNode $r3;
+        java.lang.String $r4;
+        org.simpleframework.xml.stream.InputNode $r5, $r11;
+        org.simpleframework.xml.stream.NodeReader $r6;
+
+        $r6 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r5 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 := @parameter1: java.lang.String;
+
+        $r2 = $r6.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.stream.InputStack: boolean isRelevant(org.simpleframework.xml.stream.InputNode)>($r5);
+
+        if $z0 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $r1 = $r6.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader>;
+
+        $r3 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventReader: org.simpleframework.xml.stream.EventNode peek()>();
+
+     label2:
+        if $r3 == null goto label5;
+
+        $z1 = interfaceinvoke $r3.<org.simpleframework.xml.stream.EventNode: boolean isEnd()>();
+
+        if $z1 == 0 goto label4;
+
+        $r7 = $r6.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $r0 = virtualinvoke $r7.<org.simpleframework.xml.stream.InputStack: java.lang.Object top()>();
+
+        if $r0 == $r5 goto label6;
+
+        $r8 = $r6.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        virtualinvoke $r8.<org.simpleframework.xml.stream.InputStack: java.lang.Object pop()>();
+
+     label3:
+        $r9 = $r6.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader>;
+
+        interfaceinvoke $r9.<org.simpleframework.xml.stream.EventReader: org.simpleframework.xml.stream.EventNode next()>();
+
+        $r10 = $r6.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader>;
+
+        $r3 = interfaceinvoke $r10.<org.simpleframework.xml.stream.EventReader: org.simpleframework.xml.stream.EventNode peek()>();
+
+        goto label2;
+
+     label4:
+        $z2 = interfaceinvoke $r3.<org.simpleframework.xml.stream.EventNode: boolean isStart()>();
+
+        if $z2 == 0 goto label3;
+
+        $z3 = specialinvoke $r6.<org.simpleframework.xml.stream.NodeReader: boolean isName(org.simpleframework.xml.stream.EventNode,java.lang.String)>($r3, $r4);
+
+        if $z3 == 0 goto label7;
+
+        $r11 = virtualinvoke $r6.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputNode readElement(org.simpleframework.xml.stream.InputNode)>($r5);
+
+        return $r11;
+
+     label5:
+        return null;
+
+     label6:
+        return null;
+
+     label7:
+        return null;
+    }
+
+    public org.simpleframework.xml.stream.InputNode readRoot() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.NodeException $r0;
+        org.simpleframework.xml.stream.InputNode $r1;
+        boolean $z0;
+        org.simpleframework.xml.stream.InputStack $r2;
+        org.simpleframework.xml.stream.NodeReader $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r2 = $r3.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.stream.InputStack: boolean isEmpty()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputNode readElement(org.simpleframework.xml.stream.InputNode)>(null);
+
+        if $r1 != null goto label2;
+
+        $r0 = new org.simpleframework.xml.stream.NodeException;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.NodeException: void <init>(java.lang.String)>("Document has no root element");
+
+        throw $r0;
+
+     label1:
+        return null;
+
+     label2:
+        return $r1;
+    }
+
+    public java.lang.String readValue(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.String $r0, $r8;
+        int $i0;
+        boolean $z0;
+        org.simpleframework.xml.stream.EventNode $r1;
+        org.simpleframework.xml.stream.EventReader $r2, $r9;
+        java.lang.Object $r3;
+        org.simpleframework.xml.stream.InputStack $r4;
+        java.lang.StringBuilder $r5;
+        org.simpleframework.xml.stream.InputNode $r6;
+        org.simpleframework.xml.stream.NodeReader $r7;
+
+        $r7 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r6 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+     label1:
+        $r4 = $r7.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputStack stack>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.stream.InputStack: java.lang.Object top()>();
+
+        if $r3 != $r6 goto label4;
+
+        $r2 = $r7.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader>;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.stream.EventReader: org.simpleframework.xml.stream.EventNode peek()>();
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventNode: boolean isText()>();
+
+        if $z0 != 0 goto label3;
+
+        $i0 = virtualinvoke $r5.<java.lang.StringBuilder: int length()>();
+
+        if $i0 != 0 goto label2;
+
+        return null;
+
+     label2:
+        $r0 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r0;
+
+     label3:
+        $r8 = interfaceinvoke $r1.<org.simpleframework.xml.stream.EventNode: java.lang.String getValue()>();
+
+        virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r9 = $r7.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.EventReader reader>;
+
+        interfaceinvoke $r9.<org.simpleframework.xml.stream.EventReader: org.simpleframework.xml.stream.EventNode next()>();
+
+        goto label1;
+
+     label4:
+        return null;
+    }
+
+    public void skipElement(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.InputNode $r0, $r1;
+        org.simpleframework.xml.stream.NodeReader $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.NodeReader;
+
+        $r0 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+     label1:
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputNode readElement(org.simpleframework.xml.stream.InputNode)>($r0);
+
+        if $r1 != null goto label1;
+
+        return;
+    }
+}

@@ -1,0 +1,463 @@
+public class com.oopsconsultancy.xmltask.XmlReplace extends java.lang.Object implements com.oopsconsultancy.xmltask.XPathAnalyserClient
+{
+    private final com.oopsconsultancy.xmltask.Action action;
+    private java.lang.String ifProperty;
+    private final java.util.List nodes;
+    private final java.lang.String path;
+    private org.apache.tools.ant.Task task;
+    private java.lang.String unlessProperty;
+
+    public void <init>(java.lang.String, com.oopsconsultancy.xmltask.Action)
+    {
+        java.util.ArrayList $r0;
+        com.oopsconsultancy.xmltask.Action $r1;
+        java.lang.String $r2;
+        com.oopsconsultancy.xmltask.XmlReplace $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: com.oopsconsultancy.xmltask.Action;
+
+        specialinvoke $r3.<java.lang.Object: void <init>()>();
+
+        $r3.<com.oopsconsultancy.xmltask.XmlReplace: org.apache.tools.ant.Task task> = null;
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: void <init>()>();
+
+        $r3.<com.oopsconsultancy.xmltask.XmlReplace: java.util.List nodes> = $r0;
+
+        $r3.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String path> = $r2;
+
+        $r3.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action> = $r1;
+
+        return;
+    }
+
+    private boolean isApplicable()
+    {
+        java.lang.StringBuilder $r0, $r7, $r9, $r10, $r12, $r13, $r15, $r16, $r23, $r24, $r26, $r27, $r29, $r30, $r32, $r33;
+        org.apache.tools.ant.Task $r1, $r19;
+        org.apache.tools.ant.Project $r2, $r20;
+        java.lang.String $r3, $r5, $r6, $r8, $r11, $r14, $r17, $r18, $r21, $r22, $r25, $r28, $r31, $r34;
+        com.oopsconsultancy.xmltask.XmlReplace $r4;
+
+        $r4 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r3 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String ifProperty>;
+
+        if $r3 == null goto label2;
+
+        $r1 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: org.apache.tools.ant.Task task>;
+
+        $r2 = virtualinvoke $r1.<org.apache.tools.ant.Task: org.apache.tools.ant.Project getProject()>();
+
+        $r5 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String ifProperty>;
+
+        $r6 = virtualinvoke $r2.<org.apache.tools.ant.Project: java.lang.String getProperty(java.lang.String)>($r5);
+
+        if $r6 == null goto label1;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Performing action since \'");
+
+        $r8 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String ifProperty>;
+
+        $r9 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' is set");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<com.oopsconsultancy.xmltask.XmlReplace: void log(java.lang.String,int)>($r11, 3);
+
+        return 1;
+
+     label1:
+        $r12 = new java.lang.StringBuilder;
+
+        specialinvoke $r12.<java.lang.StringBuilder: void <init>()>();
+
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Not performing action since \'");
+
+        $r14 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String ifProperty>;
+
+        $r15 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        $r16 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' is not set");
+
+        $r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<com.oopsconsultancy.xmltask.XmlReplace: void log(java.lang.String,int)>($r17, 3);
+
+        return 0;
+
+     label2:
+        $r18 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String unlessProperty>;
+
+        if $r18 == null goto label4;
+
+        $r19 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: org.apache.tools.ant.Task task>;
+
+        $r20 = virtualinvoke $r19.<org.apache.tools.ant.Task: org.apache.tools.ant.Project getProject()>();
+
+        $r21 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String unlessProperty>;
+
+        $r22 = virtualinvoke $r20.<org.apache.tools.ant.Project: java.lang.String getProperty(java.lang.String)>($r21);
+
+        if $r22 != null goto label3;
+
+        $r23 = new java.lang.StringBuilder;
+
+        specialinvoke $r23.<java.lang.StringBuilder: void <init>()>();
+
+        $r24 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Performing action since \'");
+
+        $r25 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String unlessProperty>;
+
+        $r26 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r25);
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' is not set");
+
+        $r28 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<com.oopsconsultancy.xmltask.XmlReplace: void log(java.lang.String,int)>($r28, 3);
+
+        return 1;
+
+     label3:
+        $r29 = new java.lang.StringBuilder;
+
+        specialinvoke $r29.<java.lang.StringBuilder: void <init>()>();
+
+        $r30 = virtualinvoke $r29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Not performing action since \'");
+
+        $r31 = $r4.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String unlessProperty>;
+
+        $r32 = virtualinvoke $r30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r31);
+
+        $r33 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' is set");
+
+        $r34 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r4.<com.oopsconsultancy.xmltask.XmlReplace: void log(java.lang.String,int)>($r34, 3);
+
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    private void log(java.lang.String, int)
+    {
+        java.io.PrintStream $r0;
+        org.apache.tools.ant.Task $r1, $r4;
+        int $i0;
+        java.lang.String $r2;
+        com.oopsconsultancy.xmltask.XmlReplace $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r1 = $r3.<com.oopsconsultancy.xmltask.XmlReplace: org.apache.tools.ant.Task task>;
+
+        if $r1 == null goto label1;
+
+        $r4 = $r3.<com.oopsconsultancy.xmltask.XmlReplace: org.apache.tools.ant.Task task>;
+
+        virtualinvoke $r4.<org.apache.tools.ant.Task: void log(java.lang.String,int)>($r2, $i0);
+
+        return;
+
+     label1:
+        $r0 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public int apply(org.w3c.dom.Document) throws java.lang.Exception
+    {
+        org.w3c.dom.Node $r0;
+        java.lang.Object $r1;
+        java.util.Iterator $r2;
+        int $i0;
+        java.util.List $r3, $r30;
+        com.oopsconsultancy.xmltask.XPathAnalyser $r4;
+        com.oopsconsultancy.xmltask.Action $r5, $r13, $r14, $r17, $r22, $r28, $r31, $r34, $r40;
+        java.lang.StringBuilder $r6, $r10, $r11, $r15, $r16, $r18, $r20, $r21, $r23, $r24, $r26, $r32, $r33, $r35, $r36, $r37, $r38;
+        java.lang.String $r7, $r12, $r19, $r25, $r27, $r29, $r39;
+        boolean $z0, $z1;
+        org.w3c.dom.Document $r8;
+        com.oopsconsultancy.xmltask.XmlReplace $r9;
+
+        $r9 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r8 := @parameter0: org.w3c.dom.Document;
+
+        $z0 = specialinvoke $r9.<com.oopsconsultancy.xmltask.XmlReplace: boolean isApplicable()>();
+
+        if $z0 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        $r7 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String path>;
+
+        if $r7 != null goto label2;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Applying ");
+
+        $r5 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<com.oopsconsultancy.xmltask.XmlReplace: void log(java.lang.String,int)>($r12, 3);
+
+        $r13 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        virtualinvoke $r13.<com.oopsconsultancy.xmltask.Action: boolean apply(org.w3c.dom.Node)>(null);
+
+        $r14 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        virtualinvoke $r14.<com.oopsconsultancy.xmltask.Action: void complete()>();
+
+        $r15 = new java.lang.StringBuilder;
+
+        specialinvoke $r15.<java.lang.StringBuilder: void <init>()>();
+
+        $r16 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Applied ");
+
+        $r17 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        $r18 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r17);
+
+        $r19 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<com.oopsconsultancy.xmltask.XmlReplace: void log(java.lang.String,int)>($r19, 3);
+
+        return 1;
+
+     label2:
+        $r20 = new java.lang.StringBuilder;
+
+        specialinvoke $r20.<java.lang.StringBuilder: void <init>()>();
+
+        $r21 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Applying ");
+
+        $r22 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        $r23 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r22);
+
+        $r24 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" to ");
+
+        $r25 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String path>;
+
+        $r26 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r25);
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<com.oopsconsultancy.xmltask.XmlReplace: void log(java.lang.String,int)>($r27, 3);
+
+        $r28 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        virtualinvoke $r28.<com.oopsconsultancy.xmltask.Action: void setDocument(org.w3c.dom.Document)>($r8);
+
+        $r4 = staticinvoke <com.oopsconsultancy.xmltask.XPathAnalyserFactory: com.oopsconsultancy.xmltask.XPathAnalyser getAnalyser()>();
+
+        interfaceinvoke $r4.<com.oopsconsultancy.xmltask.XPathAnalyser: void registerClient(com.oopsconsultancy.xmltask.XPathAnalyserClient,java.lang.Object)>($r9, null);
+
+        $r3 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: java.util.List nodes>;
+
+        interfaceinvoke $r3.<java.util.List: void clear()>();
+
+        $r29 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String path>;
+
+        $i0 = interfaceinvoke $r4.<com.oopsconsultancy.xmltask.XPathAnalyser: int analyse(org.w3c.dom.Node,java.lang.String)>($r8, $r29);
+
+        $r30 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: java.util.List nodes>;
+
+        $r2 = interfaceinvoke $r30.<java.util.List: java.util.Iterator iterator()>();
+
+     label3:
+        $z1 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label4;
+
+        $r31 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.w3c.dom.Node) $r1;
+
+        virtualinvoke $r31.<com.oopsconsultancy.xmltask.Action: boolean apply(org.w3c.dom.Node)>($r0);
+
+        goto label3;
+
+     label4:
+        $r32 = new java.lang.StringBuilder;
+
+        specialinvoke $r32.<java.lang.StringBuilder: void <init>()>();
+
+        $r33 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Applied ");
+
+        $r34 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        $r35 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r34);
+
+        $r36 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" - ");
+
+        $r37 = virtualinvoke $r36.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r38 = virtualinvoke $r37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" match(es)");
+
+        $r39 = virtualinvoke $r38.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r9.<com.oopsconsultancy.xmltask.XmlReplace: void log(java.lang.String,int)>($r39, 3);
+
+        $r40 = $r9.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        virtualinvoke $r40.<com.oopsconsultancy.xmltask.Action: void complete()>();
+
+        return $i0;
+    }
+
+    public void applyNode(java.lang.String, java.lang.Object) throws java.lang.Exception
+    {
+        org.w3c.dom.Text $r0;
+        org.w3c.dom.Document $r1;
+        com.oopsconsultancy.xmltask.Action $r2;
+        java.util.List $r3;
+        java.lang.Object $r4;
+        java.lang.String $r5;
+        com.oopsconsultancy.xmltask.XmlReplace $r6;
+
+        $r6 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r5 := @parameter0: java.lang.String;
+
+        $r4 := @parameter1: java.lang.Object;
+
+        $r3 = $r6.<com.oopsconsultancy.xmltask.XmlReplace: java.util.List nodes>;
+
+        $r2 = $r6.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        $r1 = virtualinvoke $r2.<com.oopsconsultancy.xmltask.Action: org.w3c.dom.Document getDocument()>();
+
+        $r0 = interfaceinvoke $r1.<org.w3c.dom.Document: org.w3c.dom.Text createTextNode(java.lang.String)>($r5);
+
+        interfaceinvoke $r3.<java.util.List: boolean add(java.lang.Object)>($r0);
+
+        return;
+    }
+
+    public void applyNode(org.w3c.dom.Node, java.lang.Object) throws java.lang.Exception
+    {
+        java.util.List $r0;
+        java.lang.Object $r1;
+        org.w3c.dom.Node $r2;
+        com.oopsconsultancy.xmltask.XmlReplace $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r2 := @parameter0: org.w3c.dom.Node;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $r0 = $r3.<com.oopsconsultancy.xmltask.XmlReplace: java.util.List nodes>;
+
+        interfaceinvoke $r0.<java.util.List: boolean add(java.lang.Object)>($r2);
+
+        return;
+    }
+
+    public void setIf(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.XmlReplace $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String ifProperty> = $r0;
+
+        return;
+    }
+
+    public void setTask(org.apache.tools.ant.Task)
+    {
+        org.apache.tools.ant.Task $r0;
+        com.oopsconsultancy.xmltask.XmlReplace $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r0 := @parameter0: org.apache.tools.ant.Task;
+
+        $r1.<com.oopsconsultancy.xmltask.XmlReplace: org.apache.tools.ant.Task task> = $r0;
+
+        return;
+    }
+
+    public void setUnless(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.XmlReplace $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String unlessProperty> = $r0;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0, $r6, $r9;
+        com.oopsconsultancy.xmltask.Action $r1;
+        java.lang.StringBuilder $r2, $r4, $r5, $r7, $r8;
+        com.oopsconsultancy.xmltask.XmlReplace $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+
+        $r1 = $r3.<com.oopsconsultancy.xmltask.XmlReplace: com.oopsconsultancy.xmltask.Action action>;
+
+        $r0 = virtualinvoke $r1.<java.lang.Object: java.lang.String toString()>();
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (");
+
+        $r6 = $r3.<com.oopsconsultancy.xmltask.XmlReplace: java.lang.String path>;
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r9;
+    }
+}

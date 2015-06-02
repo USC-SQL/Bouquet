@@ -1,0 +1,241 @@
+public class com.dai.giftcard.viewer.task.QueryBalanceAsyncTask extends android.os.AsyncTask
+{
+    int CardId;
+    android.content.Context context;
+    android.app.ProgressDialog dialog;
+    android.os.Handler handlerUpdateCorret;
+    android.os.Handler handlerUpdateDemoCard;
+    android.os.Handler handlerUpdateError;
+
+    public void <init>(int, android.content.Context, android.os.Handler, android.os.Handler, android.os.Handler)
+    {
+        android.os.Handler $r0, $r1, $r2;
+        android.content.Context $r3;
+        int $i0;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r4;
+
+        $r4 := @this: com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        $i0 := @parameter0: int;
+
+        $r3 := @parameter1: android.content.Context;
+
+        $r0 := @parameter2: android.os.Handler;
+
+        $r1 := @parameter3: android.os.Handler;
+
+        $r2 := @parameter4: android.os.Handler;
+
+        specialinvoke $r4.<android.os.AsyncTask: void <init>()>();
+
+        $r4.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.content.Context context> = $r3;
+
+        $r4.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: int CardId> = $i0;
+
+        $r4.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.os.Handler handlerUpdateDemoCard> = $r0;
+
+        $r4.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.os.Handler handlerUpdateError> = $r1;
+
+        $r4.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.os.Handler handlerUpdateCorret> = $r2;
+
+        return;
+    }
+
+    protected volatile java.lang.Object doInBackground(java.lang.Object[])
+    {
+        java.lang.Void[] $r0;
+        java.lang.Void $r1;
+        java.lang.Object[] $r2;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r3;
+
+        $r3 := @this: com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        $r2 := @parameter0: java.lang.Object[];
+
+        $r0 = (java.lang.Void[]) $r2;
+
+        $r1 = virtualinvoke $r3.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: java.lang.Void doInBackground(java.lang.Void[])>($r0);
+
+        return $r1;
+    }
+
+    protected transient java.lang.Void doInBackground(java.lang.Void[])
+    {
+        java.util.Date $r0;
+        com.dai.giftcard.viewer.model.CardType $r1;
+        android.os.Handler $r2, $r9, $r10;
+        double $d0;
+        long $l0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r3;
+        int $i1, $i2;
+        boolean $z0, $z1, $z2;
+        com.dai.giftcard.viewer.reader.BaseCardReader $r4;
+        java.util.Random $r5;
+        java.lang.Exception $r6;
+        java.lang.Void[] $r7;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r8;
+
+        $r8 := @this: com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        $r7 := @parameter0: java.lang.Void[];
+
+        $i1 = $r8.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: int CardId>;
+
+        $l0 = (long) $i1;
+
+        $r3 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntity GetGiftCardById(long)>($l0);
+
+        $z0 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: boolean IsDemoCard(com.dai.giftcard.viewer.model.GiftCardEntity)>($r3);
+
+        if $z0 == 0 goto label2;
+
+        $r5 = new java.util.Random;
+
+        specialinvoke $r5.<java.util.Random: void <init>()>();
+
+        $i2 = virtualinvoke $r5.<java.util.Random: int nextInt(int)>(100);
+
+        $d0 = (double) $i2;
+
+        $r3.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance> = $d0;
+
+        $r2 = $r8.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.os.Handler handlerUpdateDemoCard>;
+
+        virtualinvoke $r2.<android.os.Handler: boolean sendEmptyMessage(int)>(0);
+
+     label1:
+        return null;
+
+     label2:
+        $z2 = 0;
+
+     label3:
+        $r1 = $r3.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r4 = $r1.<com.dai.giftcard.viewer.model.CardType: com.dai.giftcard.viewer.reader.BaseCardReader reader>;
+
+        $r4.<com.dai.giftcard.viewer.reader.BaseCardReader: com.dai.giftcard.viewer.model.GiftCardEntity card> = $r3;
+
+        $z1 = virtualinvoke $r4.<com.dai.giftcard.viewer.reader.BaseCardReader: boolean GetCardBalanceRequest()>();
+
+     label4:
+        $z2 = $z1;
+
+     label5:
+        if $z2 != 0 goto label7;
+
+        $r9 = $r8.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.os.Handler handlerUpdateError>;
+
+        virtualinvoke $r9.<android.os.Handler: boolean sendEmptyMessage(int)>(0);
+
+        goto label1;
+
+     label6:
+        $r6 := @caughtexception;
+
+        virtualinvoke $r6.<java.lang.Exception: void printStackTrace()>();
+
+        goto label5;
+
+     label7:
+        $r0 = new java.util.Date;
+
+        specialinvoke $r0.<java.util.Date: void <init>()>();
+
+        $r3.<com.dai.giftcard.viewer.model.GiftCardEntity: java.util.Date LastUpdate> = $r0;
+
+        $r10 = $r8.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.os.Handler handlerUpdateCorret>;
+
+        virtualinvoke $r10.<android.os.Handler: boolean sendEmptyMessage(int)>(0);
+
+        goto label1;
+
+        catch java.lang.Exception from label3 to label4 with label6;
+    }
+
+    protected volatile void onPostExecute(java.lang.Object)
+    {
+        java.lang.Void $r0;
+        java.lang.Object $r1;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = (java.lang.Void) $r1;
+
+        virtualinvoke $r2.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: void onPostExecute(java.lang.Void)>($r0);
+
+        return;
+    }
+
+    protected void onPostExecute(java.lang.Void)
+    {
+        android.app.ProgressDialog $r0;
+        java.lang.Void $r1;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        $r1 := @parameter0: java.lang.Void;
+
+        specialinvoke $r2.<android.os.AsyncTask: void onPostExecute(java.lang.Object)>($r1);
+
+        $r0 = $r2.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.app.ProgressDialog dialog>;
+
+        virtualinvoke $r0.<android.app.ProgressDialog: void dismiss()>();
+
+        return;
+    }
+
+    protected void onPreExecute()
+    {
+        android.app.ProgressDialog $r0;
+        android.content.Context $r1;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        specialinvoke $r2.<android.os.AsyncTask: void onPreExecute()>();
+
+        $r1 = $r2.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.content.Context context>;
+
+        $r0 = staticinvoke <android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean)>($r1, "", "Querying Gift Card Balance...", 1);
+
+        $r2.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.app.ProgressDialog dialog> = $r0;
+
+        return;
+    }
+
+    protected transient void onProgressUpdate(java.lang.Integer[])
+    {
+        java.lang.Integer[] $r0;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        $r0 := @parameter0: java.lang.Integer[];
+
+        specialinvoke $r1.<android.os.AsyncTask: void onProgressUpdate(java.lang.Object[])>($r0);
+
+        return;
+    }
+
+    protected volatile void onProgressUpdate(java.lang.Object[])
+    {
+        java.lang.Integer[] $r0;
+        java.lang.Object[] $r1;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        $r1 := @parameter0: java.lang.Object[];
+
+        $r0 = (java.lang.Integer[]) $r1;
+
+        virtualinvoke $r2.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: void onProgressUpdate(java.lang.Integer[])>($r0);
+
+        return;
+    }
+}

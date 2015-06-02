@@ -1,0 +1,272 @@
+public class org.simpleframework.xml.convert.RegistryStrategy extends java.lang.Object implements org.simpleframework.xml.strategy.Strategy
+{
+    private final org.simpleframework.xml.convert.Registry registry;
+    private final org.simpleframework.xml.strategy.Strategy strategy;
+
+    public void <init>(org.simpleframework.xml.convert.Registry)
+    {
+        org.simpleframework.xml.strategy.TreeStrategy $r0;
+        org.simpleframework.xml.convert.Registry $r1;
+        org.simpleframework.xml.convert.RegistryStrategy $r2;
+
+        $r2 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r1 := @parameter0: org.simpleframework.xml.convert.Registry;
+
+        $r0 = new org.simpleframework.xml.strategy.TreeStrategy;
+
+        specialinvoke $r0.<org.simpleframework.xml.strategy.TreeStrategy: void <init>()>();
+
+        specialinvoke $r2.<org.simpleframework.xml.convert.RegistryStrategy: void <init>(org.simpleframework.xml.convert.Registry,org.simpleframework.xml.strategy.Strategy)>($r1, $r0);
+
+        return;
+    }
+
+    public void <init>(org.simpleframework.xml.convert.Registry, org.simpleframework.xml.strategy.Strategy)
+    {
+        org.simpleframework.xml.strategy.Strategy $r0;
+        org.simpleframework.xml.convert.Registry $r1;
+        org.simpleframework.xml.convert.RegistryStrategy $r2;
+
+        $r2 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r1 := @parameter0: org.simpleframework.xml.convert.Registry;
+
+        $r0 := @parameter1: org.simpleframework.xml.strategy.Strategy;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r2.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.convert.Registry registry> = $r1;
+
+        $r2.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.strategy.Strategy strategy> = $r0;
+
+        return;
+    }
+
+    private boolean isReference(org.simpleframework.xml.strategy.Value)
+    {
+        boolean $z0;
+        org.simpleframework.xml.strategy.Value $r0;
+        org.simpleframework.xml.convert.RegistryStrategy $r1;
+
+        $r1 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r0 := @parameter0: org.simpleframework.xml.strategy.Value;
+
+        if $r0 == null goto label1;
+
+        $z0 = interfaceinvoke $r0.<org.simpleframework.xml.strategy.Value: boolean isReference()>();
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    private org.simpleframework.xml.convert.Converter lookup(org.simpleframework.xml.strategy.Type, java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.convert.Converter $r0;
+        org.simpleframework.xml.convert.Registry $r1;
+        java.lang.Class $r2;
+        java.lang.Object $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        org.simpleframework.xml.convert.RegistryStrategy $r5;
+
+        $r5 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r4 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r3 := @parameter1: java.lang.Object;
+
+        $r2 = interfaceinvoke $r4.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        if $r3 == null goto label1;
+
+        $r2 = virtualinvoke $r3.<java.lang.Object: java.lang.Class getClass()>();
+
+     label1:
+        $r1 = $r5.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.convert.Registry registry>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.convert.Registry: org.simpleframework.xml.convert.Converter lookup(java.lang.Class)>($r2);
+
+        return $r0;
+    }
+
+    private org.simpleframework.xml.convert.Converter lookup(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.strategy.Value) throws java.lang.Exception
+    {
+        org.simpleframework.xml.convert.Converter $r0;
+        org.simpleframework.xml.convert.Registry $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.strategy.Value $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        org.simpleframework.xml.convert.RegistryStrategy $r5;
+
+        $r5 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r4 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r3 := @parameter1: org.simpleframework.xml.strategy.Value;
+
+        $r2 = interfaceinvoke $r4.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        if $r3 == null goto label1;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Value: java.lang.Class getType()>();
+
+     label1:
+        $r1 = $r5.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.convert.Registry registry>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.convert.Registry: org.simpleframework.xml.convert.Converter lookup(java.lang.Class)>($r2);
+
+        return $r0;
+    }
+
+    private org.simpleframework.xml.strategy.Value read(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.stream.NodeMap, org.simpleframework.xml.strategy.Value) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.InputNode $r1;
+        org.simpleframework.xml.stream.Node $r2;
+        org.simpleframework.xml.convert.Converter $r3;
+        org.simpleframework.xml.convert.Reference $r4;
+        org.simpleframework.xml.strategy.Value $r5;
+        org.simpleframework.xml.stream.NodeMap $r6;
+        org.simpleframework.xml.strategy.Type $r7;
+        org.simpleframework.xml.convert.RegistryStrategy $r8;
+
+        $r8 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r7 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r6 := @parameter1: org.simpleframework.xml.stream.NodeMap;
+
+        $r5 := @parameter2: org.simpleframework.xml.strategy.Value;
+
+        $r3 = specialinvoke $r8.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.convert.Converter lookup(org.simpleframework.xml.strategy.Type,org.simpleframework.xml.strategy.Value)>($r7, $r5);
+
+        $r2 = interfaceinvoke $r6.<org.simpleframework.xml.stream.NodeMap: org.simpleframework.xml.stream.Node getNode()>();
+
+        $r1 = (org.simpleframework.xml.stream.InputNode) $r2;
+
+        if $r3 == null goto label2;
+
+        $r0 = interfaceinvoke $r3.<org.simpleframework.xml.convert.Converter: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r1);
+
+        if $r5 == null goto label1;
+
+        interfaceinvoke $r5.<org.simpleframework.xml.strategy.Value: void setValue(java.lang.Object)>($r0);
+
+     label1:
+        $r4 = new org.simpleframework.xml.convert.Reference;
+
+        specialinvoke $r4.<org.simpleframework.xml.convert.Reference: void <init>(org.simpleframework.xml.strategy.Value,java.lang.Object)>($r5, $r0);
+
+        return $r4;
+
+     label2:
+        return $r5;
+    }
+
+    private boolean write(org.simpleframework.xml.strategy.Type, java.lang.Object, org.simpleframework.xml.stream.NodeMap) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.Node $r1;
+        org.simpleframework.xml.convert.Converter $r2;
+        org.simpleframework.xml.stream.NodeMap $r3;
+        java.lang.Object $r4;
+        org.simpleframework.xml.strategy.Type $r5;
+        org.simpleframework.xml.convert.RegistryStrategy $r6;
+
+        $r6 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r5 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r4 := @parameter1: java.lang.Object;
+
+        $r3 := @parameter2: org.simpleframework.xml.stream.NodeMap;
+
+        $r2 = specialinvoke $r6.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.convert.Converter lookup(org.simpleframework.xml.strategy.Type,java.lang.Object)>($r5, $r4);
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.stream.NodeMap: org.simpleframework.xml.stream.Node getNode()>();
+
+        $r0 = (org.simpleframework.xml.stream.OutputNode) $r1;
+
+        if $r2 == null goto label1;
+
+        interfaceinvoke $r2.<org.simpleframework.xml.convert.Converter: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r0, $r4);
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public org.simpleframework.xml.strategy.Value read(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.stream.NodeMap, java.util.Map) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.strategy.Value $r0, $r6;
+        org.simpleframework.xml.strategy.Strategy $r1;
+        java.util.Map $r2;
+        org.simpleframework.xml.stream.NodeMap $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        org.simpleframework.xml.convert.RegistryStrategy $r5;
+
+        $r5 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r4 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r3 := @parameter1: org.simpleframework.xml.stream.NodeMap;
+
+        $r2 := @parameter2: java.util.Map;
+
+        $r1 = $r5.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.strategy.Strategy strategy>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.strategy.Strategy: org.simpleframework.xml.strategy.Value read(org.simpleframework.xml.strategy.Type,org.simpleframework.xml.stream.NodeMap,java.util.Map)>($r4, $r3, $r2);
+
+        $z0 = specialinvoke $r5.<org.simpleframework.xml.convert.RegistryStrategy: boolean isReference(org.simpleframework.xml.strategy.Value)>($r0);
+
+        if $z0 == 0 goto label1;
+
+        return $r0;
+
+     label1:
+        $r6 = specialinvoke $r5.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.strategy.Value read(org.simpleframework.xml.strategy.Type,org.simpleframework.xml.stream.NodeMap,org.simpleframework.xml.strategy.Value)>($r4, $r3, $r0);
+
+        return $r6;
+    }
+
+    public boolean write(org.simpleframework.xml.strategy.Type, java.lang.Object, org.simpleframework.xml.stream.NodeMap, java.util.Map) throws java.lang.Exception
+    {
+        boolean $z0, $z1;
+        org.simpleframework.xml.strategy.Strategy $r0;
+        java.util.Map $r1;
+        org.simpleframework.xml.stream.NodeMap $r2;
+        java.lang.Object $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        org.simpleframework.xml.convert.RegistryStrategy $r5;
+
+        $r5 := @this: org.simpleframework.xml.convert.RegistryStrategy;
+
+        $r4 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r3 := @parameter1: java.lang.Object;
+
+        $r2 := @parameter2: org.simpleframework.xml.stream.NodeMap;
+
+        $r1 := @parameter3: java.util.Map;
+
+        $r0 = $r5.<org.simpleframework.xml.convert.RegistryStrategy: org.simpleframework.xml.strategy.Strategy strategy>;
+
+        $z0 = interfaceinvoke $r0.<org.simpleframework.xml.strategy.Strategy: boolean write(org.simpleframework.xml.strategy.Type,java.lang.Object,org.simpleframework.xml.stream.NodeMap,java.util.Map)>($r4, $r3, $r2, $r1);
+
+        if $z0 != 0 goto label1;
+
+        $z1 = specialinvoke $r5.<org.simpleframework.xml.convert.RegistryStrategy: boolean write(org.simpleframework.xml.strategy.Type,java.lang.Object,org.simpleframework.xml.stream.NodeMap)>($r4, $r3, $r2);
+
+        return $z1;
+
+     label1:
+        return $z0;
+    }
+}

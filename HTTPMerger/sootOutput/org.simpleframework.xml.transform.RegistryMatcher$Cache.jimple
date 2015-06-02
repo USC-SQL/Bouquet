@@ -1,0 +1,14 @@
+class org.simpleframework.xml.transform.RegistryMatcher$Cache extends org.simpleframework.xml.util.WeakCache
+{
+
+    public void <init>()
+    {
+        org.simpleframework.xml.transform.RegistryMatcher$Cache $r0;
+
+        $r0 := @this: org.simpleframework.xml.transform.RegistryMatcher$Cache;
+
+        specialinvoke $r0.<org.simpleframework.xml.util.WeakCache: void <init>()>();
+
+        return;
+    }
+}

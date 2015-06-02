@@ -1,0 +1,31 @@
+final class com.dai.giftcard.viewer.service.IntentService$5 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+
+    void <init>()
+    {
+        com.dai.giftcard.viewer.service.IntentService$5 $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.service.IntentService$5;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        int $i0;
+        android.content.DialogInterface $r0;
+        com.dai.giftcard.viewer.service.IntentService$5 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.service.IntentService$5;
+
+        $r0 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        interfaceinvoke $r0.<android.content.DialogInterface: void cancel()>();
+
+        return;
+    }
+}

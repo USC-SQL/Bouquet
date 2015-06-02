@@ -1,0 +1,122 @@
+class org.simpleframework.xml.transform.PrimitiveMatcher extends java.lang.Object implements org.simpleframework.xml.transform.Matcher
+{
+
+    public void <init>()
+    {
+        org.simpleframework.xml.transform.PrimitiveMatcher $r0;
+
+        $r0 := @this: org.simpleframework.xml.transform.PrimitiveMatcher;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public org.simpleframework.xml.transform.Transform match(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.CharacterTransform r0;
+        org.simpleframework.xml.transform.ByteTransform r1;
+        org.simpleframework.xml.transform.ShortTransform r2;
+        org.simpleframework.xml.transform.FloatTransform r3;
+        org.simpleframework.xml.transform.DoubleTransform r4;
+        org.simpleframework.xml.transform.LongTransform r5;
+        org.simpleframework.xml.transform.BooleanTransform r6;
+        org.simpleframework.xml.transform.IntegerTransform r7;
+        java.lang.Class $r8, $r9, $r11, $r12, $r13, $r14, $r15, $r16, $r17;
+        org.simpleframework.xml.transform.PrimitiveMatcher $r10;
+
+        $r10 := @this: org.simpleframework.xml.transform.PrimitiveMatcher;
+
+        $r8 := @parameter0: java.lang.Class;
+
+        $r9 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        if $r8 != $r9 goto label1;
+
+        r7 = new org.simpleframework.xml.transform.IntegerTransform;
+
+        specialinvoke r7.<org.simpleframework.xml.transform.IntegerTransform: void <init>()>();
+
+        return r7;
+
+     label1:
+        $r11 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        if $r8 != $r11 goto label2;
+
+        r6 = new org.simpleframework.xml.transform.BooleanTransform;
+
+        specialinvoke r6.<org.simpleframework.xml.transform.BooleanTransform: void <init>()>();
+
+        return r6;
+
+     label2:
+        $r12 = <java.lang.Long: java.lang.Class TYPE>;
+
+        if $r8 != $r12 goto label3;
+
+        r5 = new org.simpleframework.xml.transform.LongTransform;
+
+        specialinvoke r5.<org.simpleframework.xml.transform.LongTransform: void <init>()>();
+
+        return r5;
+
+     label3:
+        $r13 = <java.lang.Double: java.lang.Class TYPE>;
+
+        if $r8 != $r13 goto label4;
+
+        r4 = new org.simpleframework.xml.transform.DoubleTransform;
+
+        specialinvoke r4.<org.simpleframework.xml.transform.DoubleTransform: void <init>()>();
+
+        return r4;
+
+     label4:
+        $r14 = <java.lang.Float: java.lang.Class TYPE>;
+
+        if $r8 != $r14 goto label5;
+
+        r3 = new org.simpleframework.xml.transform.FloatTransform;
+
+        specialinvoke r3.<org.simpleframework.xml.transform.FloatTransform: void <init>()>();
+
+        return r3;
+
+     label5:
+        $r15 = <java.lang.Short: java.lang.Class TYPE>;
+
+        if $r8 != $r15 goto label6;
+
+        r2 = new org.simpleframework.xml.transform.ShortTransform;
+
+        specialinvoke r2.<org.simpleframework.xml.transform.ShortTransform: void <init>()>();
+
+        return r2;
+
+     label6:
+        $r16 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        if $r8 != $r16 goto label7;
+
+        r1 = new org.simpleframework.xml.transform.ByteTransform;
+
+        specialinvoke r1.<org.simpleframework.xml.transform.ByteTransform: void <init>()>();
+
+        return r1;
+
+     label7:
+        $r17 = <java.lang.Character: java.lang.Class TYPE>;
+
+        if $r8 != $r17 goto label8;
+
+        r0 = new org.simpleframework.xml.transform.CharacterTransform;
+
+        specialinvoke r0.<org.simpleframework.xml.transform.CharacterTransform: void <init>()>();
+
+        return r0;
+
+     label8:
+        return null;
+    }
+}

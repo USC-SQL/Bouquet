@@ -1,0 +1,219 @@
+class org.simpleframework.xml.core.ElementArrayParameter extends org.simpleframework.xml.core.TemplateParameter
+{
+    private final org.simpleframework.xml.core.ElementArrayParameter$Contact contact;
+    private final org.simpleframework.xml.core.Expression expression;
+    private final int index;
+    private final java.lang.Object key;
+    private final org.simpleframework.xml.core.Label label;
+    private final java.lang.String name;
+    private final java.lang.String path;
+    private final java.lang.Class type;
+
+    public void <init>(java.lang.reflect.Constructor, org.simpleframework.xml.ElementArray, org.simpleframework.xml.stream.Format, int) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        java.lang.Class $r1;
+        java.lang.String $r2, $r15;
+        org.simpleframework.xml.core.Label $r3, $r12, $r13, $r14, $r16;
+        org.simpleframework.xml.core.ElementArrayLabel $r4;
+        org.simpleframework.xml.core.Expression $r5;
+        org.simpleframework.xml.core.ElementArrayParameter$Contact $r6, $r11;
+        int $i0;
+        org.simpleframework.xml.stream.Format $r7;
+        org.simpleframework.xml.ElementArray $r8;
+        java.lang.reflect.Constructor $r9;
+        org.simpleframework.xml.core.ElementArrayParameter $r10;
+
+        $r10 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        $r9 := @parameter0: java.lang.reflect.Constructor;
+
+        $r8 := @parameter1: org.simpleframework.xml.ElementArray;
+
+        $r7 := @parameter2: org.simpleframework.xml.stream.Format;
+
+        $i0 := @parameter3: int;
+
+        specialinvoke $r10.<org.simpleframework.xml.core.TemplateParameter: void <init>()>();
+
+        $r6 = new org.simpleframework.xml.core.ElementArrayParameter$Contact;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.ElementArrayParameter$Contact: void <init>(org.simpleframework.xml.ElementArray,java.lang.reflect.Constructor,int)>($r8, $r9, $i0);
+
+        $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.ElementArrayParameter$Contact contact> = $r6;
+
+        $r4 = new org.simpleframework.xml.core.ElementArrayLabel;
+
+        $r11 = $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.ElementArrayParameter$Contact contact>;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.ElementArrayLabel: void <init>(org.simpleframework.xml.core.Contact,org.simpleframework.xml.ElementArray,org.simpleframework.xml.stream.Format)>($r11, $r8, $r7);
+
+        $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Label label> = $r4;
+
+        $r3 = $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Label label>;
+
+        $r5 = interfaceinvoke $r3.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Expression getExpression()>();
+
+        $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Expression expression> = $r5;
+
+        $r12 = $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Label label>;
+
+        $r2 = interfaceinvoke $r12.<org.simpleframework.xml.core.Label: java.lang.String getPath()>();
+
+        $r10.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.String path> = $r2;
+
+        $r13 = $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Label label>;
+
+        $r1 = interfaceinvoke $r13.<org.simpleframework.xml.core.Label: java.lang.Class getType()>();
+
+        $r10.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.Class type> = $r1;
+
+        $r14 = $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Label label>;
+
+        $r15 = interfaceinvoke $r14.<org.simpleframework.xml.core.Label: java.lang.String getName()>();
+
+        $r10.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.String name> = $r15;
+
+        $r16 = $r10.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Label label>;
+
+        $r0 = interfaceinvoke $r16.<org.simpleframework.xml.core.Label: java.lang.Object getKey()>();
+
+        $r10.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.Object key> = $r0;
+
+        $r10.<org.simpleframework.xml.core.ElementArrayParameter: int index> = $i0;
+
+        return;
+    }
+
+    public java.lang.annotation.Annotation getAnnotation()
+    {
+        java.lang.annotation.Annotation $r0;
+        org.simpleframework.xml.core.ElementArrayParameter$Contact $r1;
+        org.simpleframework.xml.core.ElementArrayParameter $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.ElementArrayParameter$Contact contact>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ElementArrayParameter$Contact: java.lang.annotation.Annotation getAnnotation()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Expression getExpression()
+    {
+        org.simpleframework.xml.core.Expression r0;
+        org.simpleframework.xml.core.ElementArrayParameter $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        r0 = $r1.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Expression expression>;
+
+        return r0;
+    }
+
+    public int getIndex()
+    {
+        int i0;
+        org.simpleframework.xml.core.ElementArrayParameter $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        i0 = $r0.<org.simpleframework.xml.core.ElementArrayParameter: int index>;
+
+        return i0;
+    }
+
+    public java.lang.Object getKey()
+    {
+        java.lang.Object r0;
+        org.simpleframework.xml.core.ElementArrayParameter $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        r0 = $r1.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.Object key>;
+
+        return r0;
+    }
+
+    public java.lang.String getName()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.ElementArrayParameter $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        r0 = $r1.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.String name>;
+
+        return r0;
+    }
+
+    public java.lang.String getPath()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.core.ElementArrayParameter $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        r0 = $r1.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.String path>;
+
+        return r0;
+    }
+
+    public java.lang.Class getType()
+    {
+        java.lang.Class r0;
+        org.simpleframework.xml.core.ElementArrayParameter $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        r0 = $r1.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.Class type>;
+
+        return r0;
+    }
+
+    public boolean isPrimitive()
+    {
+        boolean $z0;
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.ElementArrayParameter $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        $r0 = $r1.<org.simpleframework.xml.core.ElementArrayParameter: java.lang.Class type>;
+
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean isPrimitive()>();
+
+        return $z0;
+    }
+
+    public boolean isRequired()
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Label $r0;
+        org.simpleframework.xml.core.ElementArrayParameter $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        $r0 = $r1.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.Label label>;
+
+        $z0 = interfaceinvoke $r0.<org.simpleframework.xml.core.Label: boolean isRequired()>();
+
+        return $z0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.core.ElementArrayParameter$Contact $r1;
+        org.simpleframework.xml.core.ElementArrayParameter $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ElementArrayParameter;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ElementArrayParameter: org.simpleframework.xml.core.ElementArrayParameter$Contact contact>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ElementArrayParameter$Contact: java.lang.String toString()>();
+
+        return $r0;
+    }
+}

@@ -1,0 +1,173 @@
+class org.simpleframework.xml.core.Variable$Adapter extends java.lang.Object implements org.simpleframework.xml.core.Repeater
+{
+    private final org.simpleframework.xml.core.Converter reader;
+    final org.simpleframework.xml.core.Variable this$0;
+    private final java.lang.Object value;
+
+    public void <init>(org.simpleframework.xml.core.Variable, org.simpleframework.xml.core.Converter, java.lang.Object)
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.core.Converter $r1;
+        org.simpleframework.xml.core.Variable $r2;
+        org.simpleframework.xml.core.Variable$Adapter $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Variable$Adapter;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Variable;
+
+        $r1 := @parameter1: org.simpleframework.xml.core.Converter;
+
+        $r0 := @parameter2: java.lang.Object;
+
+        $r3.<org.simpleframework.xml.core.Variable$Adapter: org.simpleframework.xml.core.Variable this$0> = $r2;
+
+        specialinvoke $r3.<java.lang.Object: void <init>()>();
+
+        $r3.<org.simpleframework.xml.core.Variable$Adapter: org.simpleframework.xml.core.Converter reader> = $r1;
+
+        $r3.<org.simpleframework.xml.core.Variable$Adapter: java.lang.Object value> = $r0;
+
+        return;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.Object $r0, $r3;
+        org.simpleframework.xml.stream.InputNode $r1;
+        org.simpleframework.xml.core.Variable$Adapter $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Variable$Adapter;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r0 = $r2.<org.simpleframework.xml.core.Variable$Adapter: java.lang.Object value>;
+
+        $r3 = virtualinvoke $r2.<org.simpleframework.xml.core.Variable$Adapter: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.lang.Object)>($r1, $r0);
+
+        return $r3;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Label $r0;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.PersistenceException $r2;
+        org.simpleframework.xml.core.Repeater $r3;
+        boolean $z0;
+        java.lang.String $r4;
+        org.simpleframework.xml.stream.Position $r5;
+        org.simpleframework.xml.core.Variable $r6;
+        org.simpleframework.xml.core.Converter $r7, $r11;
+        java.lang.Object $r8, $r12;
+        org.simpleframework.xml.stream.InputNode $r9;
+        org.simpleframework.xml.core.Variable$Adapter $r10;
+
+        $r10 := @this: org.simpleframework.xml.core.Variable$Adapter;
+
+        $r9 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r8 := @parameter1: java.lang.Object;
+
+        $r5 = interfaceinvoke $r9.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.Position getPosition()>();
+
+        $r4 = interfaceinvoke $r9.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+        $r7 = $r10.<org.simpleframework.xml.core.Variable$Adapter: org.simpleframework.xml.core.Converter reader>;
+
+        $z0 = $r7 instanceof org.simpleframework.xml.core.Repeater;
+
+        if $z0 == 0 goto label1;
+
+        $r11 = $r10.<org.simpleframework.xml.core.Variable$Adapter: org.simpleframework.xml.core.Converter reader>;
+
+        $r3 = (org.simpleframework.xml.core.Repeater) $r11;
+
+        $r12 = interfaceinvoke $r3.<org.simpleframework.xml.core.Repeater: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.lang.Object)>($r9, $r8);
+
+        return $r12;
+
+     label1:
+        $r2 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r1 = newarray (java.lang.Object)[3];
+
+        $r1[0] = $r4;
+
+        $r6 = $r10.<org.simpleframework.xml.core.Variable$Adapter: org.simpleframework.xml.core.Variable this$0>;
+
+        $r0 = staticinvoke <org.simpleframework.xml.core.Variable: org.simpleframework.xml.core.Label access$000(org.simpleframework.xml.core.Variable)>($r6);
+
+        $r1[1] = $r0;
+
+        $r1[2] = $r5;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Element \'%s\' is already used with %s at %s", $r1);
+
+        throw $r2;
+    }
+
+    public boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.PersistenceException $r1;
+        org.simpleframework.xml.core.Repeater $r2;
+        boolean $z0, $z1;
+        java.lang.String $r3;
+        org.simpleframework.xml.stream.Position $r4;
+        org.simpleframework.xml.core.Converter $r5, $r8;
+        org.simpleframework.xml.stream.InputNode $r6;
+        org.simpleframework.xml.core.Variable$Adapter $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.Variable$Adapter;
+
+        $r6 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 = interfaceinvoke $r6.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.Position getPosition()>();
+
+        $r3 = interfaceinvoke $r6.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+        $r5 = $r7.<org.simpleframework.xml.core.Variable$Adapter: org.simpleframework.xml.core.Converter reader>;
+
+        $z0 = $r5 instanceof org.simpleframework.xml.core.Repeater;
+
+        if $z0 == 0 goto label1;
+
+        $r8 = $r7.<org.simpleframework.xml.core.Variable$Adapter: org.simpleframework.xml.core.Converter reader>;
+
+        $r2 = (org.simpleframework.xml.core.Repeater) $r8;
+
+        $z1 = interfaceinvoke $r2.<org.simpleframework.xml.core.Repeater: boolean validate(org.simpleframework.xml.stream.InputNode)>($r6);
+
+        return $z1;
+
+     label1:
+        $r1 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r3;
+
+        $r0[1] = $r4;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Element \'%s\' declared twice at %s", $r0);
+
+        throw $r1;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.OutputNode $r1;
+        org.simpleframework.xml.core.Variable$Adapter $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Variable$Adapter;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r0 := @parameter1: java.lang.Object;
+
+        virtualinvoke $r2.<org.simpleframework.xml.core.Variable$Adapter: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r1, $r0);
+
+        return;
+    }
+}

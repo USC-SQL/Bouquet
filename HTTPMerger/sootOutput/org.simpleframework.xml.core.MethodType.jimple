@@ -1,0 +1,123 @@
+final enum class org.simpleframework.xml.core.MethodType extends java.lang.Enum
+{
+    private static final org.simpleframework.xml.core.MethodType[] $VALUES;
+    public static final enum org.simpleframework.xml.core.MethodType GET;
+    public static final enum org.simpleframework.xml.core.MethodType IS;
+    public static final enum org.simpleframework.xml.core.MethodType NONE;
+    public static final enum org.simpleframework.xml.core.MethodType SET;
+    private int prefix;
+
+    static void <clinit>()
+    {
+        org.simpleframework.xml.core.MethodType[] $r0;
+        org.simpleframework.xml.core.MethodType $r1, $r2, $r3, $r4, $r5, $r6, $r7, $r8;
+
+        $r1 = new org.simpleframework.xml.core.MethodType;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.MethodType: void <init>(java.lang.String,int,int)>("GET", 0, 3);
+
+        <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType GET> = $r1;
+
+        $r2 = new org.simpleframework.xml.core.MethodType;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodType: void <init>(java.lang.String,int,int)>("IS", 1, 2);
+
+        <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType IS> = $r2;
+
+        $r3 = new org.simpleframework.xml.core.MethodType;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.MethodType: void <init>(java.lang.String,int,int)>("SET", 2, 3);
+
+        <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType SET> = $r3;
+
+        $r4 = new org.simpleframework.xml.core.MethodType;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.MethodType: void <init>(java.lang.String,int,int)>("NONE", 3, 0);
+
+        <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType NONE> = $r4;
+
+        $r0 = newarray (org.simpleframework.xml.core.MethodType)[4];
+
+        $r5 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType GET>;
+
+        $r0[0] = $r5;
+
+        $r6 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType IS>;
+
+        $r0[1] = $r6;
+
+        $r7 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType SET>;
+
+        $r0[2] = $r7;
+
+        $r8 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType NONE>;
+
+        $r0[3] = $r8;
+
+        <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType[] $VALUES> = $r0;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int, int)
+    {
+        int $i0, $i1;
+        java.lang.String $r0;
+        org.simpleframework.xml.core.MethodType $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.MethodType;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        specialinvoke $r1.<java.lang.Enum: void <init>(java.lang.String,int)>($r0, $i0);
+
+        $r1.<org.simpleframework.xml.core.MethodType: int prefix> = $i1;
+
+        return;
+    }
+
+    public static org.simpleframework.xml.core.MethodType valueOf(java.lang.String)
+    {
+        org.simpleframework.xml.core.MethodType $r0;
+        java.lang.Enum $r1;
+        java.lang.String $r2;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "org/simpleframework/xml/core/MethodType", $r2);
+
+        $r0 = (org.simpleframework.xml.core.MethodType) $r1;
+
+        return $r0;
+    }
+
+    public static final org.simpleframework.xml.core.MethodType[] values()
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.core.MethodType[] $r1, $r2;
+
+        $r1 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType[] $VALUES>;
+
+        $r0 = virtualinvoke $r1.<java.lang.Object: java.lang.Object clone()>();
+
+        $r2 = (org.simpleframework.xml.core.MethodType[]) $r0;
+
+        return $r2;
+    }
+
+    public int getPrefix()
+    {
+        int i0;
+        org.simpleframework.xml.core.MethodType $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.MethodType;
+
+        i0 = $r0.<org.simpleframework.xml.core.MethodType: int prefix>;
+
+        return i0;
+    }
+}

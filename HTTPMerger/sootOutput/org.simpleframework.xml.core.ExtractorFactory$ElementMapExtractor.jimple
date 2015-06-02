@@ -1,0 +1,134 @@
+class org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor extends java.lang.Object implements org.simpleframework.xml.core.Extractor
+{
+    private final org.simpleframework.xml.core.Contact contact;
+    private final org.simpleframework.xml.stream.Format format;
+    private final org.simpleframework.xml.ElementMapUnion union;
+
+    public void <init>(org.simpleframework.xml.core.Contact, org.simpleframework.xml.ElementMapUnion, org.simpleframework.xml.stream.Format) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.Format $r0;
+        org.simpleframework.xml.ElementMapUnion $r1;
+        org.simpleframework.xml.core.Contact $r2;
+        org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Contact;
+
+        $r1 := @parameter1: org.simpleframework.xml.ElementMapUnion;
+
+        $r0 := @parameter2: org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r3.<java.lang.Object: void <init>()>();
+
+        $r3.<org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor: org.simpleframework.xml.core.Contact contact> = $r2;
+
+        $r3.<org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor: org.simpleframework.xml.stream.Format format> = $r0;
+
+        $r3.<org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor: org.simpleframework.xml.ElementMapUnion union> = $r1;
+
+        return;
+    }
+
+    public java.util.List getAnnotations()
+    {
+        java.util.List $r0, $r4;
+        int $i0;
+        org.simpleframework.xml.ElementMap[] $r1;
+        org.simpleframework.xml.ElementMapUnion $r2;
+        org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor;
+
+        $r2 = $r3.<org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor: org.simpleframework.xml.ElementMapUnion union>;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.ElementMapUnion: org.simpleframework.xml.ElementMap[] value()>();
+
+        $i0 = lengthof $r1;
+
+        if $i0 <= 0 goto label1;
+
+        $r0 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r1);
+
+        return $r0;
+
+     label1:
+        $r4 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        return $r4;
+    }
+
+    public volatile org.simpleframework.xml.core.Label getLabel(java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        org.simpleframework.xml.ElementMap $r0;
+        org.simpleframework.xml.core.Label $r1;
+        java.lang.annotation.Annotation $r2;
+        org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor;
+
+        $r2 := @parameter0: java.lang.annotation.Annotation;
+
+        $r0 = (org.simpleframework.xml.ElementMap) $r2;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor: org.simpleframework.xml.core.Label getLabel(org.simpleframework.xml.ElementMap)>($r0);
+
+        return $r1;
+    }
+
+    public org.simpleframework.xml.core.Label getLabel(org.simpleframework.xml.ElementMap)
+    {
+        org.simpleframework.xml.stream.Format $r0;
+        org.simpleframework.xml.core.Contact $r1;
+        org.simpleframework.xml.core.ElementMapLabel $r2;
+        org.simpleframework.xml.ElementMap $r3;
+        org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor;
+
+        $r3 := @parameter0: org.simpleframework.xml.ElementMap;
+
+        $r2 = new org.simpleframework.xml.core.ElementMapLabel;
+
+        $r1 = $r4.<org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor: org.simpleframework.xml.core.Contact contact>;
+
+        $r0 = $r4.<org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor: org.simpleframework.xml.stream.Format format>;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ElementMapLabel: void <init>(org.simpleframework.xml.core.Contact,org.simpleframework.xml.ElementMap,org.simpleframework.xml.stream.Format)>($r1, $r3, $r0);
+
+        return $r2;
+    }
+
+    public volatile java.lang.Class getType(java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        org.simpleframework.xml.ElementMap $r0;
+        java.lang.Class $r1;
+        java.lang.annotation.Annotation $r2;
+        org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor;
+
+        $r2 := @parameter0: java.lang.annotation.Annotation;
+
+        $r0 = (org.simpleframework.xml.ElementMap) $r2;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor: java.lang.Class getType(org.simpleframework.xml.ElementMap)>($r0);
+
+        return $r1;
+    }
+
+    public java.lang.Class getType(org.simpleframework.xml.ElementMap)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.ElementMap $r1;
+        org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ExtractorFactory$ElementMapExtractor;
+
+        $r1 := @parameter0: org.simpleframework.xml.ElementMap;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.ElementMap: java.lang.Class valueType()>();
+
+        return $r0;
+    }
+}

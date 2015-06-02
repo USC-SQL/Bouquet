@@ -1,0 +1,344 @@
+class org.simpleframework.xml.core.CompositeInlineList extends java.lang.Object implements org.simpleframework.xml.core.Repeater
+{
+    private final org.simpleframework.xml.strategy.Type entry;
+    private final org.simpleframework.xml.core.CollectionFactory factory;
+    private final java.lang.String name;
+    private final org.simpleframework.xml.core.Traverser root;
+    private final org.simpleframework.xml.strategy.Type type;
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type, org.simpleframework.xml.strategy.Type, java.lang.String)
+    {
+        org.simpleframework.xml.core.Traverser $r0;
+        org.simpleframework.xml.core.CollectionFactory $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.strategy.Type $r3, $r4;
+        org.simpleframework.xml.core.Context $r5;
+        org.simpleframework.xml.core.CompositeInlineList $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.CompositeInlineList;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r3 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        $r4 := @parameter2: org.simpleframework.xml.strategy.Type;
+
+        $r2 := @parameter3: java.lang.String;
+
+        specialinvoke $r6.<java.lang.Object: void <init>()>();
+
+        $r1 = new org.simpleframework.xml.core.CollectionFactory;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.CollectionFactory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r5, $r3);
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.core.CollectionFactory factory> = $r1;
+
+        $r0 = new org.simpleframework.xml.core.Traverser;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.Traverser: void <init>(org.simpleframework.xml.core.Context)>($r5);
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.core.Traverser root> = $r0;
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type entry> = $r4;
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type type> = $r3;
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineList: java.lang.String name> = $r2;
+
+        return;
+    }
+
+    private java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.PersistenceException $r1;
+        boolean $z0;
+        java.lang.Object $r2;
+        org.simpleframework.xml.strategy.Type $r3, $r10, $r11;
+        org.simpleframework.xml.core.Traverser $r4;
+        java.lang.Class $r5, $r6, $r9;
+        org.simpleframework.xml.stream.InputNode $r7;
+        org.simpleframework.xml.core.CompositeInlineList $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.CompositeInlineList;
+
+        $r7 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 := @parameter1: java.lang.Class;
+
+        $r4 = $r8.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.core.Traverser root>;
+
+        $r2 = virtualinvoke $r4.<org.simpleframework.xml.core.Traverser: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r7, $r5);
+
+        $r9 = virtualinvoke $r2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = $r8.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type entry>;
+
+        $r6 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $z0 = virtualinvoke $r6.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r9);
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r0 = newarray (java.lang.Object)[3];
+
+        $r0[0] = $r9;
+
+        $r10 = $r8.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type entry>;
+
+        $r0[1] = $r10;
+
+        $r11 = $r8.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type type>;
+
+        $r0[2] = $r11;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Entry %s does not match %s for %s", $r0);
+
+        throw $r1;
+
+     label1:
+        return $r2;
+    }
+
+    private java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.util.Collection) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        java.lang.Class $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        java.util.Collection $r4;
+        org.simpleframework.xml.stream.InputNode $r5, $r6;
+        org.simpleframework.xml.core.CompositeInlineList $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.CompositeInlineList;
+
+        $r5 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 := @parameter1: java.util.Collection;
+
+        $r6 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getParent()>();
+
+        $r2 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+     label1:
+        if $r5 == null goto label3;
+
+        $r3 = $r7.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type entry>;
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r0 = specialinvoke $r7.<org.simpleframework.xml.core.CompositeInlineList: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r5, $r1);
+
+        if $r0 == null goto label2;
+
+        interfaceinvoke $r4.<java.util.Collection: boolean add(java.lang.Object)>($r0);
+
+     label2:
+        $r5 = interfaceinvoke $r6.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext(java.lang.String)>($r2);
+
+        goto label1;
+
+     label3:
+        return $r4;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.util.Collection $r0;
+        java.lang.Object $r1, $r5;
+        org.simpleframework.xml.core.CollectionFactory $r2;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.core.CompositeInlineList $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CompositeInlineList;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 = $r4.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.core.CollectionFactory factory>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.CollectionFactory: java.lang.Object getInstance()>();
+
+        $r0 = (java.util.Collection) $r1;
+
+        if $r0 == null goto label1;
+
+        $r5 = specialinvoke $r4.<org.simpleframework.xml.core.CompositeInlineList: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.util.Collection)>($r3, $r0);
+
+        return $r5;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        java.util.Collection $r0;
+        java.lang.Object $r1, $r4, $r5;
+        org.simpleframework.xml.stream.InputNode $r2;
+        org.simpleframework.xml.core.CompositeInlineList $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.CompositeInlineList;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $r0 = (java.util.Collection) $r1;
+
+        if $r0 == null goto label1;
+
+        $r4 = specialinvoke $r3.<org.simpleframework.xml.core.CompositeInlineList: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.util.Collection)>($r2, $r0);
+
+        return $r4;
+
+     label1:
+        $r5 = virtualinvoke $r3.<org.simpleframework.xml.core.CompositeInlineList: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r2);
+
+        return $r5;
+    }
+
+    public boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Traverser $r0;
+        java.lang.String $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        org.simpleframework.xml.stream.InputNode $r4, $r5;
+        org.simpleframework.xml.core.CompositeInlineList $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.CompositeInlineList;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 = interfaceinvoke $r4.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getParent()>();
+
+        $r3 = $r6.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type entry>;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r1 = interfaceinvoke $r4.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+     label1:
+        if $r4 == null goto label3;
+
+        $r0 = $r6.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.core.Traverser root>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.Traverser: boolean validate(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r4, $r2);
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r4 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext(java.lang.String)>($r1);
+
+        goto label1;
+
+     label3:
+        return 1;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        boolean $z0;
+        java.util.Collection $r0;
+        java.lang.Object $r1;
+        org.simpleframework.xml.stream.OutputNode $r2, $r3;
+        org.simpleframework.xml.core.CompositeInlineList $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CompositeInlineList;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $r0 = (java.util.Collection) $r1;
+
+        $r3 = interfaceinvoke $r2.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.OutputNode getParent()>();
+
+        $z0 = interfaceinvoke $r2.<org.simpleframework.xml.stream.OutputNode: boolean isCommitted()>();
+
+        if $z0 != 0 goto label1;
+
+        interfaceinvoke $r2.<org.simpleframework.xml.stream.OutputNode: void remove()>();
+
+     label1:
+        virtualinvoke $r4.<org.simpleframework.xml.core.CompositeInlineList: void write(org.simpleframework.xml.stream.OutputNode,java.util.Collection)>($r3, $r0);
+
+        return;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.util.Collection) throws java.lang.Exception
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.core.Traverser $r1;
+        java.lang.Object[] $r2;
+        org.simpleframework.xml.core.PersistenceException $r3;
+        java.lang.Class $r4, $r5;
+        java.lang.Object $r6;
+        boolean $z0, $z1;
+        java.util.Iterator $r7;
+        org.simpleframework.xml.strategy.Type $r8, $r12;
+        java.util.Collection $r9;
+        org.simpleframework.xml.stream.OutputNode $r10;
+        org.simpleframework.xml.core.CompositeInlineList $r11;
+
+        $r11 := @this: org.simpleframework.xml.core.CompositeInlineList;
+
+        $r10 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r9 := @parameter1: java.util.Collection;
+
+        $r7 = interfaceinvoke $r9.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r7.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r6 = interfaceinvoke $r7.<java.util.Iterator: java.lang.Object next()>();
+
+        if $r6 == null goto label1;
+
+        $r8 = $r11.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type entry>;
+
+        $r4 = interfaceinvoke $r8.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r5 = virtualinvoke $r6.<java.lang.Object: java.lang.Class getClass()>();
+
+        $z1 = virtualinvoke $r4.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r5);
+
+        if $z1 != 0 goto label2;
+
+        $r3 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r2 = newarray (java.lang.Object)[3];
+
+        $r2[0] = $r5;
+
+        $r2[1] = $r4;
+
+        $r12 = $r11.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.strategy.Type type>;
+
+        $r2[2] = $r12;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Entry %s does not match %s for %s", $r2);
+
+        throw $r3;
+
+     label2:
+        $r1 = $r11.<org.simpleframework.xml.core.CompositeInlineList: org.simpleframework.xml.core.Traverser root>;
+
+        $r0 = $r11.<org.simpleframework.xml.core.CompositeInlineList: java.lang.String name>;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.Traverser: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object,java.lang.Class,java.lang.String)>($r10, $r6, $r4, $r0);
+
+        goto label1;
+
+     label3:
+        return;
+    }
+}

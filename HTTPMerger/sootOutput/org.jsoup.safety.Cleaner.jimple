@@ -1,0 +1,255 @@
+public class org.jsoup.safety.Cleaner extends java.lang.Object
+{
+    private org.jsoup.safety.Whitelist whitelist;
+
+    public void <init>(org.jsoup.safety.Whitelist)
+    {
+        org.jsoup.safety.Whitelist $r0;
+        org.jsoup.safety.Cleaner $r1;
+
+        $r1 := @this: org.jsoup.safety.Cleaner;
+
+        $r0 := @parameter0: org.jsoup.safety.Whitelist;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r0);
+
+        $r1.<org.jsoup.safety.Cleaner: org.jsoup.safety.Whitelist whitelist> = $r0;
+
+        return;
+    }
+
+    private int copySafeNodes(org.jsoup.nodes.Element, org.jsoup.nodes.Element)
+    {
+        org.jsoup.safety.Cleaner$ElementMeta $r0;
+        java.lang.String $r1, $r2, $r15;
+        org.jsoup.safety.Whitelist $r3;
+        org.jsoup.nodes.Node $r4;
+        java.lang.Object $r5;
+        boolean $z0, $z1, $z2, $z3;
+        java.util.Iterator $r6;
+        java.util.List $r7;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        org.jsoup.nodes.TextNode $r8, $r9;
+        org.jsoup.nodes.Element $r10, $r11, $r12, $r14;
+        org.jsoup.safety.Cleaner $r13;
+
+        $r13 := @this: org.jsoup.safety.Cleaner;
+
+        $r10 := @parameter0: org.jsoup.nodes.Element;
+
+        $r11 := @parameter1: org.jsoup.nodes.Element;
+
+        $r7 = virtualinvoke $r10.<org.jsoup.nodes.Element: java.util.List childNodes()>();
+
+        $i0 = 0;
+
+        $r6 = interfaceinvoke $r7.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r6.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label4;
+
+        $r5 = interfaceinvoke $r6.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = (org.jsoup.nodes.Node) $r5;
+
+        $z1 = $r4 instanceof org.jsoup.nodes.Element;
+
+        if $z1 == 0 goto label3;
+
+        $r12 = (org.jsoup.nodes.Element) $r4;
+
+        $r3 = $r13.<org.jsoup.safety.Cleaner: org.jsoup.safety.Whitelist whitelist>;
+
+        $r1 = virtualinvoke $r12.<org.jsoup.nodes.Element: java.lang.String tagName()>();
+
+        $z2 = virtualinvoke $r3.<org.jsoup.safety.Whitelist: boolean isSafeTag(java.lang.String)>($r1);
+
+        if $z2 == 0 goto label2;
+
+        $r0 = specialinvoke $r13.<org.jsoup.safety.Cleaner: org.jsoup.safety.Cleaner$ElementMeta createSafeElement(org.jsoup.nodes.Element)>($r12);
+
+        $r14 = $r0.<org.jsoup.safety.Cleaner$ElementMeta: org.jsoup.nodes.Element el>;
+
+        virtualinvoke $r11.<org.jsoup.nodes.Element: org.jsoup.nodes.Element appendChild(org.jsoup.nodes.Node)>($r14);
+
+        $i1 = $r0.<org.jsoup.safety.Cleaner$ElementMeta: int numAttribsDiscarded>;
+
+        $i2 = $i0 + $i1;
+
+        $i3 = specialinvoke $r13.<org.jsoup.safety.Cleaner: int copySafeNodes(org.jsoup.nodes.Element,org.jsoup.nodes.Element)>($r12, $r14);
+
+        $i0 = $i2 + $i3;
+
+        goto label1;
+
+     label2:
+        $i4 = $i0 + 1;
+
+        $i5 = specialinvoke $r13.<org.jsoup.safety.Cleaner: int copySafeNodes(org.jsoup.nodes.Element,org.jsoup.nodes.Element)>($r12, $r11);
+
+        $i0 = $i4 + $i5;
+
+        goto label1;
+
+     label3:
+        $z3 = $r4 instanceof org.jsoup.nodes.TextNode;
+
+        if $z3 == 0 goto label1;
+
+        $r9 = (org.jsoup.nodes.TextNode) $r4;
+
+        $r8 = new org.jsoup.nodes.TextNode;
+
+        $r15 = virtualinvoke $r9.<org.jsoup.nodes.TextNode: java.lang.String getWholeText()>();
+
+        $r2 = virtualinvoke $r4.<org.jsoup.nodes.Node: java.lang.String baseUri()>();
+
+        specialinvoke $r8.<org.jsoup.nodes.TextNode: void <init>(java.lang.String,java.lang.String)>($r15, $r2);
+
+        virtualinvoke $r11.<org.jsoup.nodes.Element: org.jsoup.nodes.Element appendChild(org.jsoup.nodes.Node)>($r8);
+
+        goto label1;
+
+     label4:
+        return $i0;
+    }
+
+    private org.jsoup.safety.Cleaner$ElementMeta createSafeElement(org.jsoup.nodes.Element)
+    {
+        org.jsoup.safety.Cleaner$ElementMeta $r0;
+        org.jsoup.safety.Whitelist $r1, $r13;
+        org.jsoup.nodes.Attribute $r2;
+        java.lang.Object $r3;
+        boolean $z0, $z1;
+        java.util.Iterator $r4;
+        org.jsoup.parser.Tag $r5;
+        java.lang.String $r6, $r7;
+        int $i0;
+        org.jsoup.nodes.Attributes $r8, $r9, $r14;
+        org.jsoup.nodes.Element $r10, $r11;
+        org.jsoup.safety.Cleaner $r12;
+
+        $r12 := @this: org.jsoup.safety.Cleaner;
+
+        $r10 := @parameter0: org.jsoup.nodes.Element;
+
+        $r6 = virtualinvoke $r10.<org.jsoup.nodes.Element: java.lang.String tagName()>();
+
+        $r8 = new org.jsoup.nodes.Attributes;
+
+        specialinvoke $r8.<org.jsoup.nodes.Attributes: void <init>()>();
+
+        $r11 = new org.jsoup.nodes.Element;
+
+        $r5 = staticinvoke <org.jsoup.parser.Tag: org.jsoup.parser.Tag valueOf(java.lang.String)>($r6);
+
+        $r7 = virtualinvoke $r10.<org.jsoup.nodes.Element: java.lang.String baseUri()>();
+
+        specialinvoke $r11.<org.jsoup.nodes.Element: void <init>(org.jsoup.parser.Tag,java.lang.String,org.jsoup.nodes.Attributes)>($r5, $r7, $r8);
+
+        $i0 = 0;
+
+        $r9 = virtualinvoke $r10.<org.jsoup.nodes.Element: org.jsoup.nodes.Attributes attributes()>();
+
+        $r4 = virtualinvoke $r9.<org.jsoup.nodes.Attributes: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r3 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r2 = (org.jsoup.nodes.Attribute) $r3;
+
+        $r1 = $r12.<org.jsoup.safety.Cleaner: org.jsoup.safety.Whitelist whitelist>;
+
+        $z1 = virtualinvoke $r1.<org.jsoup.safety.Whitelist: boolean isSafeAttribute(java.lang.String,org.jsoup.nodes.Element,org.jsoup.nodes.Attribute)>($r6, $r10, $r2);
+
+        if $z1 == 0 goto label2;
+
+        virtualinvoke $r8.<org.jsoup.nodes.Attributes: void put(org.jsoup.nodes.Attribute)>($r2);
+
+        goto label1;
+
+     label2:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        $r13 = $r12.<org.jsoup.safety.Cleaner: org.jsoup.safety.Whitelist whitelist>;
+
+        $r14 = virtualinvoke $r13.<org.jsoup.safety.Whitelist: org.jsoup.nodes.Attributes getEnforcedAttributes(java.lang.String)>($r6);
+
+        virtualinvoke $r8.<org.jsoup.nodes.Attributes: void addAll(org.jsoup.nodes.Attributes)>($r14);
+
+        $r0 = new org.jsoup.safety.Cleaner$ElementMeta;
+
+        specialinvoke $r0.<org.jsoup.safety.Cleaner$ElementMeta: void <init>(org.jsoup.nodes.Element,int)>($r11, $i0);
+
+        return $r0;
+    }
+
+    public org.jsoup.nodes.Document clean(org.jsoup.nodes.Document)
+    {
+        org.jsoup.nodes.Element $r0, $r1;
+        java.lang.String $r2;
+        org.jsoup.nodes.Document $r3, $r4;
+        org.jsoup.safety.Cleaner $r5;
+
+        $r5 := @this: org.jsoup.safety.Cleaner;
+
+        $r3 := @parameter0: org.jsoup.nodes.Document;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r3.<org.jsoup.nodes.Document: java.lang.String baseUri()>();
+
+        $r4 = staticinvoke <org.jsoup.nodes.Document: org.jsoup.nodes.Document createShell(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r3.<org.jsoup.nodes.Document: org.jsoup.nodes.Element body()>();
+
+        $r1 = virtualinvoke $r4.<org.jsoup.nodes.Document: org.jsoup.nodes.Element body()>();
+
+        specialinvoke $r5.<org.jsoup.safety.Cleaner: int copySafeNodes(org.jsoup.nodes.Element,org.jsoup.nodes.Element)>($r0, $r1);
+
+        return $r4;
+    }
+
+    public boolean isValid(org.jsoup.nodes.Document)
+    {
+        int $i0;
+        org.jsoup.nodes.Element $r0, $r1;
+        java.lang.String $r2;
+        org.jsoup.nodes.Document $r3, $r4;
+        org.jsoup.safety.Cleaner $r5;
+
+        $r5 := @this: org.jsoup.safety.Cleaner;
+
+        $r3 := @parameter0: org.jsoup.nodes.Document;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r3);
+
+        $r2 = virtualinvoke $r3.<org.jsoup.nodes.Document: java.lang.String baseUri()>();
+
+        $r4 = staticinvoke <org.jsoup.nodes.Document: org.jsoup.nodes.Document createShell(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r3.<org.jsoup.nodes.Document: org.jsoup.nodes.Element body()>();
+
+        $r1 = virtualinvoke $r4.<org.jsoup.nodes.Document: org.jsoup.nodes.Element body()>();
+
+        $i0 = specialinvoke $r5.<org.jsoup.safety.Cleaner: int copySafeNodes(org.jsoup.nodes.Element,org.jsoup.nodes.Element)>($r0, $r1);
+
+        if $i0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+}

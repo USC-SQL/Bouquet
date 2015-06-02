@@ -1,0 +1,169 @@
+public class com.oopsconsultancy.xmltask.RenameAction extends com.oopsconsultancy.xmltask.Action
+{
+    private final java.lang.String 'to';
+
+    public void <init>(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.RenameAction $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.RenameAction;
+
+        $r0 := @parameter0: java.lang.String;
+
+        specialinvoke $r1.<com.oopsconsultancy.xmltask.Action: void <init>()>();
+
+        $r1.<com.oopsconsultancy.xmltask.RenameAction: java.lang.String 'to'> = $r0;
+
+        return;
+    }
+
+    public boolean apply(org.w3c.dom.Node) throws java.lang.Exception
+    {
+        org.w3c.dom.NamedNodeMap $r0;
+        org.w3c.dom.NodeList $r1;
+        boolean $z0, $z1;
+        org.w3c.dom.Document $r2;
+        java.lang.String $r3, $r4, $r13;
+        org.w3c.dom.Element $r5, $r6, $r11;
+        org.w3c.dom.Attr $r7, $r18;
+        short $s0, $s3;
+        int $i1, $i2, $i4, $i5;
+        org.w3c.dom.Node $r8, $r9, $r12, $r14, $r15, $r16, $r17;
+        com.oopsconsultancy.xmltask.RenameAction $r10;
+
+        $r10 := @this: com.oopsconsultancy.xmltask.RenameAction;
+
+        $r8 := @parameter0: org.w3c.dom.Node;
+
+        $s0 = interfaceinvoke $r8.<org.w3c.dom.Node: short getNodeType()>();
+
+        if $s0 != 2 goto label1;
+
+        $r7 = (org.w3c.dom.Attr) $r8;
+
+        $r5 = interfaceinvoke $r7.<org.w3c.dom.Attr: org.w3c.dom.Element getOwnerElement()>();
+
+        $r3 = $r10.<com.oopsconsultancy.xmltask.RenameAction: java.lang.String 'to'>;
+
+        $r4 = interfaceinvoke $r7.<org.w3c.dom.Attr: java.lang.String getValue()>();
+
+        interfaceinvoke $r5.<org.w3c.dom.Element: void setAttribute(java.lang.String,java.lang.String)>($r3, $r4);
+
+        virtualinvoke $r10.<com.oopsconsultancy.xmltask.RenameAction: void remove(org.w3c.dom.Node)>($r8);
+
+        return 1;
+
+     label1:
+        $s3 = interfaceinvoke $r8.<org.w3c.dom.Node: short getNodeType()>();
+
+        if $s3 != 1 goto label8;
+
+        $r11 = (org.w3c.dom.Element) $r8;
+
+        $r12 = interfaceinvoke $r11.<org.w3c.dom.Element: org.w3c.dom.Node getParentNode()>();
+
+        $r2 = interfaceinvoke $r11.<org.w3c.dom.Element: org.w3c.dom.Document getOwnerDocument()>();
+
+        $r13 = $r10.<com.oopsconsultancy.xmltask.RenameAction: java.lang.String 'to'>;
+
+        $r6 = interfaceinvoke $r2.<org.w3c.dom.Document: org.w3c.dom.Element createElement(java.lang.String)>($r13);
+
+        $z0 = $r12 instanceof org.w3c.dom.Document;
+
+        if $z0 == 0 goto label4;
+
+        interfaceinvoke $r12.<org.w3c.dom.Node: org.w3c.dom.Node removeChild(org.w3c.dom.Node)>($r11);
+
+        interfaceinvoke $r12.<org.w3c.dom.Node: org.w3c.dom.Node appendChild(org.w3c.dom.Node)>($r6);
+
+     label2:
+        $r1 = interfaceinvoke $r11.<org.w3c.dom.Element: org.w3c.dom.NodeList getChildNodes()>();
+
+        $i1 = 0;
+
+     label3:
+        $i2 = interfaceinvoke $r1.<org.w3c.dom.NodeList: int getLength()>();
+
+        if $i1 >= $i2 goto label5;
+
+        $r9 = interfaceinvoke $r1.<org.w3c.dom.NodeList: org.w3c.dom.Node item(int)>($i1);
+
+        $r14 = interfaceinvoke $r9.<org.w3c.dom.Node: org.w3c.dom.Node cloneNode(boolean)>(1);
+
+        interfaceinvoke $r6.<org.w3c.dom.Element: org.w3c.dom.Node appendChild(org.w3c.dom.Node)>($r14);
+
+        $i1 = $i1 + 1;
+
+        goto label3;
+
+     label4:
+        $r15 = interfaceinvoke $r11.<org.w3c.dom.Element: org.w3c.dom.Node getNextSibling()>();
+
+        interfaceinvoke $r12.<org.w3c.dom.Node: org.w3c.dom.Node insertBefore(org.w3c.dom.Node,org.w3c.dom.Node)>($r6, $r15);
+
+        goto label2;
+
+     label5:
+        $r0 = interfaceinvoke $r11.<org.w3c.dom.Element: org.w3c.dom.NamedNodeMap getAttributes()>();
+
+        $i4 = 0;
+
+     label6:
+        $i5 = interfaceinvoke $r0.<org.w3c.dom.NamedNodeMap: int getLength()>();
+
+        if $i4 >= $i5 goto label7;
+
+        $r16 = interfaceinvoke $r0.<org.w3c.dom.NamedNodeMap: org.w3c.dom.Node item(int)>($i4);
+
+        $r17 = interfaceinvoke $r16.<org.w3c.dom.Node: org.w3c.dom.Node cloneNode(boolean)>(1);
+
+        $r18 = (org.w3c.dom.Attr) $r17;
+
+        interfaceinvoke $r6.<org.w3c.dom.Element: org.w3c.dom.Attr setAttributeNode(org.w3c.dom.Attr)>($r18);
+
+        $i4 = $i4 + 1;
+
+        goto label6;
+
+     label7:
+        $z1 = $r12 instanceof org.w3c.dom.Document;
+
+        if $z1 != 0 goto label9;
+
+        virtualinvoke $r10.<com.oopsconsultancy.xmltask.RenameAction: void remove(org.w3c.dom.Node)>($r11);
+
+        return 1;
+
+     label8:
+        return 1;
+
+     label9:
+        return 1;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0, $r6;
+        java.lang.StringBuilder $r1, $r3, $r4, $r5;
+        com.oopsconsultancy.xmltask.RenameAction $r2;
+
+        $r2 := @this: com.oopsconsultancy.xmltask.RenameAction;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("RenameAction(");
+
+        $r0 = $r2.<com.oopsconsultancy.xmltask.RenameAction: java.lang.String 'to'>;
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r6;
+    }
+}

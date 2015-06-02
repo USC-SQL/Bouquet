@@ -1,0 +1,41 @@
+class org.simpleframework.xml.core.ElementListUnionParameter$Contact extends org.simpleframework.xml.core.ParameterContact
+{
+
+    public void <init>(org.simpleframework.xml.ElementList, java.lang.reflect.Constructor, int)
+    {
+        int $i0;
+        java.lang.reflect.Constructor $r0;
+        org.simpleframework.xml.ElementList $r1;
+        org.simpleframework.xml.core.ElementListUnionParameter$Contact $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ElementListUnionParameter$Contact;
+
+        $r1 := @parameter0: org.simpleframework.xml.ElementList;
+
+        $r0 := @parameter1: java.lang.reflect.Constructor;
+
+        $i0 := @parameter2: int;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ParameterContact: void <init>(java.lang.annotation.Annotation,java.lang.reflect.Constructor,int)>($r1, $r0, $i0);
+
+        return;
+    }
+
+    public java.lang.String getName()
+    {
+        org.simpleframework.xml.ElementList $r0;
+        java.lang.String $r1;
+        java.lang.annotation.Annotation $r2;
+        org.simpleframework.xml.core.ElementListUnionParameter$Contact $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ElementListUnionParameter$Contact;
+
+        $r2 = $r3.<org.simpleframework.xml.core.ElementListUnionParameter$Contact: java.lang.annotation.Annotation label>;
+
+        $r0 = (org.simpleframework.xml.ElementList) $r2;
+
+        $r1 = interfaceinvoke $r0.<org.simpleframework.xml.ElementList: java.lang.String name()>();
+
+        return $r1;
+    }
+}

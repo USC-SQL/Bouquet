@@ -1,0 +1,70 @@
+class com.dai.giftcard.viewer.activity.HomePageActivity$4 extends java.lang.Thread
+{
+    final com.dai.giftcard.viewer.activity.HomePageActivity this$0;
+
+    void <init>(com.dai.giftcard.viewer.activity.HomePageActivity)
+    {
+        com.dai.giftcard.viewer.activity.HomePageActivity $r0;
+        com.dai.giftcard.viewer.activity.HomePageActivity$4 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.HomePageActivity$4;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.HomePageActivity;
+
+        $r1.<com.dai.giftcard.viewer.activity.HomePageActivity$4: com.dai.giftcard.viewer.activity.HomePageActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        java.lang.Exception $r0;
+        android.os.Handler $r1;
+        android.content.pm.PackageInfo $r2;
+        java.lang.String $r3;
+        android.content.pm.PackageManager $r4;
+        com.dai.giftcard.viewer.activity.HomePageActivity $r5, $r7, $r8;
+        int $i0, $i1;
+        com.dai.giftcard.viewer.activity.HomePageActivity$4 $r6;
+
+        $r6 := @this: com.dai.giftcard.viewer.activity.HomePageActivity$4;
+
+     label1:
+        $r5 = $r6.<com.dai.giftcard.viewer.activity.HomePageActivity$4: com.dai.giftcard.viewer.activity.HomePageActivity this$0>;
+
+        $r4 = virtualinvoke $r5.<com.dai.giftcard.viewer.activity.HomePageActivity: android.content.pm.PackageManager getPackageManager()>();
+
+        $r7 = $r6.<com.dai.giftcard.viewer.activity.HomePageActivity$4: com.dai.giftcard.viewer.activity.HomePageActivity this$0>;
+
+        $r3 = virtualinvoke $r7.<com.dai.giftcard.viewer.activity.HomePageActivity: java.lang.String getPackageName()>();
+
+        $r2 = virtualinvoke $r4.<android.content.pm.PackageManager: android.content.pm.PackageInfo getPackageInfo(java.lang.String,int)>($r3, 0);
+
+        $i0 = $r2.<android.content.pm.PackageInfo: int versionCode>;
+
+        $i1 = staticinvoke <com.dai.giftcard.viewer.service.HttpService: int GetAppUpdate()>();
+
+        if $i1 <= $i0 goto label4;
+
+        $r8 = $r6.<com.dai.giftcard.viewer.activity.HomePageActivity$4: com.dai.giftcard.viewer.activity.HomePageActivity this$0>;
+
+        $r1 = staticinvoke <com.dai.giftcard.viewer.activity.HomePageActivity: android.os.Handler access$000(com.dai.giftcard.viewer.activity.HomePageActivity)>($r8);
+
+        virtualinvoke $r1.<android.os.Handler: boolean sendEmptyMessage(int)>(0);
+
+     label2:
+        return;
+
+     label3:
+        $r0 := @caughtexception;
+
+        return;
+
+     label4:
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+}

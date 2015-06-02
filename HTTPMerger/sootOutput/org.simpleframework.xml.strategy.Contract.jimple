@@ -1,0 +1,83 @@
+class org.simpleframework.xml.strategy.Contract extends java.lang.Object
+{
+    private java.lang.String label;
+    private java.lang.String length;
+    private java.lang.String mark;
+    private java.lang.String refer;
+
+    public void <init>(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1, $r2, $r3;
+        org.simpleframework.xml.strategy.Contract $r4;
+
+        $r4 := @this: org.simpleframework.xml.strategy.Contract;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r3 := @parameter3: java.lang.String;
+
+        specialinvoke $r4.<java.lang.Object: void <init>()>();
+
+        $r4.<org.simpleframework.xml.strategy.Contract: java.lang.String length> = $r3;
+
+        $r4.<org.simpleframework.xml.strategy.Contract: java.lang.String label> = $r2;
+
+        $r4.<org.simpleframework.xml.strategy.Contract: java.lang.String refer> = $r1;
+
+        $r4.<org.simpleframework.xml.strategy.Contract: java.lang.String mark> = $r0;
+
+        return;
+    }
+
+    public java.lang.String getIdentity()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.strategy.Contract $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.Contract;
+
+        r0 = $r1.<org.simpleframework.xml.strategy.Contract: java.lang.String mark>;
+
+        return r0;
+    }
+
+    public java.lang.String getLabel()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.strategy.Contract $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.Contract;
+
+        r0 = $r1.<org.simpleframework.xml.strategy.Contract: java.lang.String label>;
+
+        return r0;
+    }
+
+    public java.lang.String getLength()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.strategy.Contract $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.Contract;
+
+        r0 = $r1.<org.simpleframework.xml.strategy.Contract: java.lang.String length>;
+
+        return r0;
+    }
+
+    public java.lang.String getReference()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.strategy.Contract $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.Contract;
+
+        r0 = $r1.<org.simpleframework.xml.strategy.Contract: java.lang.String refer>;
+
+        return r0;
+    }
+}

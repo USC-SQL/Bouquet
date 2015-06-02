@@ -1,0 +1,57 @@
+final enum class org.jsoup.parser.TokeniserState$43 extends org.jsoup.parser.TokeniserState
+{
+
+    void <init>(java.lang.String, int)
+    {
+        int $i0;
+        java.lang.String $r0;
+        org.jsoup.parser.TokeniserState$43 $r1;
+
+        $r1 := @this: org.jsoup.parser.TokeniserState$43;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r1.<org.jsoup.parser.TokeniserState: void <init>(java.lang.String,int,org.jsoup.parser.TokeniserState$1)>($r0, $i0, null);
+
+        return;
+    }
+
+    void read(org.jsoup.parser.Tokeniser, org.jsoup.parser.CharacterReader)
+    {
+        org.jsoup.parser.TokeniserState $r0;
+        java.lang.String $r1;
+        java.lang.StringBuilder $r2;
+        org.jsoup.parser.Token$Comment $r3;
+        org.jsoup.parser.CharacterReader $r4;
+        org.jsoup.parser.Tokeniser $r5;
+        org.jsoup.parser.TokeniserState$43 $r6;
+
+        $r6 := @this: org.jsoup.parser.TokeniserState$43;
+
+        $r5 := @parameter0: org.jsoup.parser.Tokeniser;
+
+        $r4 := @parameter1: org.jsoup.parser.CharacterReader;
+
+        virtualinvoke $r4.<org.jsoup.parser.CharacterReader: void unconsume()>();
+
+        $r3 = new org.jsoup.parser.Token$Comment;
+
+        specialinvoke $r3.<org.jsoup.parser.Token$Comment: void <init>()>();
+
+        $r2 = $r3.<org.jsoup.parser.Token$Comment: java.lang.StringBuilder data>;
+
+        $r1 = virtualinvoke $r4.<org.jsoup.parser.CharacterReader: java.lang.String consumeTo(char)>(62);
+
+        virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        virtualinvoke $r5.<org.jsoup.parser.Tokeniser: void emit(org.jsoup.parser.Token)>($r3);
+
+        $r0 = <org.jsoup.parser.TokeniserState$43: org.jsoup.parser.TokeniserState Data>;
+
+        virtualinvoke $r5.<org.jsoup.parser.Tokeniser: void advanceTransition(org.jsoup.parser.TokeniserState)>($r0);
+
+        return;
+    }
+}

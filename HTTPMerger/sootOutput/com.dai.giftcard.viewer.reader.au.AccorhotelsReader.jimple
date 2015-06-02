@@ -1,0 +1,193 @@
+public class com.dai.giftcard.viewer.reader.au.AccorhotelsReader extends com.dai.giftcard.viewer.reader.BaseCardReader
+{
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.reader.au.AccorhotelsReader $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.reader.au.AccorhotelsReader;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.reader.BaseCardReader: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.String GetCardBalanceRequest(com.dai.giftcard.viewer.model.GiftCardEntity) throws java.lang.Exception
+    {
+        org.apache.http.client.entity.UrlEncodedFormEntity $r0;
+        org.apache.http.message.BasicNameValuePair $r1, $r15, $r18, $r21, $r24, $r27;
+        int $i0;
+        org.jsoup.nodes.Element $r2;
+        org.jsoup.select.Elements $r3;
+        org.jsoup.nodes.Document $r4;
+        org.apache.http.HttpResponse $r5, $r28;
+        org.apache.http.client.HttpClient $r6;
+        java.lang.String $r7, $r8, $r14, $r16, $r17, $r19, $r20, $r22, $r23, $r25, $r26, $r29;
+        java.util.ArrayList $r9;
+        org.apache.http.client.methods.HttpGet $r10;
+        org.apache.http.client.methods.HttpPost $r11;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r12;
+        com.dai.giftcard.viewer.reader.au.AccorhotelsReader $r13;
+
+        $r13 := @this: com.dai.giftcard.viewer.reader.au.AccorhotelsReader;
+
+        $r12 := @parameter0: com.dai.giftcard.viewer.model.GiftCardEntity;
+
+        $r6 = staticinvoke <com.dai.giftcard.viewer.service.HttpService: org.apache.http.client.HttpClient getNewHttpClient()>();
+
+        $r10 = new org.apache.http.client.methods.HttpGet;
+
+        specialinvoke $r10.<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>("https://www.accorgiftcards.com.au/check-my-card-balance");
+
+        $r5 = staticinvoke <usc.edu.AgentURLConnection: org.apache.http.HttpResponse HttpResponseexecute(org.apache.http.client.HttpClient,org.apache.http.client.methods.HttpUriRequest)>($r10, $r6);
+
+        $r7 = staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: java.lang.String GetResponseHtml(org.apache.http.HttpResponse)>($r5);
+
+        $r4 = staticinvoke <org.jsoup.Jsoup: org.jsoup.nodes.Document parse(java.lang.String)>($r7);
+
+        $r3 = virtualinvoke $r4.<org.jsoup.nodes.Document: org.jsoup.select.Elements select(java.lang.String)>("input[name=authenticity_token]");
+
+        $r2 = virtualinvoke $r3.<org.jsoup.select.Elements: org.jsoup.nodes.Element get(int)>(0);
+
+        $r14 = virtualinvoke $r2.<org.jsoup.nodes.Element: java.lang.String val()>();
+
+        $r11 = new org.apache.http.client.methods.HttpPost;
+
+        specialinvoke $r11.<org.apache.http.client.methods.HttpPost: void <init>(java.lang.String)>("https://www.accorgiftcards.com.au/check-my-card-balance");
+
+        $r8 = $r12.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        $i0 = virtualinvoke $r8.<java.lang.String: int length()>();
+
+        if $i0 >= 16 goto label1;
+
+        return "";
+
+     label1:
+        $r9 = new java.util.ArrayList;
+
+        specialinvoke $r9.<java.util.ArrayList: void <init>(int)>(2);
+
+        $r1 = new org.apache.http.message.BasicNameValuePair;
+
+        specialinvoke $r1.<org.apache.http.message.BasicNameValuePair: void <init>(java.lang.String,java.lang.String)>("authenticity_token", $r14);
+
+        interfaceinvoke $r9.<java.util.List: boolean add(java.lang.Object)>($r1);
+
+        $r15 = new org.apache.http.message.BasicNameValuePair;
+
+        $r16 = $r12.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        $r17 = virtualinvoke $r16.<java.lang.String: java.lang.String substring(int,int)>(0, 4);
+
+        specialinvoke $r15.<org.apache.http.message.BasicNameValuePair: void <init>(java.lang.String,java.lang.String)>("card[card_number][first]", $r17);
+
+        interfaceinvoke $r9.<java.util.List: boolean add(java.lang.Object)>($r15);
+
+        $r18 = new org.apache.http.message.BasicNameValuePair;
+
+        $r19 = $r12.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        $r20 = virtualinvoke $r19.<java.lang.String: java.lang.String substring(int,int)>(4, 8);
+
+        specialinvoke $r18.<org.apache.http.message.BasicNameValuePair: void <init>(java.lang.String,java.lang.String)>("card[card_number][second]", $r20);
+
+        interfaceinvoke $r9.<java.util.List: boolean add(java.lang.Object)>($r18);
+
+        $r21 = new org.apache.http.message.BasicNameValuePair;
+
+        $r22 = $r12.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        $r23 = virtualinvoke $r22.<java.lang.String: java.lang.String substring(int,int)>(8, 12);
+
+        specialinvoke $r21.<org.apache.http.message.BasicNameValuePair: void <init>(java.lang.String,java.lang.String)>("card[card_number][third]", $r23);
+
+        interfaceinvoke $r9.<java.util.List: boolean add(java.lang.Object)>($r21);
+
+        $r24 = new org.apache.http.message.BasicNameValuePair;
+
+        $r25 = $r12.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        $r26 = virtualinvoke $r25.<java.lang.String: java.lang.String substring(int,int)>(12, 16);
+
+        specialinvoke $r24.<org.apache.http.message.BasicNameValuePair: void <init>(java.lang.String,java.lang.String)>("card[card_number][forth]", $r26);
+
+        interfaceinvoke $r9.<java.util.List: boolean add(java.lang.Object)>($r24);
+
+        $r27 = new org.apache.http.message.BasicNameValuePair;
+
+        specialinvoke $r27.<org.apache.http.message.BasicNameValuePair: void <init>(java.lang.String,java.lang.String)>("commit", "Check Card Balance");
+
+        interfaceinvoke $r9.<java.util.List: boolean add(java.lang.Object)>($r27);
+
+        $r0 = new org.apache.http.client.entity.UrlEncodedFormEntity;
+
+        specialinvoke $r0.<org.apache.http.client.entity.UrlEncodedFormEntity: void <init>(java.util.List)>($r9);
+
+        virtualinvoke $r11.<org.apache.http.client.methods.HttpPost: void setEntity(org.apache.http.HttpEntity)>($r0);
+
+        $r28 = staticinvoke <usc.edu.AgentURLConnection: org.apache.http.HttpResponse HttpResponseexecute(org.apache.http.client.HttpClient,org.apache.http.client.methods.HttpUriRequest)>($r11, $r6);
+
+        $r29 = staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: java.lang.String GetResponseHtml(org.apache.http.HttpResponse)>($r28);
+
+        return $r29;
+    }
+
+    public boolean GetCardInfo(com.dai.giftcard.viewer.model.GiftCardEntity, java.lang.String)
+    {
+        double $d0;
+        org.jsoup.nodes.Element $r0;
+        int $i0;
+        org.jsoup.select.Elements $r1;
+        java.lang.String $r2, $r5, $r6, $r7;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r3;
+        com.dai.giftcard.viewer.reader.au.AccorhotelsReader $r4;
+
+        $r4 := @this: com.dai.giftcard.viewer.reader.au.AccorhotelsReader;
+
+        $r3 := @parameter0: com.dai.giftcard.viewer.model.GiftCardEntity;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r1 = virtualinvoke $r4.<com.dai.giftcard.viewer.reader.au.AccorhotelsReader: org.jsoup.select.Elements GetDollarElement(java.lang.String)>($r2);
+
+        $i0 = virtualinvoke $r1.<org.jsoup.select.Elements: int size()>();
+
+        if $i0 <= 0 goto label1;
+
+        $r0 = virtualinvoke $r1.<org.jsoup.select.Elements: org.jsoup.nodes.Element get(int)>(0);
+
+        $r5 = virtualinvoke $r0.<org.jsoup.nodes.Element: java.lang.String text()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("*", "");
+
+        $r7 = virtualinvoke $r6.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("AUD", "");
+
+        $d0 = staticinvoke <com.dai.giftcard.viewer.helper.StringHelper: double GetDollar(java.lang.String)>($r7);
+
+        $r3.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance> = $d0;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public org.jsoup.select.Elements GetDollarElement(java.lang.String)
+    {
+        org.jsoup.select.Elements $r0;
+        org.jsoup.nodes.Document $r1;
+        java.lang.String $r2;
+        com.dai.giftcard.viewer.reader.au.AccorhotelsReader $r3;
+
+        $r3 := @this: com.dai.giftcard.viewer.reader.au.AccorhotelsReader;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = staticinvoke <org.jsoup.Jsoup: org.jsoup.nodes.Document parse(java.lang.String)>($r2);
+
+        $r0 = virtualinvoke $r1.<org.jsoup.nodes.Document: org.jsoup.select.Elements select(java.lang.String)>("th:contains(Remaining) + td");
+
+        return $r0;
+    }
+}

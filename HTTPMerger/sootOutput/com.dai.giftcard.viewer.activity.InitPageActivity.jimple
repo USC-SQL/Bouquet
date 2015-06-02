@@ -1,0 +1,213 @@
+public class com.dai.giftcard.viewer.activity.InitPageActivity extends android.app.Activity
+{
+    private android.os.Handler handlerClose;
+    private android.os.Handler handlerContinue;
+    private android.os.Handler handlerReset;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.activity.InitPageActivity$3 $r0;
+        com.dai.giftcard.viewer.activity.InitPageActivity$2 $r1;
+        com.dai.giftcard.viewer.activity.InitPageActivity$1 $r2;
+        com.dai.giftcard.viewer.activity.InitPageActivity $r3;
+
+        $r3 := @this: com.dai.giftcard.viewer.activity.InitPageActivity;
+
+        specialinvoke $r3.<android.app.Activity: void <init>()>();
+
+        $r2 = new com.dai.giftcard.viewer.activity.InitPageActivity$1;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.activity.InitPageActivity$1: void <init>(com.dai.giftcard.viewer.activity.InitPageActivity)>($r3);
+
+        $r3.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerClose> = $r2;
+
+        $r1 = new com.dai.giftcard.viewer.activity.InitPageActivity$2;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.InitPageActivity$2: void <init>(com.dai.giftcard.viewer.activity.InitPageActivity)>($r3);
+
+        $r3.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerReset> = $r1;
+
+        $r0 = new com.dai.giftcard.viewer.activity.InitPageActivity$3;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.activity.InitPageActivity$3: void <init>(com.dai.giftcard.viewer.activity.InitPageActivity)>($r3);
+
+        $r3.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerContinue> = $r0;
+
+        return;
+    }
+
+    private void OpenMainApp()
+    {
+        android.content.Intent $r0;
+        com.dai.giftcard.viewer.activity.InitPageActivity $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.InitPageActivity;
+
+        $r0 = new android.content.Intent;
+
+        specialinvoke $r0.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r1, class "com/dai/giftcard/viewer/activity/HomePageActivity");
+
+        virtualinvoke $r1.<com.dai.giftcard.viewer.activity.InitPageActivity: void startActivity(android.content.Intent)>($r0);
+
+        virtualinvoke $r1.<com.dai.giftcard.viewer.activity.InitPageActivity: void finish()>();
+
+        return;
+    }
+
+    static void access$000(com.dai.giftcard.viewer.activity.InitPageActivity)
+    {
+        com.dai.giftcard.viewer.activity.InitPageActivity $r0;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.InitPageActivity;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.activity.InitPageActivity: void OpenMainApp()>();
+
+        return;
+    }
+
+    public boolean InitFileService()
+    {
+        java.io.IOException $r0;
+        java.lang.Exception $r1, $r2;
+        android.os.Handler $r3, $r4, $r6, $r7, $r8;
+        com.dai.giftcard.viewer.activity.InitPageActivity $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.activity.InitPageActivity;
+
+     label1:
+        staticinvoke <com.dai.giftcard.viewer.service.FileService: void FirstInstall(android.content.Context)>($r5);
+
+     label2:
+        staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: void Init()>();
+
+        staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: void LoadGiftCardFromFile(android.content.Context)>($r5);
+
+     label3:
+        return 1;
+
+     label4:
+        $r1 := @caughtexception;
+
+        $r3 = $r5.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerClose>;
+
+        staticinvoke <com.dai.giftcard.viewer.service.IntentService: void FatalErrorMsg(android.app.Activity,java.lang.String,java.lang.String,android.os.Handler)>($r5, "Error", "Unable to initialize data file or upgrade. Please check your SD card is attached.", $r3);
+
+        return 0;
+
+     label5:
+        $r0 := @caughtexception;
+
+        $r6 = $r5.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerClose>;
+
+        $r4 = $r5.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerContinue>;
+
+        staticinvoke <com.dai.giftcard.viewer.service.IntentService: void FatalErrorMsg_YesNo(android.app.Activity,java.lang.String,java.lang.String,java.lang.String,java.lang.String,android.os.Handler,android.os.Handler)>($r5, "Warning", "Unable to read data file on the SD card. [Continue] may overwrite existing data file.", "Quit", "Continue", $r6, $r4);
+
+        return 0;
+
+     label6:
+        $r2 := @caughtexception;
+
+        $r7 = $r5.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerClose>;
+
+        $r8 = $r5.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerReset>;
+
+        staticinvoke <com.dai.giftcard.viewer.service.IntentService: void FatalErrorMsg_YesNo(android.app.Activity,java.lang.String,java.lang.String,java.lang.String,java.lang.String,android.os.Handler,android.os.Handler)>($r5, "Error", "Unable to parse card data file. [Reset] will re-create data file, but previous data will be lost.", "Quit", "Reset", $r7, $r8);
+
+        return 0;
+
+        catch java.lang.Exception from label1 to label2 with label4;
+        catch java.io.IOException from label2 to label3 with label5;
+        catch java.lang.Exception from label2 to label3 with label6;
+    }
+
+    public boolean InitValueService()
+    {
+        java.lang.Exception $r0;
+        android.os.Handler $r1, $r4;
+        java.io.IOException $r2;
+        com.dai.giftcard.viewer.activity.InitPageActivity $r3;
+
+        $r3 := @this: com.dai.giftcard.viewer.activity.InitPageActivity;
+
+     label1:
+        staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: void InitCardTypeFromFile(android.content.Context)>($r3);
+
+        staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: void AssembleCardType()>();
+
+     label2:
+        return 1;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r1 = $r3.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerClose>;
+
+        staticinvoke <com.dai.giftcard.viewer.service.IntentService: void FatalErrorMsg(android.app.Activity,java.lang.String,java.lang.String,android.os.Handler)>($r3, "Error", "Unable to read card setting files.", $r1);
+
+     label4:
+        return 0;
+
+     label5:
+        $r0 := @caughtexception;
+
+        $r4 = $r3.<com.dai.giftcard.viewer.activity.InitPageActivity: android.os.Handler handlerClose>;
+
+        staticinvoke <com.dai.giftcard.viewer.service.IntentService: void FatalErrorMsg(android.app.Activity,java.lang.String,java.lang.String,android.os.Handler)>($r3, "Error", "Unable to parse card setting files.", $r4);
+
+        goto label4;
+
+        catch java.io.IOException from label1 to label2 with label3;
+        catch java.lang.Exception from label1 to label2 with label5;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        boolean $z0, $z1, $z2, $z3;
+        android.os.Bundle $r0;
+        com.dai.giftcard.viewer.activity.InitPageActivity $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.InitPageActivity;
+
+        $r0 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r1.<android.app.Activity: void onCreate(android.os.Bundle)>($r0);
+
+        virtualinvoke $r1.<com.dai.giftcard.viewer.activity.InitPageActivity: void setContentView(int)>(2130903052);
+
+        $z0 = virtualinvoke $r1.<com.dai.giftcard.viewer.activity.InitPageActivity: boolean InitValueService()>();
+
+        if $z0 == 0 goto label3;
+
+        $z1 = 1;
+
+     label1:
+        if $z1 == 0 goto label4;
+
+        $z2 = virtualinvoke $r1.<com.dai.giftcard.viewer.activity.InitPageActivity: boolean InitFileService()>();
+
+        if $z2 == 0 goto label4;
+
+        $z3 = 1;
+
+     label2:
+        if $z3 == 0 goto label5;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.InitPageActivity: void OpenMainApp()>();
+
+        return;
+
+     label3:
+        $z1 = 0;
+
+        goto label1;
+
+     label4:
+        $z3 = 0;
+
+        goto label2;
+
+     label5:
+        return;
+    }
+}

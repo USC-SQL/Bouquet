@@ -1,0 +1,5 @@
+public interface  org.json.simple.JSONStreamAware extends java.lang.Object
+{
+
+    public abstract void writeJSONString(java.io.Writer) throws java.io.IOException;
+}

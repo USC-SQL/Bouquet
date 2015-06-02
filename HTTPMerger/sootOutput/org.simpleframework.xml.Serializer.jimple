@@ -1,0 +1,71 @@
+public interface  org.simpleframework.xml.Serializer extends java.lang.Object
+{
+
+    public abstract java.lang.Object read(java.lang.Class, java.io.File) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, java.io.File, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, java.io.InputStream) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, java.io.InputStream, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, java.io.Reader) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, java.io.Reader, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, java.lang.String) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, java.lang.String, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, org.simpleframework.xml.stream.InputNode) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Class, org.simpleframework.xml.stream.InputNode, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, java.io.File) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, java.io.File, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, java.io.InputStream) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, java.io.InputStream, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, java.io.Reader) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, java.io.Reader, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, java.lang.String) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, java.lang.String, boolean) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, org.simpleframework.xml.stream.InputNode) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(java.lang.Object, org.simpleframework.xml.stream.InputNode, boolean) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, java.io.File) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, java.io.File, boolean) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, java.io.InputStream) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, java.io.InputStream, boolean) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, java.io.Reader) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, java.io.Reader, boolean) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, java.lang.String) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, java.lang.String, boolean) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, org.simpleframework.xml.stream.InputNode) throws java.lang.Exception;
+
+    public abstract boolean validate(java.lang.Class, org.simpleframework.xml.stream.InputNode, boolean) throws java.lang.Exception;
+
+    public abstract void write(java.lang.Object, java.io.File) throws java.lang.Exception;
+
+    public abstract void write(java.lang.Object, java.io.OutputStream) throws java.lang.Exception;
+
+    public abstract void write(java.lang.Object, java.io.Writer) throws java.lang.Exception;
+
+    public abstract void write(java.lang.Object, org.simpleframework.xml.stream.OutputNode) throws java.lang.Exception;
+}

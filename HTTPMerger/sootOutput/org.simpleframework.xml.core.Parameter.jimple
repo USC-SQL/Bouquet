@@ -1,0 +1,27 @@
+interface  org.simpleframework.xml.core.Parameter extends java.lang.Object
+{
+
+    public abstract java.lang.annotation.Annotation getAnnotation();
+
+    public abstract org.simpleframework.xml.core.Expression getExpression();
+
+    public abstract int getIndex();
+
+    public abstract java.lang.Object getKey();
+
+    public abstract java.lang.String getName();
+
+    public abstract java.lang.String getPath();
+
+    public abstract java.lang.Class getType();
+
+    public abstract boolean isAttribute();
+
+    public abstract boolean isPrimitive();
+
+    public abstract boolean isRequired();
+
+    public abstract boolean isText();
+
+    public abstract java.lang.String toString();
+}

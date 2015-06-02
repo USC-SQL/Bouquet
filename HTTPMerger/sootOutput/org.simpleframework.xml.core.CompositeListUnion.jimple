@@ -1,0 +1,329 @@
+class org.simpleframework.xml.core.CompositeListUnion extends java.lang.Object implements org.simpleframework.xml.core.Repeater
+{
+    private final org.simpleframework.xml.core.Context context;
+    private final org.simpleframework.xml.core.LabelMap elements;
+    private final org.simpleframework.xml.core.Group group;
+    private final org.simpleframework.xml.core.Expression path;
+    private final org.simpleframework.xml.stream.Style style;
+    private final org.simpleframework.xml.strategy.Type type;
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.core.Group, org.simpleframework.xml.core.Expression, org.simpleframework.xml.strategy.Type) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        org.simpleframework.xml.core.LabelMap $r1;
+        org.simpleframework.xml.strategy.Type $r2;
+        org.simpleframework.xml.core.Expression $r3;
+        org.simpleframework.xml.core.Group $r4;
+        org.simpleframework.xml.core.Context $r5;
+        org.simpleframework.xml.core.CompositeListUnion $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.CompositeListUnion;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r4 := @parameter1: org.simpleframework.xml.core.Group;
+
+        $r3 := @parameter2: org.simpleframework.xml.core.Expression;
+
+        $r2 := @parameter3: org.simpleframework.xml.strategy.Type;
+
+        specialinvoke $r6.<java.lang.Object: void <init>()>();
+
+        $r1 = interfaceinvoke $r4.<org.simpleframework.xml.core.Group: org.simpleframework.xml.core.LabelMap getElements()>();
+
+        $r6.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.LabelMap elements> = $r1;
+
+        $r0 = interfaceinvoke $r5.<org.simpleframework.xml.core.Context: org.simpleframework.xml.stream.Style getStyle()>();
+
+        $r6.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.stream.Style style> = $r0;
+
+        $r6.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Context context> = $r5;
+
+        $r6.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Group group> = $r4;
+
+        $r6.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.strategy.Type type> = $r2;
+
+        $r6.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Expression path> = $r3;
+
+        return;
+    }
+
+    private void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object, org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        java.lang.String $r1, $r9;
+        boolean $z0, $z1;
+        java.util.Set $r2;
+        org.simpleframework.xml.core.Converter $r3;
+        org.simpleframework.xml.core.Context $r4;
+        org.simpleframework.xml.core.Label $r5;
+        java.lang.Object $r6;
+        org.simpleframework.xml.stream.OutputNode $r7;
+        org.simpleframework.xml.core.CompositeListUnion $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.CompositeListUnion;
+
+        $r7 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r6 := @parameter1: java.lang.Object;
+
+        $r5 := @parameter2: org.simpleframework.xml.core.Label;
+
+        $r4 = $r8.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Context context>;
+
+        $r3 = interfaceinvoke $r5.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Converter getConverter(org.simpleframework.xml.core.Context)>($r4);
+
+        $r2 = staticinvoke <java.util.Collections: java.util.Set singleton(java.lang.Object)>($r6);
+
+        $z0 = interfaceinvoke $r5.<org.simpleframework.xml.core.Label: boolean isInline()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = interfaceinvoke $r5.<org.simpleframework.xml.core.Label: java.lang.String getName()>();
+
+        $r0 = $r8.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.stream.Style style>;
+
+        $r9 = interfaceinvoke $r0.<org.simpleframework.xml.stream.Style: java.lang.String getElement(java.lang.String)>($r1);
+
+        $z1 = interfaceinvoke $r7.<org.simpleframework.xml.stream.OutputNode: boolean isCommitted()>();
+
+        if $z1 != 0 goto label1;
+
+        interfaceinvoke $r7.<org.simpleframework.xml.stream.OutputNode: void setName(java.lang.String)>($r9);
+
+     label1:
+        interfaceinvoke $r3.<org.simpleframework.xml.core.Converter: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r7, $r2);
+
+        return;
+    }
+
+    private void write(org.simpleframework.xml.stream.OutputNode, java.util.Collection) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.UnionException $r1;
+        org.simpleframework.xml.core.Label $r2;
+        org.simpleframework.xml.core.Group $r3, $r11;
+        java.lang.Class $r4;
+        java.lang.Object $r5;
+        boolean $z0;
+        java.util.Iterator $r6;
+        org.simpleframework.xml.strategy.Type $r7;
+        java.util.Collection $r8;
+        org.simpleframework.xml.stream.OutputNode $r9;
+        org.simpleframework.xml.core.CompositeListUnion $r10;
+
+        $r10 := @this: org.simpleframework.xml.core.CompositeListUnion;
+
+        $r9 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r8 := @parameter1: java.util.Collection;
+
+        $r6 = interfaceinvoke $r8.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r6.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r5 = interfaceinvoke $r6.<java.util.Iterator: java.lang.Object next()>();
+
+        if $r5 == null goto label1;
+
+        $r4 = virtualinvoke $r5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r3 = $r10.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Group group>;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.core.Group: org.simpleframework.xml.core.Label getLabel(java.lang.Class)>($r4);
+
+        if $r2 != null goto label2;
+
+        $r1 = new org.simpleframework.xml.core.UnionException;
+
+        $r0 = newarray (java.lang.Object)[3];
+
+        $r0[0] = $r4;
+
+        $r7 = $r10.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.strategy.Type type>;
+
+        $r0[1] = $r7;
+
+        $r11 = $r10.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Group group>;
+
+        $r0[2] = $r11;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.UnionException: void <init>(java.lang.String,java.lang.Object[])>("Entry of %s not declared in %s with annotation %s", $r0);
+
+        throw $r1;
+
+     label2:
+        specialinvoke $r10.<org.simpleframework.xml.core.CompositeListUnion: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object,org.simpleframework.xml.core.Label)>($r9, $r5, $r2);
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Converter $r0;
+        org.simpleframework.xml.core.Context $r1;
+        org.simpleframework.xml.core.Label $r2;
+        java.lang.Object $r3, $r10;
+        org.simpleframework.xml.core.LabelMap $r4;
+        java.lang.String $r5, $r9;
+        org.simpleframework.xml.core.Expression $r6;
+        org.simpleframework.xml.stream.InputNode $r7;
+        org.simpleframework.xml.core.CompositeListUnion $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.CompositeListUnion;
+
+        $r7 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 = interfaceinvoke $r7.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+        $r6 = $r8.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Expression path>;
+
+        $r9 = interfaceinvoke $r6.<org.simpleframework.xml.core.Expression: java.lang.String getElement(java.lang.String)>($r5);
+
+        $r4 = $r8.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r9);
+
+        $r2 = (org.simpleframework.xml.core.Label) $r3;
+
+        $r1 = $r8.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Context context>;
+
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Converter getConverter(org.simpleframework.xml.core.Context)>($r1);
+
+        $r10 = interfaceinvoke $r0.<org.simpleframework.xml.core.Converter: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r7);
+
+        return $r10;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Converter $r0;
+        org.simpleframework.xml.core.Context $r1;
+        org.simpleframework.xml.core.Label $r2;
+        org.simpleframework.xml.core.LabelMap $r3;
+        java.lang.String $r4, $r10;
+        org.simpleframework.xml.core.Expression $r5;
+        java.lang.Object $r6, $r7, $r11;
+        org.simpleframework.xml.stream.InputNode $r8;
+        org.simpleframework.xml.core.CompositeListUnion $r9;
+
+        $r9 := @this: org.simpleframework.xml.core.CompositeListUnion;
+
+        $r8 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r6 := @parameter1: java.lang.Object;
+
+        $r4 = interfaceinvoke $r8.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+        $r5 = $r9.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Expression path>;
+
+        $r10 = interfaceinvoke $r5.<org.simpleframework.xml.core.Expression: java.lang.String getElement(java.lang.String)>($r4);
+
+        $r3 = $r9.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r7 = virtualinvoke $r3.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r10);
+
+        $r2 = (org.simpleframework.xml.core.Label) $r7;
+
+        $r1 = $r9.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Context context>;
+
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Converter getConverter(org.simpleframework.xml.core.Context)>($r1);
+
+        $r11 = interfaceinvoke $r0.<org.simpleframework.xml.core.Converter: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.lang.Object)>($r8, $r6);
+
+        return $r11;
+    }
+
+    public boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Converter $r0;
+        org.simpleframework.xml.core.Context $r1;
+        org.simpleframework.xml.core.Label $r2;
+        java.lang.Object $r3;
+        org.simpleframework.xml.core.LabelMap $r4;
+        java.lang.String $r5, $r9;
+        org.simpleframework.xml.core.Expression $r6;
+        org.simpleframework.xml.stream.InputNode $r7;
+        org.simpleframework.xml.core.CompositeListUnion $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.CompositeListUnion;
+
+        $r7 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 = interfaceinvoke $r7.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+        $r6 = $r8.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Expression path>;
+
+        $r9 = interfaceinvoke $r6.<org.simpleframework.xml.core.Expression: java.lang.String getElement(java.lang.String)>($r5);
+
+        $r4 = $r8.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.LabelMap: java.lang.Object get(java.lang.Object)>($r9);
+
+        $r2 = (org.simpleframework.xml.core.Label) $r3;
+
+        $r1 = $r8.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Context context>;
+
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Label: org.simpleframework.xml.core.Converter getConverter(org.simpleframework.xml.core.Context)>($r1);
+
+        $z0 = interfaceinvoke $r0.<org.simpleframework.xml.core.Converter: boolean validate(org.simpleframework.xml.stream.InputNode)>($r7);
+
+        return $z0;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        java.util.Collection $r0;
+        boolean $z0, $z1, $z2;
+        org.simpleframework.xml.core.Group $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.stream.OutputNode $r3;
+        org.simpleframework.xml.core.CompositeListUnion $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CompositeListUnion;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r0 = (java.util.Collection) $r2;
+
+        $r1 = $r4.<org.simpleframework.xml.core.CompositeListUnion: org.simpleframework.xml.core.Group group>;
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Group: boolean isInline()>();
+
+        if $z0 == 0 goto label2;
+
+        $z1 = interfaceinvoke $r0.<java.util.Collection: boolean isEmpty()>();
+
+        if $z1 != 0 goto label1;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.CompositeListUnion: void write(org.simpleframework.xml.stream.OutputNode,java.util.Collection)>($r3, $r0);
+
+        return;
+
+     label1:
+        $z2 = interfaceinvoke $r3.<org.simpleframework.xml.stream.OutputNode: boolean isCommitted()>();
+
+        if $z2 != 0 goto label3;
+
+        interfaceinvoke $r3.<org.simpleframework.xml.stream.OutputNode: void remove()>();
+
+        return;
+
+     label2:
+        specialinvoke $r4.<org.simpleframework.xml.core.CompositeListUnion: void write(org.simpleframework.xml.stream.OutputNode,java.util.Collection)>($r3, $r0);
+
+        return;
+
+     label3:
+        return;
+    }
+}

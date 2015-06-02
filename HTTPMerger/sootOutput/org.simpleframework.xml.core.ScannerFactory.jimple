@@ -1,0 +1,65 @@
+class org.simpleframework.xml.core.ScannerFactory extends java.lang.Object
+{
+    private final org.simpleframework.xml.core.ScannerFactory$Cache cache;
+    private final org.simpleframework.xml.stream.Format format;
+
+    public void <init>(org.simpleframework.xml.stream.Format)
+    {
+        org.simpleframework.xml.core.ScannerFactory$Cache $r0;
+        org.simpleframework.xml.stream.Format $r1;
+        org.simpleframework.xml.core.ScannerFactory $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ScannerFactory;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.core.ScannerFactory$Cache;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.ScannerFactory$Cache: void <init>(org.simpleframework.xml.core.ScannerFactory)>($r2);
+
+        $r2.<org.simpleframework.xml.core.ScannerFactory: org.simpleframework.xml.core.ScannerFactory$Cache cache> = $r0;
+
+        $r2.<org.simpleframework.xml.core.ScannerFactory: org.simpleframework.xml.stream.Format format> = $r1;
+
+        return;
+    }
+
+    public org.simpleframework.xml.core.Scanner getInstance(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.Format $r0;
+        org.simpleframework.xml.core.Scanner $r1, $r6;
+        java.lang.Object $r2;
+        org.simpleframework.xml.core.ScannerFactory$Cache $r3, $r7;
+        java.lang.Class $r4;
+        org.simpleframework.xml.core.ScannerFactory $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.ScannerFactory;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r3 = $r5.<org.simpleframework.xml.core.ScannerFactory: org.simpleframework.xml.core.ScannerFactory$Cache cache>;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.ScannerFactory$Cache: java.lang.Object get(java.lang.Object)>($r4);
+
+        $r1 = (org.simpleframework.xml.core.Scanner) $r2;
+
+        if $r1 != null goto label1;
+
+        $r6 = new org.simpleframework.xml.core.Scanner;
+
+        $r0 = $r5.<org.simpleframework.xml.core.ScannerFactory: org.simpleframework.xml.stream.Format format>;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.Scanner: void <init>(java.lang.Class,org.simpleframework.xml.stream.Format)>($r4, $r0);
+
+        $r7 = $r5.<org.simpleframework.xml.core.ScannerFactory: org.simpleframework.xml.core.ScannerFactory$Cache cache>;
+
+        virtualinvoke $r7.<org.simpleframework.xml.core.ScannerFactory$Cache: java.lang.Object put(java.lang.Object,java.lang.Object)>($r4, $r6);
+
+        return $r6;
+
+     label1:
+        return $r1;
+    }
+}

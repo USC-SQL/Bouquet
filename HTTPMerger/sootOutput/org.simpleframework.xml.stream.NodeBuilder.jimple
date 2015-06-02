@@ -1,0 +1,116 @@
+public final class org.simpleframework.xml.stream.NodeBuilder extends java.lang.Object
+{
+    private static org.simpleframework.xml.stream.Provider provider;
+
+    static void <clinit>()
+    {
+        org.simpleframework.xml.stream.Provider $r0;
+
+        $r0 = staticinvoke <org.simpleframework.xml.stream.ProviderFactory: org.simpleframework.xml.stream.Provider getInstance()>();
+
+        <org.simpleframework.xml.stream.NodeBuilder: org.simpleframework.xml.stream.Provider provider> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        org.simpleframework.xml.stream.NodeBuilder $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.NodeBuilder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static org.simpleframework.xml.stream.InputNode read(java.io.InputStream) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.InputNode $r0;
+        org.simpleframework.xml.stream.EventReader $r1;
+        org.simpleframework.xml.stream.Provider $r2;
+        java.io.InputStream $r3;
+
+        $r3 := @parameter0: java.io.InputStream;
+
+        $r2 = <org.simpleframework.xml.stream.NodeBuilder: org.simpleframework.xml.stream.Provider provider>;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.stream.Provider: org.simpleframework.xml.stream.EventReader provide(java.io.InputStream)>($r3);
+
+        $r0 = staticinvoke <org.simpleframework.xml.stream.NodeBuilder: org.simpleframework.xml.stream.InputNode read(org.simpleframework.xml.stream.EventReader)>($r1);
+
+        return $r0;
+    }
+
+    public static org.simpleframework.xml.stream.InputNode read(java.io.Reader) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.InputNode $r0;
+        org.simpleframework.xml.stream.EventReader $r1;
+        org.simpleframework.xml.stream.Provider $r2;
+        java.io.Reader $r3;
+
+        $r3 := @parameter0: java.io.Reader;
+
+        $r2 = <org.simpleframework.xml.stream.NodeBuilder: org.simpleframework.xml.stream.Provider provider>;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.stream.Provider: org.simpleframework.xml.stream.EventReader provide(java.io.Reader)>($r3);
+
+        $r0 = staticinvoke <org.simpleframework.xml.stream.NodeBuilder: org.simpleframework.xml.stream.InputNode read(org.simpleframework.xml.stream.EventReader)>($r1);
+
+        return $r0;
+    }
+
+    private static org.simpleframework.xml.stream.InputNode read(org.simpleframework.xml.stream.EventReader) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.InputNode $r0;
+        org.simpleframework.xml.stream.NodeReader $r1;
+        org.simpleframework.xml.stream.EventReader $r2;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.EventReader;
+
+        $r1 = new org.simpleframework.xml.stream.NodeReader;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.NodeReader: void <init>(org.simpleframework.xml.stream.EventReader)>($r2);
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.NodeReader: org.simpleframework.xml.stream.InputNode readRoot()>();
+
+        return $r0;
+    }
+
+    public static org.simpleframework.xml.stream.OutputNode write(java.io.Writer) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.Format $r1;
+        java.io.Writer $r2;
+
+        $r2 := @parameter0: java.io.Writer;
+
+        $r1 = new org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.Format: void <init>()>();
+
+        $r0 = staticinvoke <org.simpleframework.xml.stream.NodeBuilder: org.simpleframework.xml.stream.OutputNode write(java.io.Writer,org.simpleframework.xml.stream.Format)>($r2, $r1);
+
+        return $r0;
+    }
+
+    public static org.simpleframework.xml.stream.OutputNode write(java.io.Writer, org.simpleframework.xml.stream.Format) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.NodeWriter $r1;
+        org.simpleframework.xml.stream.Format $r2;
+        java.io.Writer $r3;
+
+        $r3 := @parameter0: java.io.Writer;
+
+        $r2 := @parameter1: org.simpleframework.xml.stream.Format;
+
+        $r1 = new org.simpleframework.xml.stream.NodeWriter;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.NodeWriter: void <init>(java.io.Writer,org.simpleframework.xml.stream.Format)>($r3, $r2);
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.NodeWriter: org.simpleframework.xml.stream.OutputNode writeRoot()>();
+
+        return $r0;
+    }
+}

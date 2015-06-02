@@ -1,0 +1,40 @@
+class org.simpleframework.xml.core.PathParser$Cache extends java.util.LinkedHashMap
+{
+    final org.simpleframework.xml.core.PathParser this$0;
+
+    public void <init>(org.simpleframework.xml.core.PathParser)
+    {
+        org.simpleframework.xml.core.PathParser $r0;
+        org.simpleframework.xml.core.PathParser$Cache $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.PathParser$Cache;
+
+        $r0 := @parameter0: org.simpleframework.xml.core.PathParser;
+
+        $r1.<org.simpleframework.xml.core.PathParser$Cache: org.simpleframework.xml.core.PathParser this$0> = $r0;
+
+        specialinvoke $r1.<java.util.LinkedHashMap: void <init>(int,float,boolean)>(16, 0.75F, 0);
+
+        return;
+    }
+
+    public boolean removeEldestEntry(java.util.Map$Entry)
+    {
+        int $i0;
+        java.util.Map$Entry $r0;
+        org.simpleframework.xml.core.PathParser$Cache $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.PathParser$Cache;
+
+        $r0 := @parameter0: java.util.Map$Entry;
+
+        $i0 = virtualinvoke $r1.<org.simpleframework.xml.core.PathParser$Cache: int size()>();
+
+        if $i0 <= 16 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+}

@@ -1,0 +1,40 @@
+class org.simpleframework.xml.util.Resolver$Cache extends java.util.LinkedHashMap
+{
+    final org.simpleframework.xml.util.Resolver this$0;
+
+    public void <init>(org.simpleframework.xml.util.Resolver)
+    {
+        org.simpleframework.xml.util.Resolver $r0;
+        org.simpleframework.xml.util.Resolver$Cache $r1;
+
+        $r1 := @this: org.simpleframework.xml.util.Resolver$Cache;
+
+        $r0 := @parameter0: org.simpleframework.xml.util.Resolver;
+
+        $r1.<org.simpleframework.xml.util.Resolver$Cache: org.simpleframework.xml.util.Resolver this$0> = $r0;
+
+        specialinvoke $r1.<java.util.LinkedHashMap: void <init>(int,float,boolean)>(1024, 0.75F, 0);
+
+        return;
+    }
+
+    public boolean removeEldestEntry(java.util.Map$Entry)
+    {
+        int $i0;
+        java.util.Map$Entry $r0;
+        org.simpleframework.xml.util.Resolver$Cache $r1;
+
+        $r1 := @this: org.simpleframework.xml.util.Resolver$Cache;
+
+        $r0 := @parameter0: java.util.Map$Entry;
+
+        $i0 = virtualinvoke $r1.<org.simpleframework.xml.util.Resolver$Cache: int size()>();
+
+        if $i0 <= 1024 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+}

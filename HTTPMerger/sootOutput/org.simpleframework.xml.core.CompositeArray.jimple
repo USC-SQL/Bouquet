@@ -1,0 +1,287 @@
+class org.simpleframework.xml.core.CompositeArray extends java.lang.Object implements org.simpleframework.xml.core.Converter
+{
+    private final org.simpleframework.xml.strategy.Type entry;
+    private final org.simpleframework.xml.core.ArrayFactory factory;
+    private final java.lang.String parent;
+    private final org.simpleframework.xml.core.Traverser root;
+    private final org.simpleframework.xml.strategy.Type type;
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type, org.simpleframework.xml.strategy.Type, java.lang.String)
+    {
+        org.simpleframework.xml.core.Traverser $r0;
+        org.simpleframework.xml.core.ArrayFactory $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.strategy.Type $r3, $r4;
+        org.simpleframework.xml.core.Context $r5;
+        org.simpleframework.xml.core.CompositeArray $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.CompositeArray;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r3 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        $r4 := @parameter2: org.simpleframework.xml.strategy.Type;
+
+        $r2 := @parameter3: java.lang.String;
+
+        specialinvoke $r6.<java.lang.Object: void <init>()>();
+
+        $r1 = new org.simpleframework.xml.core.ArrayFactory;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ArrayFactory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r5, $r3);
+
+        $r6.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.core.ArrayFactory factory> = $r1;
+
+        $r0 = new org.simpleframework.xml.core.Traverser;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.Traverser: void <init>(org.simpleframework.xml.core.Context)>($r5);
+
+        $r6.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.core.Traverser root> = $r0;
+
+        $r6.<org.simpleframework.xml.core.CompositeArray: java.lang.String parent> = $r2;
+
+        $r6.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.strategy.Type entry> = $r4;
+
+        $r6.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.strategy.Type type> = $r3;
+
+        return;
+    }
+
+    private void read(org.simpleframework.xml.stream.InputNode, java.lang.Object, int) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Traverser $r0;
+        boolean $z0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.strategy.Type $r2;
+        int $i0;
+        java.lang.Object $r3, $r4;
+        org.simpleframework.xml.stream.InputNode $r5;
+        org.simpleframework.xml.core.CompositeArray $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.CompositeArray;
+
+        $r5 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 := @parameter1: java.lang.Object;
+
+        $i0 := @parameter2: int;
+
+        $r2 = $r6.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.strategy.Type entry>;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r4 = null;
+
+        $z0 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = $r6.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.core.Traverser root>;
+
+        $r4 = virtualinvoke $r0.<org.simpleframework.xml.core.Traverser: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r5, $r1);
+
+     label1:
+        staticinvoke <java.lang.reflect.Array: void set(java.lang.Object,int,java.lang.Object)>($r3, $i0, $r4);
+
+        return;
+    }
+
+    private boolean validate(org.simpleframework.xml.stream.InputNode, java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Traverser $r0;
+        boolean $z0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.stream.InputNode $r2, $r3;
+        org.simpleframework.xml.core.CompositeArray $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CompositeArray;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r1 := @parameter1: java.lang.Class;
+
+     label1:
+        $r3 = interfaceinvoke $r2.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext()>();
+
+        if $r3 != null goto label2;
+
+        return 1;
+
+     label2:
+        $z0 = interfaceinvoke $r3.<org.simpleframework.xml.stream.InputNode: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r0 = $r4.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.core.Traverser root>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Traverser: boolean validate(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r3, $r1);
+
+        goto label1;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        boolean $z0;
+        java.lang.Object $r0, $r5;
+        org.simpleframework.xml.core.Instance $r1;
+        org.simpleframework.xml.core.ArrayFactory $r2;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.core.CompositeArray $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CompositeArray;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 = $r4.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.core.ArrayFactory factory>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.ArrayFactory: org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.stream.InputNode)>($r3);
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: java.lang.Object getInstance()>();
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: boolean isReference()>();
+
+        if $z0 != 0 goto label1;
+
+        $r5 = virtualinvoke $r4.<org.simpleframework.xml.core.CompositeArray: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.lang.Object)>($r3, $r0);
+
+        return $r5;
+
+     label1:
+        return $r0;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.stream.Position $r1;
+        org.simpleframework.xml.strategy.Type $r2;
+        org.simpleframework.xml.core.ElementException $r3;
+        int $i0, $i1;
+        java.lang.Object $r4;
+        org.simpleframework.xml.stream.InputNode $r5, $r6;
+        org.simpleframework.xml.core.CompositeArray $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.CompositeArray;
+
+        $r5 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 := @parameter1: java.lang.Object;
+
+        $i1 = staticinvoke <java.lang.reflect.Array: int getLength(java.lang.Object)>($r4);
+
+        $i0 = 0;
+
+     label1:
+        $r1 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.Position getPosition()>();
+
+        $r6 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext()>();
+
+        if $r6 != null goto label2;
+
+        return $r4;
+
+     label2:
+        if $i0 < $i1 goto label3;
+
+        $r3 = new org.simpleframework.xml.core.ElementException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r2 = $r7.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.strategy.Type type>;
+
+        $r0[0] = $r2;
+
+        $r0[1] = $r1;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.ElementException: void <init>(java.lang.String,java.lang.Object[])>("Array length missing or incorrect for %s at %s", $r0);
+
+        throw $r3;
+
+     label3:
+        specialinvoke $r7.<org.simpleframework.xml.core.CompositeArray: void read(org.simpleframework.xml.stream.InputNode,java.lang.Object,int)>($r6, $r4, $i0);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+    }
+
+    public boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.Class $r0;
+        boolean $z0, $z1;
+        org.simpleframework.xml.core.Instance $r1;
+        org.simpleframework.xml.core.ArrayFactory $r2;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.core.CompositeArray $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CompositeArray;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 = $r4.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.core.ArrayFactory factory>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.ArrayFactory: org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.stream.InputNode)>($r3);
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: boolean isReference()>();
+
+        if $z0 != 0 goto label1;
+
+        interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: java.lang.Object setInstance(java.lang.Object)>(null);
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Instance: java.lang.Class getType()>();
+
+        $z1 = specialinvoke $r4.<org.simpleframework.xml.core.CompositeArray: boolean validate(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r3, $r0);
+
+        return $z1;
+
+     label1:
+        return 1;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Traverser $r0;
+        java.lang.Class $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        int $i0, $i1;
+        java.lang.Object $r4, $r5;
+        org.simpleframework.xml.stream.OutputNode $r6;
+        org.simpleframework.xml.core.CompositeArray $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.CompositeArray;
+
+        $r6 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r4 := @parameter1: java.lang.Object;
+
+        $i1 = staticinvoke <java.lang.reflect.Array: int getLength(java.lang.Object)>($r4);
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label2;
+
+        $r5 = staticinvoke <java.lang.reflect.Array: java.lang.Object get(java.lang.Object,int)>($r4, $i0);
+
+        $r3 = $r7.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.strategy.Type entry>;
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r0 = $r7.<org.simpleframework.xml.core.CompositeArray: org.simpleframework.xml.core.Traverser root>;
+
+        $r2 = $r7.<org.simpleframework.xml.core.CompositeArray: java.lang.String parent>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Traverser: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object,java.lang.Class,java.lang.String)>($r6, $r5, $r1, $r2);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        interfaceinvoke $r6.<org.simpleframework.xml.stream.OutputNode: void commit()>();
+
+        return;
+    }
+}

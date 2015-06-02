@@ -1,0 +1,22 @@
+public class com.dai.giftcard.viewer.model.CardTypeList extends java.lang.Object
+{
+    public java.util.ArrayList list;
+
+    public void <init>()
+    {
+        java.util.ArrayList $r0;
+        com.dai.giftcard.viewer.model.CardTypeList $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.model.CardTypeList;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: void <init>()>();
+
+        $r1.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list> = $r0;
+
+        return;
+    }
+}

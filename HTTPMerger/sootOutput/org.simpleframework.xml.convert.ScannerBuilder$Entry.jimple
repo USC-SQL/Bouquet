@@ -1,0 +1,80 @@
+class org.simpleframework.xml.convert.ScannerBuilder$Entry extends org.simpleframework.xml.util.WeakCache implements org.simpleframework.xml.convert.Scanner
+{
+    private final java.lang.Class root;
+
+    public void <init>(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.convert.ScannerBuilder$Entry $r1;
+
+        $r1 := @this: org.simpleframework.xml.convert.ScannerBuilder$Entry;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        specialinvoke $r1.<org.simpleframework.xml.util.WeakCache: void <init>()>();
+
+        $r1.<org.simpleframework.xml.convert.ScannerBuilder$Entry: java.lang.Class root> = $r0;
+
+        return;
+    }
+
+    private java.lang.annotation.Annotation find(java.lang.Class)
+    {
+        java.lang.annotation.Annotation $r0;
+        java.lang.Class $r1, $r2;
+        org.simpleframework.xml.convert.ScannerBuilder$Entry $r3;
+
+        $r3 := @this: org.simpleframework.xml.convert.ScannerBuilder$Entry;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 = $r3.<org.simpleframework.xml.convert.ScannerBuilder$Entry: java.lang.Class root>;
+
+     label1:
+        if $r2 == null goto label3;
+
+        $r0 = virtualinvoke $r2.<java.lang.Class: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>($r1);
+
+        if $r0 == null goto label2;
+
+        return $r0;
+
+     label2:
+        $r2 = virtualinvoke $r2.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        goto label1;
+
+     label3:
+        return null;
+    }
+
+    public java.lang.annotation.Annotation scan(java.lang.Class)
+    {
+        java.lang.Object $r0;
+        java.lang.annotation.Annotation $r1, $r4;
+        boolean $z0;
+        java.lang.Class $r2;
+        org.simpleframework.xml.convert.ScannerBuilder$Entry $r3;
+
+        $r3 := @this: org.simpleframework.xml.convert.ScannerBuilder$Entry;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r3.<org.simpleframework.xml.convert.ScannerBuilder$Entry: boolean contains(java.lang.Object)>($r2);
+
+        if $z0 != 0 goto label1;
+
+        $r1 = specialinvoke $r3.<org.simpleframework.xml.convert.ScannerBuilder$Entry: java.lang.annotation.Annotation find(java.lang.Class)>($r2);
+
+        if $r2 == null goto label1;
+
+        virtualinvoke $r3.<org.simpleframework.xml.convert.ScannerBuilder$Entry: void cache(java.lang.Object,java.lang.Object)>($r2, $r1);
+
+     label1:
+        $r0 = virtualinvoke $r3.<org.simpleframework.xml.convert.ScannerBuilder$Entry: java.lang.Object fetch(java.lang.Object)>($r2);
+
+        $r4 = (java.lang.annotation.Annotation) $r0;
+
+        return $r4;
+    }
+}

@@ -1,0 +1,16 @@
+public class com.dai.giftcard.viewer.reader.us.verification.TacoTimeReader extends com.dai.giftcard.viewer.reader.VcDeliveryVerificationReader
+{
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.reader.us.verification.TacoTimeReader $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.reader.us.verification.TacoTimeReader;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.reader.VcDeliveryVerificationReader: void <init>()>();
+
+        $r0.<com.dai.giftcard.viewer.reader.us.verification.TacoTimeReader: java.lang.String url> = "https://premium.vcdelivery.com/v2/tacotime/balancechecker.aspx";
+
+        return;
+    }
+}

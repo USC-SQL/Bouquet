@@ -1,0 +1,7 @@
+public interface  org.simpleframework.xml.transform.Transform extends java.lang.Object
+{
+
+    public abstract java.lang.Object read(java.lang.String) throws java.lang.Exception;
+
+    public abstract java.lang.String write(java.lang.Object) throws java.lang.Exception;
+}

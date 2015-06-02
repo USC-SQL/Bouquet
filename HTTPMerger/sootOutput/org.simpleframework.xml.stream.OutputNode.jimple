@@ -1,0 +1,43 @@
+public interface  org.simpleframework.xml.stream.OutputNode extends java.lang.Object implements org.simpleframework.xml.stream.Node
+{
+
+    public abstract void commit() throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.stream.NodeMap getAttributes();
+
+    public abstract org.simpleframework.xml.stream.OutputNode getChild(java.lang.String) throws java.lang.Exception;
+
+    public abstract java.lang.String getComment();
+
+    public abstract org.simpleframework.xml.stream.Mode getMode();
+
+    public abstract org.simpleframework.xml.stream.NamespaceMap getNamespaces();
+
+    public abstract org.simpleframework.xml.stream.OutputNode getParent();
+
+    public abstract java.lang.String getPrefix();
+
+    public abstract java.lang.String getPrefix(boolean);
+
+    public abstract java.lang.String getReference();
+
+    public abstract boolean isCommitted();
+
+    public abstract boolean isRoot();
+
+    public abstract void remove() throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.stream.OutputNode setAttribute(java.lang.String, java.lang.String);
+
+    public abstract void setComment(java.lang.String);
+
+    public abstract void setData(boolean);
+
+    public abstract void setMode(org.simpleframework.xml.stream.Mode);
+
+    public abstract void setName(java.lang.String);
+
+    public abstract void setReference(java.lang.String);
+
+    public abstract void setValue(java.lang.String);
+}

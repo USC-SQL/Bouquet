@@ -1,0 +1,386 @@
+class org.simpleframework.xml.stream.OutputDocument extends java.lang.Object implements org.simpleframework.xml.stream.OutputNode
+{
+    private java.lang.String comment;
+    private org.simpleframework.xml.stream.Mode mode;
+    private java.lang.String name;
+    private java.lang.String reference;
+    private org.simpleframework.xml.stream.OutputStack stack;
+    private org.simpleframework.xml.stream.OutputNodeMap table;
+    private java.lang.String value;
+    private org.simpleframework.xml.stream.NodeWriter writer;
+
+    public void <init>(org.simpleframework.xml.stream.NodeWriter, org.simpleframework.xml.stream.OutputStack)
+    {
+        org.simpleframework.xml.stream.Mode $r0;
+        org.simpleframework.xml.stream.OutputNodeMap $r1;
+        org.simpleframework.xml.stream.OutputStack $r2;
+        org.simpleframework.xml.stream.NodeWriter $r3;
+        org.simpleframework.xml.stream.OutputDocument $r4;
+
+        $r4 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.NodeWriter;
+
+        $r2 := @parameter1: org.simpleframework.xml.stream.OutputStack;
+
+        specialinvoke $r4.<java.lang.Object: void <init>()>();
+
+        $r1 = new org.simpleframework.xml.stream.OutputNodeMap;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.OutputNodeMap: void <init>(org.simpleframework.xml.stream.OutputNode)>($r4);
+
+        $r4.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputNodeMap table> = $r1;
+
+        $r0 = <org.simpleframework.xml.stream.Mode: org.simpleframework.xml.stream.Mode INHERIT>;
+
+        $r4.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.Mode mode> = $r0;
+
+        $r4.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.NodeWriter writer> = $r3;
+
+        $r4.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputStack stack> = $r2;
+
+        return;
+    }
+
+    public void commit() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.NodeException $r1;
+        boolean $z0;
+        org.simpleframework.xml.stream.OutputStack $r2, $r4;
+        org.simpleframework.xml.stream.OutputDocument $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r2 = $r3.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputStack stack>;
+
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.stream.OutputStack: boolean isEmpty()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new org.simpleframework.xml.stream.NodeException;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.NodeException: void <init>(java.lang.String)>("No root node");
+
+        throw $r1;
+
+     label1:
+        $r4 = $r3.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputStack stack>;
+
+        $r0 = virtualinvoke $r4.<org.simpleframework.xml.stream.OutputStack: org.simpleframework.xml.stream.OutputNode bottom()>();
+
+        interfaceinvoke $r0.<org.simpleframework.xml.stream.OutputNode: void commit()>();
+
+        return;
+    }
+
+    public org.simpleframework.xml.stream.NodeMap getAttributes()
+    {
+        org.simpleframework.xml.stream.OutputNodeMap r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        r0 = $r1.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputNodeMap table>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.stream.OutputNode getChild(java.lang.String) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.NodeWriter $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.stream.OutputDocument $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = $r3.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.NodeWriter writer>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.NodeWriter: org.simpleframework.xml.stream.OutputNode writeElement(org.simpleframework.xml.stream.OutputNode,java.lang.String)>($r3, $r2);
+
+        return $r0;
+    }
+
+    public java.lang.String getComment()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        r0 = $r1.<org.simpleframework.xml.stream.OutputDocument: java.lang.String comment>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.stream.Mode getMode()
+    {
+        org.simpleframework.xml.stream.Mode r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        r0 = $r1.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.Mode mode>;
+
+        return r0;
+    }
+
+    public java.lang.String getName()
+    {
+        org.simpleframework.xml.stream.OutputDocument $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        return null;
+    }
+
+    public org.simpleframework.xml.stream.NamespaceMap getNamespaces()
+    {
+        org.simpleframework.xml.stream.OutputDocument $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        return null;
+    }
+
+    public volatile org.simpleframework.xml.stream.Node getParent()
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputNode getParent()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.OutputNode getParent()
+    {
+        org.simpleframework.xml.stream.OutputDocument $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        return null;
+    }
+
+    public java.lang.String getPrefix()
+    {
+        org.simpleframework.xml.stream.OutputDocument $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        return null;
+    }
+
+    public java.lang.String getPrefix(boolean)
+    {
+        boolean $z0;
+        org.simpleframework.xml.stream.OutputDocument $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $z0 := @parameter0: boolean;
+
+        return null;
+    }
+
+    public java.lang.String getReference()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        r0 = $r1.<org.simpleframework.xml.stream.OutputDocument: java.lang.String reference>;
+
+        return r0;
+    }
+
+    public java.lang.String getValue() throws java.lang.Exception
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        r0 = $r1.<org.simpleframework.xml.stream.OutputDocument: java.lang.String value>;
+
+        return r0;
+    }
+
+    public boolean isCommitted()
+    {
+        boolean $z0;
+        org.simpleframework.xml.stream.OutputStack $r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r0 = $r1.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputStack stack>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.stream.OutputStack: boolean isEmpty()>();
+
+        return $z0;
+    }
+
+    public boolean isRoot()
+    {
+        org.simpleframework.xml.stream.OutputDocument $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        return 1;
+    }
+
+    public void remove() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.NodeException $r1;
+        boolean $z0;
+        org.simpleframework.xml.stream.OutputStack $r2, $r4;
+        org.simpleframework.xml.stream.OutputDocument $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r2 = $r3.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputStack stack>;
+
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.stream.OutputStack: boolean isEmpty()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = new org.simpleframework.xml.stream.NodeException;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.NodeException: void <init>(java.lang.String)>("No root node");
+
+        throw $r1;
+
+     label1:
+        $r4 = $r3.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputStack stack>;
+
+        $r0 = virtualinvoke $r4.<org.simpleframework.xml.stream.OutputStack: org.simpleframework.xml.stream.OutputNode bottom()>();
+
+        interfaceinvoke $r0.<org.simpleframework.xml.stream.OutputNode: void remove()>();
+
+        return;
+    }
+
+    public org.simpleframework.xml.stream.OutputNode setAttribute(java.lang.String, java.lang.String)
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        org.simpleframework.xml.stream.OutputNodeMap $r1;
+        java.lang.String $r2, $r3;
+        org.simpleframework.xml.stream.OutputDocument $r4;
+
+        $r4 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: java.lang.String;
+
+        $r1 = $r4.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.OutputNodeMap table>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.OutputNodeMap: org.simpleframework.xml.stream.OutputNode put(java.lang.String,java.lang.String)>($r2, $r3);
+
+        return $r0;
+    }
+
+    public void setComment(java.lang.String)
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<org.simpleframework.xml.stream.OutputDocument: java.lang.String comment> = $r0;
+
+        return;
+    }
+
+    public void setData(boolean)
+    {
+        org.simpleframework.xml.stream.Mode $r0, $r2;
+        boolean $z0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $z0 := @parameter0: boolean;
+
+        if $z0 == 0 goto label1;
+
+        $r0 = <org.simpleframework.xml.stream.Mode: org.simpleframework.xml.stream.Mode DATA>;
+
+        $r1.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.Mode mode> = $r0;
+
+        return;
+
+     label1:
+        $r2 = <org.simpleframework.xml.stream.Mode: org.simpleframework.xml.stream.Mode ESCAPE>;
+
+        $r1.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.Mode mode> = $r2;
+
+        return;
+    }
+
+    public void setMode(org.simpleframework.xml.stream.Mode)
+    {
+        org.simpleframework.xml.stream.Mode $r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r0 := @parameter0: org.simpleframework.xml.stream.Mode;
+
+        $r1.<org.simpleframework.xml.stream.OutputDocument: org.simpleframework.xml.stream.Mode mode> = $r0;
+
+        return;
+    }
+
+    public void setName(java.lang.String)
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<org.simpleframework.xml.stream.OutputDocument: java.lang.String name> = $r0;
+
+        return;
+    }
+
+    public void setReference(java.lang.String)
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<org.simpleframework.xml.stream.OutputDocument: java.lang.String reference> = $r0;
+
+        return;
+    }
+
+    public void setValue(java.lang.String)
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.OutputDocument $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputDocument;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<org.simpleframework.xml.stream.OutputDocument: java.lang.String value> = $r0;
+
+        return;
+    }
+}

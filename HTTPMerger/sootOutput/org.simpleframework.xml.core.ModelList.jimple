@@ -1,0 +1,176 @@
+class org.simpleframework.xml.core.ModelList extends java.util.ArrayList
+{
+
+    public void <init>()
+    {
+        org.simpleframework.xml.core.ModelList $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.ModelList;
+
+        specialinvoke $r0.<java.util.ArrayList: void <init>()>();
+
+        return;
+    }
+
+    public org.simpleframework.xml.core.ModelList build()
+    {
+        org.simpleframework.xml.core.Model $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.util.Iterator $r2;
+        org.simpleframework.xml.core.ModelList $r3, $r4;
+
+        $r3 := @this: org.simpleframework.xml.core.ModelList;
+
+        $r4 = new org.simpleframework.xml.core.ModelList;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.ModelList: void <init>()>();
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.ModelList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.simpleframework.xml.core.Model) $r1;
+
+        virtualinvoke $r4.<org.simpleframework.xml.core.ModelList: void register(org.simpleframework.xml.core.Model)>($r0);
+
+        goto label1;
+
+     label2:
+        return $r4;
+    }
+
+    public boolean isEmpty()
+    {
+        org.simpleframework.xml.core.Model $r0;
+        java.lang.Object $r1;
+        boolean $z0, $z1;
+        java.util.Iterator $r2;
+        org.simpleframework.xml.core.ModelList $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ModelList;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.ModelList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.simpleframework.xml.core.Model) $r1;
+
+        if $r0 == null goto label1;
+
+        $z1 = interfaceinvoke $r0.<org.simpleframework.xml.core.Model: boolean isEmpty()>();
+
+        if $z1 != 0 goto label1;
+
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public org.simpleframework.xml.core.Model lookup(int)
+    {
+        org.simpleframework.xml.core.Model $r0;
+        java.lang.Object $r1;
+        int $i0, $i1, $i2;
+        org.simpleframework.xml.core.ModelList $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ModelList;
+
+        $i0 := @parameter0: int;
+
+        $i1 = virtualinvoke $r2.<org.simpleframework.xml.core.ModelList: int size()>();
+
+        if $i0 > $i1 goto label1;
+
+        $i2 = $i0 + -1;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.ModelList: java.lang.Object get(int)>($i2);
+
+        $r0 = (org.simpleframework.xml.core.Model) $r1;
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+
+    public void register(org.simpleframework.xml.core.Model)
+    {
+        int $i0, $i1, $i2, $i3, $i4;
+        org.simpleframework.xml.core.Model $r0;
+        org.simpleframework.xml.core.ModelList $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ModelList;
+
+        $r0 := @parameter0: org.simpleframework.xml.core.Model;
+
+        $i1 = interfaceinvoke $r0.<org.simpleframework.xml.core.Model: int getIndex()>();
+
+        $i2 = virtualinvoke $r1.<org.simpleframework.xml.core.ModelList: int size()>();
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label4;
+
+        if $i0 < $i2 goto label2;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.ModelList: boolean add(java.lang.Object)>(null);
+
+     label2:
+        $i3 = $i1 + -1;
+
+        if $i0 != $i3 goto label3;
+
+        $i4 = $i1 + -1;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.ModelList: java.lang.Object set(int,java.lang.Object)>($i4, $r0);
+
+     label3:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        return;
+    }
+
+    public org.simpleframework.xml.core.Model take()
+    {
+        org.simpleframework.xml.core.Model $r0;
+        java.lang.Object $r1;
+        boolean $z0, $z1;
+        org.simpleframework.xml.core.ModelList $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ModelList;
+
+     label1:
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.core.ModelList: boolean isEmpty()>();
+
+        if $z0 != 0 goto label2;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.ModelList: java.lang.Object remove(int)>(0);
+
+        $r0 = (org.simpleframework.xml.core.Model) $r1;
+
+        $z1 = interfaceinvoke $r0.<org.simpleframework.xml.core.Model: boolean isEmpty()>();
+
+        if $z1 != 0 goto label1;
+
+        return $r0;
+
+     label2:
+        return null;
+    }
+}

@@ -1,0 +1,13 @@
+interface  org.simpleframework.xml.core.Creator extends java.lang.Object
+{
+
+    public abstract java.lang.Object getInstance() throws java.lang.Exception;
+
+    public abstract java.lang.Object getInstance(org.simpleframework.xml.core.Criteria) throws java.lang.Exception;
+
+    public abstract double getScore(org.simpleframework.xml.core.Criteria) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Signature getSignature() throws java.lang.Exception;
+
+    public abstract java.lang.Class getType() throws java.lang.Exception;
+}

@@ -1,0 +1,661 @@
+public class com.oopsconsultancy.xmltask.output.FormattedDataWriter extends com.oopsconsultancy.xmltask.output.XMLWriter implements org.xml.sax.ext.LexicalHandler, com.oopsconsultancy.xmltask.output.Outputter
+{
+    private static final java.lang.Object SEEN_DATA;
+    private static final java.lang.Object SEEN_ELEMENT;
+    private static final java.lang.Object SEEN_NOTHING;
+    private int depth;
+    private boolean escaped;
+    private boolean firsttime;
+    private int indentStep;
+    private java.lang.Object state;
+    private java.util.Stack stateStack;
+    private javax.xml.transform.Transformer transformer;
+
+    static void <clinit>()
+    {
+        java.lang.Object $r0, $r1, $r2;
+
+        $r0 = new java.lang.Object;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_NOTHING> = $r0;
+
+        $r1 = new java.lang.Object;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_ELEMENT> = $r1;
+
+        $r2 = new java.lang.Object;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_DATA> = $r2;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        java.util.Stack $r0;
+        java.lang.Object $r1;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r2;
+
+        $r2 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        specialinvoke $r2.<com.oopsconsultancy.xmltask.output.XMLWriter: void <init>()>();
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: boolean escaped> = 1;
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: javax.xml.transform.Transformer transformer> = null;
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: boolean firsttime> = 1;
+
+        $r1 = <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_NOTHING>;
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object state> = $r1;
+
+        $r0 = new java.util.Stack;
+
+        specialinvoke $r0.<java.util.Stack: void <init>()>();
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.util.Stack stateStack> = $r0;
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int indentStep> = 0;
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth> = 0;
+
+        return;
+    }
+
+    private void doIndent() throws org.xml.sax.SAXException
+    {
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        char[] $r0;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $i1 = $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int indentStep>;
+
+        if $i1 <= 0 goto label3;
+
+        $i2 = $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth>;
+
+        if $i2 <= 0 goto label4;
+
+        $i0 = $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int indentStep>;
+
+        $i3 = $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth>;
+
+        $i4 = $i0 * $i3;
+
+        $r0 = newarray (char)[$i4];
+
+        $i5 = 0;
+
+     label1:
+        if $i5 >= $i4 goto label2;
+
+        $r0[$i5] = 32;
+
+        $i5 = $i5 + 1;
+
+        goto label1;
+
+     label2:
+        specialinvoke $r1.<com.oopsconsultancy.xmltask.output.XMLWriter: void characters(char[],int,int)>($r0, 0, $i4);
+
+        return;
+
+     label3:
+        return;
+
+     label4:
+        return;
+    }
+
+    public void characters(char[], int, int) throws org.xml.sax.SAXException
+    {
+        java.lang.Object $r0;
+        char $c0, $c5, $c6, $c7, $c8, $c9;
+        boolean $z0;
+        int $i1, $i2, $i3, $i4;
+        char[] $r1;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r2;
+
+        $r2 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r1 := @parameter0: char[];
+
+        $i1 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        $z0 = $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: boolean escaped>;
+
+        if $z0 == 0 goto label7;
+
+        $i3 = $i1 + $i2;
+
+        $i4 = $i3 + -1;
+
+     label1:
+        $c0 = $r1[$i1];
+
+        if $c0 == 32 goto label2;
+
+        $c5 = $r1[$i1];
+
+        if $c5 == 9 goto label2;
+
+        $c6 = $r1[$i1];
+
+        if $c6 != 10 goto label3;
+
+     label2:
+        if $i1 >= $i4 goto label3;
+
+        $i1 = $i1 + 1;
+
+        $i2 = $i2 + -1;
+
+        goto label1;
+
+     label3:
+        if $i2 <= 0 goto label5;
+
+        $c7 = $r1[$i4];
+
+        if $c7 == 32 goto label4;
+
+        $c8 = $r1[$i4];
+
+        if $c8 == 9 goto label4;
+
+        $c9 = $r1[$i4];
+
+        if $c9 != 10 goto label5;
+
+     label4:
+        $i4 = $i4 + -1;
+
+        $i2 = $i2 + -1;
+
+        goto label3;
+
+     label5:
+        if $i2 <= 0 goto label6;
+
+        $r0 = <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_DATA>;
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object state> = $r0;
+
+     label6:
+        specialinvoke $r2.<com.oopsconsultancy.xmltask.output.XMLWriter: void characters(char[],int,int)>($r1, $i1, $i2);
+
+        return;
+
+     label7:
+        virtualinvoke $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void nonescapedcharacters(char[],int,int)>($r1, $i1, $i2);
+
+        return;
+    }
+
+    public void comment(char[], int, int) throws org.xml.sax.SAXException
+    {
+        int $i0, $i1;
+        char[] $r0;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r0 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        virtualinvoke $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void write(java.lang.String)>("\n");
+
+        specialinvoke $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void doIndent()>();
+
+        virtualinvoke $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void write(java.lang.String)>("<!--");
+
+        virtualinvoke $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void writeEsc(char[],int,int,boolean)>($r0, $i0, $i1, 0);
+
+        virtualinvoke $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void write(java.lang.String)>("-->\n");
+
+        return;
+    }
+
+    public void emptyElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes) throws org.xml.sax.SAXException
+    {
+        int $i0;
+        char[] $r0;
+        java.lang.Object $r1;
+        org.xml.sax.Attributes $r2;
+        java.lang.String $r3, $r4, $r5, $r6;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r7;
+
+        $r7 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r4 := @parameter1: java.lang.String;
+
+        $r5 := @parameter2: java.lang.String;
+
+        $r2 := @parameter3: org.xml.sax.Attributes;
+
+        $r1 = <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_ELEMENT>;
+
+        $r7.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object state> = $r1;
+
+        $i0 = $r7.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth>;
+
+        if $i0 <= 0 goto label1;
+
+        $r6 = "\n";
+
+        $r0 = virtualinvoke $r6.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $r7.<com.oopsconsultancy.xmltask.output.XMLWriter: void characters(char[],int,int)>($r0, 0, 1);
+
+     label1:
+        specialinvoke $r7.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void doIndent()>();
+
+        specialinvoke $r7.<com.oopsconsultancy.xmltask.output.XMLWriter: void emptyElement(java.lang.String,java.lang.String,java.lang.String,org.xml.sax.Attributes)>($r3, $r4, $r5, $r2);
+
+        return;
+    }
+
+    public void endCDATA() throws org.xml.sax.SAXException
+    {
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        virtualinvoke $r0.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void write(java.lang.String)>("]]>\n");
+
+        $r0.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: boolean escaped> = 1;
+
+        return;
+    }
+
+    public void endDTD() throws org.xml.sax.SAXException
+    {
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        return;
+    }
+
+    public void endElement(java.lang.String, java.lang.String, java.lang.String) throws org.xml.sax.SAXException
+    {
+        java.util.Stack $r0;
+        char[] $r1;
+        java.lang.Object $r2, $r3, $r9;
+        int $i0, $i1;
+        java.lang.String $r4, $r5, $r6, $r7;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r8;
+
+        $r8 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r4 := @parameter0: java.lang.String;
+
+        $r5 := @parameter1: java.lang.String;
+
+        $r6 := @parameter2: java.lang.String;
+
+        $i0 = $r8.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth>;
+
+        $i1 = $i0 + -1;
+
+        $r8.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth> = $i1;
+
+        $r3 = $r8.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object state>;
+
+        $r2 = <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_ELEMENT>;
+
+        if $r3 != $r2 goto label1;
+
+        $r7 = "\n";
+
+        $r1 = virtualinvoke $r7.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $r8.<com.oopsconsultancy.xmltask.output.XMLWriter: void characters(char[],int,int)>($r1, 0, 1);
+
+        specialinvoke $r8.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void doIndent()>();
+
+     label1:
+        specialinvoke $r8.<com.oopsconsultancy.xmltask.output.XMLWriter: void endElement(java.lang.String,java.lang.String,java.lang.String)>($r4, $r5, $r6);
+
+        $r0 = $r8.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.util.Stack stateStack>;
+
+        $r9 = virtualinvoke $r0.<java.util.Stack: java.lang.Object pop()>();
+
+        $r8.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object state> = $r9;
+
+        return;
+    }
+
+    public void endEntity(java.lang.String) throws org.xml.sax.SAXException
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r0 := @parameter0: java.lang.String;
+
+        return;
+    }
+
+    public int getIndentStep()
+    {
+        int i0;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        i0 = $r0.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int indentStep>;
+
+        return i0;
+    }
+
+    public void reset()
+    {
+        java.util.Stack $r0;
+        java.lang.Object $r1;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r2;
+
+        $r2 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth> = 0;
+
+        $r1 = <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_NOTHING>;
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object state> = $r1;
+
+        $r0 = new java.util.Stack;
+
+        specialinvoke $r0.<java.util.Stack: void <init>()>();
+
+        $r2.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.util.Stack stateStack> = $r0;
+
+        specialinvoke $r2.<com.oopsconsultancy.xmltask.output.XMLWriter: void reset()>();
+
+        return;
+    }
+
+    public void setIndentStep(int)
+    {
+        int $i0;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $i0 := @parameter0: int;
+
+        $r0.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int indentStep> = $i0;
+
+        return;
+    }
+
+    public void setTransformer(javax.xml.transform.Transformer)
+    {
+        javax.xml.transform.Transformer $r0;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r0 := @parameter0: javax.xml.transform.Transformer;
+
+        $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: javax.xml.transform.Transformer transformer> = $r0;
+
+        return;
+    }
+
+    public void setWriter(java.io.Writer)
+    {
+        java.io.Writer $r0;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r0 := @parameter0: java.io.Writer;
+
+        virtualinvoke $r1.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void init(java.io.Writer)>($r0);
+
+        return;
+    }
+
+    public void startCDATA() throws org.xml.sax.SAXException
+    {
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        specialinvoke $r0.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void doIndent()>();
+
+        virtualinvoke $r0.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void write(java.lang.String)>("<![CDATA[");
+
+        $r0.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: boolean escaped> = 0;
+
+        return;
+    }
+
+    public void startDTD(java.lang.String, java.lang.String, java.lang.String) throws org.xml.sax.SAXException
+    {
+        java.lang.String $r0, $r1, $r2;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        return;
+    }
+
+    public void startDocument() throws org.xml.sax.SAXException
+    {
+        java.lang.StringBuilder $r0, $r1, $r7, $r9, $r10, $r11, $r12, $r13, $r15, $r16, $r17;
+        java.lang.String $r2, $r3, $r8, $r14;
+        javax.xml.transform.Transformer $r4, $r6;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r5;
+
+        $r5 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        virtualinvoke $r5.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void reset()>();
+
+        $r4 = $r5.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: javax.xml.transform.Transformer transformer>;
+
+        $r2 = virtualinvoke $r4.<javax.xml.transform.Transformer: java.lang.String getOutputProperty(java.lang.String)>("encoding");
+
+        $r6 = $r5.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: javax.xml.transform.Transformer transformer>;
+
+        $r3 = virtualinvoke $r6.<javax.xml.transform.Transformer: java.lang.String getOutputProperty(java.lang.String)>("standalone");
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<?xml version=\"1.0\" ");
+
+        if $r2 != null goto label2;
+
+        $r8 = "UTF-8";
+
+     label1:
+        $r9 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("standalone=\"");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r3);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("?>\n\n");
+
+        $r14 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r5.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void write(java.lang.String)>($r14);
+
+        return;
+
+     label2:
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r15 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("encoding=\"");
+
+        $r16 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\" ");
+
+        $r8 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label1;
+    }
+
+    public void startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes) throws org.xml.sax.SAXException
+    {
+        char[] $r0;
+        int $i0, $i1, $i2;
+        java.lang.Object $r1, $r21;
+        java.util.Stack $r2;
+        java.lang.StringBuilder $r3, $r13, $r14, $r15, $r16, $r17, $r18, $r19, $r23, $r24, $r25, $r26, $r27, $r28;
+        javax.xml.transform.Transformer $r4, $r12;
+        boolean $z0;
+        org.xml.sax.Attributes $r5;
+        java.lang.String $r6, $r7, $r8, $r9, $r10, $r20, $r22, $r29;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r11;
+
+        $r11 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r6 := @parameter0: java.lang.String;
+
+        $r7 := @parameter1: java.lang.String;
+
+        $r8 := @parameter2: java.lang.String;
+
+        $r5 := @parameter3: org.xml.sax.Attributes;
+
+        $z0 = $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: boolean firsttime>;
+
+        if $z0 == 0 goto label1;
+
+        $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: boolean firsttime> = 0;
+
+        $r4 = $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: javax.xml.transform.Transformer transformer>;
+
+        $r9 = virtualinvoke $r4.<javax.xml.transform.Transformer: java.lang.String getOutputProperty(java.lang.String)>("doctype-public");
+
+        $r12 = $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: javax.xml.transform.Transformer transformer>;
+
+        $r10 = virtualinvoke $r12.<javax.xml.transform.Transformer: java.lang.String getOutputProperty(java.lang.String)>("doctype-system");
+
+        if $r9 == null goto label3;
+
+        if $r10 == null goto label3;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r13 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<!DOCTYPE ");
+
+        $r14 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r15 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" PUBLIC \"");
+
+        $r16 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        $r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\" \"");
+
+        $r18 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r19 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">\n");
+
+        $r20 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void write(java.lang.String)>($r20);
+
+     label1:
+        $r2 = $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.util.Stack stateStack>;
+
+        $r1 = <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_ELEMENT>;
+
+        virtualinvoke $r2.<java.util.Stack: java.lang.Object push(java.lang.Object)>($r1);
+
+        $r21 = <com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object SEEN_NOTHING>;
+
+        $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: java.lang.Object state> = $r21;
+
+        $i0 = $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth>;
+
+        if $i0 <= 0 goto label2;
+
+        $r22 = "\n";
+
+        $r0 = virtualinvoke $r22.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $r11.<com.oopsconsultancy.xmltask.output.XMLWriter: void characters(char[],int,int)>($r0, 0, 1);
+
+     label2:
+        specialinvoke $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void doIndent()>();
+
+        specialinvoke $r11.<com.oopsconsultancy.xmltask.output.XMLWriter: void startElement(java.lang.String,java.lang.String,java.lang.String,org.xml.sax.Attributes)>($r6, $r7, $r8, $r5);
+
+        $i1 = $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth>;
+
+        $i2 = $i1 + 1;
+
+        $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: int depth> = $i2;
+
+        return;
+
+     label3:
+        if $r10 == null goto label1;
+
+        $r23 = new java.lang.StringBuilder;
+
+        specialinvoke $r23.<java.lang.StringBuilder: void <init>()>();
+
+        $r24 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<!DOCTYPE ");
+
+        $r25 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r26 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" SYSTEM \"");
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r10);
+
+        $r28 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\">\n");
+
+        $r29 = virtualinvoke $r28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r11.<com.oopsconsultancy.xmltask.output.FormattedDataWriter: void write(java.lang.String)>($r29);
+
+        goto label1;
+    }
+
+    public void startEntity(java.lang.String) throws org.xml.sax.SAXException
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.output.FormattedDataWriter $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.output.FormattedDataWriter;
+
+        $r0 := @parameter0: java.lang.String;
+
+        return;
+    }
+}

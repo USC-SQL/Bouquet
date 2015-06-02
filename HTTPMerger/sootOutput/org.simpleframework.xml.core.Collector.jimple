@@ -1,0 +1,231 @@
+class org.simpleframework.xml.core.Collector extends java.lang.Object implements org.simpleframework.xml.core.Criteria
+{
+    private final org.simpleframework.xml.core.Collector$Registry alias;
+    private final org.simpleframework.xml.core.Collector$Registry registry;
+
+    public void <init>()
+    {
+        org.simpleframework.xml.core.Collector$Registry $r0, $r2;
+        org.simpleframework.xml.core.Collector $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.Collector;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.core.Collector$Registry;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.Collector$Registry: void <init>(org.simpleframework.xml.core.Collector,org.simpleframework.xml.core.Collector$1)>($r1, null);
+
+        $r1.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry registry> = $r0;
+
+        $r2 = new org.simpleframework.xml.core.Collector$Registry;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.Collector$Registry: void <init>(org.simpleframework.xml.core.Collector,org.simpleframework.xml.core.Collector$1)>($r1, null);
+
+        $r1.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry alias> = $r2;
+
+        return;
+    }
+
+    public void commit(java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Contact $r0;
+        org.simpleframework.xml.core.Variable $r1;
+        boolean $z0;
+        java.util.Iterator $r2;
+        java.util.Collection $r3;
+        org.simpleframework.xml.core.Collector$Registry $r4;
+        java.lang.Object $r5, $r6, $r8;
+        org.simpleframework.xml.core.Collector $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.Collector;
+
+        $r5 := @parameter0: java.lang.Object;
+
+        $r4 = $r7.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry registry>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.Collector$Registry: java.util.Collection values()>();
+
+        $r2 = interfaceinvoke $r3.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r6 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r1 = (org.simpleframework.xml.core.Variable) $r6;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Variable: org.simpleframework.xml.core.Contact getContact()>();
+
+        $r8 = virtualinvoke $r1.<org.simpleframework.xml.core.Variable: java.lang.Object getValue()>();
+
+        interfaceinvoke $r0.<org.simpleframework.xml.core.Contact: void set(java.lang.Object,java.lang.Object)>($r5, $r8);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public org.simpleframework.xml.core.Variable get(java.lang.Object)
+    {
+        org.simpleframework.xml.core.Variable $r0;
+        org.simpleframework.xml.core.Collector$Registry $r1;
+        java.lang.Object $r2, $r4;
+        org.simpleframework.xml.core.Collector $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Collector;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r1 = $r3.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry registry>;
+
+        $r4 = virtualinvoke $r1.<org.simpleframework.xml.core.Collector$Registry: java.lang.Object get(java.lang.Object)>($r2);
+
+        $r0 = (org.simpleframework.xml.core.Variable) $r4;
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Variable get(org.simpleframework.xml.core.Label) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Variable $r0;
+        java.lang.Object $r1, $r5;
+        org.simpleframework.xml.core.Collector$Registry $r2;
+        org.simpleframework.xml.core.Label $r3;
+        org.simpleframework.xml.core.Collector $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.Collector;
+
+        $r3 := @parameter0: org.simpleframework.xml.core.Label;
+
+        if $r3 == null goto label1;
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.core.Label: java.lang.Object getKey()>();
+
+        $r2 = $r4.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry registry>;
+
+        $r5 = virtualinvoke $r2.<org.simpleframework.xml.core.Collector$Registry: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r0 = (org.simpleframework.xml.core.Variable) $r5;
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        java.util.Iterator $r0;
+        org.simpleframework.xml.core.Collector$Registry $r1;
+        org.simpleframework.xml.core.Collector $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Collector;
+
+        $r1 = $r2.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry registry>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Collector$Registry: java.util.Iterator iterator()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Variable remove(java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Variable $r0;
+        org.simpleframework.xml.core.Collector$Registry $r1;
+        java.lang.Object $r2, $r4;
+        org.simpleframework.xml.core.Collector $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Collector;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r1 = $r3.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry registry>;
+
+        $r4 = virtualinvoke $r1.<org.simpleframework.xml.core.Collector$Registry: java.lang.Object remove(java.lang.Object)>($r2);
+
+        $r0 = (org.simpleframework.xml.core.Variable) $r4;
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Variable resolve(java.lang.String)
+    {
+        org.simpleframework.xml.core.Variable $r0;
+        java.lang.Object $r1;
+        org.simpleframework.xml.core.Collector$Registry $r2;
+        java.lang.String $r3;
+        org.simpleframework.xml.core.Collector $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.Collector;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 = $r4.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry alias>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.Collector$Registry: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r0 = (org.simpleframework.xml.core.Variable) $r1;
+
+        return $r0;
+    }
+
+    public void set(org.simpleframework.xml.core.Label, java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Collector$Registry $r0, $r10;
+        java.lang.String $r1;
+        boolean $z0;
+        java.util.Iterator $r2;
+        java.util.Collection $r3;
+        org.simpleframework.xml.core.Variable $r4;
+        java.lang.Object $r5, $r6, $r9;
+        org.simpleframework.xml.core.Label $r7;
+        org.simpleframework.xml.core.Collector $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.Collector;
+
+        $r7 := @parameter0: org.simpleframework.xml.core.Label;
+
+        $r5 := @parameter1: java.lang.Object;
+
+        $r4 = new org.simpleframework.xml.core.Variable;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.Variable: void <init>(org.simpleframework.xml.core.Label,java.lang.Object)>($r7, $r5);
+
+        if $r7 == null goto label3;
+
+        $r3 = interfaceinvoke $r7.<org.simpleframework.xml.core.Label: java.util.Collection getPaths()>();
+
+        $r9 = interfaceinvoke $r7.<org.simpleframework.xml.core.Label: java.lang.Object getKey()>();
+
+        $r2 = interfaceinvoke $r3.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r6 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r1 = (java.lang.String) $r6;
+
+        $r0 = $r8.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry alias>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Collector$Registry: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r4);
+
+        goto label1;
+
+     label2:
+        $r10 = $r8.<org.simpleframework.xml.core.Collector: org.simpleframework.xml.core.Collector$Registry registry>;
+
+        virtualinvoke $r10.<org.simpleframework.xml.core.Collector$Registry: java.lang.Object put(java.lang.Object,java.lang.Object)>($r9, $r4);
+
+        return;
+
+     label3:
+        return;
+    }
+}

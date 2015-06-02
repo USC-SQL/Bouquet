@@ -1,0 +1,165 @@
+abstract class org.jsoup.parser.TreeBuilder extends java.lang.Object
+{
+    protected java.lang.String baseUri;
+    protected org.jsoup.parser.Token currentToken;
+    protected org.jsoup.nodes.Document doc;
+    protected org.jsoup.parser.ParseErrorList errors;
+    org.jsoup.parser.CharacterReader reader;
+    protected org.jsoup.helper.DescendableLinkedList stack;
+    org.jsoup.parser.Tokeniser tokeniser;
+
+    void <init>()
+    {
+        org.jsoup.parser.TreeBuilder $r0;
+
+        $r0 := @this: org.jsoup.parser.TreeBuilder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected org.jsoup.nodes.Element currentElement()
+    {
+        org.jsoup.nodes.Element $r0;
+        java.lang.Object $r1;
+        org.jsoup.helper.DescendableLinkedList $r2;
+        org.jsoup.parser.TreeBuilder $r3;
+
+        $r3 := @this: org.jsoup.parser.TreeBuilder;
+
+        $r2 = $r3.<org.jsoup.parser.TreeBuilder: org.jsoup.helper.DescendableLinkedList stack>;
+
+        $r1 = virtualinvoke $r2.<org.jsoup.helper.DescendableLinkedList: java.lang.Object getLast()>();
+
+        $r0 = (org.jsoup.nodes.Element) $r1;
+
+        return $r0;
+    }
+
+    protected void initialiseParse(java.lang.String, java.lang.String, org.jsoup.parser.ParseErrorList)
+    {
+        org.jsoup.helper.DescendableLinkedList $r0;
+        org.jsoup.parser.Tokeniser $r1;
+        org.jsoup.nodes.Document $r2;
+        org.jsoup.parser.CharacterReader $r3, $r8;
+        org.jsoup.parser.ParseErrorList $r4;
+        java.lang.String $r5, $r6;
+        org.jsoup.parser.TreeBuilder $r7;
+
+        $r7 := @this: org.jsoup.parser.TreeBuilder;
+
+        $r5 := @parameter0: java.lang.String;
+
+        $r6 := @parameter1: java.lang.String;
+
+        $r4 := @parameter2: org.jsoup.parser.ParseErrorList;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object,java.lang.String)>($r5, "String input must not be null");
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object,java.lang.String)>($r6, "BaseURI must not be null");
+
+        $r2 = new org.jsoup.nodes.Document;
+
+        specialinvoke $r2.<org.jsoup.nodes.Document: void <init>(java.lang.String)>($r6);
+
+        $r7.<org.jsoup.parser.TreeBuilder: org.jsoup.nodes.Document doc> = $r2;
+
+        $r3 = new org.jsoup.parser.CharacterReader;
+
+        specialinvoke $r3.<org.jsoup.parser.CharacterReader: void <init>(java.lang.String)>($r5);
+
+        $r7.<org.jsoup.parser.TreeBuilder: org.jsoup.parser.CharacterReader reader> = $r3;
+
+        $r7.<org.jsoup.parser.TreeBuilder: org.jsoup.parser.ParseErrorList errors> = $r4;
+
+        $r1 = new org.jsoup.parser.Tokeniser;
+
+        $r8 = $r7.<org.jsoup.parser.TreeBuilder: org.jsoup.parser.CharacterReader reader>;
+
+        specialinvoke $r1.<org.jsoup.parser.Tokeniser: void <init>(org.jsoup.parser.CharacterReader,org.jsoup.parser.ParseErrorList)>($r8, $r4);
+
+        $r7.<org.jsoup.parser.TreeBuilder: org.jsoup.parser.Tokeniser tokeniser> = $r1;
+
+        $r0 = new org.jsoup.helper.DescendableLinkedList;
+
+        specialinvoke $r0.<org.jsoup.helper.DescendableLinkedList: void <init>()>();
+
+        $r7.<org.jsoup.parser.TreeBuilder: org.jsoup.helper.DescendableLinkedList stack> = $r0;
+
+        $r7.<org.jsoup.parser.TreeBuilder: java.lang.String baseUri> = $r6;
+
+        return;
+    }
+
+    org.jsoup.nodes.Document parse(java.lang.String, java.lang.String)
+    {
+        org.jsoup.nodes.Document $r0;
+        org.jsoup.parser.ParseErrorList $r1;
+        java.lang.String $r2, $r3;
+        org.jsoup.parser.TreeBuilder $r4;
+
+        $r4 := @this: org.jsoup.parser.TreeBuilder;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: java.lang.String;
+
+        $r1 = staticinvoke <org.jsoup.parser.ParseErrorList: org.jsoup.parser.ParseErrorList noTracking()>();
+
+        $r0 = virtualinvoke $r4.<org.jsoup.parser.TreeBuilder: org.jsoup.nodes.Document parse(java.lang.String,java.lang.String,org.jsoup.parser.ParseErrorList)>($r2, $r3, $r1);
+
+        return $r0;
+    }
+
+    org.jsoup.nodes.Document parse(java.lang.String, java.lang.String, org.jsoup.parser.ParseErrorList)
+    {
+        org.jsoup.nodes.Document r0;
+        org.jsoup.parser.ParseErrorList $r1;
+        java.lang.String $r2, $r3;
+        org.jsoup.parser.TreeBuilder $r4;
+
+        $r4 := @this: org.jsoup.parser.TreeBuilder;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: java.lang.String;
+
+        $r1 := @parameter2: org.jsoup.parser.ParseErrorList;
+
+        virtualinvoke $r4.<org.jsoup.parser.TreeBuilder: void initialiseParse(java.lang.String,java.lang.String,org.jsoup.parser.ParseErrorList)>($r2, $r3, $r1);
+
+        virtualinvoke $r4.<org.jsoup.parser.TreeBuilder: void runParser()>();
+
+        r0 = $r4.<org.jsoup.parser.TreeBuilder: org.jsoup.nodes.Document doc>;
+
+        return r0;
+    }
+
+    protected abstract boolean process(org.jsoup.parser.Token);
+
+    protected void runParser()
+    {
+        org.jsoup.parser.Token $r0;
+        org.jsoup.parser.Token$TokenType $r1, $r2;
+        org.jsoup.parser.Tokeniser $r3;
+        org.jsoup.parser.TreeBuilder $r4;
+
+        $r4 := @this: org.jsoup.parser.TreeBuilder;
+
+     label1:
+        $r3 = $r4.<org.jsoup.parser.TreeBuilder: org.jsoup.parser.Tokeniser tokeniser>;
+
+        $r0 = virtualinvoke $r3.<org.jsoup.parser.Tokeniser: org.jsoup.parser.Token read()>();
+
+        virtualinvoke $r4.<org.jsoup.parser.TreeBuilder: boolean process(org.jsoup.parser.Token)>($r0);
+
+        $r2 = $r0.<org.jsoup.parser.Token: org.jsoup.parser.Token$TokenType type>;
+
+        $r1 = <org.jsoup.parser.Token$TokenType: org.jsoup.parser.Token$TokenType EOF>;
+
+        if $r2 != $r1 goto label1;
+
+        return;
+    }
+}

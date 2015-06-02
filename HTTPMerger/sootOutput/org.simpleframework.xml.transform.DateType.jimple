@@ -1,0 +1,200 @@
+final enum class org.simpleframework.xml.transform.DateType extends java.lang.Enum
+{
+    private static final org.simpleframework.xml.transform.DateType[] $VALUES;
+    public static final enum org.simpleframework.xml.transform.DateType FULL;
+    public static final enum org.simpleframework.xml.transform.DateType LONG;
+    public static final enum org.simpleframework.xml.transform.DateType NORMAL;
+    public static final enum org.simpleframework.xml.transform.DateType SHORT;
+    private org.simpleframework.xml.transform.DateType$DateFormat format;
+
+    static void <clinit>()
+    {
+        org.simpleframework.xml.transform.DateType[] $r0;
+        org.simpleframework.xml.transform.DateType $r1, $r2, $r3, $r4, $r5, $r6, $r7, $r8;
+
+        $r1 = new org.simpleframework.xml.transform.DateType;
+
+        specialinvoke $r1.<org.simpleframework.xml.transform.DateType: void <init>(java.lang.String,int,java.lang.String)>("FULL", 0, "yyyy-MM-dd HH:mm:ss.S z");
+
+        <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType FULL> = $r1;
+
+        $r2 = new org.simpleframework.xml.transform.DateType;
+
+        specialinvoke $r2.<org.simpleframework.xml.transform.DateType: void <init>(java.lang.String,int,java.lang.String)>("LONG", 1, "yyyy-MM-dd HH:mm:ss z");
+
+        <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType LONG> = $r2;
+
+        $r3 = new org.simpleframework.xml.transform.DateType;
+
+        specialinvoke $r3.<org.simpleframework.xml.transform.DateType: void <init>(java.lang.String,int,java.lang.String)>("NORMAL", 2, "yyyy-MM-dd z");
+
+        <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType NORMAL> = $r3;
+
+        $r4 = new org.simpleframework.xml.transform.DateType;
+
+        specialinvoke $r4.<org.simpleframework.xml.transform.DateType: void <init>(java.lang.String,int,java.lang.String)>("SHORT", 3, "yyyy-MM-dd");
+
+        <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType SHORT> = $r4;
+
+        $r0 = newarray (org.simpleframework.xml.transform.DateType)[4];
+
+        $r5 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType FULL>;
+
+        $r0[0] = $r5;
+
+        $r6 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType LONG>;
+
+        $r0[1] = $r6;
+
+        $r7 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType NORMAL>;
+
+        $r0[2] = $r7;
+
+        $r8 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType SHORT>;
+
+        $r0[3] = $r8;
+
+        <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType[] $VALUES> = $r0;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int, java.lang.String)
+    {
+        org.simpleframework.xml.transform.DateType$DateFormat $r0;
+        int $i0;
+        java.lang.String $r1, $r2;
+        org.simpleframework.xml.transform.DateType $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.DateType;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: java.lang.String;
+
+        specialinvoke $r3.<java.lang.Enum: void <init>(java.lang.String,int)>($r1, $i0);
+
+        $r0 = new org.simpleframework.xml.transform.DateType$DateFormat;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.DateType$DateFormat: void <init>(java.lang.String)>($r2);
+
+        $r3.<org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType$DateFormat format> = $r0;
+
+        return;
+    }
+
+    public static java.util.Date getDate(java.lang.String) throws java.lang.Exception
+    {
+        java.util.Date $r0;
+        org.simpleframework.xml.transform.DateType$DateFormat $r1;
+        org.simpleframework.xml.transform.DateType $r2;
+        java.lang.String $r3;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 = staticinvoke <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType getType(java.lang.String)>($r3);
+
+        $r1 = specialinvoke $r2.<org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType$DateFormat getFormat()>();
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.transform.DateType$DateFormat: java.util.Date getDate(java.lang.String)>($r3);
+
+        return $r0;
+    }
+
+    private org.simpleframework.xml.transform.DateType$DateFormat getFormat()
+    {
+        org.simpleframework.xml.transform.DateType$DateFormat r0;
+        org.simpleframework.xml.transform.DateType $r1;
+
+        $r1 := @this: org.simpleframework.xml.transform.DateType;
+
+        r0 = $r1.<org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType$DateFormat format>;
+
+        return r0;
+    }
+
+    public static java.lang.String getText(java.util.Date) throws java.lang.Exception
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.transform.DateType$DateFormat $r1;
+        org.simpleframework.xml.transform.DateType $r2;
+        java.util.Date $r3;
+
+        $r3 := @parameter0: java.util.Date;
+
+        $r2 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType FULL>;
+
+        $r1 = specialinvoke $r2.<org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType$DateFormat getFormat()>();
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.transform.DateType$DateFormat: java.lang.String getText(java.util.Date)>($r3);
+
+        return $r0;
+    }
+
+    public static org.simpleframework.xml.transform.DateType getType(java.lang.String)
+    {
+        org.simpleframework.xml.transform.DateType r0, r2, r3, r4;
+        int $i0;
+        java.lang.String $r1;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 = virtualinvoke $r1.<java.lang.String: int length()>();
+
+        if $i0 <= 23 goto label1;
+
+        r0 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType FULL>;
+
+        return r0;
+
+     label1:
+        if $i0 <= 20 goto label2;
+
+        r2 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType LONG>;
+
+        return r2;
+
+     label2:
+        if $i0 <= 11 goto label3;
+
+        r3 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType NORMAL>;
+
+        return r3;
+
+     label3:
+        r4 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType SHORT>;
+
+        return r4;
+    }
+
+    public static org.simpleframework.xml.transform.DateType valueOf(java.lang.String)
+    {
+        org.simpleframework.xml.transform.DateType $r0;
+        java.lang.Enum $r1;
+        java.lang.String $r2;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "org/simpleframework/xml/transform/DateType", $r2);
+
+        $r0 = (org.simpleframework.xml.transform.DateType) $r1;
+
+        return $r0;
+    }
+
+    public static final org.simpleframework.xml.transform.DateType[] values()
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.transform.DateType[] $r1, $r2;
+
+        $r1 = <org.simpleframework.xml.transform.DateType: org.simpleframework.xml.transform.DateType[] $VALUES>;
+
+        $r0 = virtualinvoke $r1.<java.lang.Object: java.lang.Object clone()>();
+
+        $r2 = (org.simpleframework.xml.transform.DateType[]) $r0;
+
+        return $r2;
+    }
+}

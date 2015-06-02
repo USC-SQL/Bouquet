@@ -1,0 +1,151 @@
+class org.simpleframework.xml.core.ExtractorFactory extends java.lang.Object
+{
+    private final org.simpleframework.xml.core.Contact contact;
+    private final org.simpleframework.xml.stream.Format format;
+    private final java.lang.annotation.Annotation label;
+
+    public void <init>(org.simpleframework.xml.core.Contact, java.lang.annotation.Annotation, org.simpleframework.xml.stream.Format)
+    {
+        org.simpleframework.xml.stream.Format $r0;
+        java.lang.annotation.Annotation $r1;
+        org.simpleframework.xml.core.Contact $r2;
+        org.simpleframework.xml.core.ExtractorFactory $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ExtractorFactory;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.Contact;
+
+        $r1 := @parameter1: java.lang.annotation.Annotation;
+
+        $r0 := @parameter2: org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r3.<java.lang.Object: void <init>()>();
+
+        $r3.<org.simpleframework.xml.core.ExtractorFactory: org.simpleframework.xml.core.Contact contact> = $r2;
+
+        $r3.<org.simpleframework.xml.core.ExtractorFactory: org.simpleframework.xml.stream.Format format> = $r0;
+
+        $r3.<org.simpleframework.xml.core.ExtractorFactory: java.lang.annotation.Annotation label> = $r1;
+
+        return;
+    }
+
+    private org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder getBuilder(java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.PersistenceException $r1;
+        org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder $r2, $r5, $r6;
+        boolean $z0, $z1, $z2;
+        java.lang.annotation.Annotation $r3;
+        org.simpleframework.xml.core.ExtractorFactory $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ExtractorFactory;
+
+        $r3 := @parameter0: java.lang.annotation.Annotation;
+
+        $z0 = $r3 instanceof org.simpleframework.xml.ElementUnion;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/ElementUnion", class "org/simpleframework/xml/core/ExtractorFactory$ElementExtractor");
+
+        return $r2;
+
+     label1:
+        $z1 = $r3 instanceof org.simpleframework.xml.ElementListUnion;
+
+        if $z1 == 0 goto label2;
+
+        $r5 = new org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/ElementListUnion", class "org/simpleframework/xml/core/ExtractorFactory$ElementListExtractor");
+
+        return $r5;
+
+     label2:
+        $z2 = $r3 instanceof org.simpleframework.xml.ElementMapUnion;
+
+        if $z2 == 0 goto label3;
+
+        $r6 = new org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/ElementMapUnion", class "org/simpleframework/xml/core/ExtractorFactory$ElementMapExtractor");
+
+        return $r6;
+
+     label3:
+        $r1 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = $r3;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Annotation %s is not a union", $r0);
+
+        throw $r1;
+    }
+
+    private java.lang.Object getInstance(java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.Format $r1;
+        java.lang.Object[] $r2;
+        boolean $z0;
+        java.lang.reflect.Constructor $r3;
+        org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder $r4;
+        org.simpleframework.xml.core.Contact $r5;
+        java.lang.annotation.Annotation $r6;
+        org.simpleframework.xml.core.ExtractorFactory $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.ExtractorFactory;
+
+        $r6 := @parameter0: java.lang.annotation.Annotation;
+
+        $r4 = specialinvoke $r7.<org.simpleframework.xml.core.ExtractorFactory: org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder getBuilder(java.lang.annotation.Annotation)>($r6);
+
+        $r3 = staticinvoke <org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder: java.lang.reflect.Constructor access$000(org.simpleframework.xml.core.ExtractorFactory$ExtractorBuilder)>($r4);
+
+        $z0 = virtualinvoke $r3.<java.lang.reflect.Constructor: boolean isAccessible()>();
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke $r3.<java.lang.reflect.Constructor: void setAccessible(boolean)>(1);
+
+     label1:
+        $r2 = newarray (java.lang.Object)[3];
+
+        $r5 = $r7.<org.simpleframework.xml.core.ExtractorFactory: org.simpleframework.xml.core.Contact contact>;
+
+        $r2[0] = $r5;
+
+        $r2[1] = $r6;
+
+        $r1 = $r7.<org.simpleframework.xml.core.ExtractorFactory: org.simpleframework.xml.stream.Format format>;
+
+        $r2[2] = $r1;
+
+        $r0 = virtualinvoke $r3.<java.lang.reflect.Constructor: java.lang.Object newInstance(java.lang.Object[])>($r2);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Extractor getInstance() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Extractor $r0;
+        java.lang.Object $r1;
+        java.lang.annotation.Annotation $r2;
+        org.simpleframework.xml.core.ExtractorFactory $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ExtractorFactory;
+
+        $r2 = $r3.<org.simpleframework.xml.core.ExtractorFactory: java.lang.annotation.Annotation label>;
+
+        $r1 = specialinvoke $r3.<org.simpleframework.xml.core.ExtractorFactory: java.lang.Object getInstance(java.lang.annotation.Annotation)>($r2);
+
+        $r0 = (org.simpleframework.xml.core.Extractor) $r1;
+
+        return $r0;
+    }
+}

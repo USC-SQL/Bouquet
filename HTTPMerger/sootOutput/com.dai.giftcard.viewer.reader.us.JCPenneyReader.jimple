@@ -1,0 +1,202 @@
+public class com.dai.giftcard.viewer.reader.us.JCPenneyReader extends com.dai.giftcard.viewer.reader.BaseCardReader
+{
+
+    public void <init>()
+    {
+        org.apache.http.client.HttpClient $r0;
+        com.dai.giftcard.viewer.reader.us.JCPenneyReader $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.reader.us.JCPenneyReader;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.reader.BaseCardReader: void <init>()>();
+
+        $r0 = staticinvoke <com.dai.giftcard.viewer.service.HttpService: org.apache.http.client.HttpClient getNewHttpClient()>();
+
+        $r1.<com.dai.giftcard.viewer.reader.us.JCPenneyReader: org.apache.http.client.HttpClient httpclient> = $r0;
+
+        return;
+    }
+
+    public boolean GetCardBalanceRequest() throws java.lang.Exception
+    {
+        byte $b0;
+        double $d0;
+        com.dai.giftcard.viewer.model.StringPair $r0, $r7, $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r19, $r20, $r21, $r22;
+        java.lang.String $r1, $r9, $r24;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r2, $r8;
+        org.apache.http.client.HttpClient $r3, $r23;
+        java.util.ArrayList $r4, $r5;
+        com.dai.giftcard.viewer.reader.us.JCPenneyReader $r6;
+
+        $r6 := @this: com.dai.giftcard.viewer.reader.us.JCPenneyReader;
+
+        $r3 = $r6.<com.dai.giftcard.viewer.reader.us.JCPenneyReader: org.apache.http.client.HttpClient httpclient>;
+
+        staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: java.lang.String HttpGet(org.apache.http.client.HttpClient,java.lang.String)>($r3, "http://www.jcpenney.com/dotcom/jsp/browse/category.jsp?id=cat100300156");
+
+        $r5 = new java.util.ArrayList;
+
+        specialinvoke $r5.<java.util.ArrayList: void <init>()>();
+
+        $r0 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r2 = $r6.<com.dai.giftcard.viewer.reader.us.JCPenneyReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r1 = $r2.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("cardNumber", $r1);
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r0);
+
+        $r7 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r8 = $r6.<com.dai.giftcard.viewer.reader.us.JCPenneyReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r9 = $r8.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Pin>;
+
+        specialinvoke $r7.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("cardPin", $r9);
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r7);
+
+        $r10 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r10.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_dyncharset", "ISO-8859-1");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r10);
+
+        $r11 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r11.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_dynSessConf", "4870149958611040000");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r11);
+
+        $r12 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r12.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:cardNumber", "");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r12);
+
+        $r13 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r13.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:cardPin", "");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r13);
+
+        $r14 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r14.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("/com/jcpenney/giftcard/formhandler/BalanceCheckFormHandler.sucessUrl", "/dotcom/jsp/giftcard/secure/ajax/giftCardJson.jsp");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r14);
+
+        $r15 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r15.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:/com/jcpenney/giftcard/formhandler/BalanceCheckFormHandler.sucessUrl", "");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r15);
+
+        $r16 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r16.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("/com/jcpenney/giftcard/formhandler/BalanceCheckFormHandler.errorUrl", "/dotcom/jsp/giftcard/secure/ajax/giftCardJson.jsp");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r16);
+
+        $r17 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r17.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:/com/jcpenney/giftcard/formhandler/BalanceCheckFormHandler.errorUrl", "");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r17);
+
+        $r18 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r18.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("/com/jcpenney/giftcard/formhandler/BalanceCheckFormHandler.balanceCheck", "Submit");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r18);
+
+        $r19 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r19.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:/com/jcpenney/giftcard/formhandler/BalanceCheckFormHandler.balanceCheck", "");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r19);
+
+        $r20 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r20.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_DARGS", "/dotcom/jsp/giftcard/secure/giftCard.jsp.giftCardAjax");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r20);
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<java.util.ArrayList: void <init>()>();
+
+        $r21 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r21.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("X-Requested-With", "XMLHttpRequest");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r21);
+
+        $r22 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r22.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("Referer", "https://www.jcpenney.com/dotcom/jsp/giftcard/secure/giftCard.jsp?pageId=pg4005800012&parentUrl=http%3A%2F%2Fwww.jcpenney.com%2Fdotcom%2Fjsp%2Fbrowse%2Fcategory.jsp%3Fid%3Dcat100300156");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r22);
+
+        $r23 = $r6.<com.dai.giftcard.viewer.reader.us.JCPenneyReader: org.apache.http.client.HttpClient httpclient>;
+
+        $r24 = staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: java.lang.String HttpPost(org.apache.http.client.HttpClient,java.lang.String,java.util.List,java.util.List)>($r23, "https://www.jcpenney.com/dotcom/jsp/giftcard/secure/giftCard.jsp?_DARGS=/dotcom/jsp/giftcard/secure/giftCard.jsp.giftCardAjax", $r5, $r4);
+
+        $d0 = virtualinvoke $r6.<com.dai.giftcard.viewer.reader.us.JCPenneyReader: double ParseBalanceResult(java.lang.String)>($r24);
+
+        $b0 = $d0 cmpl 0.0;
+
+        if $b0 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public double ParseBalanceResult(java.lang.String) throws java.lang.Exception
+    {
+        double $d0, $d1;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r0, $r8;
+        org.json.simple.JSONObject $r1;
+        java.lang.Object $r2, $r6;
+        org.json.simple.parser.JSONParser $r3;
+        java.lang.String $r4, $r7;
+        com.dai.giftcard.viewer.reader.us.JCPenneyReader $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.reader.us.JCPenneyReader;
+
+        $r4 := @parameter0: java.lang.String;
+
+        $r3 = new org.json.simple.parser.JSONParser;
+
+        specialinvoke $r3.<org.json.simple.parser.JSONParser: void <init>()>();
+
+        $r2 = virtualinvoke $r3.<org.json.simple.parser.JSONParser: java.lang.Object parse(java.lang.String)>($r4);
+
+        $r1 = (org.json.simple.JSONObject) $r2;
+
+        if $r1 == null goto label1;
+
+        $r6 = virtualinvoke $r1.<org.json.simple.JSONObject: java.lang.Object get(java.lang.Object)>("balance");
+
+        $r7 = (java.lang.String) $r6;
+
+        $r0 = $r5.<com.dai.giftcard.viewer.reader.us.JCPenneyReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $d0 = staticinvoke <com.dai.giftcard.viewer.helper.StringHelper: double GetDollar(java.lang.String)>($r7);
+
+        $r0.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance> = $d0;
+
+        $r8 = $r5.<com.dai.giftcard.viewer.reader.us.JCPenneyReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $d1 = $r8.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance>;
+
+        return $d1;
+
+     label1:
+        return -1.0;
+    }
+}

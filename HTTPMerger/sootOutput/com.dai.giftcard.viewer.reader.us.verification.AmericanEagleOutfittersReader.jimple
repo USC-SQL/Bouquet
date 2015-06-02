@@ -1,0 +1,325 @@
+public class com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader extends com.dai.giftcard.viewer.reader.BaseCardReader
+{
+
+    public void <init>()
+    {
+        org.apache.http.client.HttpClient $r0;
+        org.apache.http.params.HttpParams $r1;
+        com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.reader.BaseCardReader: void <init>()>();
+
+        $r2.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: boolean IsVerificaitonImage> = 1;
+
+        $r2.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: boolean IsVerificationMemoryImage> = 1;
+
+        $r0 = $r2.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: org.apache.http.client.HttpClient httpclient>;
+
+        $r1 = interfaceinvoke $r0.<org.apache.http.client.HttpClient: org.apache.http.params.HttpParams getParams()>();
+
+        interfaceinvoke $r1.<org.apache.http.params.HttpParams: org.apache.http.params.HttpParams setBooleanParameter(java.lang.String,boolean)>("http.protocol.expect-continue", 0);
+
+        return;
+    }
+
+    public boolean GetCardBalanceRequest() throws java.lang.Exception
+    {
+        byte $b0;
+        double $d0;
+        org.apache.http.client.HttpClient $r0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r1, $r19, $r23;
+        java.lang.String $r2, $r20, $r24, $r34;
+        com.dai.giftcard.viewer.model.StringPair $r3, $r7, $r8, $r9, $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r21, $r22, $r25, $r26, $r27, $r28, $r29, $r30, $r31, $r32, $r33;
+        java.util.ArrayList $r4, $r5;
+        com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader $r6;
+
+        $r6 := @this: com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader;
+
+        $r5 = new java.util.ArrayList;
+
+        specialinvoke $r5.<java.util.ArrayList: void <init>()>();
+
+        $r3 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r3.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_dyncharset", "UTF-8");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+        $r7 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r7.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_dynSessConf", "-8700131535266900000");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r7);
+
+        $r8 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r8.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("/aeo/commerce/order/purchase/GiftCardPaymentHandler.giftCardErrorURL", "/web/checkout/giftcards/giftCardBalance.jsp");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r8);
+
+        $r9 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r9.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:/aeo/commerce/order/purchase/GiftCardPaymentHandler.giftCardErrorURL", " ");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r9);
+
+        $r10 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r10.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("/aeo/commerce/order/purchase/GiftCardPaymentHandler.giftCardSuccessURL", "/web/checkout/giftcards/giftCardBalance.jsp");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r10);
+
+        $r11 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r11.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:/aeo/commerce/order/purchase/GiftCardPaymentHandler.giftCardSuccessURL", " ");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r11);
+
+        $r12 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r12.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("/aeo/commerce/order/purchase/GiftCardPaymentHandler.ajaxErrorURL", "/checkout/giftcards/common/giftCard_htmljax.jsp");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r12);
+
+        $r13 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r13.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:/aeo/commerce/order/purchase/GiftCardPaymentHandler.ajaxErrorURL", " ");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r13);
+
+        $r14 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r14.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("/aeo/commerce/order/purchase/GiftCardPaymentHandler.ajaxSuccessURL", "/checkout/giftcards/common/giftCard_htmljax.jsp");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r14);
+
+        $r15 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r15.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:/aeo/commerce/order/purchase/GiftCardPaymentHandler.ajaxSuccessURL", " ");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r15);
+
+        $r16 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r1 = $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r2 = $r1.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        specialinvoke $r16.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("giftNumEntry", $r2);
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r16);
+
+        $r17 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r17.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:giftNumEntry", " ");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r17);
+
+        $r18 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r19 = $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r20 = $r19.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Pin>;
+
+        specialinvoke $r18.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("pinNumEntry", $r20);
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r18);
+
+        $r21 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r21.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:pinNumEntry", " ");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r21);
+
+        $r22 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r23 = $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r24 = $r23.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String VerificationCode>;
+
+        specialinvoke $r22.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("captchaEntered", $r24);
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r22);
+
+        $r25 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r25.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:captchaEntered", " ");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r25);
+
+        $r26 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r26.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_D:checkBalance", " ");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r26);
+
+        $r27 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r27.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("_DARGS", "/web/checkout/giftcards/giftCardBalance.jsp.captcha_form");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r27);
+
+        $r28 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r28.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("checkBalance", "Check Balance");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r28);
+
+        $r29 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r29.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("validationFormSelector", "#gcBalanceCheck_captcha");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r29);
+
+        $r30 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r30.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("requestedData", "gcBalanceHTML");
+
+        interfaceinvoke $r5.<java.util.List: boolean add(java.lang.Object)>($r30);
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<java.util.ArrayList: void <init>()>();
+
+        $r31 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r31.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("Accept", "application/json, text/javascript, */*; q=0.01");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r31);
+
+        $r32 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r32.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("X-Requested-With", "XMLHttpRequest");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r32);
+
+        $r33 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r33.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("Referer", "http://www.ae.com/web/checkout/giftcards/giftCard.jsp?cid=AEO_AFF_k132938&_requestid=1569");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r33);
+
+        $r0 = $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: org.apache.http.client.HttpClient httpclient>;
+
+        $r34 = staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: java.lang.String HttpPost(org.apache.http.client.HttpClient,java.lang.String,java.util.List,java.util.List)>($r0, "http://www.ae.com/web/checkout/giftcards/common/giftCard_htmljax.jsp", $r5, $r4);
+
+        $d0 = virtualinvoke $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: double ParseBalanceResult(java.lang.String)>($r34);
+
+        $b0 = $d0 cmpl 0.0;
+
+        if $b0 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public java.lang.String GetVerificaitonImageUrl() throws java.lang.Exception
+    {
+        android.graphics.Bitmap $r0;
+        java.lang.StringBuilder $r1, $r7;
+        java.util.Date $r2;
+        java.text.SimpleDateFormat $r3;
+        java.lang.String $r4, $r8, $r10, $r11;
+        org.apache.http.client.HttpClient $r5, $r9;
+        com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader $r6;
+
+        $r6 := @this: com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader;
+
+        $r5 = $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: org.apache.http.client.HttpClient httpclient>;
+
+        staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: java.lang.String HttpGet(org.apache.http.client.HttpClient,java.lang.String)>($r5, "http://www.ae.com/web/checkout/giftcards/giftCardBalanceModal.jsp");
+
+        $r3 = new java.text.SimpleDateFormat;
+
+        specialinvoke $r3.<java.text.SimpleDateFormat: void <init>(java.lang.String)>("yyyyMMddHHmmss");
+
+        $r2 = new java.util.Date;
+
+        specialinvoke $r2.<java.util.Date: void <init>()>();
+
+        $r4 = virtualinvoke $r3.<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>($r2);
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>(java.lang.String)>("http://www.ae.com/web/kaptcha?");
+
+        $r7 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: java.lang.String CaptchaImageUrl> = $r8;
+
+        $r9 = $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: org.apache.http.client.HttpClient httpclient>;
+
+        $r10 = $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: java.lang.String CaptchaImageUrl>;
+
+        $r0 = staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: android.graphics.Bitmap HttpGetImage(org.apache.http.client.HttpClient,java.lang.String)>($r9, $r10);
+
+        $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: android.graphics.Bitmap VerificationMemoryImageByte> = $r0;
+
+        $r11 = $r6.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: java.lang.String CaptchaImageUrl>;
+
+        return $r11;
+    }
+
+    public double ParseBalanceResult(java.lang.String) throws java.lang.Exception
+    {
+        double $d0, $d1;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r0, $r13;
+        org.jsoup.nodes.Element $r1;
+        org.jsoup.select.Elements $r2;
+        org.jsoup.nodes.Document $r3;
+        org.json.simple.JSONObject $r4;
+        java.lang.Object $r5, $r9;
+        org.json.simple.parser.JSONParser $r6;
+        java.lang.String $r7, $r10, $r11, $r12;
+        com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader $r8;
+
+        $r8 := @this: com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader;
+
+        $r7 := @parameter0: java.lang.String;
+
+        $r6 = new org.json.simple.parser.JSONParser;
+
+        specialinvoke $r6.<org.json.simple.parser.JSONParser: void <init>()>();
+
+        $r5 = virtualinvoke $r6.<org.json.simple.parser.JSONParser: java.lang.Object parse(java.lang.String)>($r7);
+
+        $r4 = (org.json.simple.JSONObject) $r5;
+
+        if $r4 == null goto label1;
+
+        $r9 = virtualinvoke $r4.<org.json.simple.JSONObject: java.lang.Object get(java.lang.Object)>("gcBalanceHTML");
+
+        $r10 = (java.lang.String) $r9;
+
+        $r3 = staticinvoke <org.jsoup.Jsoup: org.jsoup.nodes.Document parse(java.lang.String)>($r10);
+
+        $r2 = virtualinvoke $r3.<org.jsoup.nodes.Document: org.jsoup.select.Elements select(java.lang.String)>("span.gcBalance");
+
+        $r1 = virtualinvoke $r2.<org.jsoup.select.Elements: org.jsoup.nodes.Element get(int)>(0);
+
+        $r11 = virtualinvoke $r1.<org.jsoup.nodes.Element: java.lang.String text()>();
+
+        $r12 = virtualinvoke $r11.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("\u00a3", "");
+
+        $r0 = $r8.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $d0 = staticinvoke <com.dai.giftcard.viewer.helper.StringHelper: double GetDollar(java.lang.String)>($r12);
+
+        $r0.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance> = $d0;
+
+        $r13 = $r8.<com.dai.giftcard.viewer.reader.us.verification.AmericanEagleOutfittersReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $d1 = $r13.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance>;
+
+        return $d1;
+
+     label1:
+        return -1.0;
+    }
+}

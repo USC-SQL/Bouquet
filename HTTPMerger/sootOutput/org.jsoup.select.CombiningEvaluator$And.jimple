@@ -1,0 +1,88 @@
+final class org.jsoup.select.CombiningEvaluator$And extends org.jsoup.select.CombiningEvaluator
+{
+
+    void <init>(java.util.Collection)
+    {
+        java.util.Collection $r0;
+        org.jsoup.select.CombiningEvaluator$And $r1;
+
+        $r1 := @this: org.jsoup.select.CombiningEvaluator$And;
+
+        $r0 := @parameter0: java.util.Collection;
+
+        specialinvoke $r1.<org.jsoup.select.CombiningEvaluator: void <init>(java.util.Collection)>($r0);
+
+        return;
+    }
+
+    transient void <init>(org.jsoup.select.Evaluator[])
+    {
+        java.util.List $r0;
+        org.jsoup.select.Evaluator[] $r1;
+        org.jsoup.select.CombiningEvaluator$And $r2;
+
+        $r2 := @this: org.jsoup.select.CombiningEvaluator$And;
+
+        $r1 := @parameter0: org.jsoup.select.Evaluator[];
+
+        $r0 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r1);
+
+        specialinvoke $r2.<org.jsoup.select.CombiningEvaluator$And: void <init>(java.util.Collection)>($r0);
+
+        return;
+    }
+
+    public boolean matches(org.jsoup.nodes.Element, org.jsoup.nodes.Element)
+    {
+        org.jsoup.select.Evaluator $r0;
+        java.lang.Object $r1;
+        boolean $z0, $z1;
+        java.util.Iterator $r2;
+        java.util.List $r3;
+        org.jsoup.nodes.Element $r4, $r5;
+        org.jsoup.select.CombiningEvaluator$And $r6;
+
+        $r6 := @this: org.jsoup.select.CombiningEvaluator$And;
+
+        $r4 := @parameter0: org.jsoup.nodes.Element;
+
+        $r5 := @parameter1: org.jsoup.nodes.Element;
+
+        $r3 = $r6.<org.jsoup.select.CombiningEvaluator$And: java.util.List evaluators>;
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.jsoup.select.Evaluator) $r1;
+
+        $z1 = virtualinvoke $r0.<org.jsoup.select.Evaluator: boolean matches(org.jsoup.nodes.Element,org.jsoup.nodes.Element)>($r4, $r5);
+
+        if $z1 != 0 goto label1;
+
+        return 0;
+
+     label2:
+        return 1;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        java.util.List $r1;
+        org.jsoup.select.CombiningEvaluator$And $r2;
+
+        $r2 := @this: org.jsoup.select.CombiningEvaluator$And;
+
+        $r1 = $r2.<org.jsoup.select.CombiningEvaluator$And: java.util.List evaluators>;
+
+        $r0 = staticinvoke <org.jsoup.helper.StringUtil: java.lang.String join(java.util.Collection,java.lang.String)>($r1, " ");
+
+        return $r0;
+    }
+}

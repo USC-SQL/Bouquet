@@ -1,0 +1,86 @@
+class org.simpleframework.xml.strategy.ArrayValue extends java.lang.Object implements org.simpleframework.xml.strategy.Value
+{
+    private int size;
+    private java.lang.Class type;
+    private java.lang.Object value;
+
+    public void <init>(java.lang.Class, int)
+    {
+        int $i0;
+        java.lang.Class $r0;
+        org.simpleframework.xml.strategy.ArrayValue $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.ArrayValue;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<org.simpleframework.xml.strategy.ArrayValue: java.lang.Class type> = $r0;
+
+        $r1.<org.simpleframework.xml.strategy.ArrayValue: int size> = $i0;
+
+        return;
+    }
+
+    public int getLength()
+    {
+        int i0;
+        org.simpleframework.xml.strategy.ArrayValue $r0;
+
+        $r0 := @this: org.simpleframework.xml.strategy.ArrayValue;
+
+        i0 = $r0.<org.simpleframework.xml.strategy.ArrayValue: int size>;
+
+        return i0;
+    }
+
+    public java.lang.Class getType()
+    {
+        java.lang.Class r0;
+        org.simpleframework.xml.strategy.ArrayValue $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.ArrayValue;
+
+        r0 = $r1.<org.simpleframework.xml.strategy.ArrayValue: java.lang.Class type>;
+
+        return r0;
+    }
+
+    public java.lang.Object getValue()
+    {
+        java.lang.Object r0;
+        org.simpleframework.xml.strategy.ArrayValue $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.ArrayValue;
+
+        r0 = $r1.<org.simpleframework.xml.strategy.ArrayValue: java.lang.Object value>;
+
+        return r0;
+    }
+
+    public boolean isReference()
+    {
+        org.simpleframework.xml.strategy.ArrayValue $r0;
+
+        $r0 := @this: org.simpleframework.xml.strategy.ArrayValue;
+
+        return 0;
+    }
+
+    public void setValue(java.lang.Object)
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.strategy.ArrayValue $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.ArrayValue;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        $r1.<org.simpleframework.xml.strategy.ArrayValue: java.lang.Object value> = $r0;
+
+        return;
+    }
+}

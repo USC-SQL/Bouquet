@@ -1,5 +1,6 @@
 public class usc.edu.AgentURLConnection extends java.lang.Object
 {
+    public static java.util.Hashtable contentcache;
 
     public void <init>()
     {
@@ -73,9 +74,9 @@ public class usc.edu.AgentURLConnection extends java.lang.Object
         goto label18;
 
      label07:
-        $r5 := @caughtexception;
+        $r6 := @caughtexception;
 
-        r9 = $r5;
+        r9 = $r6;
 
         virtualinvoke r9.<java.io.IOException: void printStackTrace()>();
 
@@ -89,9 +90,9 @@ public class usc.edu.AgentURLConnection extends java.lang.Object
         goto label18;
 
      label11:
-        $r6 := @caughtexception;
+        $r8 := @caughtexception;
 
-        r10 = $r6;
+        r10 = $r8;
 
         virtualinvoke r10.<java.io.IOException: void printStackTrace()>();
 
@@ -112,9 +113,9 @@ public class usc.edu.AgentURLConnection extends java.lang.Object
         goto label17;
 
      label16:
-        $r8 := @caughtexception;
+        $r5 := @caughtexception;
 
-        r4 = $r8;
+        r4 = $r5;
 
         virtualinvoke r4.<java.io.IOException: void printStackTrace()>();
 
@@ -402,92 +403,78 @@ public class usc.edu.AgentURLConnection extends java.lang.Object
 
     public static java.io.InputStream getInputStream(java.net.URLConnection) throws java.io.IOException
     {
-        java.lang.StringBuilder $r0, $r1, $r2;
-        java.io.InputStream $r3, $r4;
+        java.util.Hashtable $r0;
+        byte[] $r1;
         boolean $z0;
-        java.io.PrintStream $r5, $r6;
-        java.lang.Throwable r7, $r8;
-        java.io.BufferedInputStream r9, r10, $r11;
-        java.net.URL r12, $r13, $r14;
-        java.lang.String r15, $r16, $r17;
-        java.net.HttpURLConnection r18, r19;
-        java.net.URLConnection r20, $r21;
+        java.net.URL $r2;
+        java.io.PrintStream $r3, $r4;
+        java.lang.StringBuilder $r5, $r6, $r7, $r8, $r9;
+        java.lang.String[] r10;
+        java.io.ByteArrayInputStream r11, $r12;
+        java.lang.String r13, $r14, $r15, $r16, $r17;
+        java.io.InputStream r18;
+        long l0, l1, $l2;
+        java.net.URLConnection r19;
 
-        r20 := @parameter0: java.net.URLConnection;
+        r19 := @parameter0: java.net.URLConnection;
 
-        $r5 = <java.lang.System: java.io.PrintStream out>;
+        $r3 = <java.lang.System: java.io.PrintStream out>;
 
-        virtualinvoke $r5.<java.io.PrintStream: void println(java.lang.String)>("It works!");
+        $r5 = new java.lang.StringBuilder;
 
-        $z0 = r20 instanceof java.net.HttpURLConnection;
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
 
-        if $z0 == 0 goto label5;
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("It works! ");
 
-        r18 = (java.net.HttpURLConnection) r20;
+        $r2 = virtualinvoke r19.<java.net.URLConnection: java.net.URL getURL()>();
 
-        $r13 = virtualinvoke r18.<java.net.HttpURLConnection: java.net.URL getURL()>();
+        $r14 = virtualinvoke $r2.<java.net.URL: java.lang.String toString()>();
 
-        r15 = virtualinvoke $r13.<java.net.URL: java.lang.String toString()>();
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
 
-        $r14 = new java.net.URL;
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
 
-        $r0 = new java.lang.StringBuilder;
+        $z0 = virtualinvoke r19.<java.net.URLConnection: boolean getDoOutput()>();
 
-        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>($z0);
 
-        $r1 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("http://dingli.usc.edu:1988?targetlink=");
+        $r15 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
 
-        $r16 = staticinvoke <java.net.URLEncoder: java.lang.String encode(java.lang.String)>(r15);
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>($r15);
 
-        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r16);
+        l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
 
-        $r17 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+        r18 = virtualinvoke r19.<java.net.URLConnection: java.io.InputStream getInputStream()>();
 
-        specialinvoke $r14.<java.net.URL: void <init>(java.lang.String)>($r17);
+        r13 = staticinvoke <usc.edu.AgentURLConnection: java.lang.String getStringFromInputStream(java.io.InputStream)>(r18);
 
-        r12 = $r14;
+        $r12 = new java.io.ByteArrayInputStream;
 
-        $r21 = virtualinvoke r12.<java.net.URL: java.net.URLConnection openConnection()>();
+        $r1 = virtualinvoke r13.<java.lang.String: byte[] getBytes()>();
 
-        r19 = (java.net.HttpURLConnection) $r21;
+        specialinvoke $r12.<java.io.ByteArrayInputStream: void <init>(byte[])>($r1);
 
-     label1:
-        $r11 = new java.io.BufferedInputStream;
+        r11 = $r12;
 
-        $r4 = virtualinvoke r19.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>();
+        l1 = staticinvoke <java.lang.System: long currentTimeMillis()>();
 
-        specialinvoke $r11.<java.io.BufferedInputStream: void <init>(java.io.InputStream)>($r4);
+        r10 = virtualinvoke r13.<java.lang.String: java.lang.String[] split(java.lang.String)>("<");
 
-        r9 = $r11;
+        $r0 = <usc.edu.AgentURLConnection: java.util.Hashtable contentcache>;
 
-        r10 = r9;
+        $r16 = r10[0];
 
-     label2:
-        virtualinvoke r19.<java.net.HttpURLConnection: void disconnect()>();
+        $r17 = r10[1];
 
-        return r10;
+        virtualinvoke $r0.<java.util.Hashtable: java.lang.Object put(java.lang.Object,java.lang.Object)>($r16, $r17);
 
-     label3:
-        $r8 := @caughtexception;
+        $r4 = <java.lang.System: java.io.PrintStream out>;
 
-        r7 = $r8;
+        $l2 = l1 - l0;
 
-     label4:
-        virtualinvoke r19.<java.net.HttpURLConnection: void disconnect()>();
+        virtualinvoke $r4.<java.io.PrintStream: void println(long)>($l2);
 
-        throw r7;
-
-     label5:
-        $r6 = <java.lang.System: java.io.PrintStream out>;
-
-        virtualinvoke $r6.<java.io.PrintStream: void println(java.lang.String)>("============Return Old One===============");
-
-        $r3 = virtualinvoke r20.<java.net.URLConnection: java.io.InputStream getInputStream()>();
-
-        return $r3;
-
-        catch java.lang.Throwable from label1 to label2 with label3;
-        catch java.lang.Throwable from label3 to label4 with label3;
+        return r11;
     }
 
     public static long getLastModified(java.net.URLConnection)
@@ -735,6 +722,39 @@ public class usc.edu.AgentURLConnection extends java.lang.Object
         r0 := @parameter0: java.net.URLConnection;
 
         virtualinvoke r0.<java.net.URLConnection: void connect()>();
+
+        return;
+    }
+
+    public static org.apache.http.HttpResponse HttpResponseexecute(org.apache.http.client.HttpClient, org.apache.http.client.methods.HttpUriRequest) throws java.io.IOException
+    {
+        org.apache.http.HttpResponse $r0;
+        java.io.PrintStream $r1;
+        org.apache.http.client.methods.HttpUriRequest r2;
+        org.apache.http.client.HttpClient r3;
+
+        r3 := @parameter0: org.apache.http.client.HttpClient;
+
+        r2 := @parameter1: org.apache.http.client.methods.HttpUriRequest;
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>("it works");
+
+        $r0 = interfaceinvoke r3.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>(r2);
+
+        return $r0;
+    }
+
+    static void <clinit>()
+    {
+        java.util.Hashtable $r0;
+
+        $r0 = new java.util.Hashtable;
+
+        specialinvoke $r0.<java.util.Hashtable: void <init>()>();
+
+        <usc.edu.AgentURLConnection: java.util.Hashtable contentcache> = $r0;
 
         return;
     }

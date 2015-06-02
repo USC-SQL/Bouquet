@@ -1,0 +1,488 @@
+class org.simpleframework.xml.core.PrimitiveValue extends java.lang.Object implements org.simpleframework.xml.core.Converter
+{
+    private final org.simpleframework.xml.core.Context context;
+    private final org.simpleframework.xml.core.Entry entry;
+    private final org.simpleframework.xml.core.PrimitiveFactory factory;
+    private final org.simpleframework.xml.core.Primitive root;
+    private final org.simpleframework.xml.stream.Style style;
+    private final org.simpleframework.xml.strategy.Type type;
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.core.Entry, org.simpleframework.xml.strategy.Type)
+    {
+        org.simpleframework.xml.core.Primitive $r0;
+        org.simpleframework.xml.stream.Style $r1;
+        org.simpleframework.xml.core.PrimitiveFactory $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        org.simpleframework.xml.core.Entry $r4;
+        org.simpleframework.xml.core.Context $r5;
+        org.simpleframework.xml.core.PrimitiveValue $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r4 := @parameter1: org.simpleframework.xml.core.Entry;
+
+        $r3 := @parameter2: org.simpleframework.xml.strategy.Type;
+
+        specialinvoke $r6.<java.lang.Object: void <init>()>();
+
+        $r2 = new org.simpleframework.xml.core.PrimitiveFactory;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.PrimitiveFactory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r5, $r3);
+
+        $r6.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.PrimitiveFactory factory> = $r2;
+
+        $r0 = new org.simpleframework.xml.core.Primitive;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.Primitive: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r5, $r3);
+
+        $r6.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Primitive root> = $r0;
+
+        $r1 = interfaceinvoke $r5.<org.simpleframework.xml.core.Context: org.simpleframework.xml.stream.Style getStyle()>();
+
+        $r6.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.stream.Style style> = $r1;
+
+        $r6.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Context context> = $r5;
+
+        $r6.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Entry entry> = $r4;
+
+        $r6.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.strategy.Type type> = $r3;
+
+        return;
+    }
+
+    private boolean isOverridden(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.strategy.Type $r0;
+        org.simpleframework.xml.core.PrimitiveFactory $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.stream.OutputNode $r3;
+        org.simpleframework.xml.core.PrimitiveValue $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r1 = $r4.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.PrimitiveFactory factory>;
+
+        $r0 = $r4.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.strategy.Type type>;
+
+        $z0 = virtualinvoke $r1.<org.simpleframework.xml.core.PrimitiveFactory: boolean setOverride(org.simpleframework.xml.strategy.Type,java.lang.Object,org.simpleframework.xml.stream.OutputNode)>($r0, $r2, $r3);
+
+        return $z0;
+    }
+
+    private java.lang.Object readAttribute(org.simpleframework.xml.stream.InputNode, java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.core.Primitive $r1;
+        org.simpleframework.xml.stream.Style $r2;
+        java.lang.String $r3, $r6;
+        org.simpleframework.xml.stream.InputNode $r4;
+        org.simpleframework.xml.core.PrimitiveValue $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 := @parameter1: java.lang.String;
+
+        if $r3 == null goto label1;
+
+        $r2 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.stream.Style style>;
+
+        $r6 = interfaceinvoke $r2.<org.simpleframework.xml.stream.Style: java.lang.String getAttribute(java.lang.String)>($r3);
+
+        $r4 = interfaceinvoke $r4.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getAttribute(java.lang.String)>($r6);
+
+     label1:
+        if $r4 != null goto label2;
+
+        return null;
+
+     label2:
+        $r1 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Primitive root>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Primitive: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r4);
+
+        return $r0;
+    }
+
+    private java.lang.Object readElement(org.simpleframework.xml.stream.InputNode, java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.core.Primitive $r1;
+        org.simpleframework.xml.stream.Style $r2;
+        java.lang.String $r3, $r6;
+        org.simpleframework.xml.stream.InputNode $r4, $r7;
+        org.simpleframework.xml.core.PrimitiveValue $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 := @parameter1: java.lang.String;
+
+        $r2 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.stream.Style style>;
+
+        $r6 = interfaceinvoke $r2.<org.simpleframework.xml.stream.Style: java.lang.String getAttribute(java.lang.String)>($r3);
+
+        $r7 = interfaceinvoke $r4.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext(java.lang.String)>($r6);
+
+        if $r7 != null goto label1;
+
+        return null;
+
+     label1:
+        $r1 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Primitive root>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Primitive: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r7);
+
+        return $r0;
+    }
+
+    private boolean validateAttribute(org.simpleframework.xml.stream.InputNode, java.lang.String) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Primitive $r0;
+        org.simpleframework.xml.stream.Style $r1;
+        java.lang.String $r2, $r5;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.core.PrimitiveValue $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 := @parameter1: java.lang.String;
+
+        if $r2 == null goto label1;
+
+        $r1 = $r4.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.stream.Style style>;
+
+        $r5 = interfaceinvoke $r1.<org.simpleframework.xml.stream.Style: java.lang.String getAttribute(java.lang.String)>($r2);
+
+        $r3 = interfaceinvoke $r3.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext(java.lang.String)>($r5);
+
+     label1:
+        if $r3 != null goto label2;
+
+        return 1;
+
+     label2:
+        $r0 = $r4.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Primitive root>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.Primitive: boolean validate(org.simpleframework.xml.stream.InputNode)>($r3);
+
+        return $z0;
+    }
+
+    private boolean validateElement(org.simpleframework.xml.stream.InputNode, java.lang.String) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Primitive $r0;
+        org.simpleframework.xml.stream.Style $r1;
+        java.lang.String $r2, $r6;
+        org.simpleframework.xml.stream.InputNode $r3, $r4;
+        org.simpleframework.xml.core.PrimitiveValue $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r1 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.stream.Style style>;
+
+        $r6 = interfaceinvoke $r1.<org.simpleframework.xml.stream.Style: java.lang.String getAttribute(java.lang.String)>($r2);
+
+        $r4 = interfaceinvoke $r3.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext(java.lang.String)>($r6);
+
+        if $r4 != null goto label1;
+
+        return 1;
+
+     label1:
+        $r0 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Primitive root>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.Primitive: boolean validate(org.simpleframework.xml.stream.InputNode)>($r3);
+
+        return $z0;
+    }
+
+    private void writeAttribute(org.simpleframework.xml.stream.OutputNode, java.lang.Object, java.lang.String) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Primitive $r0;
+        org.simpleframework.xml.stream.Style $r1;
+        java.lang.String $r2, $r6;
+        java.lang.Object $r3;
+        org.simpleframework.xml.stream.OutputNode $r4;
+        org.simpleframework.xml.core.PrimitiveValue $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r3 := @parameter1: java.lang.Object;
+
+        $r2 := @parameter2: java.lang.String;
+
+        if $r3 == null goto label2;
+
+        if $r2 == null goto label1;
+
+        $r1 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.stream.Style style>;
+
+        $r6 = interfaceinvoke $r1.<org.simpleframework.xml.stream.Style: java.lang.String getAttribute(java.lang.String)>($r2);
+
+        $r4 = interfaceinvoke $r4.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.OutputNode setAttribute(java.lang.String,java.lang.String)>($r6, null);
+
+     label1:
+        $r0 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Primitive root>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Primitive: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r4, $r3);
+
+        return;
+
+     label2:
+        return;
+    }
+
+    private void writeElement(org.simpleframework.xml.stream.OutputNode, java.lang.Object, java.lang.String) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Primitive $r0;
+        boolean $z0;
+        org.simpleframework.xml.stream.Style $r1;
+        java.lang.String $r2, $r6;
+        java.lang.Object $r3;
+        org.simpleframework.xml.stream.OutputNode $r4, $r7;
+        org.simpleframework.xml.core.PrimitiveValue $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r3 := @parameter1: java.lang.Object;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r1 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.stream.Style style>;
+
+        $r6 = interfaceinvoke $r1.<org.simpleframework.xml.stream.Style: java.lang.String getAttribute(java.lang.String)>($r2);
+
+        $r7 = interfaceinvoke $r4.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.OutputNode getChild(java.lang.String)>($r6);
+
+        if $r3 == null goto label1;
+
+        $z0 = specialinvoke $r5.<org.simpleframework.xml.core.PrimitiveValue: boolean isOverridden(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r7, $r3);
+
+        if $z0 != 0 goto label2;
+
+        $r0 = $r5.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Primitive root>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Primitive: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r7, $r3);
+
+        return;
+
+     label1:
+        return;
+
+     label2:
+        return;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.Object $r0, $r10;
+        org.simpleframework.xml.core.Context $r1;
+        boolean $z0;
+        org.simpleframework.xml.core.Entry $r2, $r9;
+        java.lang.Class $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        java.lang.String $r5, $r6;
+        org.simpleframework.xml.stream.InputNode $r7;
+        org.simpleframework.xml.core.PrimitiveValue $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r7 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 = $r8.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r3 = interfaceinvoke $r4.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r2 = $r8.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Entry entry>;
+
+        $r6 = virtualinvoke $r2.<org.simpleframework.xml.core.Entry: java.lang.String getValue()>();
+
+        $r5 = $r6;
+
+        $r9 = $r8.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Entry entry>;
+
+        $z0 = virtualinvoke $r9.<org.simpleframework.xml.core.Entry: boolean isInline()>();
+
+        if $z0 != 0 goto label2;
+
+        if $r6 != null goto label1;
+
+        $r1 = $r8.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Context context>;
+
+        $r5 = interfaceinvoke $r1.<org.simpleframework.xml.core.Context: java.lang.String getName(java.lang.Class)>($r3);
+
+     label1:
+        $r0 = specialinvoke $r8.<org.simpleframework.xml.core.PrimitiveValue: java.lang.Object readElement(org.simpleframework.xml.stream.InputNode,java.lang.String)>($r7, $r5);
+
+        return $r0;
+
+     label2:
+        $r10 = specialinvoke $r8.<org.simpleframework.xml.core.PrimitiveValue: java.lang.Object readAttribute(org.simpleframework.xml.stream.InputNode,java.lang.String)>($r7, $r6);
+
+        return $r10;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.PersistenceException $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Entry $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        java.lang.Object $r5, $r8;
+        org.simpleframework.xml.stream.InputNode $r6;
+        org.simpleframework.xml.core.PrimitiveValue $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r6 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 := @parameter1: java.lang.Object;
+
+        $r4 = $r7.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r2 = interfaceinvoke $r4.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        if $r5 == null goto label1;
+
+        $r1 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r2;
+
+        $r3 = $r7.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Entry entry>;
+
+        $r0[1] = $r3;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Can not read value of %s for %s", $r0);
+
+        throw $r1;
+
+     label1:
+        $r8 = virtualinvoke $r7.<org.simpleframework.xml.core.PrimitiveValue: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r6);
+
+        return $r8;
+    }
+
+    public boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Context $r0;
+        boolean $z0, $z1, $z2;
+        org.simpleframework.xml.core.Entry $r1, $r8;
+        java.lang.Class $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        java.lang.String $r4, $r5;
+        org.simpleframework.xml.stream.InputNode $r6;
+        org.simpleframework.xml.core.PrimitiveValue $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r6 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 = $r7.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r1 = $r7.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Entry entry>;
+
+        $r5 = virtualinvoke $r1.<org.simpleframework.xml.core.Entry: java.lang.String getValue()>();
+
+        $r4 = $r5;
+
+        $r8 = $r7.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Entry entry>;
+
+        $z0 = virtualinvoke $r8.<org.simpleframework.xml.core.Entry: boolean isInline()>();
+
+        if $z0 != 0 goto label2;
+
+        if $r5 != null goto label1;
+
+        $r0 = $r7.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Context context>;
+
+        $r4 = interfaceinvoke $r0.<org.simpleframework.xml.core.Context: java.lang.String getName(java.lang.Class)>($r2);
+
+     label1:
+        $z1 = specialinvoke $r7.<org.simpleframework.xml.core.PrimitiveValue: boolean validateElement(org.simpleframework.xml.stream.InputNode,java.lang.String)>($r6, $r4);
+
+        return $z1;
+
+     label2:
+        $z2 = specialinvoke $r7.<org.simpleframework.xml.core.PrimitiveValue: boolean validateAttribute(org.simpleframework.xml.stream.InputNode,java.lang.String)>($r6, $r5);
+
+        return $z2;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Context $r0;
+        boolean $z0;
+        org.simpleframework.xml.core.Entry $r1, $r9;
+        java.lang.Class $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        java.lang.String $r4, $r5;
+        java.lang.Object $r6;
+        org.simpleframework.xml.stream.OutputNode $r7;
+        org.simpleframework.xml.core.PrimitiveValue $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.PrimitiveValue;
+
+        $r7 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r6 := @parameter1: java.lang.Object;
+
+        $r3 = $r8.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r1 = $r8.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Entry entry>;
+
+        $r5 = virtualinvoke $r1.<org.simpleframework.xml.core.Entry: java.lang.String getValue()>();
+
+        $r4 = $r5;
+
+        $r9 = $r8.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Entry entry>;
+
+        $z0 = virtualinvoke $r9.<org.simpleframework.xml.core.Entry: boolean isInline()>();
+
+        if $z0 != 0 goto label2;
+
+        if $r5 != null goto label1;
+
+        $r0 = $r8.<org.simpleframework.xml.core.PrimitiveValue: org.simpleframework.xml.core.Context context>;
+
+        $r4 = interfaceinvoke $r0.<org.simpleframework.xml.core.Context: java.lang.String getName(java.lang.Class)>($r2);
+
+     label1:
+        specialinvoke $r8.<org.simpleframework.xml.core.PrimitiveValue: void writeElement(org.simpleframework.xml.stream.OutputNode,java.lang.Object,java.lang.String)>($r7, $r6, $r4);
+
+        return;
+
+     label2:
+        specialinvoke $r8.<org.simpleframework.xml.core.PrimitiveValue: void writeAttribute(org.simpleframework.xml.stream.OutputNode,java.lang.Object,java.lang.String)>($r7, $r6, $r5);
+
+        return;
+    }
+}

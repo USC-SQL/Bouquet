@@ -1,0 +1,69 @@
+class com.dai.giftcard.viewer.activity.CardFormPageActivity$1 extends java.lang.Object implements android.widget.AdapterView$OnItemSelectedListener
+{
+    final com.dai.giftcard.viewer.activity.CardFormPageActivity this$0;
+
+    void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$1 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$1;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$1: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onItemSelected(android.widget.AdapterView, android.view.View, int, long)
+    {
+        com.dai.giftcard.viewer.model.CardType $r0;
+        android.widget.Spinner $r1;
+        java.lang.Object $r2;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r3, $r7;
+        long $l0;
+        int $i1;
+        android.view.View $r4;
+        android.widget.AdapterView $r5;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$1 $r6;
+
+        $r6 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$1;
+
+        $r5 := @parameter0: android.widget.AdapterView;
+
+        $r4 := @parameter1: android.view.View;
+
+        $i1 := @parameter2: int;
+
+        $l0 := @parameter3: long;
+
+        $r3 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity$1: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0>;
+
+        $r1 = $r3.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Spinner spCardType>;
+
+        $r2 = virtualinvoke $r1.<android.widget.Spinner: java.lang.Object getSelectedItem()>();
+
+        $r0 = (com.dai.giftcard.viewer.model.CardType) $r2;
+
+        $r7 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity$1: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0>;
+
+        staticinvoke <com.dai.giftcard.viewer.activity.CardFormPageActivity: void access$000(com.dai.giftcard.viewer.activity.CardFormPageActivity,com.dai.giftcard.viewer.model.CardType)>($r7, $r0);
+
+        return;
+    }
+
+    public void onNothingSelected(android.widget.AdapterView)
+    {
+        android.widget.AdapterView $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$1 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$1;
+
+        $r0 := @parameter0: android.widget.AdapterView;
+
+        return;
+    }
+}

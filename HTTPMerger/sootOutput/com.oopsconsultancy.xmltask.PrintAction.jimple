@@ -1,0 +1,298 @@
+public class com.oopsconsultancy.xmltask.PrintAction extends com.oopsconsultancy.xmltask.Action
+{
+    private final java.lang.String buffer;
+    private final java.lang.String ident;
+    private final org.apache.tools.ant.Task task;
+
+    private void <init>(org.apache.tools.ant.Task, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1, $r2;
+        org.apache.tools.ant.Task $r3;
+        com.oopsconsultancy.xmltask.PrintAction $r4;
+
+        $r4 := @this: com.oopsconsultancy.xmltask.PrintAction;
+
+        $r3 := @parameter0: org.apache.tools.ant.Task;
+
+        $r0 := @parameter1: java.lang.String;
+
+        $r1 := @parameter2: java.lang.String;
+
+        $r2 := @parameter3: java.lang.String;
+
+        specialinvoke $r4.<com.oopsconsultancy.xmltask.Action: void <init>()>();
+
+        $r4.<com.oopsconsultancy.xmltask.PrintAction: org.apache.tools.ant.Task task> = $r3;
+
+        $r4.<com.oopsconsultancy.xmltask.PrintAction: java.lang.String buffer> = $r1;
+
+        $r4.<com.oopsconsultancy.xmltask.PrintAction: java.lang.String ident> = $r2;
+
+        return;
+    }
+
+    public static void log(java.lang.String, org.apache.tools.ant.Task)
+    {
+        java.io.PrintStream $r0;
+        org.apache.tools.ant.Task $r1;
+        java.lang.String $r2;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: org.apache.tools.ant.Task;
+
+        if $r1 == null goto label1;
+
+        virtualinvoke $r1.<org.apache.tools.ant.Task: void log(java.lang.String,int)>($r2, 3);
+
+        return;
+
+     label1:
+        $r0 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public static com.oopsconsultancy.xmltask.PrintAction newInstanceFromBuffer(org.apache.tools.ant.Task, java.lang.String, java.lang.String)
+    {
+        com.oopsconsultancy.xmltask.PrintAction $r0;
+        java.lang.String $r1, $r2;
+        org.apache.tools.ant.Task $r3;
+
+        $r3 := @parameter0: org.apache.tools.ant.Task;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r0 = new com.oopsconsultancy.xmltask.PrintAction;
+
+        specialinvoke $r0.<com.oopsconsultancy.xmltask.PrintAction: void <init>(org.apache.tools.ant.Task,java.lang.String,java.lang.String,java.lang.String)>($r3, null, $r1, $r2);
+
+        return $r0;
+    }
+
+    public static com.oopsconsultancy.xmltask.PrintAction newInstanceFromPath(org.apache.tools.ant.Task, java.lang.String, java.lang.String)
+    {
+        com.oopsconsultancy.xmltask.PrintAction $r0;
+        java.lang.String $r1, $r2;
+        org.apache.tools.ant.Task $r3;
+
+        $r3 := @parameter0: org.apache.tools.ant.Task;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r2 := @parameter2: java.lang.String;
+
+        $r0 = new com.oopsconsultancy.xmltask.PrintAction;
+
+        specialinvoke $r0.<com.oopsconsultancy.xmltask.PrintAction: void <init>(org.apache.tools.ant.Task,java.lang.String,java.lang.String,java.lang.String)>($r3, $r1, null, $r2);
+
+        return $r0;
+    }
+
+    public boolean apply(org.w3c.dom.Node) throws java.lang.Exception
+    {
+        javax.xml.transform.stream.StreamResult $r0;
+        javax.xml.transform.dom.DOMSource $r1;
+        javax.xml.transform.Transformer $r2;
+        javax.xml.transform.TransformerFactory $r3;
+        java.lang.StringBuilder $r4, $r5, $r17, $r19, $r20, $r22, $r23, $r25, $r26, $r29, $r30, $r31, $r32, $r33, $r35, $r37, $r42, $r43, $r44, $r45;
+        java.io.PrintStream $r6, $r16, $r28, $r40, $r41, $r47;
+        org.apache.tools.ant.Task $r7;
+        org.w3c.dom.Node[] $r8, $r9;
+        java.lang.String $r10, $r11, $r15, $r18, $r21, $r24, $r27, $r34, $r36, $r38, $r46;
+        int $i0, $i1;
+        java.lang.Exception $r12;
+        org.w3c.dom.Node $r13, $r39;
+        com.oopsconsultancy.xmltask.PrintAction $r14;
+
+        $r14 := @this: com.oopsconsultancy.xmltask.PrintAction;
+
+        $r13 := @parameter0: org.w3c.dom.Node;
+
+        if $r13 != null goto label14;
+
+        $r10 = $r14.<com.oopsconsultancy.xmltask.PrintAction: java.lang.String buffer>;
+
+        if $r10 != null goto label01;
+
+        $r6 = <java.lang.System: java.io.PrintStream err>;
+
+        virtualinvoke $r6.<java.io.PrintStream: void println(java.lang.String)>("No buffer specified");
+
+        return 0;
+
+     label01:
+        $r15 = $r14.<com.oopsconsultancy.xmltask.PrintAction: java.lang.String buffer>;
+
+        $r7 = $r14.<com.oopsconsultancy.xmltask.PrintAction: org.apache.tools.ant.Task task>;
+
+        $r9 = staticinvoke <com.oopsconsultancy.xmltask.BufferStore: org.w3c.dom.Node[] get(java.lang.String,org.apache.tools.ant.Task)>($r15, $r7);
+
+        $r8 = $r9;
+
+        if $r9 != null goto label02;
+
+        $r16 = <java.lang.System: java.io.PrintStream err>;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r17 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Couldn\'t find any entries for buffer \'");
+
+        $r18 = $r14.<com.oopsconsultancy.xmltask.PrintAction: java.lang.String buffer>;
+
+        $r19 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r18);
+
+        $r20 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $r21 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r16.<java.io.PrintStream: void println(java.lang.String)>($r21);
+
+        return 0;
+
+     label02:
+        $r22 = new java.lang.StringBuilder;
+
+        specialinvoke $r22.<java.lang.StringBuilder: void <init>()>();
+
+        $r23 = virtualinvoke $r22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("buffer \'");
+
+        $r24 = $r14.<com.oopsconsultancy.xmltask.PrintAction: java.lang.String buffer>;
+
+        $r25 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r24);
+
+        $r26 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label03:
+        $r3 = staticinvoke <javax.xml.transform.TransformerFactory: javax.xml.transform.TransformerFactory newInstance()>();
+
+        $r2 = virtualinvoke $r3.<javax.xml.transform.TransformerFactory: javax.xml.transform.Transformer newTransformer()>();
+
+        virtualinvoke $r2.<javax.xml.transform.Transformer: void setOutputProperty(java.lang.String,java.lang.String)>("omit-xml-declaration", "yes");
+
+        $i0 = 0;
+
+     label04:
+        $i1 = lengthof $r8;
+
+        if $i0 >= $i1 goto label17;
+
+        $r28 = <java.lang.System: java.io.PrintStream out>;
+
+        $r29 = new java.lang.StringBuilder;
+
+     label05:
+        specialinvoke $r29.<java.lang.StringBuilder: void <init>()>();
+
+        $r30 = virtualinvoke $r29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("{ ");
+
+        $r31 = virtualinvoke $r30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r27);
+
+        $r32 = virtualinvoke $r31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" output");
+
+        $r11 = $r14.<com.oopsconsultancy.xmltask.PrintAction: java.lang.String ident>;
+
+     label06:
+        if $r11 == null goto label15;
+
+     label07:
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r33 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" - ");
+
+        $r34 = $r14.<com.oopsconsultancy.xmltask.PrintAction: java.lang.String ident>;
+
+        $r35 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r34);
+
+        $r36 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label08:
+        $r37 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r36);
+
+        $r38 = virtualinvoke $r37.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r28.<java.io.PrintStream: void println(java.lang.String)>($r38);
+
+        $r1 = new javax.xml.transform.dom.DOMSource;
+
+        $r39 = $r8[$i0];
+
+        specialinvoke $r1.<javax.xml.transform.dom.DOMSource: void <init>(org.w3c.dom.Node)>($r39);
+
+     label09:
+        $r0 = new javax.xml.transform.stream.StreamResult;
+
+     label10:
+        $r40 = <java.lang.System: java.io.PrintStream out>;
+
+        specialinvoke $r0.<javax.xml.transform.stream.StreamResult: void <init>(java.io.OutputStream)>($r40);
+
+        virtualinvoke $r2.<javax.xml.transform.Transformer: void transform(javax.xml.transform.Source,javax.xml.transform.Result)>($r1, $r0);
+
+     label11:
+        $r41 = <java.lang.System: java.io.PrintStream out>;
+
+     label12:
+        $r42 = new java.lang.StringBuilder;
+
+        specialinvoke $r42.<java.lang.StringBuilder: void <init>()>();
+
+        $r43 = virtualinvoke $r42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("} ");
+
+        $r44 = virtualinvoke $r43.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r27);
+
+        $r45 = virtualinvoke $r44.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" output");
+
+        $r46 = virtualinvoke $r45.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r41.<java.io.PrintStream: void println(java.lang.String)>($r46);
+
+     label13:
+        $i0 = $i0 + 1;
+
+        goto label04;
+
+     label14:
+        $r8 = newarray (org.w3c.dom.Node)[1];
+
+        $r8[0] = $r13;
+
+        $r27 = "node";
+
+        goto label03;
+
+     label15:
+        $r36 = "";
+
+        goto label08;
+
+     label16:
+        $r12 := @caughtexception;
+
+        $r47 = <java.lang.System: java.io.PrintStream err>;
+
+        virtualinvoke $r47.<java.io.PrintStream: void println(java.lang.String)>("Problem during output");
+
+        virtualinvoke $r12.<java.lang.Exception: void printStackTrace()>();
+
+        goto label13;
+
+     label17:
+        return 1;
+
+        catch java.lang.Exception from label05 to label06 with label16;
+        catch java.lang.Exception from label07 to label09 with label16;
+        catch java.lang.Exception from label10 to label11 with label16;
+        catch java.lang.Exception from label12 to label13 with label16;
+    }
+}

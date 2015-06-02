@@ -1,0 +1,233 @@
+public class com.oopsconsultancy.xmltask.UncommentAction extends com.oopsconsultancy.xmltask.Action
+{
+    private javax.xml.parsers.DocumentBuilderFactory dfactory;
+    private boolean wellFormed;
+
+    public void <init>()
+    {
+        javax.xml.parsers.DocumentBuilderFactory $r0, $r2;
+        com.oopsconsultancy.xmltask.UncommentAction $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.UncommentAction;
+
+        specialinvoke $r1.<com.oopsconsultancy.xmltask.Action: void <init>()>();
+
+        $r0 = staticinvoke <javax.xml.parsers.DocumentBuilderFactory: javax.xml.parsers.DocumentBuilderFactory newInstance()>();
+
+        $r1.<com.oopsconsultancy.xmltask.UncommentAction: javax.xml.parsers.DocumentBuilderFactory dfactory> = $r0;
+
+        $r1.<com.oopsconsultancy.xmltask.UncommentAction: boolean wellFormed> = 0;
+
+        $r2 = $r1.<com.oopsconsultancy.xmltask.UncommentAction: javax.xml.parsers.DocumentBuilderFactory dfactory>;
+
+        virtualinvoke $r2.<javax.xml.parsers.DocumentBuilderFactory: void setNamespaceAware(boolean)>(1);
+
+        return;
+    }
+
+    private javax.xml.parsers.DocumentBuilder getBuilder() throws javax.xml.parsers.ParserConfigurationException
+    {
+        com.oopsconsultancy.xmltask.UncommentAction$1 $r0;
+        javax.xml.parsers.DocumentBuilder $r1;
+        javax.xml.parsers.DocumentBuilderFactory $r2;
+        com.oopsconsultancy.xmltask.UncommentAction $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.UncommentAction;
+
+        $r2 = $r3.<com.oopsconsultancy.xmltask.UncommentAction: javax.xml.parsers.DocumentBuilderFactory dfactory>;
+
+        $r1 = virtualinvoke $r2.<javax.xml.parsers.DocumentBuilderFactory: javax.xml.parsers.DocumentBuilder newDocumentBuilder()>();
+
+        $r0 = new com.oopsconsultancy.xmltask.UncommentAction$1;
+
+        specialinvoke $r0.<com.oopsconsultancy.xmltask.UncommentAction$1: void <init>(com.oopsconsultancy.xmltask.UncommentAction)>($r3);
+
+        virtualinvoke $r1.<javax.xml.parsers.DocumentBuilder: void setErrorHandler(org.xml.sax.ErrorHandler)>($r0);
+
+        return $r1;
+    }
+
+    private org.w3c.dom.Document readXml(java.lang.String) throws java.lang.Exception
+    {
+        java.lang.StringBuilder $r0, $r8, $r9, $r10;
+        org.w3c.dom.Document $r1, $r14;
+        javax.xml.parsers.DocumentBuilder $r2;
+        java.io.StringReader $r3, $r13;
+        org.xml.sax.InputSource $r4, $r12;
+        org.xml.sax.SAXParseException $r5;
+        java.lang.String $r6, $r11;
+        com.oopsconsultancy.xmltask.UncommentAction $r7;
+
+        $r7 := @this: com.oopsconsultancy.xmltask.UncommentAction;
+
+        $r6 := @parameter0: java.lang.String;
+
+        $r2 = specialinvoke $r7.<com.oopsconsultancy.xmltask.UncommentAction: javax.xml.parsers.DocumentBuilder getBuilder()>();
+
+        $r4 = new org.xml.sax.InputSource;
+
+        $r3 = new java.io.StringReader;
+
+     label1:
+        specialinvoke $r3.<java.io.StringReader: void <init>(java.lang.String)>($r6);
+
+        specialinvoke $r4.<org.xml.sax.InputSource: void <init>(java.io.Reader)>($r3);
+
+        $r1 = virtualinvoke $r2.<javax.xml.parsers.DocumentBuilder: org.w3c.dom.Document parse(org.xml.sax.InputSource)>($r4);
+
+     label2:
+        $r7.<com.oopsconsultancy.xmltask.UncommentAction: boolean wellFormed> = 1;
+
+        return $r1;
+
+     label3:
+        $r5 := @caughtexception;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<XMLTASK>");
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("</XMLTASK>");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r12 = new org.xml.sax.InputSource;
+
+        $r13 = new java.io.StringReader;
+
+        specialinvoke $r13.<java.io.StringReader: void <init>(java.lang.String)>($r11);
+
+        specialinvoke $r12.<org.xml.sax.InputSource: void <init>(java.io.Reader)>($r13);
+
+        $r14 = virtualinvoke $r2.<javax.xml.parsers.DocumentBuilder: org.w3c.dom.Document parse(org.xml.sax.InputSource)>($r12);
+
+        $r7.<com.oopsconsultancy.xmltask.UncommentAction: boolean wellFormed> = 0;
+
+        return $r14;
+
+        catch org.xml.sax.SAXParseException from label1 to label2 with label3;
+    }
+
+    public boolean apply(org.w3c.dom.Node) throws java.lang.Exception
+    {
+        java.lang.Throwable r0;
+        org.apache.tools.ant.BuildException r1;
+        int $i0;
+        org.w3c.dom.NodeList $r2;
+        org.w3c.dom.DocumentFragment $r3;
+        org.w3c.dom.Element $r4;
+        org.w3c.dom.Document $r5, $r6, $r19;
+        java.lang.String $r7, $r17, $r18, $r27;
+        java.io.PrintStream $r8, $r22;
+        org.w3c.dom.Comment $r9;
+        java.lang.StringBuilder $r10, r11, $r16, r24, $r25, $r26;
+        boolean $z0, $z1;
+        org.w3c.dom.Node $r12, $r13, $r14, $r20, $r21, $r23;
+        com.oopsconsultancy.xmltask.UncommentAction $r15;
+
+        $r15 := @this: com.oopsconsultancy.xmltask.UncommentAction;
+
+        $r12 := @parameter0: org.w3c.dom.Node;
+
+        $z0 = $r12 instanceof org.w3c.dom.Comment;
+
+        if $z0 == 0 goto label5;
+
+        $r9 = (org.w3c.dom.Comment) $r12;
+
+        $r8 = <java.lang.System: java.io.PrintStream out>;
+
+        r11 = new java.lang.StringBuilder;
+
+        specialinvoke r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Uncommenting ");
+
+        $r7 = interfaceinvoke $r9.<org.w3c.dom.Comment: java.lang.String getData()>();
+
+        $r16 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        $r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r8.<java.io.PrintStream: void println(java.lang.String)>($r17);
+
+        $r18 = interfaceinvoke $r9.<org.w3c.dom.Comment: java.lang.String getData()>();
+
+        $r5 = specialinvoke $r15.<com.oopsconsultancy.xmltask.UncommentAction: org.w3c.dom.Document readXml(java.lang.String)>($r18);
+
+        $r6 = $r15.<com.oopsconsultancy.xmltask.UncommentAction: org.w3c.dom.Document doc>;
+
+        $r4 = interfaceinvoke $r5.<org.w3c.dom.Document: org.w3c.dom.Element getDocumentElement()>();
+
+        $r14 = interfaceinvoke $r6.<org.w3c.dom.Document: org.w3c.dom.Node importNode(org.w3c.dom.Node,boolean)>($r4, 1);
+
+        $r13 = $r14;
+
+        $z1 = $r15.<com.oopsconsultancy.xmltask.UncommentAction: boolean wellFormed>;
+
+        if $z1 != 0 goto label3;
+
+        $r19 = $r15.<com.oopsconsultancy.xmltask.UncommentAction: org.w3c.dom.Document doc>;
+
+        $r3 = interfaceinvoke $r19.<org.w3c.dom.Document: org.w3c.dom.DocumentFragment createDocumentFragment()>();
+
+        $r2 = interfaceinvoke $r14.<org.w3c.dom.Node: org.w3c.dom.NodeList getChildNodes()>();
+
+     label1:
+        $i0 = interfaceinvoke $r2.<org.w3c.dom.NodeList: int getLength()>();
+
+        if 0 >= $i0 goto label2;
+
+        $r20 = interfaceinvoke $r2.<org.w3c.dom.NodeList: org.w3c.dom.Node item(int)>(0);
+
+        interfaceinvoke $r3.<org.w3c.dom.DocumentFragment: org.w3c.dom.Node appendChild(org.w3c.dom.Node)>($r20);
+
+        goto label1;
+
+     label2:
+        $r13 = $r3;
+
+     label3:
+        $r21 = interfaceinvoke $r12.<org.w3c.dom.Node: org.w3c.dom.Node getParentNode()>();
+
+        if $r21 != null goto label4;
+
+        $r22 = <java.lang.System: java.io.PrintStream err>;
+
+        virtualinvoke $r22.<java.io.PrintStream: void println(java.lang.String)>("Attempt to insert after root node");
+
+        return 0;
+
+     label4:
+        $r23 = interfaceinvoke $r12.<org.w3c.dom.Node: org.w3c.dom.Node getNextSibling()>();
+
+        interfaceinvoke $r21.<org.w3c.dom.Node: org.w3c.dom.Node insertBefore(org.w3c.dom.Node,org.w3c.dom.Node)>($r13, $r23);
+
+        interfaceinvoke $r21.<org.w3c.dom.Node: org.w3c.dom.Node removeChild(org.w3c.dom.Node)>($r9);
+
+        return 1;
+
+     label5:
+        r1 = new org.apache.tools.ant.BuildException;
+
+        r24 = new java.lang.StringBuilder;
+
+        specialinvoke r24.<java.lang.StringBuilder: void <init>()>();
+
+        $r25 = virtualinvoke r24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r12);
+
+        $r26 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not a comment");
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke r1.<org.apache.tools.ant.BuildException: void <init>(java.lang.String)>($r27);
+
+        r0 = (java.lang.Throwable) r1;
+
+        throw r0;
+    }
+}

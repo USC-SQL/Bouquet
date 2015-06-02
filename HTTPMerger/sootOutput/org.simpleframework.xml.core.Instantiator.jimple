@@ -1,0 +1,15 @@
+interface  org.simpleframework.xml.core.Instantiator extends java.lang.Object
+{
+
+    public abstract java.util.List getCreators();
+
+    public abstract java.lang.Object getInstance() throws java.lang.Exception;
+
+    public abstract java.lang.Object getInstance(org.simpleframework.xml.core.Criteria) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Parameter getParameter(java.lang.String);
+
+    public abstract java.util.List getParameters();
+
+    public abstract boolean isDefault();
+}

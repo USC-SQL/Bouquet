@@ -1,0 +1,46 @@
+class com.dai.giftcard.viewer.activity.HomePageActivity$3 extends java.lang.Object implements android.widget.AdapterView$OnItemLongClickListener
+{
+    final com.dai.giftcard.viewer.activity.HomePageActivity this$0;
+
+    void <init>(com.dai.giftcard.viewer.activity.HomePageActivity)
+    {
+        com.dai.giftcard.viewer.activity.HomePageActivity $r0;
+        com.dai.giftcard.viewer.activity.HomePageActivity$3 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.HomePageActivity$3;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.HomePageActivity;
+
+        $r1.<com.dai.giftcard.viewer.activity.HomePageActivity$3: com.dai.giftcard.viewer.activity.HomePageActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean onItemLongClick(android.widget.AdapterView, android.view.View, int, long)
+    {
+        com.dai.giftcard.viewer.activity.HomePageActivity $r0;
+        long $l0;
+        int $i1;
+        android.view.View $r1;
+        android.widget.AdapterView $r2;
+        com.dai.giftcard.viewer.activity.HomePageActivity$3 $r3;
+
+        $r3 := @this: com.dai.giftcard.viewer.activity.HomePageActivity$3;
+
+        $r2 := @parameter0: android.widget.AdapterView;
+
+        $r1 := @parameter1: android.view.View;
+
+        $i1 := @parameter2: int;
+
+        $l0 := @parameter3: long;
+
+        $r0 = $r3.<com.dai.giftcard.viewer.activity.HomePageActivity$3: com.dai.giftcard.viewer.activity.HomePageActivity this$0>;
+
+        staticinvoke <com.dai.giftcard.viewer.service.IntentService: void CardEditIntent(android.app.Activity,long)>($r0, $l0);
+
+        return 0;
+    }
+}

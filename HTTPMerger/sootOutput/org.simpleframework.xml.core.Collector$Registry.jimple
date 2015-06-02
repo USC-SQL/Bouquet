@@ -1,0 +1,52 @@
+class org.simpleframework.xml.core.Collector$Registry extends java.util.LinkedHashMap
+{
+    final org.simpleframework.xml.core.Collector this$0;
+
+    private void <init>(org.simpleframework.xml.core.Collector)
+    {
+        org.simpleframework.xml.core.Collector $r0;
+        org.simpleframework.xml.core.Collector$Registry $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.Collector$Registry;
+
+        $r0 := @parameter0: org.simpleframework.xml.core.Collector;
+
+        $r1.<org.simpleframework.xml.core.Collector$Registry: org.simpleframework.xml.core.Collector this$0> = $r0;
+
+        specialinvoke $r1.<java.util.LinkedHashMap: void <init>()>();
+
+        return;
+    }
+
+    void <init>(org.simpleframework.xml.core.Collector, org.simpleframework.xml.core.Collector$1)
+    {
+        org.simpleframework.xml.core.Collector$1 $r0;
+        org.simpleframework.xml.core.Collector $r1;
+        org.simpleframework.xml.core.Collector$Registry $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Collector$Registry;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Collector;
+
+        $r0 := @parameter1: org.simpleframework.xml.core.Collector$1;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.Collector$Registry: void <init>(org.simpleframework.xml.core.Collector)>($r1);
+
+        return;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        java.util.Iterator $r0;
+        java.util.Set $r1;
+        org.simpleframework.xml.core.Collector$Registry $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Collector$Registry;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.Collector$Registry: java.util.Set keySet()>();
+
+        $r0 = interfaceinvoke $r1.<java.util.Set: java.util.Iterator iterator()>();
+
+        return $r0;
+    }
+}

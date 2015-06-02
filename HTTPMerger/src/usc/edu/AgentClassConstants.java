@@ -52,7 +52,7 @@ public class AgentClassConstants {
     public final static String toString="java.lang.String toString(java.net.URLConnection)";
     public final static String connect="void connect(java.net.URLConnection)";
     //list of original signatures
-
+    public final static String HTTPClientExecution="org.apache.http.HttpResponse HttpResponseexecute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.client.HttpClient)";
     //list of signatures
     /*
     <java.net.URLConnection: boolean getAllowUserInteraction()>
@@ -99,11 +99,21 @@ public class AgentClassConstants {
     final static private Hashtable<String,String > AgentMethodTable=new Hashtable<String,String >();
     static {
         String[][] pairs = {
-                {"<java.net.URLConnection: java.io.InputStream getInputStream()>", getInputStream}
+                {"<java.net.URLConnection: java.io.InputStream getInputStream()>", getInputStream},
+                {"<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>", HTTPClientExecution}
         };
         for (String[] pair : pairs) {
             AgentMethodTable.put(pair[0], pair[1]);
         }
+    }
+    public static String QueryAgentMethodForBCEL(String Sig)
+    {
+        if(!AgentMethodTable.containsKey(Sig))
+        {
+            return null;
+        }
+        String sub=AgentMethodTable.get(Sig);
+        return sub;
     }
     public static SootMethod QueryAgentMethod(String Sig)
     {
@@ -113,7 +123,7 @@ public class AgentClassConstants {
         }
         String sub=AgentMethodTable.get(Sig);
         SootClass Agentclass = Scene.v().loadClassAndSupport(AgentClassConstants.AgentClass);
-        SootMethod sm=Agentclass.getMethod("java.io.InputStream getInputStream(java.net.URLConnection)");
+        SootMethod sm=Agentclass.getMethod(sub);
         return sm;
 
 

@@ -1,0 +1,75 @@
+class com.dai.giftcard.viewer.activity.CardFormPageActivity$6 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.dai.giftcard.viewer.activity.CardFormPageActivity this$0;
+
+    void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$6 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$6;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$6: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        android.net.Uri $r0;
+        java.lang.String $r1, $r11;
+        com.dai.giftcard.viewer.model.CardType $r2;
+        long $l0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r3;
+        java.lang.StringBuilder $r4, $r9, $r10;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r5, $r12;
+        android.content.Intent $r6;
+        int $i1, $i2;
+        android.content.DialogInterface $r7;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$6 $r8;
+
+        $r8 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$6;
+
+        $r7 := @parameter0: android.content.DialogInterface;
+
+        $i1 := @parameter1: int;
+
+        $r5 = $r8.<com.dai.giftcard.viewer.activity.CardFormPageActivity$6: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0>;
+
+        $i2 = $r5.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $l0 = (long) $i2;
+
+        $r3 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntity GetGiftCardById(long)>($l0);
+
+        $r6 = new android.content.Intent;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r9 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("http://");
+
+        $r2 = $r3.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r1 = $r2.<com.dai.giftcard.viewer.model.CardType: java.lang.String MerchantWeb>;
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r0 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r11);
+
+        specialinvoke $r6.<android.content.Intent: void <init>(java.lang.String,android.net.Uri)>("android.intent.action.VIEW", $r0);
+
+        $r12 = $r8.<com.dai.giftcard.viewer.activity.CardFormPageActivity$6: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0>;
+
+        virtualinvoke $r12.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void startActivity(android.content.Intent)>($r6);
+
+        return;
+    }
+}

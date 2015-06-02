@@ -1,0 +1,9 @@
+public annotation interface  org.simpleframework.xml.Version extends java.lang.Object implements java.lang.annotation.Annotation
+{
+
+    public abstract java.lang.String name();
+
+    public abstract boolean required();
+
+    public abstract double revision();
+}

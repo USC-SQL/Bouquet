@@ -1,0 +1,35 @@
+final enum class org.jsoup.parser.HtmlTreeBuilderState$23 extends org.jsoup.parser.HtmlTreeBuilderState
+{
+
+    void <init>(java.lang.String, int)
+    {
+        int $i0;
+        java.lang.String $r0;
+        org.jsoup.parser.HtmlTreeBuilderState$23 $r1;
+
+        $r1 := @this: org.jsoup.parser.HtmlTreeBuilderState$23;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r1.<org.jsoup.parser.HtmlTreeBuilderState: void <init>(java.lang.String,int,org.jsoup.parser.HtmlTreeBuilderState$1)>($r0, $i0, null);
+
+        return;
+    }
+
+    boolean process(org.jsoup.parser.Token, org.jsoup.parser.HtmlTreeBuilder)
+    {
+        org.jsoup.parser.HtmlTreeBuilder $r0;
+        org.jsoup.parser.Token $r1;
+        org.jsoup.parser.HtmlTreeBuilderState$23 $r2;
+
+        $r2 := @this: org.jsoup.parser.HtmlTreeBuilderState$23;
+
+        $r1 := @parameter0: org.jsoup.parser.Token;
+
+        $r0 := @parameter1: org.jsoup.parser.HtmlTreeBuilder;
+
+        return 1;
+    }
+}

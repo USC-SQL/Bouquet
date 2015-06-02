@@ -1,0 +1,126 @@
+final class org.jsoup.select.CombiningEvaluator$Or extends org.jsoup.select.CombiningEvaluator
+{
+
+    void <init>()
+    {
+        org.jsoup.select.CombiningEvaluator$Or $r0;
+
+        $r0 := @this: org.jsoup.select.CombiningEvaluator$Or;
+
+        specialinvoke $r0.<org.jsoup.select.CombiningEvaluator: void <init>()>();
+
+        return;
+    }
+
+    void <init>(java.util.Collection)
+    {
+        org.jsoup.select.CombiningEvaluator$And $r0;
+        java.util.List $r1, $r4;
+        int $i0;
+        java.util.Collection $r2;
+        org.jsoup.select.CombiningEvaluator$Or $r3;
+
+        $r3 := @this: org.jsoup.select.CombiningEvaluator$Or;
+
+        $r2 := @parameter0: java.util.Collection;
+
+        specialinvoke $r3.<org.jsoup.select.CombiningEvaluator: void <init>()>();
+
+        $i0 = interfaceinvoke $r2.<java.util.Collection: int size()>();
+
+        if $i0 <= 1 goto label1;
+
+        $r1 = $r3.<org.jsoup.select.CombiningEvaluator$Or: java.util.List evaluators>;
+
+        $r0 = new org.jsoup.select.CombiningEvaluator$And;
+
+        specialinvoke $r0.<org.jsoup.select.CombiningEvaluator$And: void <init>(java.util.Collection)>($r2);
+
+        interfaceinvoke $r1.<java.util.List: boolean add(java.lang.Object)>($r0);
+
+        return;
+
+     label1:
+        $r4 = $r3.<org.jsoup.select.CombiningEvaluator$Or: java.util.List evaluators>;
+
+        interfaceinvoke $r4.<java.util.List: boolean addAll(java.util.Collection)>($r2);
+
+        return;
+    }
+
+    public void add(org.jsoup.select.Evaluator)
+    {
+        java.util.List $r0;
+        org.jsoup.select.Evaluator $r1;
+        org.jsoup.select.CombiningEvaluator$Or $r2;
+
+        $r2 := @this: org.jsoup.select.CombiningEvaluator$Or;
+
+        $r1 := @parameter0: org.jsoup.select.Evaluator;
+
+        $r0 = $r2.<org.jsoup.select.CombiningEvaluator$Or: java.util.List evaluators>;
+
+        interfaceinvoke $r0.<java.util.List: boolean add(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    public boolean matches(org.jsoup.nodes.Element, org.jsoup.nodes.Element)
+    {
+        org.jsoup.select.Evaluator $r0;
+        java.lang.Object $r1;
+        boolean $z0, $z1;
+        java.util.Iterator $r2;
+        java.util.List $r3;
+        org.jsoup.nodes.Element $r4, $r5;
+        org.jsoup.select.CombiningEvaluator$Or $r6;
+
+        $r6 := @this: org.jsoup.select.CombiningEvaluator$Or;
+
+        $r4 := @parameter0: org.jsoup.nodes.Element;
+
+        $r5 := @parameter1: org.jsoup.nodes.Element;
+
+        $r3 = $r6.<org.jsoup.select.CombiningEvaluator$Or: java.util.List evaluators>;
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.jsoup.select.Evaluator) $r1;
+
+        $z1 = virtualinvoke $r0.<org.jsoup.select.Evaluator: boolean matches(org.jsoup.nodes.Element,org.jsoup.nodes.Element)>($r4, $r5);
+
+        if $z1 == 0 goto label1;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.Object[] $r0;
+        java.lang.String $r1;
+        java.util.List $r2;
+        org.jsoup.select.CombiningEvaluator$Or $r3;
+
+        $r3 := @this: org.jsoup.select.CombiningEvaluator$Or;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r2 = $r3.<org.jsoup.select.CombiningEvaluator$Or: java.util.List evaluators>;
+
+        $r0[0] = $r2;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(":or%s", $r0);
+
+        return $r1;
+    }
+}

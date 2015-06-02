@@ -1,0 +1,122 @@
+public class com.dai.giftcard.viewer.reader.us.WalmartUSReader extends com.dai.giftcard.viewer.reader.BaseCardReader
+{
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.reader.us.WalmartUSReader $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.reader.us.WalmartUSReader;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.reader.BaseCardReader: void <init>()>();
+
+        return;
+    }
+
+    public boolean GetCardBalanceRequest() throws java.lang.Exception
+    {
+        byte $b0;
+        double $d0;
+        org.apache.http.client.HttpClient $r0;
+        java.lang.String $r1, $r8, $r11;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r2, $r7;
+        com.dai.giftcard.viewer.model.StringPair $r3, $r6, $r9, $r10;
+        java.util.ArrayList $r4;
+        com.dai.giftcard.viewer.reader.us.WalmartUSReader $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.reader.us.WalmartUSReader;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<java.util.ArrayList: void <init>()>();
+
+        $r3 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r2 = $r5.<com.dai.giftcard.viewer.reader.us.WalmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r1 = $r2.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        specialinvoke $r3.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("cardNumber", $r1);
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+        $r6 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r7 = $r5.<com.dai.giftcard.viewer.reader.us.WalmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r8 = $r7.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Pin>;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("pin", $r8);
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r6);
+
+        $r9 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r9.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("GetCardBalance.x", "88");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r9);
+
+        $r10 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r10.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("GetCardBalance.y", "9");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r10);
+
+        $r0 = $r5.<com.dai.giftcard.viewer.reader.us.WalmartUSReader: org.apache.http.client.HttpClient httpclient>;
+
+        $r11 = staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: java.lang.String HttpPost(org.apache.http.client.HttpClient,java.lang.String,java.util.List)>($r0, "https://www.walmart.com/cservice/ProcessShoppingCard.do", $r4);
+
+        $d0 = virtualinvoke $r5.<com.dai.giftcard.viewer.reader.us.WalmartUSReader: double ParseBalanceResult(java.lang.String)>($r11);
+
+        $b0 = $d0 cmpl 0.0;
+
+        if $b0 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public double ParseBalanceResult(java.lang.String)
+    {
+        double $d0, $d1;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r0, $r7;
+        org.jsoup.nodes.Element $r1;
+        int $i0;
+        org.jsoup.select.Elements $r2;
+        org.jsoup.nodes.Document $r3;
+        java.lang.String $r4, $r6;
+        com.dai.giftcard.viewer.reader.us.WalmartUSReader $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.reader.us.WalmartUSReader;
+
+        $r4 := @parameter0: java.lang.String;
+
+        $r3 = staticinvoke <org.jsoup.Jsoup: org.jsoup.nodes.Document parse(java.lang.String)>($r4);
+
+        $r2 = virtualinvoke $r3.<org.jsoup.nodes.Document: org.jsoup.select.Elements select(java.lang.String)>("span.Body4XLRed");
+
+        $i0 = virtualinvoke $r2.<org.jsoup.select.Elements: int size()>();
+
+        if $i0 <= 0 goto label1;
+
+        $r1 = virtualinvoke $r2.<org.jsoup.select.Elements: org.jsoup.nodes.Element get(int)>(0);
+
+        $r6 = virtualinvoke $r1.<org.jsoup.nodes.Element: java.lang.String text()>();
+
+        $r0 = $r5.<com.dai.giftcard.viewer.reader.us.WalmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $d0 = staticinvoke <com.dai.giftcard.viewer.helper.StringHelper: double GetDollar(java.lang.String)>($r6);
+
+        $r0.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance> = $d0;
+
+        $r7 = $r5.<com.dai.giftcard.viewer.reader.us.WalmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $d1 = $r7.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance>;
+
+        return $d1;
+
+     label1:
+        return -1.0;
+    }
+}

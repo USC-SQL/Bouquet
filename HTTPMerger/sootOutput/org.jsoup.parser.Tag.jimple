@@ -1,0 +1,1027 @@
+public class org.jsoup.parser.Tag extends java.lang.Object
+{
+    private static final java.lang.String[] blockTags;
+    private static final java.lang.String[] emptyTags;
+    private static final java.lang.String[] formatAsInlineTags;
+    private static final java.lang.String[] inlineTags;
+    private static final java.lang.String[] preserveWhitespaceTags;
+    private static final java.util.Map tags;
+    private boolean canContainBlock;
+    private boolean canContainInline;
+    private boolean empty;
+    private boolean formatAsBlock;
+    private boolean isBlock;
+    private boolean preserveWhitespace;
+    private boolean selfClosing;
+    private java.lang.String tagName;
+
+    static void <clinit>()
+    {
+        java.util.Map $r0, $r19, $r24;
+        java.lang.Object $r1, $r20, $r25;
+        java.util.HashMap $r2;
+        java.lang.String $r3, $r12, $r15, $r18, $r23;
+        org.jsoup.parser.Tag $r4, $r13, $r16, $r21, $r26;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9;
+        java.lang.String[] $r5, $r6, $r7, $r8, $r9, $r10, $r11, $r14, $r17, $r22;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        <org.jsoup.parser.Tag: java.util.Map tags> = $r2;
+
+        $r5 = newarray (java.lang.String)[58];
+
+        $r5[0] = "html";
+
+        $r5[1] = "head";
+
+        $r5[2] = "body";
+
+        $r5[3] = "frameset";
+
+        $r5[4] = "script";
+
+        $r5[5] = "noscript";
+
+        $r5[6] = "style";
+
+        $r5[7] = "meta";
+
+        $r5[8] = "link";
+
+        $r5[9] = "title";
+
+        $r5[10] = "frame";
+
+        $r5[11] = "noframes";
+
+        $r5[12] = "section";
+
+        $r5[13] = "nav";
+
+        $r5[14] = "aside";
+
+        $r5[15] = "hgroup";
+
+        $r5[16] = "header";
+
+        $r5[17] = "footer";
+
+        $r5[18] = "p";
+
+        $r5[19] = "h1";
+
+        $r5[20] = "h2";
+
+        $r5[21] = "h3";
+
+        $r5[22] = "h4";
+
+        $r5[23] = "h5";
+
+        $r5[24] = "h6";
+
+        $r5[25] = "ul";
+
+        $r5[26] = "ol";
+
+        $r5[27] = "pre";
+
+        $r5[28] = "div";
+
+        $r5[29] = "blockquote";
+
+        $r5[30] = "hr";
+
+        $r5[31] = "address";
+
+        $r5[32] = "figure";
+
+        $r5[33] = "figcaption";
+
+        $r5[34] = "form";
+
+        $r5[35] = "fieldset";
+
+        $r5[36] = "ins";
+
+        $r5[37] = "del";
+
+        $r5[38] = "dl";
+
+        $r5[39] = "dt";
+
+        $r5[40] = "dd";
+
+        $r5[41] = "li";
+
+        $r5[42] = "table";
+
+        $r5[43] = "caption";
+
+        $r5[44] = "thead";
+
+        $r5[45] = "tfoot";
+
+        $r5[46] = "tbody";
+
+        $r5[47] = "colgroup";
+
+        $r5[48] = "col";
+
+        $r5[49] = "tr";
+
+        $r5[50] = "th";
+
+        $r5[51] = "td";
+
+        $r5[52] = "video";
+
+        $r5[53] = "audio";
+
+        $r5[54] = "canvas";
+
+        $r5[55] = "details";
+
+        $r5[56] = "menu";
+
+        $r5[57] = "plaintext";
+
+        <org.jsoup.parser.Tag: java.lang.String[] blockTags> = $r5;
+
+        $r6 = newarray (java.lang.String)[56];
+
+        $r6[0] = "object";
+
+        $r6[1] = "base";
+
+        $r6[2] = "font";
+
+        $r6[3] = "tt";
+
+        $r6[4] = "i";
+
+        $r6[5] = "b";
+
+        $r6[6] = "u";
+
+        $r6[7] = "big";
+
+        $r6[8] = "small";
+
+        $r6[9] = "em";
+
+        $r6[10] = "strong";
+
+        $r6[11] = "dfn";
+
+        $r6[12] = "code";
+
+        $r6[13] = "samp";
+
+        $r6[14] = "kbd";
+
+        $r6[15] = "var";
+
+        $r6[16] = "cite";
+
+        $r6[17] = "abbr";
+
+        $r6[18] = "time";
+
+        $r6[19] = "acronym";
+
+        $r6[20] = "mark";
+
+        $r6[21] = "ruby";
+
+        $r6[22] = "rt";
+
+        $r6[23] = "rp";
+
+        $r6[24] = "a";
+
+        $r6[25] = "img";
+
+        $r6[26] = "br";
+
+        $r6[27] = "wbr";
+
+        $r6[28] = "map";
+
+        $r6[29] = "q";
+
+        $r6[30] = "sub";
+
+        $r6[31] = "sup";
+
+        $r6[32] = "bdo";
+
+        $r6[33] = "iframe";
+
+        $r6[34] = "embed";
+
+        $r6[35] = "span";
+
+        $r6[36] = "input";
+
+        $r6[37] = "select";
+
+        $r6[38] = "textarea";
+
+        $r6[39] = "label";
+
+        $r6[40] = "button";
+
+        $r6[41] = "optgroup";
+
+        $r6[42] = "option";
+
+        $r6[43] = "legend";
+
+        $r6[44] = "datalist";
+
+        $r6[45] = "keygen";
+
+        $r6[46] = "output";
+
+        $r6[47] = "progress";
+
+        $r6[48] = "meter";
+
+        $r6[49] = "area";
+
+        $r6[50] = "param";
+
+        $r6[51] = "source";
+
+        $r6[52] = "track";
+
+        $r6[53] = "summary";
+
+        $r6[54] = "command";
+
+        $r6[55] = "device";
+
+        <org.jsoup.parser.Tag: java.lang.String[] inlineTags> = $r6;
+
+        $r7 = newarray (java.lang.String)[14];
+
+        $r7[0] = "meta";
+
+        $r7[1] = "link";
+
+        $r7[2] = "base";
+
+        $r7[3] = "frame";
+
+        $r7[4] = "img";
+
+        $r7[5] = "br";
+
+        $r7[6] = "wbr";
+
+        $r7[7] = "embed";
+
+        $r7[8] = "hr";
+
+        $r7[9] = "input";
+
+        $r7[10] = "keygen";
+
+        $r7[11] = "col";
+
+        $r7[12] = "command";
+
+        $r7[13] = "device";
+
+        <org.jsoup.parser.Tag: java.lang.String[] emptyTags> = $r7;
+
+        $r8 = newarray (java.lang.String)[16];
+
+        $r8[0] = "title";
+
+        $r8[1] = "a";
+
+        $r8[2] = "p";
+
+        $r8[3] = "h1";
+
+        $r8[4] = "h2";
+
+        $r8[5] = "h3";
+
+        $r8[6] = "h4";
+
+        $r8[7] = "h5";
+
+        $r8[8] = "h6";
+
+        $r8[9] = "pre";
+
+        $r8[10] = "address";
+
+        $r8[11] = "li";
+
+        $r8[12] = "th";
+
+        $r8[13] = "td";
+
+        $r8[14] = "script";
+
+        $r8[15] = "style";
+
+        <org.jsoup.parser.Tag: java.lang.String[] formatAsInlineTags> = $r8;
+
+        $r9 = newarray (java.lang.String)[3];
+
+        $r9[0] = "pre";
+
+        $r9[1] = "plaintext";
+
+        $r9[2] = "title";
+
+        <org.jsoup.parser.Tag: java.lang.String[] preserveWhitespaceTags> = $r9;
+
+        $r10 = <org.jsoup.parser.Tag: java.lang.String[] blockTags>;
+
+        $i1 = lengthof $r10;
+
+        $i0 = 0;
+
+     label01:
+        if $i0 >= $i1 goto label02;
+
+        $r3 = $r10[$i0];
+
+        $r4 = new org.jsoup.parser.Tag;
+
+        specialinvoke $r4.<org.jsoup.parser.Tag: void <init>(java.lang.String)>($r3);
+
+        staticinvoke <org.jsoup.parser.Tag: org.jsoup.parser.Tag register(org.jsoup.parser.Tag)>($r4);
+
+        $i0 = $i0 + 1;
+
+        goto label01;
+
+     label02:
+        $r11 = <org.jsoup.parser.Tag: java.lang.String[] inlineTags>;
+
+        $i2 = lengthof $r11;
+
+        $i3 = 0;
+
+     label03:
+        if $i3 >= $i2 goto label04;
+
+        $r12 = $r11[$i3];
+
+        $r13 = new org.jsoup.parser.Tag;
+
+        specialinvoke $r13.<org.jsoup.parser.Tag: void <init>(java.lang.String)>($r12);
+
+        $r13.<org.jsoup.parser.Tag: boolean isBlock> = 0;
+
+        $r13.<org.jsoup.parser.Tag: boolean canContainBlock> = 0;
+
+        $r13.<org.jsoup.parser.Tag: boolean formatAsBlock> = 0;
+
+        staticinvoke <org.jsoup.parser.Tag: org.jsoup.parser.Tag register(org.jsoup.parser.Tag)>($r13);
+
+        $i3 = $i3 + 1;
+
+        goto label03;
+
+     label04:
+        $r14 = <org.jsoup.parser.Tag: java.lang.String[] emptyTags>;
+
+        $i4 = lengthof $r14;
+
+        $i5 = 0;
+
+     label05:
+        if $i5 >= $i4 goto label06;
+
+        $r15 = $r14[$i5];
+
+        $r0 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        $r1 = interfaceinvoke $r0.<java.util.Map: java.lang.Object get(java.lang.Object)>($r15);
+
+        $r16 = (org.jsoup.parser.Tag) $r1;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r16);
+
+        $r16.<org.jsoup.parser.Tag: boolean canContainBlock> = 0;
+
+        $r16.<org.jsoup.parser.Tag: boolean canContainInline> = 0;
+
+        $r16.<org.jsoup.parser.Tag: boolean empty> = 1;
+
+        $i5 = $i5 + 1;
+
+        goto label05;
+
+     label06:
+        $r17 = <org.jsoup.parser.Tag: java.lang.String[] formatAsInlineTags>;
+
+        $i6 = lengthof $r17;
+
+        $i7 = 0;
+
+     label07:
+        if $i7 >= $i6 goto label08;
+
+        $r18 = $r17[$i7];
+
+        $r19 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        $r20 = interfaceinvoke $r19.<java.util.Map: java.lang.Object get(java.lang.Object)>($r18);
+
+        $r21 = (org.jsoup.parser.Tag) $r20;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r21);
+
+        $r21.<org.jsoup.parser.Tag: boolean formatAsBlock> = 0;
+
+        $i7 = $i7 + 1;
+
+        goto label07;
+
+     label08:
+        $r22 = <org.jsoup.parser.Tag: java.lang.String[] preserveWhitespaceTags>;
+
+        $i8 = lengthof $r22;
+
+        $i9 = 0;
+
+     label09:
+        if $i9 >= $i8 goto label10;
+
+        $r23 = $r22[$i9];
+
+        $r24 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        $r25 = interfaceinvoke $r24.<java.util.Map: java.lang.Object get(java.lang.Object)>($r23);
+
+        $r26 = (org.jsoup.parser.Tag) $r25;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r26);
+
+        $r26.<org.jsoup.parser.Tag: boolean preserveWhitespace> = 1;
+
+        $i9 = $i9 + 1;
+
+        goto label09;
+
+     label10:
+        return;
+    }
+
+    private void <init>(java.lang.String)
+    {
+        java.lang.String $r0, $r2;
+        org.jsoup.parser.Tag $r1;
+
+        $r1 := @this: org.jsoup.parser.Tag;
+
+        $r0 := @parameter0: java.lang.String;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<org.jsoup.parser.Tag: boolean isBlock> = 1;
+
+        $r1.<org.jsoup.parser.Tag: boolean formatAsBlock> = 1;
+
+        $r1.<org.jsoup.parser.Tag: boolean canContainBlock> = 1;
+
+        $r1.<org.jsoup.parser.Tag: boolean canContainInline> = 1;
+
+        $r1.<org.jsoup.parser.Tag: boolean empty> = 0;
+
+        $r1.<org.jsoup.parser.Tag: boolean selfClosing> = 0;
+
+        $r1.<org.jsoup.parser.Tag: boolean preserveWhitespace> = 0;
+
+        $r2 = virtualinvoke $r0.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r1.<org.jsoup.parser.Tag: java.lang.String tagName> = $r2;
+
+        return;
+    }
+
+    public static boolean isKnownTag(java.lang.String)
+    {
+        boolean $z0;
+        java.util.Map $r0;
+        java.lang.String $r1;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        $z0 = interfaceinvoke $r0.<java.util.Map: boolean containsKey(java.lang.Object)>($r1);
+
+        return $z0;
+    }
+
+    private static org.jsoup.parser.Tag register(org.jsoup.parser.Tag)
+    {
+        java.lang.Throwable $r0;
+        java.lang.String $r1;
+        java.util.Map $r2, $r3;
+        org.jsoup.parser.Tag $r4;
+
+        $r4 := @parameter0: org.jsoup.parser.Tag;
+
+        $r3 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        entermonitor $r3;
+
+     label1:
+        $r2 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        $r1 = $r4.<org.jsoup.parser.Tag: java.lang.String tagName>;
+
+        interfaceinvoke $r2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r4);
+
+        exitmonitor $r3;
+
+     label2:
+        return $r4;
+
+     label3:
+        $r0 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label4:
+        throw $r0;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public static org.jsoup.parser.Tag valueOf(java.lang.String)
+    {
+        java.lang.Throwable $r0;
+        org.jsoup.parser.Tag $r1;
+        java.lang.Object $r2;
+        java.util.Map $r3, $r4;
+        java.lang.String $r5, $r6, $r7;
+
+        $r5 := @parameter0: java.lang.String;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r5);
+
+        $r6 = virtualinvoke $r5.<java.lang.String: java.lang.String trim()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.String: java.lang.String toLowerCase()>();
+
+        staticinvoke <org.jsoup.helper.Validate: void notEmpty(java.lang.String)>($r7);
+
+        $r3 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        entermonitor $r3;
+
+     label1:
+        $r4 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        $r2 = interfaceinvoke $r4.<java.util.Map: java.lang.Object get(java.lang.Object)>($r7);
+
+        $r1 = (org.jsoup.parser.Tag) $r2;
+
+        if $r1 != null goto label2;
+
+        $r1 = new org.jsoup.parser.Tag;
+
+        specialinvoke $r1.<org.jsoup.parser.Tag: void <init>(java.lang.String)>($r7);
+
+        $r1.<org.jsoup.parser.Tag: boolean isBlock> = 0;
+
+        $r1.<org.jsoup.parser.Tag: boolean canContainBlock> = 1;
+
+     label2:
+        exitmonitor $r3;
+
+     label3:
+        return $r1;
+
+     label4:
+        $r0 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label5:
+        throw $r0;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public boolean canContainBlock()
+    {
+        boolean z0;
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        z0 = $r0.<org.jsoup.parser.Tag: boolean canContainBlock>;
+
+        return z0;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.lang.String $r0, $r1;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11, $z12, $z13, $z14, $z15;
+        java.lang.Object $r2;
+        org.jsoup.parser.Tag $r3, $r4;
+
+        $r3 := @this: org.jsoup.parser.Tag;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        if $r3 != $r2 goto label01;
+
+        return 1;
+
+     label01:
+        $z0 = $r2 instanceof org.jsoup.parser.Tag;
+
+        if $z0 != 0 goto label02;
+
+        return 0;
+
+     label02:
+        $r4 = (org.jsoup.parser.Tag) $r2;
+
+        $z1 = $r3.<org.jsoup.parser.Tag: boolean canContainBlock>;
+
+        $z2 = $r4.<org.jsoup.parser.Tag: boolean canContainBlock>;
+
+        if $z1 == $z2 goto label03;
+
+        return 0;
+
+     label03:
+        $z3 = $r3.<org.jsoup.parser.Tag: boolean canContainInline>;
+
+        $z4 = $r4.<org.jsoup.parser.Tag: boolean canContainInline>;
+
+        if $z3 == $z4 goto label04;
+
+        return 0;
+
+     label04:
+        $z5 = $r3.<org.jsoup.parser.Tag: boolean empty>;
+
+        $z6 = $r4.<org.jsoup.parser.Tag: boolean empty>;
+
+        if $z5 == $z6 goto label05;
+
+        return 0;
+
+     label05:
+        $z7 = $r3.<org.jsoup.parser.Tag: boolean formatAsBlock>;
+
+        $z8 = $r4.<org.jsoup.parser.Tag: boolean formatAsBlock>;
+
+        if $z7 == $z8 goto label06;
+
+        return 0;
+
+     label06:
+        $z9 = $r3.<org.jsoup.parser.Tag: boolean isBlock>;
+
+        $z10 = $r4.<org.jsoup.parser.Tag: boolean isBlock>;
+
+        if $z9 == $z10 goto label07;
+
+        return 0;
+
+     label07:
+        $z11 = $r3.<org.jsoup.parser.Tag: boolean preserveWhitespace>;
+
+        $z12 = $r4.<org.jsoup.parser.Tag: boolean preserveWhitespace>;
+
+        if $z11 == $z12 goto label08;
+
+        return 0;
+
+     label08:
+        $z13 = $r3.<org.jsoup.parser.Tag: boolean selfClosing>;
+
+        $z14 = $r4.<org.jsoup.parser.Tag: boolean selfClosing>;
+
+        if $z13 == $z14 goto label09;
+
+        return 0;
+
+     label09:
+        $r0 = $r3.<org.jsoup.parser.Tag: java.lang.String tagName>;
+
+        $r1 = $r4.<org.jsoup.parser.Tag: java.lang.String tagName>;
+
+        $z15 = virtualinvoke $r0.<java.lang.String: boolean equals(java.lang.Object)>($r1);
+
+        if $z15 != 0 goto label10;
+
+        return 0;
+
+     label10:
+        return 1;
+    }
+
+    public boolean formatAsBlock()
+    {
+        boolean z0;
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        z0 = $r0.<org.jsoup.parser.Tag: boolean formatAsBlock>;
+
+        return z0;
+    }
+
+    public java.lang.String getName()
+    {
+        java.lang.String r0;
+        org.jsoup.parser.Tag $r1;
+
+        $r1 := @this: org.jsoup.parser.Tag;
+
+        r0 = $r1.<org.jsoup.parser.Tag: java.lang.String tagName>;
+
+        return r0;
+    }
+
+    public int hashCode()
+    {
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6;
+        int $i0, $i3, $i4, $i5, $i7, $i8, $i10, $i11, $i13, $i14, $i16, $i17, $i19, $i20, $i21;
+        byte $b1, $b2, $b6, $b9, $b12, $b15, $b18;
+        java.lang.String $r0;
+        org.jsoup.parser.Tag $r1;
+
+        $r1 := @this: org.jsoup.parser.Tag;
+
+        $b1 = 1;
+
+        $r0 = $r1.<org.jsoup.parser.Tag: java.lang.String tagName>;
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int hashCode()>();
+
+        $i3 = $i0 * 31;
+
+        $z0 = $r1.<org.jsoup.parser.Tag: boolean isBlock>;
+
+        if $z0 == 0 goto label08;
+
+        $b2 = 1;
+
+     label01:
+        $i4 = $i3 + $b2;
+
+        $i5 = $i4 * 31;
+
+        $z1 = $r1.<org.jsoup.parser.Tag: boolean formatAsBlock>;
+
+        if $z1 == 0 goto label09;
+
+        $b6 = 1;
+
+     label02:
+        $i7 = $i5 + $b6;
+
+        $i8 = $i7 * 31;
+
+        $z2 = $r1.<org.jsoup.parser.Tag: boolean canContainBlock>;
+
+        if $z2 == 0 goto label10;
+
+        $b9 = 1;
+
+     label03:
+        $i10 = $i8 + $b9;
+
+        $i11 = $i10 * 31;
+
+        $z3 = $r1.<org.jsoup.parser.Tag: boolean canContainInline>;
+
+        if $z3 == 0 goto label11;
+
+        $b12 = 1;
+
+     label04:
+        $i13 = $i11 + $b12;
+
+        $i14 = $i13 * 31;
+
+        $z4 = $r1.<org.jsoup.parser.Tag: boolean empty>;
+
+        if $z4 == 0 goto label12;
+
+        $b15 = 1;
+
+     label05:
+        $i16 = $i14 + $b15;
+
+        $i17 = $i16 * 31;
+
+        $z5 = $r1.<org.jsoup.parser.Tag: boolean selfClosing>;
+
+        if $z5 == 0 goto label13;
+
+        $b18 = 1;
+
+     label06:
+        $i19 = $i17 + $b18;
+
+        $i20 = $i19 * 31;
+
+        $z6 = $r1.<org.jsoup.parser.Tag: boolean preserveWhitespace>;
+
+        if $z6 == 0 goto label14;
+
+     label07:
+        $i21 = $i20 + $b1;
+
+        return $i21;
+
+     label08:
+        $b2 = 0;
+
+        goto label01;
+
+     label09:
+        $b6 = 0;
+
+        goto label02;
+
+     label10:
+        $b9 = 0;
+
+        goto label03;
+
+     label11:
+        $b12 = 0;
+
+        goto label04;
+
+     label12:
+        $b15 = 0;
+
+        goto label05;
+
+     label13:
+        $b18 = 0;
+
+        goto label06;
+
+     label14:
+        $b1 = 0;
+
+        goto label07;
+    }
+
+    public boolean isBlock()
+    {
+        boolean z0;
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        z0 = $r0.<org.jsoup.parser.Tag: boolean isBlock>;
+
+        return z0;
+    }
+
+    public boolean isData()
+    {
+        boolean $z0, $z1;
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        $z0 = $r0.<org.jsoup.parser.Tag: boolean canContainInline>;
+
+        if $z0 != 0 goto label1;
+
+        $z1 = virtualinvoke $r0.<org.jsoup.parser.Tag: boolean isEmpty()>();
+
+        if $z1 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isEmpty()
+    {
+        boolean z0;
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        z0 = $r0.<org.jsoup.parser.Tag: boolean empty>;
+
+        return z0;
+    }
+
+    public boolean isInline()
+    {
+        boolean $z0;
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        $z0 = $r0.<org.jsoup.parser.Tag: boolean isBlock>;
+
+        if $z0 != 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public boolean isKnownTag()
+    {
+        boolean $z0;
+        java.lang.String $r0;
+        java.util.Map $r1;
+        org.jsoup.parser.Tag $r2;
+
+        $r2 := @this: org.jsoup.parser.Tag;
+
+        $r1 = <org.jsoup.parser.Tag: java.util.Map tags>;
+
+        $r0 = $r2.<org.jsoup.parser.Tag: java.lang.String tagName>;
+
+        $z0 = interfaceinvoke $r1.<java.util.Map: boolean containsKey(java.lang.Object)>($r0);
+
+        return $z0;
+    }
+
+    public boolean isSelfClosing()
+    {
+        boolean $z0, $z1;
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        $z0 = $r0.<org.jsoup.parser.Tag: boolean empty>;
+
+        if $z0 != 0 goto label1;
+
+        $z1 = $r0.<org.jsoup.parser.Tag: boolean selfClosing>;
+
+        if $z1 == 0 goto label2;
+
+     label1:
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public boolean preserveWhitespace()
+    {
+        boolean z0;
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        z0 = $r0.<org.jsoup.parser.Tag: boolean preserveWhitespace>;
+
+        return z0;
+    }
+
+    org.jsoup.parser.Tag setSelfClosing()
+    {
+        org.jsoup.parser.Tag $r0;
+
+        $r0 := @this: org.jsoup.parser.Tag;
+
+        $r0.<org.jsoup.parser.Tag: boolean selfClosing> = 1;
+
+        return $r0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String r0;
+        org.jsoup.parser.Tag $r1;
+
+        $r1 := @this: org.jsoup.parser.Tag;
+
+        r0 = $r1.<org.jsoup.parser.Tag: java.lang.String tagName>;
+
+        return r0;
+    }
+}

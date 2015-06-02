@@ -1,0 +1,37 @@
+class com.dai.giftcard.viewer.activity.CardFormPageActivity$7 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final com.dai.giftcard.viewer.activity.CardFormPageActivity this$0;
+
+    void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$7 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$7;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$7: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        int $i0;
+        android.content.DialogInterface $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$7 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$7;
+
+        $r0 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        interfaceinvoke $r0.<android.content.DialogInterface: void cancel()>();
+
+        return;
+    }
+}

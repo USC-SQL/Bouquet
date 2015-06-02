@@ -1,0 +1,86 @@
+class org.simpleframework.xml.transform.EnumTransform extends java.lang.Object implements org.simpleframework.xml.transform.Transform
+{
+    private final java.lang.Class type;
+
+    public void <init>(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.transform.EnumTransform $r1;
+
+        $r1 := @this: org.simpleframework.xml.transform.EnumTransform;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<org.simpleframework.xml.transform.EnumTransform: java.lang.Class type> = $r0;
+
+        return;
+    }
+
+    public java.lang.Enum read(java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Enum $r0;
+        java.lang.Class $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.transform.EnumTransform $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.EnumTransform;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = $r3.<org.simpleframework.xml.transform.EnumTransform: java.lang.Class type>;
+
+        $r0 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>($r1, $r2);
+
+        return $r0;
+    }
+
+    public volatile java.lang.Object read(java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Enum $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.EnumTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.EnumTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.transform.EnumTransform: java.lang.Enum read(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public java.lang.String write(java.lang.Enum) throws java.lang.Exception
+    {
+        java.lang.String $r0;
+        java.lang.Enum $r1;
+        org.simpleframework.xml.transform.EnumTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.EnumTransform;
+
+        $r1 := @parameter0: java.lang.Enum;
+
+        $r0 = virtualinvoke $r1.<java.lang.Enum: java.lang.String name()>();
+
+        return $r0;
+    }
+
+    public volatile java.lang.String write(java.lang.Object) throws java.lang.Exception
+    {
+        java.lang.Enum $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.transform.EnumTransform $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.EnumTransform;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r0 = (java.lang.Enum) $r2;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.transform.EnumTransform: java.lang.String write(java.lang.Enum)>($r0);
+
+        return $r1;
+    }
+}

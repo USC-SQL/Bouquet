@@ -1,0 +1,50 @@
+abstract class org.simpleframework.xml.stream.EventAttribute extends java.lang.Object implements org.simpleframework.xml.stream.Attribute
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.stream.EventAttribute $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.EventAttribute;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.String getPrefix()
+    {
+        org.simpleframework.xml.stream.EventAttribute $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.EventAttribute;
+
+        return null;
+    }
+
+    public java.lang.String getReference()
+    {
+        org.simpleframework.xml.stream.EventAttribute $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.EventAttribute;
+
+        return null;
+    }
+
+    public java.lang.Object getSource()
+    {
+        org.simpleframework.xml.stream.EventAttribute $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.EventAttribute;
+
+        return null;
+    }
+
+    public boolean isReserved()
+    {
+        org.simpleframework.xml.stream.EventAttribute $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.EventAttribute;
+
+        return 0;
+    }
+}

@@ -1,0 +1,245 @@
+final class org.simpleframework.xml.core.ParameterFactory extends java.lang.Object
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.core.ParameterFactory $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.ParameterFactory;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private static org.simpleframework.xml.core.ParameterFactory$ParameterBuilder getBuilder(java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.PersistenceException $r1;
+        org.simpleframework.xml.core.ParameterFactory$ParameterBuilder $r2, $r4, $r5, $r6, $r7, $r8, $r9, $r10, $r11;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8;
+        java.lang.annotation.Annotation $r3;
+
+        $r3 := @parameter0: java.lang.annotation.Annotation;
+
+        $z0 = $r3 instanceof org.simpleframework.xml.Element;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/ElementParameter", class "org/simpleframework/xml/Element");
+
+        return $r2;
+
+     label1:
+        $z1 = $r3 instanceof org.simpleframework.xml.ElementList;
+
+        if $z1 == 0 goto label2;
+
+        $r4 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/ElementListParameter", class "org/simpleframework/xml/ElementList");
+
+        return $r4;
+
+     label2:
+        $z2 = $r3 instanceof org.simpleframework.xml.ElementArray;
+
+        if $z2 == 0 goto label3;
+
+        $r5 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/ElementArrayParameter", class "org/simpleframework/xml/ElementArray");
+
+        return $r5;
+
+     label3:
+        $z3 = $r3 instanceof org.simpleframework.xml.ElementMapUnion;
+
+        if $z3 == 0 goto label4;
+
+        $r6 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/ElementMapUnionParameter", class "org/simpleframework/xml/ElementMapUnion", class "org/simpleframework/xml/ElementMap");
+
+        return $r6;
+
+     label4:
+        $z4 = $r3 instanceof org.simpleframework.xml.ElementListUnion;
+
+        if $z4 == 0 goto label5;
+
+        $r7 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/ElementListUnionParameter", class "org/simpleframework/xml/ElementListUnion", class "org/simpleframework/xml/ElementList");
+
+        return $r7;
+
+     label5:
+        $z5 = $r3 instanceof org.simpleframework.xml.ElementUnion;
+
+        if $z5 == 0 goto label6;
+
+        $r8 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r8.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/ElementUnionParameter", class "org/simpleframework/xml/ElementUnion", class "org/simpleframework/xml/Element");
+
+        return $r8;
+
+     label6:
+        $z6 = $r3 instanceof org.simpleframework.xml.ElementMap;
+
+        if $z6 == 0 goto label7;
+
+        $r9 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r9.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/ElementMapParameter", class "org/simpleframework/xml/ElementMap");
+
+        return $r9;
+
+     label7:
+        $z7 = $r3 instanceof org.simpleframework.xml.Attribute;
+
+        if $z7 == 0 goto label8;
+
+        $r10 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r10.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/AttributeParameter", class "org/simpleframework/xml/Attribute");
+
+        return $r10;
+
+     label8:
+        $z8 = $r3 instanceof org.simpleframework.xml.Text;
+
+        if $z8 == 0 goto label9;
+
+        $r11 = new org.simpleframework.xml.core.ParameterFactory$ParameterBuilder;
+
+        specialinvoke $r11.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: void <init>(java.lang.Class,java.lang.Class)>(class "org/simpleframework/xml/core/TextParameter", class "org/simpleframework/xml/Text");
+
+        return $r11;
+
+     label9:
+        $r1 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r0[0] = $r3;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Annotation %s not supported", $r0);
+
+        throw $r1;
+    }
+
+    private static java.lang.reflect.Constructor getConstructor(java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        boolean $z0;
+        java.lang.reflect.Constructor $r0;
+        org.simpleframework.xml.core.ParameterFactory$ParameterBuilder $r1;
+        java.lang.annotation.Annotation $r2;
+
+        $r2 := @parameter0: java.lang.annotation.Annotation;
+
+        $r1 = staticinvoke <org.simpleframework.xml.core.ParameterFactory: org.simpleframework.xml.core.ParameterFactory$ParameterBuilder getBuilder(java.lang.annotation.Annotation)>($r2);
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ParameterFactory$ParameterBuilder: java.lang.reflect.Constructor getConstructor()>();
+
+        $z0 = virtualinvoke $r0.<java.lang.reflect.Constructor: boolean isAccessible()>();
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke $r0.<java.lang.reflect.Constructor: void setAccessible(boolean)>(1);
+
+        return $r0;
+
+     label1:
+        return $r0;
+    }
+
+    public static org.simpleframework.xml.core.Parameter getInstance(java.lang.reflect.Constructor, java.lang.annotation.Annotation, java.lang.annotation.Annotation, org.simpleframework.xml.stream.Format, int) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Parameter $r0, $r12;
+        java.lang.Object $r1, $r11;
+        java.lang.Integer $r2, $r10;
+        java.lang.Object[] $r3, $r9;
+        int $i0;
+        org.simpleframework.xml.stream.Format $r4;
+        java.lang.annotation.Annotation $r5, $r6;
+        java.lang.reflect.Constructor $r7, $r8;
+
+        $r7 := @parameter0: java.lang.reflect.Constructor;
+
+        $r5 := @parameter1: java.lang.annotation.Annotation;
+
+        $r6 := @parameter2: java.lang.annotation.Annotation;
+
+        $r4 := @parameter3: org.simpleframework.xml.stream.Format;
+
+        $i0 := @parameter4: int;
+
+        $r8 = staticinvoke <org.simpleframework.xml.core.ParameterFactory: java.lang.reflect.Constructor getConstructor(java.lang.annotation.Annotation)>($r5);
+
+        if $r6 == null goto label1;
+
+        $r3 = newarray (java.lang.Object)[5];
+
+        $r3[0] = $r7;
+
+        $r3[1] = $r5;
+
+        $r3[2] = $r6;
+
+        $r3[3] = $r4;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r3[4] = $r2;
+
+        $r1 = virtualinvoke $r8.<java.lang.reflect.Constructor: java.lang.Object newInstance(java.lang.Object[])>($r3);
+
+        $r0 = (org.simpleframework.xml.core.Parameter) $r1;
+
+        return $r0;
+
+     label1:
+        $r9 = newarray (java.lang.Object)[4];
+
+        $r9[0] = $r7;
+
+        $r9[1] = $r5;
+
+        $r9[2] = $r4;
+
+        $r10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r9[3] = $r10;
+
+        $r11 = virtualinvoke $r8.<java.lang.reflect.Constructor: java.lang.Object newInstance(java.lang.Object[])>($r9);
+
+        $r12 = (org.simpleframework.xml.core.Parameter) $r11;
+
+        return $r12;
+    }
+
+    public static org.simpleframework.xml.core.Parameter getInstance(java.lang.reflect.Constructor, java.lang.annotation.Annotation, org.simpleframework.xml.stream.Format, int) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Parameter $r0;
+        int $i0;
+        org.simpleframework.xml.stream.Format $r1;
+        java.lang.annotation.Annotation $r2;
+        java.lang.reflect.Constructor $r3;
+
+        $r3 := @parameter0: java.lang.reflect.Constructor;
+
+        $r2 := @parameter1: java.lang.annotation.Annotation;
+
+        $r1 := @parameter2: org.simpleframework.xml.stream.Format;
+
+        $i0 := @parameter3: int;
+
+        $r0 = staticinvoke <org.simpleframework.xml.core.ParameterFactory: org.simpleframework.xml.core.Parameter getInstance(java.lang.reflect.Constructor,java.lang.annotation.Annotation,java.lang.annotation.Annotation,org.simpleframework.xml.stream.Format,int)>($r3, $r2, null, $r1, $i0);
+
+        return $r0;
+    }
+}

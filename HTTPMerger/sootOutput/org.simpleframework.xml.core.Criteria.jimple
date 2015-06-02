@@ -1,0 +1,15 @@
+interface  org.simpleframework.xml.core.Criteria extends java.lang.Object implements java.lang.Iterable
+{
+
+    public abstract void commit(java.lang.Object) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Variable get(java.lang.Object) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Variable get(org.simpleframework.xml.core.Label) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Variable remove(java.lang.Object) throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Variable resolve(java.lang.String) throws java.lang.Exception;
+
+    public abstract void set(org.simpleframework.xml.core.Label, java.lang.Object) throws java.lang.Exception;
+}

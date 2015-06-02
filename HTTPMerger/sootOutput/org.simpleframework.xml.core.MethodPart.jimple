@@ -1,0 +1,21 @@
+interface  org.simpleframework.xml.core.MethodPart extends java.lang.Object
+{
+
+    public abstract java.lang.annotation.Annotation getAnnotation();
+
+    public abstract java.lang.annotation.Annotation getAnnotation(java.lang.Class);
+
+    public abstract java.lang.Class getDependent();
+
+    public abstract java.lang.Class[] getDependents();
+
+    public abstract java.lang.reflect.Method getMethod();
+
+    public abstract org.simpleframework.xml.core.MethodType getMethodType();
+
+    public abstract java.lang.String getName();
+
+    public abstract java.lang.Class getType();
+
+    public abstract java.lang.String toString();
+}

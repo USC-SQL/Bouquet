@@ -1,0 +1,5 @@
+public interface  org.simpleframework.xml.transform.Matcher extends java.lang.Object
+{
+
+    public abstract org.simpleframework.xml.transform.Transform match(java.lang.Class) throws java.lang.Exception;
+}

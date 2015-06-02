@@ -1,0 +1,641 @@
+public class org.jsoup.nodes.Attributes extends java.lang.Object implements java.lang.Iterable, java.lang.Cloneable
+{
+    protected static final java.lang.String dataPrefix;
+    private java.util.LinkedHashMap attributes;
+
+    public void <init>()
+    {
+        org.jsoup.nodes.Attributes $r0;
+
+        $r0 := @this: org.jsoup.nodes.Attributes;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes> = null;
+
+        return;
+    }
+
+    static java.util.LinkedHashMap access$100(org.jsoup.nodes.Attributes)
+    {
+        java.util.LinkedHashMap r0;
+        org.jsoup.nodes.Attributes $r1;
+
+        $r1 := @parameter0: org.jsoup.nodes.Attributes;
+
+        r0 = $r1.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        return r0;
+    }
+
+    static java.util.LinkedHashMap access$102(org.jsoup.nodes.Attributes, java.util.LinkedHashMap)
+    {
+        java.util.LinkedHashMap $r0;
+        org.jsoup.nodes.Attributes $r1;
+
+        $r1 := @parameter0: org.jsoup.nodes.Attributes;
+
+        $r0 := @parameter1: java.util.LinkedHashMap;
+
+        $r1.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes> = $r0;
+
+        return $r0;
+    }
+
+    static java.lang.String access$300(java.lang.String)
+    {
+        java.lang.String $r0, $r1;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 = staticinvoke <org.jsoup.nodes.Attributes: java.lang.String dataKey(java.lang.String)>($r0);
+
+        return $r1;
+    }
+
+    private static java.lang.String dataKey(java.lang.String)
+    {
+        java.lang.StringBuilder $r0, $r2, $r3;
+        java.lang.String $r1, $r4;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("data-");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r4;
+    }
+
+    public void addAll(org.jsoup.nodes.Attributes)
+    {
+        java.util.LinkedHashMap $r0, $r1, $r4, $r5;
+        int $i0, $i1;
+        org.jsoup.nodes.Attributes $r2, $r3;
+
+        $r2 := @this: org.jsoup.nodes.Attributes;
+
+        $r3 := @parameter0: org.jsoup.nodes.Attributes;
+
+        $i0 = virtualinvoke $r3.<org.jsoup.nodes.Attributes: int size()>();
+
+        if $i0 != 0 goto label1;
+
+        return;
+
+     label1:
+        $r0 = $r2.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r0 != null goto label2;
+
+        $r4 = new java.util.LinkedHashMap;
+
+        $i1 = virtualinvoke $r3.<org.jsoup.nodes.Attributes: int size()>();
+
+        specialinvoke $r4.<java.util.LinkedHashMap: void <init>(int)>($i1);
+
+        $r2.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes> = $r4;
+
+     label2:
+        $r5 = $r2.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r1 = $r3.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        virtualinvoke $r5.<java.util.LinkedHashMap: void putAll(java.util.Map)>($r1);
+
+        return;
+    }
+
+    public java.util.List asList()
+    {
+        java.util.Map$Entry $r0;
+        java.lang.Object $r1, $r10;
+        boolean $z0;
+        java.util.Iterator $r2;
+        java.util.Set $r3;
+        int $i0;
+        java.util.List $r4, $r11;
+        java.util.LinkedHashMap $r5, $r8, $r9;
+        java.util.ArrayList $r6;
+        org.jsoup.nodes.Attributes $r7;
+
+        $r7 := @this: org.jsoup.nodes.Attributes;
+
+        $r5 = $r7.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r5 != null goto label1;
+
+        $r4 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        return $r4;
+
+     label1:
+        $r6 = new java.util.ArrayList;
+
+        $r8 = $r7.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $i0 = virtualinvoke $r8.<java.util.LinkedHashMap: int size()>();
+
+        specialinvoke $r6.<java.util.ArrayList: void <init>(int)>($i0);
+
+        $r9 = $r7.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r3 = virtualinvoke $r9.<java.util.LinkedHashMap: java.util.Set entrySet()>();
+
+        $r2 = interfaceinvoke $r3.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (java.util.Map$Entry) $r1;
+
+        $r10 = interfaceinvoke $r0.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        interfaceinvoke $r6.<java.util.List: boolean add(java.lang.Object)>($r10);
+
+        goto label2;
+
+     label3:
+        $r11 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($r6);
+
+        return $r11;
+    }
+
+    public volatile java.lang.Object clone() throws java.lang.CloneNotSupportedException
+    {
+        org.jsoup.nodes.Attributes $r0, $r1;
+
+        $r0 := @this: org.jsoup.nodes.Attributes;
+
+        $r1 = virtualinvoke $r0.<org.jsoup.nodes.Attributes: org.jsoup.nodes.Attributes clone()>();
+
+        return $r1;
+    }
+
+    public org.jsoup.nodes.Attributes clone()
+    {
+        java.lang.RuntimeException $r0;
+        java.lang.String $r1;
+        org.jsoup.nodes.Attribute $r2, $r14;
+        boolean $z0;
+        java.util.Iterator $r3;
+        int $i0;
+        java.lang.Object $r4, $r12;
+        java.util.LinkedHashMap $r5, $r6, $r11, $r13;
+        java.lang.CloneNotSupportedException $r7;
+        org.jsoup.nodes.Attributes $r8, $r9, $r10;
+
+        $r8 := @this: org.jsoup.nodes.Attributes;
+
+        $r5 = $r8.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r5 != null goto label1;
+
+        $r9 = new org.jsoup.nodes.Attributes;
+
+        specialinvoke $r9.<org.jsoup.nodes.Attributes: void <init>()>();
+
+        return $r9;
+
+     label1:
+        $r4 = specialinvoke $r8.<java.lang.Object: java.lang.Object clone()>();
+
+     label2:
+        $r10 = (org.jsoup.nodes.Attributes) $r4;
+
+        $r6 = new java.util.LinkedHashMap;
+
+        $r11 = $r8.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $i0 = virtualinvoke $r11.<java.util.LinkedHashMap: int size()>();
+
+        specialinvoke $r6.<java.util.LinkedHashMap: void <init>(int)>($i0);
+
+        $r10.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes> = $r6;
+
+        $r3 = virtualinvoke $r8.<org.jsoup.nodes.Attributes: java.util.Iterator iterator()>();
+
+     label3:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label5;
+
+        $r12 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r2 = (org.jsoup.nodes.Attribute) $r12;
+
+        $r13 = $r10.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r1 = virtualinvoke $r2.<org.jsoup.nodes.Attribute: java.lang.String getKey()>();
+
+        $r14 = virtualinvoke $r2.<org.jsoup.nodes.Attribute: org.jsoup.nodes.Attribute clone()>();
+
+        virtualinvoke $r13.<java.util.LinkedHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r14);
+
+        goto label3;
+
+     label4:
+        $r7 := @caughtexception;
+
+        $r0 = new java.lang.RuntimeException;
+
+        specialinvoke $r0.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r7);
+
+        throw $r0;
+
+     label5:
+        return $r10;
+
+        catch java.lang.CloneNotSupportedException from label1 to label2 with label4;
+    }
+
+    public java.util.Map dataset()
+    {
+        org.jsoup.nodes.Attributes$Dataset $r0;
+        org.jsoup.nodes.Attributes $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attributes;
+
+        $r0 = new org.jsoup.nodes.Attributes$Dataset;
+
+        specialinvoke $r0.<org.jsoup.nodes.Attributes$Dataset: void <init>(org.jsoup.nodes.Attributes,org.jsoup.nodes.Attributes$1)>($r1, null);
+
+        return $r0;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.util.LinkedHashMap $r0, $r1, $r5, $r6;
+        boolean $z0, $z1;
+        java.lang.Object $r2;
+        org.jsoup.nodes.Attributes $r3, $r4;
+
+        $r3 := @this: org.jsoup.nodes.Attributes;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        if $r3 != $r2 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r2 instanceof org.jsoup.nodes.Attributes;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r4 = (org.jsoup.nodes.Attributes) $r2;
+
+        $r0 = $r3.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r0 == null goto label4;
+
+        $r1 = $r3.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r5 = $r4.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $z1 = virtualinvoke $r1.<java.util.LinkedHashMap: boolean equals(java.lang.Object)>($r5);
+
+        if $z1 != 0 goto label5;
+
+     label3:
+        return 0;
+
+     label4:
+        $r6 = $r4.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r6 == null goto label6;
+
+        goto label3;
+
+     label5:
+        return 1;
+
+     label6:
+        return 1;
+    }
+
+    public java.lang.String get(java.lang.String)
+    {
+        org.jsoup.nodes.Attribute $r0;
+        java.lang.Object $r1;
+        java.util.LinkedHashMap $r2, $r5;
+        java.lang.String $r3, $r6, $r7;
+        org.jsoup.nodes.Attributes $r4;
+
+        $r4 := @this: org.jsoup.nodes.Attributes;
+
+        $r3 := @parameter0: java.lang.String;
+
+        staticinvoke <org.jsoup.helper.Validate: void notEmpty(java.lang.String)>($r3);
+
+        $r2 = $r4.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r2 != null goto label1;
+
+        return "";
+
+     label1:
+        $r5 = $r4.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r6 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r1 = virtualinvoke $r5.<java.util.LinkedHashMap: java.lang.Object get(java.lang.Object)>($r6);
+
+        $r0 = (org.jsoup.nodes.Attribute) $r1;
+
+        if $r0 == null goto label2;
+
+        $r7 = virtualinvoke $r0.<org.jsoup.nodes.Attribute: java.lang.String getValue()>();
+
+        return $r7;
+
+     label2:
+        return "";
+    }
+
+    public boolean hasKey(java.lang.String)
+    {
+        boolean $z0;
+        java.util.LinkedHashMap $r0, $r3;
+        java.lang.String $r1, $r4;
+        org.jsoup.nodes.Attributes $r2;
+
+        $r2 := @this: org.jsoup.nodes.Attributes;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r0 == null goto label1;
+
+        $r3 = $r2.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r4 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $z0 = virtualinvoke $r3.<java.util.LinkedHashMap: boolean containsKey(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        int $i0;
+        java.util.LinkedHashMap $r0, $r2;
+        org.jsoup.nodes.Attributes $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attributes;
+
+        $r0 = $r1.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r0 == null goto label1;
+
+        $r2 = $r1.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $i0 = virtualinvoke $r2.<java.util.LinkedHashMap: int hashCode()>();
+
+        return $i0;
+
+     label1:
+        return 0;
+    }
+
+    public java.lang.String html()
+    {
+        java.lang.String $r0;
+        org.jsoup.nodes.Document$OutputSettings $r1;
+        org.jsoup.nodes.Document $r2;
+        java.lang.StringBuilder $r3;
+        org.jsoup.nodes.Attributes $r4;
+
+        $r4 := @this: org.jsoup.nodes.Attributes;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = new org.jsoup.nodes.Document;
+
+        specialinvoke $r2.<org.jsoup.nodes.Document: void <init>(java.lang.String)>("");
+
+        $r1 = virtualinvoke $r2.<org.jsoup.nodes.Document: org.jsoup.nodes.Document$OutputSettings outputSettings()>();
+
+        virtualinvoke $r4.<org.jsoup.nodes.Attributes: void html(java.lang.StringBuilder,org.jsoup.nodes.Document$OutputSettings)>($r3, $r1);
+
+        $r0 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r0;
+    }
+
+    void html(java.lang.StringBuilder, org.jsoup.nodes.Document$OutputSettings)
+    {
+        org.jsoup.nodes.Attribute $r0;
+        java.util.Map$Entry $r1;
+        java.lang.Object $r2, $r10;
+        boolean $z0;
+        java.util.Iterator $r3;
+        java.util.Set $r4;
+        java.util.LinkedHashMap $r5, $r9;
+        org.jsoup.nodes.Document$OutputSettings $r6;
+        java.lang.StringBuilder $r7;
+        org.jsoup.nodes.Attributes $r8;
+
+        $r8 := @this: org.jsoup.nodes.Attributes;
+
+        $r7 := @parameter0: java.lang.StringBuilder;
+
+        $r6 := @parameter1: org.jsoup.nodes.Document$OutputSettings;
+
+        $r5 = $r8.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r5 != null goto label1;
+
+        return;
+
+     label1:
+        $r9 = $r8.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r4 = virtualinvoke $r9.<java.util.LinkedHashMap: java.util.Set entrySet()>();
+
+        $r3 = interfaceinvoke $r4.<java.util.Set: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label3;
+
+        $r2 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r1 = (java.util.Map$Entry) $r2;
+
+        $r10 = interfaceinvoke $r1.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r0 = (org.jsoup.nodes.Attribute) $r10;
+
+        virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        virtualinvoke $r0.<org.jsoup.nodes.Attribute: void html(java.lang.StringBuilder,org.jsoup.nodes.Document$OutputSettings)>($r7, $r6);
+
+        goto label2;
+
+     label3:
+        return;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        java.util.Iterator $r0;
+        java.util.List $r1;
+        org.jsoup.nodes.Attributes $r2;
+
+        $r2 := @this: org.jsoup.nodes.Attributes;
+
+        $r1 = virtualinvoke $r2.<org.jsoup.nodes.Attributes: java.util.List asList()>();
+
+        $r0 = interfaceinvoke $r1.<java.util.List: java.util.Iterator iterator()>();
+
+        return $r0;
+    }
+
+    public void put(java.lang.String, java.lang.String)
+    {
+        org.jsoup.nodes.Attribute $r0;
+        java.lang.String $r1, $r2;
+        org.jsoup.nodes.Attributes $r3;
+
+        $r3 := @this: org.jsoup.nodes.Attributes;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r0 = new org.jsoup.nodes.Attribute;
+
+        specialinvoke $r0.<org.jsoup.nodes.Attribute: void <init>(java.lang.String,java.lang.String)>($r1, $r2);
+
+        virtualinvoke $r3.<org.jsoup.nodes.Attributes: void put(org.jsoup.nodes.Attribute)>($r0);
+
+        return;
+    }
+
+    public void put(org.jsoup.nodes.Attribute)
+    {
+        java.lang.String $r0;
+        java.util.LinkedHashMap $r1, $r4, $r5;
+        org.jsoup.nodes.Attribute $r2;
+        org.jsoup.nodes.Attributes $r3;
+
+        $r3 := @this: org.jsoup.nodes.Attributes;
+
+        $r2 := @parameter0: org.jsoup.nodes.Attribute;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r2);
+
+        $r1 = $r3.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r1 != null goto label1;
+
+        $r4 = new java.util.LinkedHashMap;
+
+        specialinvoke $r4.<java.util.LinkedHashMap: void <init>(int)>(2);
+
+        $r3.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes> = $r4;
+
+     label1:
+        $r5 = $r3.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r0 = virtualinvoke $r2.<org.jsoup.nodes.Attribute: java.lang.String getKey()>();
+
+        virtualinvoke $r5.<java.util.LinkedHashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r0, $r2);
+
+        return;
+    }
+
+    public void remove(java.lang.String)
+    {
+        java.util.LinkedHashMap $r0, $r3;
+        java.lang.String $r1, $r4;
+        org.jsoup.nodes.Attributes $r2;
+
+        $r2 := @this: org.jsoup.nodes.Attributes;
+
+        $r1 := @parameter0: java.lang.String;
+
+        staticinvoke <org.jsoup.helper.Validate: void notEmpty(java.lang.String)>($r1);
+
+        $r0 = $r2.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r0 != null goto label1;
+
+        return;
+
+     label1:
+        $r3 = $r2.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $r4 = virtualinvoke $r1.<java.lang.String: java.lang.String toLowerCase()>();
+
+        virtualinvoke $r3.<java.util.LinkedHashMap: java.lang.Object remove(java.lang.Object)>($r4);
+
+        return;
+    }
+
+    public int size()
+    {
+        int $i0;
+        java.util.LinkedHashMap $r0, $r2;
+        org.jsoup.nodes.Attributes $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attributes;
+
+        $r0 = $r1.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        if $r0 != null goto label1;
+
+        return 0;
+
+     label1:
+        $r2 = $r1.<org.jsoup.nodes.Attributes: java.util.LinkedHashMap attributes>;
+
+        $i0 = virtualinvoke $r2.<java.util.LinkedHashMap: int size()>();
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        org.jsoup.nodes.Attributes $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attributes;
+
+        $r0 = virtualinvoke $r1.<org.jsoup.nodes.Attributes: java.lang.String html()>();
+
+        return $r0;
+    }
+
+    public static void <clinit>()
+    {
+        <org.jsoup.nodes.Attributes: java.lang.String dataPrefix> = "data-";
+
+        <org.jsoup.nodes.Attributes: java.lang.String dataPrefix> = "data-";
+
+        return;
+    }
+}

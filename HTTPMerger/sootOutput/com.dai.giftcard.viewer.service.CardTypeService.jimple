@@ -1,0 +1,676 @@
+public class com.dai.giftcard.viewer.service.CardTypeService extends java.lang.Object
+{
+    public static com.dai.giftcard.viewer.model.CardTypeList CardTypeList;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.service.CardTypeService $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.service.CardTypeService;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void AssembleCardType()
+    {
+        com.dai.giftcard.viewer.reader.BaseCardReader $r0;
+        com.dai.giftcard.viewer.model.CardType $r1;
+        java.lang.Object $r2;
+        java.util.ArrayList $r3, $r6;
+        com.dai.giftcard.viewer.model.CardTypeList $r4, $r5;
+        int $i0, $i1;
+
+        $i0 = 0;
+
+     label1:
+        $r4 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r3 = $r4.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $i1 = virtualinvoke $r3.<java.util.ArrayList: int size()>();
+
+        if $i0 < $i1 goto label2;
+
+        return;
+
+     label2:
+        $r5 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r6 = $r5.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r2 = virtualinvoke $r6.<java.util.ArrayList: java.lang.Object get(int)>($i0);
+
+        $r1 = (com.dai.giftcard.viewer.model.CardType) $r2;
+
+        $r0 = staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.reader.BaseCardReader GetCardCategoryReader(com.dai.giftcard.viewer.model.CardType)>($r1);
+
+        $r1.<com.dai.giftcard.viewer.model.CardType: com.dai.giftcard.viewer.reader.BaseCardReader reader> = $r0;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+    }
+
+    public static com.dai.giftcard.viewer.reader.BaseCardReader GetCardCategoryReader(com.dai.giftcard.viewer.model.CardType)
+    {
+        com.dai.giftcard.viewer.reader.BaseCardReader $r0;
+        java.lang.Object $r1;
+        java.lang.Object[] $r2;
+        java.lang.reflect.Constructor $r3;
+        java.lang.Class[] $r4;
+        java.lang.StringBuilder $r5, $r30, $r31, $r33, $r35, $r36, $r40, $r42, $r43, $r46, $r48, $r49;
+        int $i0;
+        boolean $z0, $z1, $z2, $z3;
+        com.dai.giftcard.viewer.model.QueryType $r6, $r20, $r23, $r26;
+        java.lang.String $r7, $r8, $r19, $r21, $r22, $r24, $r25, $r27, $r29, $r32, $r34, $r37, $r41, $r44, $r47, $r50;
+        com.dai.giftcard.viewer.reader.SystemReader $r9, $r28;
+        java.lang.Exception $r10, $r11, $r12, $r13, $r14, $r15;
+        java.lang.Class $r16, $r17, $r38, $r39, $r45, $r51;
+        com.dai.giftcard.viewer.model.CardType $r18;
+
+        $r18 := @parameter0: com.dai.giftcard.viewer.model.CardType;
+
+        $r7 = $r18.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r6 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType OnlinePending>;
+
+        $r8 = virtualinvoke $r6.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r8);
+
+        if $z0 != 0 goto label01;
+
+        $r19 = $r18.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r20 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType Store>;
+
+        $r21 = virtualinvoke $r20.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z1 = virtualinvoke $r19.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r21);
+
+        if $z1 != 0 goto label01;
+
+        $r22 = $r18.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r23 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType System>;
+
+        $r24 = virtualinvoke $r23.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z2 = virtualinvoke $r22.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r24);
+
+        if $z2 != 0 goto label01;
+
+        $r25 = $r18.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r26 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType PhoneCall>;
+
+        $r27 = virtualinvoke $r26.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z3 = virtualinvoke $r25.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r27);
+
+        if $z3 == 0 goto label02;
+
+     label01:
+        $r9 = new com.dai.giftcard.viewer.reader.SystemReader;
+
+        specialinvoke $r9.<com.dai.giftcard.viewer.reader.SystemReader: void <init>()>();
+
+        return $r9;
+
+     label02:
+        $r28 = new com.dai.giftcard.viewer.reader.SystemReader;
+
+        specialinvoke $r28.<com.dai.giftcard.viewer.reader.SystemReader: void <init>()>();
+
+        $r16 = null;
+
+        $i0 = $r18.<com.dai.giftcard.viewer.model.CardType: int ID>;
+
+        if $i0 < 1000 goto label15;
+
+        $r5 = new java.lang.StringBuilder;
+
+     label03:
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>("com.dai.giftcard.viewer.reader.us.");
+
+        $r29 = $r18.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r30 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r29);
+
+        $r31 = virtualinvoke $r30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Reader");
+
+        $r32 = virtualinvoke $r31.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r17 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r32);
+
+     label04:
+        $r16 = $r17;
+
+     label05:
+        if $r16 != null goto label08;
+
+        $r33 = new java.lang.StringBuilder;
+
+     label06:
+        specialinvoke $r33.<java.lang.StringBuilder: void <init>(java.lang.String)>("com.dai.giftcard.viewer.reader.us.verification.");
+
+        $r34 = $r18.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r35 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r34);
+
+        $r36 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Reader");
+
+        $r37 = virtualinvoke $r36.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r38 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r37);
+
+     label07:
+        $r16 = $r38;
+
+     label08:
+        if $r16 != null goto label11;
+
+     label09:
+        $r39 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>("com.dai.giftcard.viewer.reader.SystemReader");
+
+     label10:
+        $r16 = $r39;
+
+     label11:
+        $r4 = newarray (java.lang.Class)[0];
+
+        $r3 = virtualinvoke $r16.<java.lang.Class: java.lang.reflect.Constructor getConstructor(java.lang.Class[])>($r4);
+
+        $r2 = newarray (java.lang.Object)[0];
+
+        $r1 = virtualinvoke $r3.<java.lang.reflect.Constructor: java.lang.Object newInstance(java.lang.Object[])>($r2);
+
+        $r0 = (com.dai.giftcard.viewer.reader.BaseCardReader) $r1;
+
+     label12:
+        return $r0;
+
+     label13:
+        $r10 := @caughtexception;
+
+        virtualinvoke $r10.<java.lang.Exception: void printStackTrace()>();
+
+        goto label05;
+
+     label14:
+        $r11 := @caughtexception;
+
+        virtualinvoke $r11.<java.lang.Exception: void printStackTrace()>();
+
+        goto label08;
+
+     label15:
+        $r40 = new java.lang.StringBuilder;
+
+     label16:
+        specialinvoke $r40.<java.lang.StringBuilder: void <init>(java.lang.String)>("com.dai.giftcard.viewer.reader.au.");
+
+        $r41 = $r18.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r42 = virtualinvoke $r40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r41);
+
+        $r43 = virtualinvoke $r42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Reader");
+
+        $r44 = virtualinvoke $r43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r45 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r44);
+
+     label17:
+        $r16 = $r45;
+
+     label18:
+        if $r16 != null goto label08;
+
+        $r46 = new java.lang.StringBuilder;
+
+     label19:
+        specialinvoke $r46.<java.lang.StringBuilder: void <init>(java.lang.String)>("com.dai.giftcard.viewer.reader.au.verification.");
+
+        $r47 = $r18.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r48 = virtualinvoke $r46.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r47);
+
+        $r49 = virtualinvoke $r48.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Reader");
+
+        $r50 = virtualinvoke $r49.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r51 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>($r50);
+
+     label20:
+        $r16 = $r51;
+
+        goto label08;
+
+     label21:
+        $r12 := @caughtexception;
+
+        virtualinvoke $r12.<java.lang.Exception: void printStackTrace()>();
+
+        goto label18;
+
+     label22:
+        $r13 := @caughtexception;
+
+        virtualinvoke $r13.<java.lang.Exception: void printStackTrace()>();
+
+        goto label08;
+
+     label23:
+        $r14 := @caughtexception;
+
+        virtualinvoke $r14.<java.lang.Exception: void printStackTrace()>();
+
+        goto label11;
+
+     label24:
+        $r15 := @caughtexception;
+
+        virtualinvoke $r15.<java.lang.Exception: void printStackTrace()>();
+
+        return $r28;
+
+        catch java.lang.Exception from label03 to label04 with label13;
+        catch java.lang.Exception from label06 to label07 with label14;
+        catch java.lang.Exception from label09 to label10 with label23;
+        catch java.lang.Exception from label11 to label12 with label24;
+        catch java.lang.Exception from label16 to label17 with label21;
+        catch java.lang.Exception from label19 to label20 with label22;
+    }
+
+    public static com.dai.giftcard.viewer.model.CardType GetCardTypeByID(int)
+    {
+        java.lang.Object $r0;
+        boolean $z0;
+        java.util.ArrayList $r1;
+        java.util.Iterator $r2;
+        com.dai.giftcard.viewer.model.CardTypeList $r3, $r5;
+        com.dai.giftcard.viewer.model.CardType $r4, $r6;
+        int $i0, $i1;
+
+        $i0 := @parameter0: int;
+
+        $r3 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        if $r3 == null goto label2;
+
+        $r5 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r1 = $r5.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r2 = virtualinvoke $r1.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label3;
+
+     label2:
+        $r4 = staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardType GetCardTypeDefault()>();
+
+        return $r4;
+
+     label3:
+        $r0 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r6 = (com.dai.giftcard.viewer.model.CardType) $r0;
+
+        $i1 = $r6.<com.dai.giftcard.viewer.model.CardType: int ID>;
+
+        if $i1 != $i0 goto label1;
+
+        return $r6;
+    }
+
+    public static com.dai.giftcard.viewer.model.CardType GetCardTypeByKey(java.lang.String)
+    {
+        java.lang.Object $r0;
+        boolean $z0, $z1;
+        java.util.ArrayList $r1;
+        java.util.Iterator $r2;
+        com.dai.giftcard.viewer.model.CardTypeList $r3, $r7;
+        com.dai.giftcard.viewer.model.CardType $r4, $r8;
+        java.lang.String $r5, $r6;
+
+        $r5 := @parameter0: java.lang.String;
+
+        $r3 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        if $r3 == null goto label2;
+
+        $r7 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r1 = $r7.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r2 = virtualinvoke $r1.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label3;
+
+     label2:
+        $r4 = staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardType GetCardTypeDefault()>();
+
+        return $r4;
+
+     label3:
+        $r0 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r8 = (com.dai.giftcard.viewer.model.CardType) $r0;
+
+        $r6 = $r8.<com.dai.giftcard.viewer.model.CardType: java.lang.String Key>;
+
+        $z1 = virtualinvoke $r6.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r5);
+
+        if $z1 == 0 goto label1;
+
+        return $r8;
+    }
+
+    public static com.dai.giftcard.viewer.model.CardType GetCardTypeByKey_Exception(java.lang.String) throws com.dai.giftcard.viewer.model.exception.CardTypeNotFoundException
+    {
+        com.dai.giftcard.viewer.model.CardType $r0;
+        java.lang.Object $r1;
+        com.dai.giftcard.viewer.model.exception.CardTypeNotFoundException $r2;
+        boolean $z0, $z1;
+        java.util.ArrayList $r3;
+        java.util.Iterator $r4;
+        com.dai.giftcard.viewer.model.CardTypeList $r5, $r8;
+        java.lang.String $r6, $r7;
+
+        $r6 := @parameter0: java.lang.String;
+
+        $r5 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        if $r5 == null goto label2;
+
+        $r8 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r3 = $r8.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r4 = virtualinvoke $r3.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label3;
+
+     label2:
+        $r2 = new com.dai.giftcard.viewer.model.exception.CardTypeNotFoundException;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.model.exception.CardTypeNotFoundException: void <init>()>();
+
+        throw $r2;
+
+     label3:
+        $r1 = interfaceinvoke $r4.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (com.dai.giftcard.viewer.model.CardType) $r1;
+
+        $r7 = $r0.<com.dai.giftcard.viewer.model.CardType: java.lang.String Key>;
+
+        $z1 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r6);
+
+        if $z1 == 0 goto label1;
+
+        return $r0;
+    }
+
+    public static com.dai.giftcard.viewer.model.CardType GetCardTypeByName(java.lang.String)
+    {
+        java.lang.Object $r0;
+        boolean $z0, $z1;
+        java.util.ArrayList $r1;
+        java.util.Iterator $r2;
+        com.dai.giftcard.viewer.model.CardTypeList $r3, $r7;
+        com.dai.giftcard.viewer.model.CardType $r4, $r8;
+        java.lang.String $r5, $r6;
+
+        $r5 := @parameter0: java.lang.String;
+
+        $r3 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        if $r3 == null goto label2;
+
+        $r7 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r1 = $r7.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r2 = virtualinvoke $r1.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label3;
+
+     label2:
+        $r4 = staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardType GetCardTypeDefault()>();
+
+        return $r4;
+
+     label3:
+        $r0 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r8 = (com.dai.giftcard.viewer.model.CardType) $r0;
+
+        $r6 = $r8.<com.dai.giftcard.viewer.model.CardType: java.lang.String Name>;
+
+        $z1 = virtualinvoke $r6.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r5);
+
+        if $z1 == 0 goto label1;
+
+        return $r8;
+    }
+
+    public static com.dai.giftcard.viewer.model.CardType GetCardTypeDefault()
+    {
+        com.dai.giftcard.viewer.model.CardType $r0;
+
+        $r0 = new com.dai.giftcard.viewer.model.CardType;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.model.CardType: void <init>()>();
+
+        $r0.<com.dai.giftcard.viewer.model.CardType: int ID> = 2;
+
+        $r0.<com.dai.giftcard.viewer.model.CardType: java.lang.String Key> = "blank";
+
+        $r0.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category> = "System";
+
+        return $r0;
+    }
+
+    public static com.dai.giftcard.viewer.model.CardTypeList GetCardTypeList()
+    {
+        int $i0;
+        com.dai.giftcard.viewer.model.CardType $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.util.ArrayList $r2, $r6;
+        java.util.Iterator $r3;
+        com.dai.giftcard.viewer.model.CardTypeList $r4, $r5;
+
+        $r4 = new com.dai.giftcard.viewer.model.CardTypeList;
+
+        specialinvoke $r4.<com.dai.giftcard.viewer.model.CardTypeList: void <init>()>();
+
+        $r5 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r2 = $r5.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r3 = virtualinvoke $r2.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label2;
+
+        return $r4;
+
+     label2:
+        $r1 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (com.dai.giftcard.viewer.model.CardType) $r1;
+
+        $i0 = $r0.<com.dai.giftcard.viewer.model.CardType: int ID>;
+
+        if $i0 == 1 goto label1;
+
+        $r6 = $r4.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        virtualinvoke $r6.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        goto label1;
+    }
+
+    public static com.dai.giftcard.viewer.model.CardTypeList GetCardTypeListByKeyword(java.lang.String)
+    {
+        int $i0, $i1;
+        com.dai.giftcard.viewer.model.CardType $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.util.ArrayList $r2, $r10;
+        java.util.Iterator $r3;
+        com.dai.giftcard.viewer.model.CardTypeList $r4, $r5;
+        java.lang.String $r6, $r7, $r8, $r9;
+
+        $r6 := @parameter0: java.lang.String;
+
+        $r4 = new com.dai.giftcard.viewer.model.CardTypeList;
+
+        specialinvoke $r4.<com.dai.giftcard.viewer.model.CardTypeList: void <init>()>();
+
+        $r5 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r2 = $r5.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r3 = virtualinvoke $r2.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label2;
+
+        return $r4;
+
+     label2:
+        $r1 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (com.dai.giftcard.viewer.model.CardType) $r1;
+
+        $i0 = $r0.<com.dai.giftcard.viewer.model.CardType: int ID>;
+
+        if $i0 == 1 goto label1;
+
+        if $r6 == "" goto label3;
+
+        $r7 = $r0.<com.dai.giftcard.viewer.model.CardType: java.lang.String Name>;
+
+        $r9 = virtualinvoke $r7.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $r8 = virtualinvoke $r6.<java.lang.String: java.lang.String toUpperCase()>();
+
+        $i1 = virtualinvoke $r9.<java.lang.String: int indexOf(java.lang.String)>($r8);
+
+        if $i1 < 0 goto label1;
+
+     label3:
+        $r10 = $r4.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        virtualinvoke $r10.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        goto label1;
+    }
+
+    public static java.util.ArrayList GetCardTypeListString()
+    {
+        java.lang.String $r0;
+        int $i0;
+        com.dai.giftcard.viewer.model.CardType $r1;
+        java.lang.Object $r2;
+        boolean $z0;
+        java.util.Iterator $r3;
+        com.dai.giftcard.viewer.model.CardTypeList $r4;
+        java.util.ArrayList $r5, $r6;
+
+        $r5 = new java.util.ArrayList;
+
+        specialinvoke $r5.<java.util.ArrayList: void <init>()>();
+
+        $r4 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r6 = $r4.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r3 = virtualinvoke $r6.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label2;
+
+        return $r5;
+
+     label2:
+        $r2 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r1 = (com.dai.giftcard.viewer.model.CardType) $r2;
+
+        $i0 = $r1.<com.dai.giftcard.viewer.model.CardType: int ID>;
+
+        if $i0 == 1 goto label1;
+
+        $r0 = $r1.<com.dai.giftcard.viewer.model.CardType: java.lang.String Name>;
+
+        virtualinvoke $r5.<java.util.ArrayList: boolean add(java.lang.Object)>($r0);
+
+        goto label1;
+    }
+
+    public static void InitCardTypeFromFile(android.content.Context) throws java.lang.Exception
+    {
+        com.dai.giftcard.viewer.model.CardTypeComparator $r0;
+        java.util.ArrayList $r1;
+        java.lang.Object $r2;
+        java.io.InputStream $r3;
+        android.content.res.AssetManager $r4;
+        org.simpleframework.xml.core.Persister $r5;
+        com.dai.giftcard.viewer.model.CardTypeList $r6, $r8;
+        android.content.Context $r7;
+
+        $r7 := @parameter0: android.content.Context;
+
+        $r4 = virtualinvoke $r7.<android.content.Context: android.content.res.AssetManager getAssets()>();
+
+        $r3 = virtualinvoke $r4.<android.content.res.AssetManager: java.io.InputStream open(java.lang.String)>("cardtype.xml");
+
+        $r6 = new com.dai.giftcard.viewer.model.CardTypeList;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.model.CardTypeList: void <init>()>();
+
+        $r5 = new org.simpleframework.xml.core.Persister;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.Persister: void <init>()>();
+
+        $r2 = interfaceinvoke $r5.<org.simpleframework.xml.Serializer: java.lang.Object read(java.lang.Class,java.io.InputStream)>(class "com/dai/giftcard/viewer/model/CardTypeList", $r3);
+
+        $r8 = (com.dai.giftcard.viewer.model.CardTypeList) $r2;
+
+        $r1 = $r8.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        $r0 = new com.dai.giftcard.viewer.model.CardTypeComparator;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.model.CardTypeComparator: void <init>()>();
+
+        staticinvoke <java.util.Collections: void sort(java.util.List,java.util.Comparator)>($r1, $r0);
+
+        <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList> = $r8;
+
+        return;
+    }
+}

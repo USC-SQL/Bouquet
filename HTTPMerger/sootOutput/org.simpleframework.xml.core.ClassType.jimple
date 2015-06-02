@@ -1,0 +1,59 @@
+class org.simpleframework.xml.core.ClassType extends java.lang.Object implements org.simpleframework.xml.strategy.Type
+{
+    private final java.lang.Class type;
+
+    public void <init>(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.ClassType $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassType;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<org.simpleframework.xml.core.ClassType: java.lang.Class type> = $r0;
+
+        return;
+    }
+
+    public java.lang.annotation.Annotation getAnnotation(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.ClassType $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassType;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        return null;
+    }
+
+    public java.lang.Class getType()
+    {
+        java.lang.Class r0;
+        org.simpleframework.xml.core.ClassType $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassType;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassType: java.lang.Class type>;
+
+        return r0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.core.ClassType $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassType;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ClassType: java.lang.Class type>;
+
+        $r0 = virtualinvoke $r1.<java.lang.Class: java.lang.String toString()>();
+
+        return $r0;
+    }
+}

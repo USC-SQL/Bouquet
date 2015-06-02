@@ -1,0 +1,24 @@
+public final class com.dai.giftcard.viewer.test.R$style extends java.lang.Object
+{
+    public static final int CustomTheme;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.test.R$style $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.test.R$style;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.dai.giftcard.viewer.test.R$style: int CustomTheme> = 2131165184;
+
+        <com.dai.giftcard.viewer.test.R$style: int CustomTheme> = 2131165184;
+
+        return;
+    }
+}

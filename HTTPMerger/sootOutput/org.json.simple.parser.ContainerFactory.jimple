@@ -1,0 +1,7 @@
+public interface  org.json.simple.parser.ContainerFactory extends java.lang.Object
+{
+
+    public abstract java.util.List creatArrayContainer();
+
+    public abstract java.util.Map createObjectContainer();
+}

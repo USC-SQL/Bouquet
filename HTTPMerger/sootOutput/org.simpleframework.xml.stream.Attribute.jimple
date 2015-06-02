@@ -1,0 +1,15 @@
+interface  org.simpleframework.xml.stream.Attribute extends java.lang.Object
+{
+
+    public abstract java.lang.String getName();
+
+    public abstract java.lang.String getPrefix();
+
+    public abstract java.lang.String getReference();
+
+    public abstract java.lang.Object getSource();
+
+    public abstract java.lang.String getValue();
+
+    public abstract boolean isReserved();
+}

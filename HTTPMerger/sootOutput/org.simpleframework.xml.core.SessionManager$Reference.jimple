@@ -1,0 +1,66 @@
+class org.simpleframework.xml.core.SessionManager$Reference extends java.lang.Object
+{
+    private int count;
+    private org.simpleframework.xml.core.Session session;
+
+    public void <init>(boolean)
+    {
+        org.simpleframework.xml.core.Session $r0;
+        boolean $z0;
+        org.simpleframework.xml.core.SessionManager$Reference $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.SessionManager$Reference;
+
+        $z0 := @parameter0: boolean;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.core.Session;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.Session: void <init>(boolean)>($z0);
+
+        $r1.<org.simpleframework.xml.core.SessionManager$Reference: org.simpleframework.xml.core.Session session> = $r0;
+
+        return;
+    }
+
+    public int clear()
+    {
+        int $i0, $i1;
+        org.simpleframework.xml.core.SessionManager$Reference $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.SessionManager$Reference;
+
+        $i0 = $r0.<org.simpleframework.xml.core.SessionManager$Reference: int count>;
+
+        $i1 = $i0 + -1;
+
+        $r0.<org.simpleframework.xml.core.SessionManager$Reference: int count> = $i1;
+
+        return $i1;
+    }
+
+    public org.simpleframework.xml.core.Session get()
+    {
+        org.simpleframework.xml.core.Session r0;
+        int $i0, $i1, $i2;
+        org.simpleframework.xml.core.SessionManager$Reference $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.SessionManager$Reference;
+
+        $i0 = $r1.<org.simpleframework.xml.core.SessionManager$Reference: int count>;
+
+        if $i0 < 0 goto label1;
+
+        $i1 = $r1.<org.simpleframework.xml.core.SessionManager$Reference: int count>;
+
+        $i2 = $i1 + 1;
+
+        $r1.<org.simpleframework.xml.core.SessionManager$Reference: int count> = $i2;
+
+     label1:
+        r0 = $r1.<org.simpleframework.xml.core.SessionManager$Reference: org.simpleframework.xml.core.Session session>;
+
+        return r0;
+    }
+}

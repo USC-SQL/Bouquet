@@ -1,0 +1,327 @@
+abstract class org.simpleframework.xml.core.Factory extends java.lang.Object
+{
+    protected org.simpleframework.xml.core.Context context;
+    protected java.lang.Class override;
+    protected org.simpleframework.xml.core.Support support;
+    protected org.simpleframework.xml.strategy.Type type;
+
+    protected void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type)
+    {
+        org.simpleframework.xml.strategy.Type $r0;
+        org.simpleframework.xml.core.Context $r1;
+        org.simpleframework.xml.core.Factory $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Factory;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r0 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.Factory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type,java.lang.Class)>($r1, $r0, null);
+
+        return;
+    }
+
+    protected void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type, java.lang.Class)
+    {
+        org.simpleframework.xml.core.Support $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.strategy.Type $r2;
+        org.simpleframework.xml.core.Context $r3;
+        org.simpleframework.xml.core.Factory $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.Factory;
+
+        $r3 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r2 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        $r1 := @parameter2: java.lang.Class;
+
+        specialinvoke $r4.<java.lang.Object: void <init>()>();
+
+        $r0 = interfaceinvoke $r3.<org.simpleframework.xml.core.Context: org.simpleframework.xml.core.Support getSupport()>();
+
+        $r4.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.core.Support support> = $r0;
+
+        $r4.<org.simpleframework.xml.core.Factory: java.lang.Class override> = $r1;
+
+        $r4.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.core.Context context> = $r3;
+
+        $r4.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.strategy.Type type> = $r2;
+
+        return;
+    }
+
+    private org.simpleframework.xml.strategy.Type getPrimitive(org.simpleframework.xml.strategy.Type, java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.OverrideType $r0;
+        java.lang.Class $r1, $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        org.simpleframework.xml.core.Factory $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.Factory;
+
+        $r3 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r1 := @parameter1: java.lang.Class;
+
+        $r2 = staticinvoke <org.simpleframework.xml.core.Support: java.lang.Class getPrimitive(java.lang.Class)>($r1);
+
+        if $r2 == $r1 goto label1;
+
+        $r0 = new org.simpleframework.xml.core.OverrideType;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.OverrideType: void <init>(org.simpleframework.xml.strategy.Type,java.lang.Class)>($r3, $r2);
+
+        return $r0;
+
+     label1:
+        return $r3;
+    }
+
+    public static boolean isCompatible(java.lang.Class, java.lang.Class)
+    {
+        boolean $z0, $z1;
+        java.lang.Class $r0, $r1;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 := @parameter1: java.lang.Class;
+
+        $z0 = virtualinvoke $r0.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label1;
+
+        $r0 = virtualinvoke $r0.<java.lang.Class: java.lang.Class getComponentType()>();
+
+     label1:
+        $z1 = virtualinvoke $r0.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r1);
+
+        return $z1;
+    }
+
+    public static boolean isInstantiable(java.lang.Class)
+    {
+        boolean $z0, $z1;
+        int $i0;
+        java.lang.Class $r0;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $i0 = virtualinvoke $r0.<java.lang.Class: int getModifiers()>();
+
+        $z0 = staticinvoke <java.lang.reflect.Modifier: boolean isAbstract(int)>($i0);
+
+        if $z0 == 0 goto label1;
+
+        return 0;
+
+     label1:
+        $z1 = staticinvoke <java.lang.reflect.Modifier: boolean isInterface(int)>($i0);
+
+        if $z1 != 0 goto label2;
+
+        return 1;
+
+     label2:
+        return 0;
+    }
+
+    public org.simpleframework.xml.strategy.Value getConversion(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.OverrideValue $r0;
+        boolean $z0;
+        java.lang.Class $r1, $r2, $r8, $r9;
+        org.simpleframework.xml.strategy.Value $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        org.simpleframework.xml.core.Context $r5;
+        org.simpleframework.xml.stream.InputNode $r6;
+        org.simpleframework.xml.core.Factory $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.Factory;
+
+        $r6 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 = $r7.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.core.Context context>;
+
+        $r4 = $r7.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.strategy.Type type>;
+
+        $r3 = interfaceinvoke $r5.<org.simpleframework.xml.core.Context: org.simpleframework.xml.strategy.Value getOverride(org.simpleframework.xml.strategy.Type,org.simpleframework.xml.stream.InputNode)>($r4, $r6);
+
+        if $r3 == null goto label1;
+
+        $r1 = $r7.<org.simpleframework.xml.core.Factory: java.lang.Class override>;
+
+        if $r1 == null goto label2;
+
+        $r8 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Value: java.lang.Class getType()>();
+
+        $r2 = $r7.<org.simpleframework.xml.core.Factory: java.lang.Class override>;
+
+        $z0 = staticinvoke <org.simpleframework.xml.core.Factory: boolean isCompatible(java.lang.Class,java.lang.Class)>($r2, $r8);
+
+        if $z0 != 0 goto label3;
+
+        $r0 = new org.simpleframework.xml.core.OverrideValue;
+
+        $r9 = $r7.<org.simpleframework.xml.core.Factory: java.lang.Class override>;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.OverrideValue: void <init>(org.simpleframework.xml.strategy.Value,java.lang.Class)>($r3, $r9);
+
+        return $r0;
+
+     label1:
+        return $r3;
+
+     label2:
+        return $r3;
+
+     label3:
+        return $r3;
+    }
+
+    public java.lang.Object getInstance() throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.InstantiationException $r2;
+        boolean $z0;
+        java.lang.Class $r3;
+        org.simpleframework.xml.core.Factory $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.Factory;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.Factory: java.lang.Class getType()>();
+
+        $z0 = staticinvoke <org.simpleframework.xml.core.Factory: boolean isInstantiable(java.lang.Class)>($r3);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new org.simpleframework.xml.core.InstantiationException;
+
+        $r1 = newarray (java.lang.Object)[1];
+
+        $r1[0] = $r3;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiationException: void <init>(java.lang.String,java.lang.Object[])>("Type %s can not be instantiated", $r1);
+
+        throw $r2;
+
+     label1:
+        $r0 = virtualinvoke $r3.<java.lang.Class: java.lang.Object newInstance()>();
+
+        return $r0;
+    }
+
+    protected org.simpleframework.xml.strategy.Value getOverride(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.InstantiationException $r1;
+        boolean $z0;
+        java.lang.Class $r2, $r3;
+        org.simpleframework.xml.stream.Position $r4;
+        org.simpleframework.xml.strategy.Value $r5;
+        org.simpleframework.xml.strategy.Type $r6;
+        org.simpleframework.xml.stream.InputNode $r7;
+        org.simpleframework.xml.core.Factory $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.Factory;
+
+        $r7 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 = virtualinvoke $r8.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.strategy.Value getConversion(org.simpleframework.xml.stream.InputNode)>($r7);
+
+        if $r5 == null goto label1;
+
+        $r4 = interfaceinvoke $r7.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.Position getPosition()>();
+
+        $r2 = interfaceinvoke $r5.<org.simpleframework.xml.strategy.Value: java.lang.Class getType()>();
+
+        $r3 = virtualinvoke $r8.<org.simpleframework.xml.core.Factory: java.lang.Class getType()>();
+
+        $z0 = staticinvoke <org.simpleframework.xml.core.Factory: boolean isCompatible(java.lang.Class,java.lang.Class)>($r3, $r2);
+
+        if $z0 != 0 goto label2;
+
+        $r1 = new org.simpleframework.xml.core.InstantiationException;
+
+        $r0 = newarray (java.lang.Object)[3];
+
+        $r0[0] = $r2;
+
+        $r6 = $r8.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.strategy.Type type>;
+
+        $r0[1] = $r6;
+
+        $r0[2] = $r4;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.InstantiationException: void <init>(java.lang.String,java.lang.Object[])>("Incompatible %s for %s at %s", $r0);
+
+        throw $r1;
+
+     label1:
+        return $r5;
+
+     label2:
+        return $r5;
+    }
+
+    public java.lang.Class getType()
+    {
+        org.simpleframework.xml.strategy.Type $r0;
+        java.lang.Class $r1, $r3, $r4;
+        org.simpleframework.xml.core.Factory $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Factory;
+
+        $r1 = $r2.<org.simpleframework.xml.core.Factory: java.lang.Class override>;
+
+        if $r1 == null goto label1;
+
+        $r3 = $r2.<org.simpleframework.xml.core.Factory: java.lang.Class override>;
+
+        return $r3;
+
+     label1:
+        $r0 = $r2.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.strategy.Type type>;
+
+        $r4 = interfaceinvoke $r0.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        return $r4;
+    }
+
+    public boolean setOverride(org.simpleframework.xml.strategy.Type, java.lang.Object, org.simpleframework.xml.stream.OutputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Context $r0;
+        boolean $z0, $z1;
+        java.lang.Class $r1;
+        org.simpleframework.xml.stream.OutputNode $r2;
+        java.lang.Object $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        org.simpleframework.xml.core.Factory $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.Factory;
+
+        $r4 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r3 := @parameter1: java.lang.Object;
+
+        $r2 := @parameter2: org.simpleframework.xml.stream.OutputNode;
+
+        $r1 = interfaceinvoke $r4.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $z0 = virtualinvoke $r1.<java.lang.Class: boolean isPrimitive()>();
+
+        if $z0 == 0 goto label1;
+
+        $r4 = specialinvoke $r5.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.strategy.Type getPrimitive(org.simpleframework.xml.strategy.Type,java.lang.Class)>($r4, $r1);
+
+     label1:
+        $r0 = $r5.<org.simpleframework.xml.core.Factory: org.simpleframework.xml.core.Context context>;
+
+        $z1 = interfaceinvoke $r0.<org.simpleframework.xml.core.Context: boolean setOverride(org.simpleframework.xml.strategy.Type,java.lang.Object,org.simpleframework.xml.stream.OutputNode)>($r4, $r3, $r2);
+
+        return $z1;
+    }
+}

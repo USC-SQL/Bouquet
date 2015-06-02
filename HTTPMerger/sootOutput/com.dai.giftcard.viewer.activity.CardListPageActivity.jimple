@@ -1,0 +1,89 @@
+public class com.dai.giftcard.viewer.activity.CardListPageActivity extends android.app.Activity
+{
+    private android.widget.AdapterView$OnItemClickListener btnItemClick;
+    android.widget.EditText etSearch;
+    private android.text.TextWatcher etSearchOnKey;
+    android.widget.GridView gridView;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.activity.CardListPageActivity$2 $r0;
+        com.dai.giftcard.viewer.activity.CardListPageActivity$1 $r1;
+        com.dai.giftcard.viewer.activity.CardListPageActivity $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.activity.CardListPageActivity;
+
+        specialinvoke $r2.<android.app.Activity: void <init>()>();
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardListPageActivity$1;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardListPageActivity$1: void <init>(com.dai.giftcard.viewer.activity.CardListPageActivity)>($r2);
+
+        $r2.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.text.TextWatcher etSearchOnKey> = $r1;
+
+        $r0 = new com.dai.giftcard.viewer.activity.CardListPageActivity$2;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.activity.CardListPageActivity$2: void <init>(com.dai.giftcard.viewer.activity.CardListPageActivity)>($r2);
+
+        $r2.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.widget.AdapterView$OnItemClickListener btnItemClick> = $r0;
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        android.text.TextWatcher $r0;
+        android.widget.EditText $r1, $r12;
+        android.widget.AdapterView$OnItemClickListener $r2;
+        com.dai.giftcard.viewer.model.CardTypeList $r3;
+        android.widget.GridView $r4, $r9, $r10;
+        android.view.View $r5, $r11;
+        com.dai.giftcard.viewer.adapter.CardTypeAdapter $r6;
+        android.os.Bundle $r7;
+        com.dai.giftcard.viewer.activity.CardListPageActivity $r8;
+
+        $r8 := @this: com.dai.giftcard.viewer.activity.CardListPageActivity;
+
+        $r7 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r8.<android.app.Activity: void onCreate(android.os.Bundle)>($r7);
+
+        virtualinvoke $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: void setContentView(int)>(2130903045);
+
+        $r5 = virtualinvoke $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.view.View findViewById(int)>(2131296300);
+
+        $r4 = (android.widget.GridView) $r5;
+
+        $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.widget.GridView gridView> = $r4;
+
+        $r9 = $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.widget.GridView gridView>;
+
+        $r6 = new com.dai.giftcard.viewer.adapter.CardTypeAdapter;
+
+        $r3 = staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList GetCardTypeList()>();
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.adapter.CardTypeAdapter: void <init>(android.content.Context,com.dai.giftcard.viewer.model.CardTypeList)>($r8, $r3);
+
+        virtualinvoke $r9.<android.widget.GridView: void setAdapter(android.widget.ListAdapter)>($r6);
+
+        $r10 = $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.widget.GridView gridView>;
+
+        $r2 = $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.widget.AdapterView$OnItemClickListener btnItemClick>;
+
+        virtualinvoke $r10.<android.widget.GridView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)>($r2);
+
+        $r11 = virtualinvoke $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.view.View findViewById(int)>(2131296301);
+
+        $r1 = (android.widget.EditText) $r11;
+
+        $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.widget.EditText etSearch> = $r1;
+
+        $r12 = $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.widget.EditText etSearch>;
+
+        $r0 = $r8.<com.dai.giftcard.viewer.activity.CardListPageActivity: android.text.TextWatcher etSearchOnKey>;
+
+        virtualinvoke $r12.<android.widget.EditText: void addTextChangedListener(android.text.TextWatcher)>($r0);
+
+        return;
+    }
+}

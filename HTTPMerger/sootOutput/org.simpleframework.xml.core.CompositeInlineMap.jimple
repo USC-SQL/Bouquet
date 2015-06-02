@@ -1,0 +1,289 @@
+class org.simpleframework.xml.core.CompositeInlineMap extends java.lang.Object implements org.simpleframework.xml.core.Repeater
+{
+    private final org.simpleframework.xml.core.Entry entry;
+    private final org.simpleframework.xml.core.MapFactory factory;
+    private final org.simpleframework.xml.core.Converter key;
+    private final org.simpleframework.xml.stream.Style style;
+    private final org.simpleframework.xml.core.Converter value;
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.core.Entry, org.simpleframework.xml.strategy.Type) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        org.simpleframework.xml.core.Converter $r1, $r7;
+        org.simpleframework.xml.core.MapFactory $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        org.simpleframework.xml.core.Entry $r4;
+        org.simpleframework.xml.core.Context $r5;
+        org.simpleframework.xml.core.CompositeInlineMap $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.CompositeInlineMap;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r4 := @parameter1: org.simpleframework.xml.core.Entry;
+
+        $r3 := @parameter2: org.simpleframework.xml.strategy.Type;
+
+        specialinvoke $r6.<java.lang.Object: void <init>()>();
+
+        $r2 = new org.simpleframework.xml.core.MapFactory;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MapFactory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r5, $r3);
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.MapFactory factory> = $r2;
+
+        $r1 = virtualinvoke $r4.<org.simpleframework.xml.core.Entry: org.simpleframework.xml.core.Converter getValue(org.simpleframework.xml.core.Context)>($r5);
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Converter value> = $r1;
+
+        $r7 = virtualinvoke $r4.<org.simpleframework.xml.core.Entry: org.simpleframework.xml.core.Converter getKey(org.simpleframework.xml.core.Context)>($r5);
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Converter key> = $r7;
+
+        $r0 = interfaceinvoke $r5.<org.simpleframework.xml.core.Context: org.simpleframework.xml.stream.Style getStyle()>();
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.stream.Style style> = $r0;
+
+        $r6.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Entry entry> = $r4;
+
+        return;
+    }
+
+    private java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.util.Map) throws java.lang.Exception
+    {
+        java.lang.Object $r0, $r1;
+        java.lang.String $r2;
+        org.simpleframework.xml.core.Converter $r3, $r8;
+        java.util.Map $r4;
+        org.simpleframework.xml.stream.InputNode $r5, $r6;
+        org.simpleframework.xml.core.CompositeInlineMap $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.CompositeInlineMap;
+
+        $r5 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 := @parameter1: java.util.Map;
+
+        $r6 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getParent()>();
+
+        $r2 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+     label1:
+        if $r5 == null goto label3;
+
+        $r3 = $r7.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Converter key>;
+
+        $r0 = interfaceinvoke $r3.<org.simpleframework.xml.core.Converter: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r5);
+
+        $r8 = $r7.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Converter value>;
+
+        $r1 = interfaceinvoke $r8.<org.simpleframework.xml.core.Converter: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r5);
+
+        if $r4 == null goto label2;
+
+        interfaceinvoke $r4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r0, $r1);
+
+     label2:
+        $r5 = interfaceinvoke $r6.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext(java.lang.String)>($r2);
+
+        goto label1;
+
+     label3:
+        return $r4;
+    }
+
+    private void write(org.simpleframework.xml.stream.OutputNode, java.util.Map, org.simpleframework.xml.stream.Mode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Converter $r0, $r14;
+        java.lang.Object $r1, $r2;
+        boolean $z0;
+        java.util.Iterator $r3;
+        java.util.Set $r4;
+        org.simpleframework.xml.stream.Style $r5;
+        java.lang.String $r6, $r13;
+        org.simpleframework.xml.core.Entry $r7;
+        org.simpleframework.xml.stream.Mode $r8;
+        java.util.Map $r9;
+        org.simpleframework.xml.stream.OutputNode $r10, $r11;
+        org.simpleframework.xml.core.CompositeInlineMap $r12;
+
+        $r12 := @this: org.simpleframework.xml.core.CompositeInlineMap;
+
+        $r10 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r9 := @parameter1: java.util.Map;
+
+        $r8 := @parameter2: org.simpleframework.xml.stream.Mode;
+
+        $r7 = $r12.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Entry entry>;
+
+        $r6 = virtualinvoke $r7.<org.simpleframework.xml.core.Entry: java.lang.String getEntry()>();
+
+        $r5 = $r12.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.stream.Style style>;
+
+        $r13 = interfaceinvoke $r5.<org.simpleframework.xml.stream.Style: java.lang.String getElement(java.lang.String)>($r6);
+
+        $r4 = interfaceinvoke $r9.<java.util.Map: java.util.Set keySet()>();
+
+        $r3 = interfaceinvoke $r4.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r11 = interfaceinvoke $r10.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.OutputNode getChild(java.lang.String)>($r13);
+
+        $r2 = interfaceinvoke $r9.<java.util.Map: java.lang.Object get(java.lang.Object)>($r1);
+
+        interfaceinvoke $r11.<org.simpleframework.xml.stream.OutputNode: void setMode(org.simpleframework.xml.stream.Mode)>($r8);
+
+        $r0 = $r12.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Converter key>;
+
+        interfaceinvoke $r0.<org.simpleframework.xml.core.Converter: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r11, $r1);
+
+        $r14 = $r12.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Converter value>;
+
+        interfaceinvoke $r14.<org.simpleframework.xml.core.Converter: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object)>($r11, $r2);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.util.Map $r0;
+        java.lang.Object $r1, $r5;
+        org.simpleframework.xml.core.MapFactory $r2;
+        org.simpleframework.xml.stream.InputNode $r3;
+        org.simpleframework.xml.core.CompositeInlineMap $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CompositeInlineMap;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r2 = $r4.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.MapFactory factory>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.MapFactory: java.lang.Object getInstance()>();
+
+        $r0 = (java.util.Map) $r1;
+
+        if $r0 == null goto label1;
+
+        $r5 = specialinvoke $r4.<org.simpleframework.xml.core.CompositeInlineMap: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.util.Map)>($r3, $r0);
+
+        return $r5;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        java.util.Map $r0;
+        java.lang.Object $r1, $r4, $r5;
+        org.simpleframework.xml.stream.InputNode $r2;
+        org.simpleframework.xml.core.CompositeInlineMap $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.CompositeInlineMap;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        $r0 = (java.util.Map) $r1;
+
+        if $r0 == null goto label1;
+
+        $r4 = specialinvoke $r3.<org.simpleframework.xml.core.CompositeInlineMap: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.util.Map)>($r2, $r0);
+
+        return $r4;
+
+     label1:
+        $r5 = virtualinvoke $r3.<org.simpleframework.xml.core.CompositeInlineMap: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r2);
+
+        return $r5;
+    }
+
+    public boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        boolean $z0, $z1;
+        java.lang.String $r0;
+        org.simpleframework.xml.core.Converter $r1, $r5;
+        org.simpleframework.xml.stream.InputNode $r2, $r3;
+        org.simpleframework.xml.core.CompositeInlineMap $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.CompositeInlineMap;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 = interfaceinvoke $r2.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getParent()>();
+
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.stream.InputNode: java.lang.String getName()>();
+
+     label1:
+        if $r2 == null goto label3;
+
+        $r1 = $r4.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Converter key>;
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Converter: boolean validate(org.simpleframework.xml.stream.InputNode)>($r2);
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r5 = $r4.<org.simpleframework.xml.core.CompositeInlineMap: org.simpleframework.xml.core.Converter value>;
+
+        $z1 = interfaceinvoke $r5.<org.simpleframework.xml.core.Converter: boolean validate(org.simpleframework.xml.stream.InputNode)>($r2);
+
+        if $z1 == 0 goto label4;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext(java.lang.String)>($r0);
+
+        goto label1;
+
+     label3:
+        return 1;
+
+     label4:
+        return 0;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        boolean $z0;
+        java.util.Map $r0;
+        org.simpleframework.xml.stream.Mode $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.stream.OutputNode $r3, $r4;
+        org.simpleframework.xml.core.CompositeInlineMap $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.CompositeInlineMap;
+
+        $r3 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r2 := @parameter1: java.lang.Object;
+
+        $r4 = interfaceinvoke $r3.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.OutputNode getParent()>();
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.Mode getMode()>();
+
+        $r0 = (java.util.Map) $r2;
+
+        $z0 = interfaceinvoke $r3.<org.simpleframework.xml.stream.OutputNode: boolean isCommitted()>();
+
+        if $z0 != 0 goto label1;
+
+        interfaceinvoke $r3.<org.simpleframework.xml.stream.OutputNode: void remove()>();
+
+     label1:
+        specialinvoke $r5.<org.simpleframework.xml.core.CompositeInlineMap: void write(org.simpleframework.xml.stream.OutputNode,java.util.Map,org.simpleframework.xml.stream.Mode)>($r4, $r0, $r1);
+
+        return;
+    }
+}

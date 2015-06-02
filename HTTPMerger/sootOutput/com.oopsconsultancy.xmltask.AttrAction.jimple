@@ -1,0 +1,186 @@
+public class com.oopsconsultancy.xmltask.AttrAction extends com.oopsconsultancy.xmltask.Action
+{
+    private java.lang.String attr;
+    private java.lang.Boolean remove;
+    private org.apache.tools.ant.Task task;
+    private java.lang.String value;
+
+    public void <init>(java.lang.String, java.lang.String, java.lang.Boolean, org.apache.tools.ant.Task)
+    {
+        org.apache.tools.ant.Task $r0;
+        java.lang.Boolean $r1;
+        java.lang.String $r2, $r3;
+        com.oopsconsultancy.xmltask.AttrAction $r4;
+
+        $r4 := @this: com.oopsconsultancy.xmltask.AttrAction;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: java.lang.String;
+
+        $r1 := @parameter2: java.lang.Boolean;
+
+        $r0 := @parameter3: org.apache.tools.ant.Task;
+
+        specialinvoke $r4.<com.oopsconsultancy.xmltask.Action: void <init>()>();
+
+        $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String attr> = null;
+
+        $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String value> = null;
+
+        $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.Boolean remove> = null;
+
+        $r4.<com.oopsconsultancy.xmltask.AttrAction: org.apache.tools.ant.Task task> = null;
+
+        $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String attr> = $r2;
+
+        $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String value> = $r3;
+
+        $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.Boolean remove> = $r1;
+
+        $r4.<com.oopsconsultancy.xmltask.AttrAction: org.apache.tools.ant.Task task> = $r0;
+
+        return;
+    }
+
+    private void log(java.lang.String, int)
+    {
+        java.io.PrintStream $r0;
+        org.apache.tools.ant.Task $r1, $r4;
+        int $i0;
+        java.lang.String $r2;
+        com.oopsconsultancy.xmltask.AttrAction $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.AttrAction;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r1 = $r3.<com.oopsconsultancy.xmltask.AttrAction: org.apache.tools.ant.Task task>;
+
+        if $r1 == null goto label1;
+
+        $r4 = $r3.<com.oopsconsultancy.xmltask.AttrAction: org.apache.tools.ant.Task task>;
+
+        virtualinvoke $r4.<org.apache.tools.ant.Task: void log(java.lang.String,int)>($r2, $i0);
+
+        return;
+
+     label1:
+        $r0 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r0.<java.io.PrintStream: void println(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public boolean apply(org.w3c.dom.Node) throws java.lang.Exception
+    {
+        java.lang.StringBuilder $r0, $r10, $r11;
+        java.lang.String $r1, $r2, $r9, $r12;
+        org.w3c.dom.Element $r3, $r8;
+        short $s0;
+        java.lang.Boolean $r4, $r5;
+        org.w3c.dom.Node $r6;
+        com.oopsconsultancy.xmltask.AttrAction $r7;
+
+        $r7 := @this: com.oopsconsultancy.xmltask.AttrAction;
+
+        $r6 := @parameter0: org.w3c.dom.Node;
+
+        $s0 = interfaceinvoke $r6.<org.w3c.dom.Node: short getNodeType()>();
+
+        if $s0 != 1 goto label2;
+
+        $r5 = $r7.<com.oopsconsultancy.xmltask.AttrAction: java.lang.Boolean remove>;
+
+        $r4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        if $r5 != $r4 goto label1;
+
+        $r3 = (org.w3c.dom.Element) $r6;
+
+        $r1 = $r7.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String attr>;
+
+        interfaceinvoke $r3.<org.w3c.dom.Element: void removeAttribute(java.lang.String)>($r1);
+
+        return 1;
+
+     label1:
+        $r8 = (org.w3c.dom.Element) $r6;
+
+        $r9 = $r7.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String attr>;
+
+        $r2 = $r7.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String value>;
+
+        interfaceinvoke $r8.<org.w3c.dom.Element: void setAttribute(java.lang.String,java.lang.String)>($r9, $r2);
+
+        return 1;
+
+     label2:
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r6);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" can\'t have any attributes");
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r7.<com.oopsconsultancy.xmltask.AttrAction: void log(java.lang.String,int)>($r12, 1);
+
+        return 0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0, $r8, $r11, $r14;
+        java.lang.Boolean $r1, $r2;
+        java.lang.StringBuilder $r3, $r5, $r6, $r7, $r9, $r10, $r12, $r13;
+        com.oopsconsultancy.xmltask.AttrAction $r4;
+
+        $r4 := @this: com.oopsconsultancy.xmltask.AttrAction;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("AttrReplace(");
+
+        $r0 = $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String attr>;
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=");
+
+        $r8 = $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.String value>;
+
+        $r9 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", remove=");
+
+        $r2 = $r4.<com.oopsconsultancy.xmltask.AttrAction: java.lang.Boolean remove>;
+
+        $r1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        if $r2 != $r1 goto label2;
+
+        $r11 = "yes";
+
+     label1:
+        $r12 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r14 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r14;
+
+     label2:
+        $r11 = "no";
+
+        goto label1;
+    }
+}

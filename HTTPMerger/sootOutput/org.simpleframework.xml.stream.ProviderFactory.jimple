@@ -1,0 +1,53 @@
+final class org.simpleframework.xml.stream.ProviderFactory extends java.lang.Object
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.stream.ProviderFactory $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.ProviderFactory;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static org.simpleframework.xml.stream.Provider getInstance()
+    {
+        org.simpleframework.xml.stream.DocumentProvider r0;
+        org.simpleframework.xml.stream.PullProvider r1;
+        org.simpleframework.xml.stream.StreamProvider r2;
+        java.lang.Throwable $r4, $r5;
+
+     label1:
+        r2 = new org.simpleframework.xml.stream.StreamProvider;
+
+        specialinvoke r2.<org.simpleframework.xml.stream.StreamProvider: void <init>()>();
+
+     label2:
+        return r2;
+
+     label3:
+        $r4 := @caughtexception;
+
+     label4:
+        r1 = new org.simpleframework.xml.stream.PullProvider;
+
+        specialinvoke r1.<org.simpleframework.xml.stream.PullProvider: void <init>()>();
+
+     label5:
+        return r1;
+
+     label6:
+        $r5 := @caughtexception;
+
+        r0 = new org.simpleframework.xml.stream.DocumentProvider;
+
+        specialinvoke r0.<org.simpleframework.xml.stream.DocumentProvider: void <init>()>();
+
+        return r0;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label4 to label5 with label6;
+    }
+}

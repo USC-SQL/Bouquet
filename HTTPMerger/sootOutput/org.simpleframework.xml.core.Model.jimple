@@ -1,0 +1,49 @@
+interface  org.simpleframework.xml.core.Model extends java.lang.Object implements java.lang.Iterable
+{
+
+    public abstract org.simpleframework.xml.core.LabelMap getAttributes() throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.LabelMap getElements() throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Expression getExpression();
+
+    public abstract int getIndex();
+
+    public abstract org.simpleframework.xml.core.ModelMap getModels() throws java.lang.Exception;
+
+    public abstract java.lang.String getName();
+
+    public abstract java.lang.String getPrefix();
+
+    public abstract org.simpleframework.xml.core.Label getText();
+
+    public abstract boolean isAttribute(java.lang.String);
+
+    public abstract boolean isComposite();
+
+    public abstract boolean isElement(java.lang.String);
+
+    public abstract boolean isEmpty();
+
+    public abstract boolean isModel(java.lang.String);
+
+    public abstract org.simpleframework.xml.core.Model lookup(java.lang.String, int);
+
+    public abstract org.simpleframework.xml.core.Model lookup(org.simpleframework.xml.core.Expression);
+
+    public abstract org.simpleframework.xml.core.Model register(java.lang.String, java.lang.String, int) throws java.lang.Exception;
+
+    public abstract void register(org.simpleframework.xml.core.Label) throws java.lang.Exception;
+
+    public abstract void registerAttribute(java.lang.String) throws java.lang.Exception;
+
+    public abstract void registerAttribute(org.simpleframework.xml.core.Label) throws java.lang.Exception;
+
+    public abstract void registerElement(java.lang.String) throws java.lang.Exception;
+
+    public abstract void registerElement(org.simpleframework.xml.core.Label) throws java.lang.Exception;
+
+    public abstract void registerText(org.simpleframework.xml.core.Label) throws java.lang.Exception;
+
+    public abstract void validate(java.lang.Class) throws java.lang.Exception;
+}

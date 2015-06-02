@@ -1,0 +1,127 @@
+class org.simpleframework.xml.core.KeyBuilder extends java.lang.Object
+{
+    private final org.simpleframework.xml.core.Label label;
+
+    public void <init>(org.simpleframework.xml.core.Label)
+    {
+        org.simpleframework.xml.core.Label $r0;
+        org.simpleframework.xml.core.KeyBuilder $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.KeyBuilder;
+
+        $r0 := @parameter0: org.simpleframework.xml.core.Label;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<org.simpleframework.xml.core.KeyBuilder: org.simpleframework.xml.core.Label label> = $r0;
+
+        return;
+    }
+
+    private java.lang.Object getKey(org.simpleframework.xml.core.KeyBuilder$KeyType) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.KeyBuilder$Key $r0;
+        java.lang.String $r1;
+        java.util.Collection $r2;
+        org.simpleframework.xml.core.Label $r3;
+        org.simpleframework.xml.core.KeyBuilder$KeyType $r4;
+        org.simpleframework.xml.core.KeyBuilder $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.KeyBuilder;
+
+        $r4 := @parameter0: org.simpleframework.xml.core.KeyBuilder$KeyType;
+
+        $r3 = $r5.<org.simpleframework.xml.core.KeyBuilder: org.simpleframework.xml.core.Label label>;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.core.Label: java.util.Collection getPaths()>();
+
+        $r1 = specialinvoke $r5.<org.simpleframework.xml.core.KeyBuilder: java.lang.String getKey(java.util.Collection)>($r2);
+
+        if $r4 != null goto label1;
+
+        return $r1;
+
+     label1:
+        $r0 = new org.simpleframework.xml.core.KeyBuilder$Key;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.KeyBuilder$Key: void <init>(org.simpleframework.xml.core.KeyBuilder$KeyType,java.lang.String)>($r4, $r1);
+
+        return $r0;
+    }
+
+    private java.lang.String getKey(java.util.Collection) throws java.lang.Exception
+    {
+        java.lang.String $r0, $r7;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.util.Iterator $r2;
+        java.util.TreeSet $r3;
+        java.lang.StringBuilder $r4;
+        java.util.Collection $r5;
+        org.simpleframework.xml.core.KeyBuilder $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.KeyBuilder;
+
+        $r5 := @parameter0: java.util.Collection;
+
+        $r3 = new java.util.TreeSet;
+
+        specialinvoke $r3.<java.util.TreeSet: void <init>(java.util.Collection)>($r5);
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = interfaceinvoke $r3.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (java.lang.String) $r1;
+
+        virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(62);
+
+        goto label1;
+
+     label2:
+        $r7 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r7;
+    }
+
+    public java.lang.Object getKey() throws java.lang.Exception
+    {
+        java.lang.Object $r0, $r5;
+        org.simpleframework.xml.core.KeyBuilder$KeyType $r1, $r4;
+        boolean $z0;
+        org.simpleframework.xml.core.Label $r2;
+        org.simpleframework.xml.core.KeyBuilder $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.KeyBuilder;
+
+        $r2 = $r3.<org.simpleframework.xml.core.KeyBuilder: org.simpleframework.xml.core.Label label>;
+
+        $z0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Label: boolean isAttribute()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = <org.simpleframework.xml.core.KeyBuilder$KeyType: org.simpleframework.xml.core.KeyBuilder$KeyType ATTRIBUTE>;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.KeyBuilder: java.lang.Object getKey(org.simpleframework.xml.core.KeyBuilder$KeyType)>($r1);
+
+        return $r0;
+
+     label1:
+        $r4 = <org.simpleframework.xml.core.KeyBuilder$KeyType: org.simpleframework.xml.core.KeyBuilder$KeyType ELEMENT>;
+
+        $r5 = specialinvoke $r3.<org.simpleframework.xml.core.KeyBuilder: java.lang.Object getKey(org.simpleframework.xml.core.KeyBuilder$KeyType)>($r4);
+
+        return $r5;
+    }
+}

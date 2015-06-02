@@ -1,0 +1,44 @@
+class org.simpleframework.xml.convert.ScannerBuilder extends org.simpleframework.xml.util.WeakCache
+{
+
+    public void <init>()
+    {
+        org.simpleframework.xml.convert.ScannerBuilder $r0;
+
+        $r0 := @this: org.simpleframework.xml.convert.ScannerBuilder;
+
+        specialinvoke $r0.<org.simpleframework.xml.util.WeakCache: void <init>()>();
+
+        return;
+    }
+
+    public org.simpleframework.xml.convert.Scanner build(java.lang.Class)
+    {
+        org.simpleframework.xml.convert.ScannerBuilder$Entry r0;
+        org.simpleframework.xml.convert.Scanner $r1;
+        java.lang.Object $r2;
+        java.lang.Class $r3;
+        org.simpleframework.xml.convert.ScannerBuilder $r4;
+
+        $r4 := @this: org.simpleframework.xml.convert.ScannerBuilder;
+
+        $r3 := @parameter0: java.lang.Class;
+
+        $r2 = virtualinvoke $r4.<org.simpleframework.xml.convert.ScannerBuilder: java.lang.Object fetch(java.lang.Object)>($r3);
+
+        $r1 = (org.simpleframework.xml.convert.Scanner) $r2;
+
+        if $r1 != null goto label1;
+
+        r0 = new org.simpleframework.xml.convert.ScannerBuilder$Entry;
+
+        specialinvoke r0.<org.simpleframework.xml.convert.ScannerBuilder$Entry: void <init>(java.lang.Class)>($r3);
+
+        virtualinvoke $r4.<org.simpleframework.xml.convert.ScannerBuilder: void cache(java.lang.Object,java.lang.Object)>($r3, r0);
+
+        return r0;
+
+     label1:
+        return $r1;
+    }
+}

@@ -1,0 +1,9 @@
+interface  org.simpleframework.xml.core.Extractor extends java.lang.Object
+{
+
+    public abstract java.util.List getAnnotations() throws java.lang.Exception;
+
+    public abstract org.simpleframework.xml.core.Label getLabel(java.lang.annotation.Annotation) throws java.lang.Exception;
+
+    public abstract java.lang.Class getType(java.lang.annotation.Annotation) throws java.lang.Exception;
+}

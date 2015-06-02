@@ -1,0 +1,58 @@
+public class com.dai.giftcard.viewer.model.CardTypeComparator extends java.lang.Object implements java.util.Comparator
+{
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.model.CardTypeComparator $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.model.CardTypeComparator;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public int compare(com.dai.giftcard.viewer.model.CardType, com.dai.giftcard.viewer.model.CardType)
+    {
+        int $i0;
+        java.lang.String $r0, $r1;
+        com.dai.giftcard.viewer.model.CardType $r2, $r3;
+        com.dai.giftcard.viewer.model.CardTypeComparator $r4;
+
+        $r4 := @this: com.dai.giftcard.viewer.model.CardTypeComparator;
+
+        $r2 := @parameter0: com.dai.giftcard.viewer.model.CardType;
+
+        $r3 := @parameter1: com.dai.giftcard.viewer.model.CardType;
+
+        $r0 = $r2.<com.dai.giftcard.viewer.model.CardType: java.lang.String Name>;
+
+        $r1 = $r3.<com.dai.giftcard.viewer.model.CardType: java.lang.String Name>;
+
+        $i0 = virtualinvoke $r0.<java.lang.String: int compareTo(java.lang.String)>($r1);
+
+        return $i0;
+    }
+
+    public volatile int compare(java.lang.Object, java.lang.Object)
+    {
+        com.dai.giftcard.viewer.model.CardType $r0, $r1;
+        int $i0;
+        java.lang.Object $r2, $r3;
+        com.dai.giftcard.viewer.model.CardTypeComparator $r4;
+
+        $r4 := @this: com.dai.giftcard.viewer.model.CardTypeComparator;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r3 := @parameter1: java.lang.Object;
+
+        $r0 = (com.dai.giftcard.viewer.model.CardType) $r2;
+
+        $r1 = (com.dai.giftcard.viewer.model.CardType) $r3;
+
+        $i0 = virtualinvoke $r4.<com.dai.giftcard.viewer.model.CardTypeComparator: int compare(com.dai.giftcard.viewer.model.CardType,com.dai.giftcard.viewer.model.CardType)>($r0, $r1);
+
+        return $i0;
+    }
+}

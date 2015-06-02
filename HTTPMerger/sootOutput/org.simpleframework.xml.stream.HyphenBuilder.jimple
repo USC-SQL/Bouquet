@@ -1,0 +1,62 @@
+class org.simpleframework.xml.stream.HyphenBuilder extends java.lang.Object implements org.simpleframework.xml.stream.Style
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.stream.HyphenBuilder $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.HyphenBuilder;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.String getAttribute(java.lang.String)
+    {
+        org.simpleframework.xml.stream.HyphenBuilder$Parser $r0;
+        java.lang.String $r1, $r3;
+        org.simpleframework.xml.stream.HyphenBuilder $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.HyphenBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        if $r1 == null goto label1;
+
+        $r0 = new org.simpleframework.xml.stream.HyphenBuilder$Parser;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.HyphenBuilder$Parser: void <init>(org.simpleframework.xml.stream.HyphenBuilder,java.lang.String,org.simpleframework.xml.stream.HyphenBuilder$1)>($r2, $r1, null);
+
+        $r3 = virtualinvoke $r0.<org.simpleframework.xml.stream.HyphenBuilder$Parser: java.lang.String process()>();
+
+        return $r3;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.String getElement(java.lang.String)
+    {
+        org.simpleframework.xml.stream.HyphenBuilder$Parser $r0;
+        java.lang.String $r1, $r3;
+        org.simpleframework.xml.stream.HyphenBuilder $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.HyphenBuilder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        if $r1 == null goto label1;
+
+        $r0 = new org.simpleframework.xml.stream.HyphenBuilder$Parser;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.HyphenBuilder$Parser: void <init>(org.simpleframework.xml.stream.HyphenBuilder,java.lang.String,org.simpleframework.xml.stream.HyphenBuilder$1)>($r2, $r1, null);
+
+        $r3 = virtualinvoke $r0.<org.simpleframework.xml.stream.HyphenBuilder$Parser: java.lang.String process()>();
+
+        return $r3;
+
+     label1:
+        return null;
+    }
+}

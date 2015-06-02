@@ -1,0 +1,151 @@
+class org.simpleframework.xml.stream.OutputBuffer extends java.lang.Object
+{
+    private java.lang.StringBuilder text;
+
+    public void <init>()
+    {
+        java.lang.StringBuilder $r0;
+        org.simpleframework.xml.stream.OutputBuffer $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputBuffer;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r0 = new java.lang.StringBuilder;
+
+        specialinvoke $r0.<java.lang.StringBuilder: void <init>()>();
+
+        $r1.<org.simpleframework.xml.stream.OutputBuffer: java.lang.StringBuilder text> = $r0;
+
+        return;
+    }
+
+    public void append(char)
+    {
+        java.lang.StringBuilder $r0;
+        char $c0;
+        org.simpleframework.xml.stream.OutputBuffer $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputBuffer;
+
+        $c0 := @parameter0: char;
+
+        $r0 = $r1.<org.simpleframework.xml.stream.OutputBuffer: java.lang.StringBuilder text>;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($c0);
+
+        return;
+    }
+
+    public void append(java.lang.String)
+    {
+        java.lang.StringBuilder $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.stream.OutputBuffer $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.OutputBuffer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.OutputBuffer: java.lang.StringBuilder text>;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        return;
+    }
+
+    public void append(java.lang.String, int, int)
+    {
+        java.lang.StringBuilder $r0;
+        int $i0, $i1;
+        java.lang.String $r1;
+        org.simpleframework.xml.stream.OutputBuffer $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.OutputBuffer;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.OutputBuffer: java.lang.StringBuilder text>;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.CharSequence,int,int)>($r1, $i0, $i1);
+
+        return;
+    }
+
+    public void append(char[])
+    {
+        int $i0;
+        java.lang.StringBuilder $r0;
+        char[] $r1;
+        org.simpleframework.xml.stream.OutputBuffer $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.OutputBuffer;
+
+        $r1 := @parameter0: char[];
+
+        $r0 = $r2.<org.simpleframework.xml.stream.OutputBuffer: java.lang.StringBuilder text>;
+
+        $i0 = lengthof $r1;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(char[],int,int)>($r1, 0, $i0);
+
+        return;
+    }
+
+    public void append(char[], int, int)
+    {
+        java.lang.StringBuilder $r0;
+        int $i0, $i1;
+        char[] $r1;
+        org.simpleframework.xml.stream.OutputBuffer $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.OutputBuffer;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.OutputBuffer: java.lang.StringBuilder text>;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(char[],int,int)>($r1, $i0, $i1);
+
+        return;
+    }
+
+    public void clear()
+    {
+        java.lang.StringBuilder $r0;
+        org.simpleframework.xml.stream.OutputBuffer $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputBuffer;
+
+        $r0 = $r1.<org.simpleframework.xml.stream.OutputBuffer: java.lang.StringBuilder text>;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: void setLength(int)>(0);
+
+        return;
+    }
+
+    public void write(java.io.Writer) throws java.io.IOException
+    {
+        java.lang.StringBuilder $r0;
+        java.io.Writer $r1;
+        org.simpleframework.xml.stream.OutputBuffer $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.OutputBuffer;
+
+        $r1 := @parameter0: java.io.Writer;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.OutputBuffer: java.lang.StringBuilder text>;
+
+        virtualinvoke $r1.<java.io.Writer: java.io.Writer append(java.lang.CharSequence)>($r0);
+
+        return;
+    }
+}

@@ -1,0 +1,228 @@
+public class com.dai.giftcard.viewer.activity.CardManagePageActivity extends android.app.Activity
+{
+    private android.widget.AdapterView$OnItemClickListener btnItemClick;
+    android.widget.ArrayAdapter cardAdapter;
+    android.app.ProgressDialog dialog;
+    private android.os.Handler handlerUpdateFinish;
+    android.widget.ListView lvCard;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.activity.CardManagePageActivity$5 $r0;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity$1 $r1;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.activity.CardManagePageActivity;
+
+        specialinvoke $r2.<android.app.Activity: void <init>()>();
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardManagePageActivity$1;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardManagePageActivity$1: void <init>(com.dai.giftcard.viewer.activity.CardManagePageActivity)>($r2);
+
+        $r2.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.AdapterView$OnItemClickListener btnItemClick> = $r1;
+
+        $r0 = new com.dai.giftcard.viewer.activity.CardManagePageActivity$5;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.activity.CardManagePageActivity$5: void <init>(com.dai.giftcard.viewer.activity.CardManagePageActivity)>($r2);
+
+        $r2.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.os.Handler handlerUpdateFinish> = $r0;
+
+        return;
+    }
+
+    static android.os.Handler access$000(com.dai.giftcard.viewer.activity.CardManagePageActivity)
+    {
+        android.os.Handler r0;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity $r1;
+
+        $r1 := @parameter0: com.dai.giftcard.viewer.activity.CardManagePageActivity;
+
+        r0 = $r1.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.os.Handler handlerUpdateFinish>;
+
+        return r0;
+    }
+
+    public void MenuDelete()
+    {
+        android.app.AlertDialog $r0;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity$2 $r1;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity$3 $r2;
+        android.app.AlertDialog$Builder $r3, $r4, $r6, $r7, $r8;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.activity.CardManagePageActivity;
+
+        $r3 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r3.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r5);
+
+        $r4 = virtualinvoke $r3.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>("Confirm");
+
+        $r6 = virtualinvoke $r4.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setCancelable(boolean)>(0);
+
+        $r7 = virtualinvoke $r6.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>("Are you sure to delete these cards?");
+
+        $r2 = new com.dai.giftcard.viewer.activity.CardManagePageActivity$3;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.activity.CardManagePageActivity$3: void <init>(com.dai.giftcard.viewer.activity.CardManagePageActivity,android.app.Activity)>($r5, $r5);
+
+        $r8 = virtualinvoke $r7.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Yes", $r2);
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardManagePageActivity$2;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardManagePageActivity$2: void <init>(com.dai.giftcard.viewer.activity.CardManagePageActivity)>($r5);
+
+        virtualinvoke $r8.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setNegativeButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("No", $r1);
+
+        $r0 = virtualinvoke $r3.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r0.<android.app.AlertDialog: void show()>();
+
+        return;
+    }
+
+    public void MenuRefresh()
+    {
+        com.dai.giftcard.viewer.activity.CardManagePageActivity$4 $r0;
+        android.app.ProgressDialog $r1;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.activity.CardManagePageActivity;
+
+        $r1 = staticinvoke <android.app.ProgressDialog: android.app.ProgressDialog show(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,boolean)>($r2, "", "Querying. Please wait...", 1);
+
+        $r2.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.app.ProgressDialog dialog> = $r1;
+
+        $r0 = new com.dai.giftcard.viewer.activity.CardManagePageActivity$4;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.activity.CardManagePageActivity$4: void <init>(com.dai.giftcard.viewer.activity.CardManagePageActivity,android.app.Activity)>($r2, $r2);
+
+        virtualinvoke $r0.<com.dai.giftcard.viewer.activity.CardManagePageActivity$4: void start()>();
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        android.widget.Toast $r0;
+        android.content.Context $r1;
+        java.util.ArrayList $r2;
+        android.widget.ArrayAdapter $r3, $r12;
+        android.widget.ListView $r4, $r10, $r11, $r13, $r14;
+        android.view.View $r5;
+        com.dai.giftcard.viewer.model.GiftCardEntityList $r6;
+        android.widget.AdapterView$OnItemClickListener $r7;
+        android.os.Bundle $r8;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity $r9;
+
+        $r9 := @this: com.dai.giftcard.viewer.activity.CardManagePageActivity;
+
+        $r8 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r9.<android.app.Activity: void onCreate(android.os.Bundle)>($r8);
+
+        virtualinvoke $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: void setContentView(int)>(2130903043);
+
+        $r5 = virtualinvoke $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.view.View findViewById(int)>(2131296296);
+
+        $r4 = (android.widget.ListView) $r5;
+
+        $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.ListView lvCard> = $r4;
+
+        $r10 = $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.ListView lvCard>;
+
+        $r7 = $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.AdapterView$OnItemClickListener btnItemClick>;
+
+        virtualinvoke $r10.<android.widget.ListView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)>($r7);
+
+        $r3 = new android.widget.ArrayAdapter;
+
+        $r6 = <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntityList GiftCardList>;
+
+        $r2 = $r6.<com.dai.giftcard.viewer.model.GiftCardEntityList: java.util.ArrayList list>;
+
+        specialinvoke $r3.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,java.util.List)>($r9, 17367056, $r2);
+
+        $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.ArrayAdapter cardAdapter> = $r3;
+
+        $r11 = $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.ListView lvCard>;
+
+        $r12 = $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.ArrayAdapter cardAdapter>;
+
+        virtualinvoke $r11.<android.widget.ListView: void setAdapter(android.widget.ListAdapter)>($r12);
+
+        $r13 = $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.ListView lvCard>;
+
+        virtualinvoke $r13.<android.widget.ListView: void setTextFilterEnabled(boolean)>(1);
+
+        $r14 = $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.widget.ListView lvCard>;
+
+        virtualinvoke $r14.<android.widget.ListView: void setChoiceMode(int)>(2);
+
+        $r1 = virtualinvoke $r9.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.content.Context getApplicationContext()>();
+
+        $r0 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r1, 2131034118, 0);
+
+        virtualinvoke $r0.<android.widget.Toast: void show()>();
+
+        return;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        android.view.MenuInflater $r0;
+        android.view.Menu $r1;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.activity.CardManagePageActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        $r0 = virtualinvoke $r2.<com.dai.giftcard.viewer.activity.CardManagePageActivity: android.view.MenuInflater getMenuInflater()>();
+
+        virtualinvoke $r0.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131230721, $r1);
+
+        return 1;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        int $i0, $i1, $i2;
+        android.view.MenuItem $r0;
+        com.dai.giftcard.viewer.activity.CardManagePageActivity $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.CardManagePageActivity;
+
+        $r0 := @parameter0: android.view.MenuItem;
+
+        $i0 = interfaceinvoke $r0.<android.view.MenuItem: int getItemId()>();
+
+        if $i0 != 2131296326 goto label1;
+
+        virtualinvoke $r1.<com.dai.giftcard.viewer.activity.CardManagePageActivity: void MenuRefresh()>();
+
+        return 1;
+
+     label1:
+        $i1 = interfaceinvoke $r0.<android.view.MenuItem: int getItemId()>();
+
+        if $i1 != 2131296327 goto label2;
+
+        virtualinvoke $r1.<com.dai.giftcard.viewer.activity.CardManagePageActivity: void MenuDelete()>();
+
+        return 1;
+
+     label2:
+        $i2 = interfaceinvoke $r0.<android.view.MenuItem: int getItemId()>();
+
+        if $i2 != 2131296325 goto label3;
+
+        virtualinvoke $r1.<com.dai.giftcard.viewer.activity.CardManagePageActivity: void finish()>();
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+}

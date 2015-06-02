@@ -1,0 +1,11 @@
+interface  org.simpleframework.xml.core.Converter extends java.lang.Object
+{
+
+    public abstract java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception;
+
+    public abstract java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception;
+
+    public abstract boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception;
+
+    public abstract void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception;
+}

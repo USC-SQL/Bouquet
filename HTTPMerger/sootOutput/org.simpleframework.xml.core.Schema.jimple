@@ -1,0 +1,19 @@
+interface  org.simpleframework.xml.core.Schema extends java.lang.Object
+{
+
+    public abstract org.simpleframework.xml.core.Caller getCaller();
+
+    public abstract org.simpleframework.xml.core.Decorator getDecorator();
+
+    public abstract org.simpleframework.xml.core.Instantiator getInstantiator();
+
+    public abstract org.simpleframework.xml.Version getRevision();
+
+    public abstract org.simpleframework.xml.core.Section getSection();
+
+    public abstract org.simpleframework.xml.core.Label getText();
+
+    public abstract org.simpleframework.xml.core.Label getVersion();
+
+    public abstract boolean isPrimitive();
+}

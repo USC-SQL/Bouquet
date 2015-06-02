@@ -1,0 +1,110 @@
+class org.simpleframework.xml.transform.DefaultMatcher extends java.lang.Object implements org.simpleframework.xml.transform.Matcher
+{
+    private org.simpleframework.xml.transform.Matcher array;
+    private org.simpleframework.xml.transform.Matcher matcher;
+    private org.simpleframework.xml.transform.Matcher primitive;
+    private org.simpleframework.xml.transform.Matcher stock;
+
+    public void <init>(org.simpleframework.xml.transform.Matcher)
+    {
+        org.simpleframework.xml.transform.ArrayMatcher $r0;
+        org.simpleframework.xml.transform.PackageMatcher $r1;
+        org.simpleframework.xml.transform.PrimitiveMatcher $r2;
+        org.simpleframework.xml.transform.Matcher $r3;
+        org.simpleframework.xml.transform.DefaultMatcher $r4;
+
+        $r4 := @this: org.simpleframework.xml.transform.DefaultMatcher;
+
+        $r3 := @parameter0: org.simpleframework.xml.transform.Matcher;
+
+        specialinvoke $r4.<java.lang.Object: void <init>()>();
+
+        $r2 = new org.simpleframework.xml.transform.PrimitiveMatcher;
+
+        specialinvoke $r2.<org.simpleframework.xml.transform.PrimitiveMatcher: void <init>()>();
+
+        $r4.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Matcher primitive> = $r2;
+
+        $r1 = new org.simpleframework.xml.transform.PackageMatcher;
+
+        specialinvoke $r1.<org.simpleframework.xml.transform.PackageMatcher: void <init>()>();
+
+        $r4.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Matcher stock> = $r1;
+
+        $r0 = new org.simpleframework.xml.transform.ArrayMatcher;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.ArrayMatcher: void <init>(org.simpleframework.xml.transform.Matcher)>($r4);
+
+        $r4.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Matcher array> = $r0;
+
+        $r4.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Matcher matcher> = $r3;
+
+        return;
+    }
+
+    private org.simpleframework.xml.transform.Transform matchType(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.Transform $r0, $r5, $r7;
+        org.simpleframework.xml.transform.Matcher $r1, $r4, $r6;
+        boolean $z0, $z1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.transform.DefaultMatcher $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.DefaultMatcher;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = $r3.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Matcher array>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.transform.Matcher: org.simpleframework.xml.transform.Transform match(java.lang.Class)>($r2);
+
+        return $r0;
+
+     label1:
+        $z1 = virtualinvoke $r2.<java.lang.Class: boolean isPrimitive()>();
+
+        if $z1 == 0 goto label2;
+
+        $r4 = $r3.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Matcher primitive>;
+
+        $r5 = interfaceinvoke $r4.<org.simpleframework.xml.transform.Matcher: org.simpleframework.xml.transform.Transform match(java.lang.Class)>($r2);
+
+        return $r5;
+
+     label2:
+        $r6 = $r3.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Matcher stock>;
+
+        $r7 = interfaceinvoke $r6.<org.simpleframework.xml.transform.Matcher: org.simpleframework.xml.transform.Transform match(java.lang.Class)>($r2);
+
+        return $r7;
+    }
+
+    public org.simpleframework.xml.transform.Transform match(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.Transform $r0, $r4;
+        org.simpleframework.xml.transform.Matcher $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.transform.DefaultMatcher $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.DefaultMatcher;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Matcher matcher>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.transform.Matcher: org.simpleframework.xml.transform.Transform match(java.lang.Class)>($r2);
+
+        if $r0 == null goto label1;
+
+        return $r0;
+
+     label1:
+        $r4 = specialinvoke $r3.<org.simpleframework.xml.transform.DefaultMatcher: org.simpleframework.xml.transform.Transform matchType(java.lang.Class)>($r2);
+
+        return $r4;
+    }
+}

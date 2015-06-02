@@ -1,0 +1,11 @@
+public interface  org.simpleframework.xml.util.Cache extends java.lang.Object
+{
+
+    public abstract void cache(java.lang.Object, java.lang.Object);
+
+    public abstract boolean contains(java.lang.Object);
+
+    public abstract java.lang.Object fetch(java.lang.Object);
+
+    public abstract java.lang.Object take(java.lang.Object);
+}

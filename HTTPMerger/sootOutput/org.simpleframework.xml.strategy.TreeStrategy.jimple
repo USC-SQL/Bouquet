@@ -1,0 +1,251 @@
+public class org.simpleframework.xml.strategy.TreeStrategy extends java.lang.Object implements org.simpleframework.xml.strategy.Strategy
+{
+    private final java.lang.String label;
+    private final java.lang.String length;
+    private final org.simpleframework.xml.strategy.Loader loader;
+
+    public void <init>()
+    {
+        org.simpleframework.xml.strategy.TreeStrategy $r0;
+
+        $r0 := @this: org.simpleframework.xml.strategy.TreeStrategy;
+
+        specialinvoke $r0.<org.simpleframework.xml.strategy.TreeStrategy: void <init>(java.lang.String,java.lang.String)>("class", "length");
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        org.simpleframework.xml.strategy.Loader $r0;
+        java.lang.String $r1, $r2;
+        org.simpleframework.xml.strategy.TreeStrategy $r3;
+
+        $r3 := @this: org.simpleframework.xml.strategy.TreeStrategy;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        specialinvoke $r3.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.strategy.Loader;
+
+        specialinvoke $r0.<org.simpleframework.xml.strategy.Loader: void <init>()>();
+
+        $r3.<org.simpleframework.xml.strategy.TreeStrategy: org.simpleframework.xml.strategy.Loader loader> = $r0;
+
+        $r3.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.String length> = $r2;
+
+        $r3.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.String label> = $r1;
+
+        return;
+    }
+
+    private org.simpleframework.xml.strategy.Value readArray(java.lang.Class, org.simpleframework.xml.stream.NodeMap) throws java.lang.Exception
+    {
+        org.simpleframework.xml.strategy.ArrayValue $r0;
+        org.simpleframework.xml.stream.Node $r1;
+        java.lang.String $r2, $r6;
+        int $i0;
+        org.simpleframework.xml.stream.NodeMap $r3;
+        java.lang.Class $r4;
+        org.simpleframework.xml.strategy.TreeStrategy $r5;
+
+        $r5 := @this: org.simpleframework.xml.strategy.TreeStrategy;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r3 := @parameter1: org.simpleframework.xml.stream.NodeMap;
+
+        $r2 = $r5.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.String length>;
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.stream.NodeMap: org.simpleframework.xml.stream.Node remove(java.lang.String)>($r2);
+
+        $i0 = 0;
+
+        if $r1 == null goto label1;
+
+        $r6 = interfaceinvoke $r1.<org.simpleframework.xml.stream.Node: java.lang.String getValue()>();
+
+        $i0 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($r6);
+
+     label1:
+        $r0 = new org.simpleframework.xml.strategy.ArrayValue;
+
+        specialinvoke $r0.<org.simpleframework.xml.strategy.ArrayValue: void <init>(java.lang.Class,int)>($r4, $i0);
+
+        return $r0;
+    }
+
+    private java.lang.Class readValue(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.stream.NodeMap) throws java.lang.Exception
+    {
+        org.simpleframework.xml.strategy.Loader $r0;
+        boolean $z0;
+        org.simpleframework.xml.stream.Node $r1;
+        java.lang.String $r2, $r8;
+        java.lang.Class $r3, $r4, $r9;
+        org.simpleframework.xml.stream.NodeMap $r5;
+        org.simpleframework.xml.strategy.Type $r6;
+        org.simpleframework.xml.strategy.TreeStrategy $r7;
+
+        $r7 := @this: org.simpleframework.xml.strategy.TreeStrategy;
+
+        $r6 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r5 := @parameter1: org.simpleframework.xml.stream.NodeMap;
+
+        $r2 = $r7.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.String label>;
+
+        $r1 = interfaceinvoke $r5.<org.simpleframework.xml.stream.NodeMap: org.simpleframework.xml.stream.Node remove(java.lang.String)>($r2);
+
+        $r4 = interfaceinvoke $r6.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r3 = $r4;
+
+        $z0 = virtualinvoke $r4.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label1;
+
+        $r3 = virtualinvoke $r4.<java.lang.Class: java.lang.Class getComponentType()>();
+
+     label1:
+        if $r1 == null goto label2;
+
+        $r8 = interfaceinvoke $r1.<org.simpleframework.xml.stream.Node: java.lang.String getValue()>();
+
+        $r0 = $r7.<org.simpleframework.xml.strategy.TreeStrategy: org.simpleframework.xml.strategy.Loader loader>;
+
+        $r9 = virtualinvoke $r0.<org.simpleframework.xml.strategy.Loader: java.lang.Class load(java.lang.String)>($r8);
+
+        return $r9;
+
+     label2:
+        return $r3;
+    }
+
+    private java.lang.Class writeArray(java.lang.Class, java.lang.Object, org.simpleframework.xml.stream.NodeMap)
+    {
+        int $i0;
+        java.lang.String $r0, $r1, $r6;
+        org.simpleframework.xml.stream.NodeMap $r2;
+        java.lang.Object $r3;
+        java.lang.Class $r4, $r7;
+        org.simpleframework.xml.strategy.TreeStrategy $r5;
+
+        $r5 := @this: org.simpleframework.xml.strategy.TreeStrategy;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r3 := @parameter1: java.lang.Object;
+
+        $r2 := @parameter2: org.simpleframework.xml.stream.NodeMap;
+
+        $i0 = staticinvoke <java.lang.reflect.Array: int getLength(java.lang.Object)>($r3);
+
+        $r0 = $r5.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.String length>;
+
+        if $r0 == null goto label1;
+
+        $r6 = $r5.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.String length>;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        interfaceinvoke $r2.<org.simpleframework.xml.stream.NodeMap: org.simpleframework.xml.stream.Node put(java.lang.String,java.lang.String)>($r6, $r1);
+
+     label1:
+        $r7 = virtualinvoke $r4.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        return $r7;
+    }
+
+    public org.simpleframework.xml.strategy.Value read(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.stream.NodeMap, java.util.Map) throws java.lang.Exception
+    {
+        org.simpleframework.xml.strategy.ObjectValue $r0;
+        org.simpleframework.xml.strategy.Value $r1;
+        boolean $z0;
+        java.lang.Class $r2, $r3;
+        java.util.Map $r4;
+        org.simpleframework.xml.stream.NodeMap $r5;
+        org.simpleframework.xml.strategy.Type $r6;
+        org.simpleframework.xml.strategy.TreeStrategy $r7;
+
+        $r7 := @this: org.simpleframework.xml.strategy.TreeStrategy;
+
+        $r6 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r5 := @parameter1: org.simpleframework.xml.stream.NodeMap;
+
+        $r4 := @parameter2: java.util.Map;
+
+        $r2 = specialinvoke $r7.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.Class readValue(org.simpleframework.xml.strategy.Type,org.simpleframework.xml.stream.NodeMap)>($r6, $r5);
+
+        $r3 = interfaceinvoke $r6.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label1;
+
+        $r1 = specialinvoke $r7.<org.simpleframework.xml.strategy.TreeStrategy: org.simpleframework.xml.strategy.Value readArray(java.lang.Class,org.simpleframework.xml.stream.NodeMap)>($r2, $r5);
+
+        return $r1;
+
+     label1:
+        if $r3 == $r2 goto label2;
+
+        $r0 = new org.simpleframework.xml.strategy.ObjectValue;
+
+        specialinvoke $r0.<org.simpleframework.xml.strategy.ObjectValue: void <init>(java.lang.Class)>($r2);
+
+        return $r0;
+
+     label2:
+        return null;
+    }
+
+    public boolean write(org.simpleframework.xml.strategy.Type, java.lang.Object, org.simpleframework.xml.stream.NodeMap, java.util.Map)
+    {
+        java.lang.String $r0, $r1;
+        boolean $z0;
+        java.lang.Class $r2, $r3, $r4;
+        java.util.Map $r5;
+        org.simpleframework.xml.stream.NodeMap $r6;
+        java.lang.Object $r7;
+        org.simpleframework.xml.strategy.Type $r8;
+        org.simpleframework.xml.strategy.TreeStrategy $r9;
+
+        $r9 := @this: org.simpleframework.xml.strategy.TreeStrategy;
+
+        $r8 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r7 := @parameter1: java.lang.Object;
+
+        $r6 := @parameter2: org.simpleframework.xml.stream.NodeMap;
+
+        $r5 := @parameter3: java.util.Map;
+
+        $r3 = virtualinvoke $r7.<java.lang.Object: java.lang.Class getClass()>();
+
+        $r4 = interfaceinvoke $r8.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r2 = $r3;
+
+        $z0 = virtualinvoke $r3.<java.lang.Class: boolean isArray()>();
+
+        if $z0 == 0 goto label1;
+
+        $r2 = specialinvoke $r9.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.Class writeArray(java.lang.Class,java.lang.Object,org.simpleframework.xml.stream.NodeMap)>($r4, $r7, $r6);
+
+     label1:
+        if $r3 == $r4 goto label2;
+
+        $r0 = $r9.<org.simpleframework.xml.strategy.TreeStrategy: java.lang.String label>;
+
+        $r1 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        interfaceinvoke $r6.<org.simpleframework.xml.stream.NodeMap: org.simpleframework.xml.stream.Node put(java.lang.String,java.lang.String)>($r0, $r1);
+
+     label2:
+        return 0;
+    }
+}

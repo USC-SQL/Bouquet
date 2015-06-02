@@ -1,0 +1,159 @@
+class org.simpleframework.xml.core.Qualifier extends java.lang.Object implements org.simpleframework.xml.core.Decorator
+{
+    private org.simpleframework.xml.core.NamespaceDecorator decorator;
+
+    public void <init>(org.simpleframework.xml.core.Contact)
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0;
+        org.simpleframework.xml.core.Contact $r1;
+        org.simpleframework.xml.core.Qualifier $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Qualifier;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Contact;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.core.NamespaceDecorator;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void <init>()>();
+
+        $r2.<org.simpleframework.xml.core.Qualifier: org.simpleframework.xml.core.NamespaceDecorator decorator> = $r0;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.Qualifier: void scan(org.simpleframework.xml.core.Contact)>($r1);
+
+        return;
+    }
+
+    private void namespace(org.simpleframework.xml.core.Contact)
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0, $r5;
+        org.simpleframework.xml.Namespace $r1;
+        java.lang.annotation.Annotation $r2;
+        org.simpleframework.xml.core.Contact $r3;
+        org.simpleframework.xml.core.Qualifier $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.Qualifier;
+
+        $r3 := @parameter0: org.simpleframework.xml.core.Contact;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.core.Contact: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/Namespace");
+
+        $r1 = (org.simpleframework.xml.Namespace) $r2;
+
+        if $r1 == null goto label1;
+
+        $r0 = $r4.<org.simpleframework.xml.core.Qualifier: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void set(org.simpleframework.xml.Namespace)>($r1);
+
+        $r5 = $r4.<org.simpleframework.xml.core.Qualifier: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        virtualinvoke $r5.<org.simpleframework.xml.core.NamespaceDecorator: void add(org.simpleframework.xml.Namespace)>($r1);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void scan(org.simpleframework.xml.core.Contact)
+    {
+        org.simpleframework.xml.core.Contact $r0;
+        org.simpleframework.xml.core.Qualifier $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.Qualifier;
+
+        $r0 := @parameter0: org.simpleframework.xml.core.Contact;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.Qualifier: void namespace(org.simpleframework.xml.core.Contact)>($r0);
+
+        specialinvoke $r1.<org.simpleframework.xml.core.Qualifier: void scope(org.simpleframework.xml.core.Contact)>($r0);
+
+        return;
+    }
+
+    private void scope(org.simpleframework.xml.core.Contact)
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0;
+        org.simpleframework.xml.Namespace[] $r1;
+        org.simpleframework.xml.NamespaceList $r2;
+        java.lang.annotation.Annotation $r3;
+        org.simpleframework.xml.Namespace $r4;
+        int $i0, $i1;
+        org.simpleframework.xml.core.Contact $r5;
+        org.simpleframework.xml.core.Qualifier $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.Qualifier;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Contact;
+
+        $r3 = interfaceinvoke $r5.<org.simpleframework.xml.core.Contact: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/NamespaceList");
+
+        $r2 = (org.simpleframework.xml.NamespaceList) $r3;
+
+        if $r2 == null goto label2;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.NamespaceList: org.simpleframework.xml.Namespace[] value()>();
+
+        $i1 = lengthof $r1;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label3;
+
+        $r4 = $r1[$i0];
+
+        $r0 = $r6.<org.simpleframework.xml.core.Qualifier: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void add(org.simpleframework.xml.Namespace)>($r4);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+
+     label3:
+        return;
+    }
+
+    public void decorate(org.simpleframework.xml.stream.OutputNode)
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0;
+        org.simpleframework.xml.stream.OutputNode $r1;
+        org.simpleframework.xml.core.Qualifier $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Qualifier;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r0 = $r2.<org.simpleframework.xml.core.Qualifier: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void decorate(org.simpleframework.xml.stream.OutputNode)>($r1);
+
+        return;
+    }
+
+    public void decorate(org.simpleframework.xml.stream.OutputNode, org.simpleframework.xml.core.Decorator)
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0;
+        org.simpleframework.xml.core.Decorator $r1;
+        org.simpleframework.xml.stream.OutputNode $r2;
+        org.simpleframework.xml.core.Qualifier $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Qualifier;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r1 := @parameter1: org.simpleframework.xml.core.Decorator;
+
+        $r0 = $r3.<org.simpleframework.xml.core.Qualifier: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void decorate(org.simpleframework.xml.stream.OutputNode,org.simpleframework.xml.core.Decorator)>($r2, $r1);
+
+        return;
+    }
+}

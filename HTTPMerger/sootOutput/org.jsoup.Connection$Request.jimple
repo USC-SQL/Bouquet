@@ -1,0 +1,27 @@
+public interface  org.jsoup.Connection$Request extends java.lang.Object implements org.jsoup.Connection$Base
+{
+
+    public abstract java.util.Collection data();
+
+    public abstract org.jsoup.Connection$Request data(org.jsoup.Connection$KeyVal);
+
+    public abstract org.jsoup.Connection$Request followRedirects(boolean);
+
+    public abstract boolean followRedirects();
+
+    public abstract org.jsoup.Connection$Request ignoreContentType(boolean);
+
+    public abstract boolean ignoreContentType();
+
+    public abstract org.jsoup.Connection$Request ignoreHttpErrors(boolean);
+
+    public abstract boolean ignoreHttpErrors();
+
+    public abstract org.jsoup.Connection$Request parser(org.jsoup.parser.Parser);
+
+    public abstract org.jsoup.parser.Parser parser();
+
+    public abstract int timeout();
+
+    public abstract org.jsoup.Connection$Request timeout(int);
+}

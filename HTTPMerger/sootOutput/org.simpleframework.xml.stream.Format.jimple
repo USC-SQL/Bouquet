@@ -1,0 +1,165 @@
+public class org.simpleframework.xml.stream.Format extends java.lang.Object
+{
+    private int indent;
+    private java.lang.String prolog;
+    private org.simpleframework.xml.stream.Style style;
+
+    public void <init>()
+    {
+        org.simpleframework.xml.stream.Format $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.Format: void <init>(int)>(3);
+
+        return;
+    }
+
+    public void <init>(int)
+    {
+        org.simpleframework.xml.stream.IdentityStyle $r0;
+        int $i0;
+        org.simpleframework.xml.stream.Format $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Format;
+
+        $i0 := @parameter0: int;
+
+        $r0 = new org.simpleframework.xml.stream.IdentityStyle;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.IdentityStyle: void <init>()>();
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.Format: void <init>(int,java.lang.String,org.simpleframework.xml.stream.Style)>($i0, null, $r0);
+
+        return;
+    }
+
+    public void <init>(int, java.lang.String)
+    {
+        org.simpleframework.xml.stream.IdentityStyle $r0;
+        java.lang.String $r1;
+        int $i0;
+        org.simpleframework.xml.stream.Format $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.Format;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r0 = new org.simpleframework.xml.stream.IdentityStyle;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.IdentityStyle: void <init>()>();
+
+        specialinvoke $r2.<org.simpleframework.xml.stream.Format: void <init>(int,java.lang.String,org.simpleframework.xml.stream.Style)>($i0, $r1, $r0);
+
+        return;
+    }
+
+    public void <init>(int, java.lang.String, org.simpleframework.xml.stream.Style)
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        java.lang.String $r1;
+        int $i0;
+        org.simpleframework.xml.stream.Format $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.Format;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r0 := @parameter2: org.simpleframework.xml.stream.Style;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r2.<org.simpleframework.xml.stream.Format: java.lang.String prolog> = $r1;
+
+        $r2.<org.simpleframework.xml.stream.Format: int indent> = $i0;
+
+        $r2.<org.simpleframework.xml.stream.Format: org.simpleframework.xml.stream.Style style> = $r0;
+
+        return;
+    }
+
+    public void <init>(int, org.simpleframework.xml.stream.Style)
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        int $i0;
+        org.simpleframework.xml.stream.Format $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Format;
+
+        $i0 := @parameter0: int;
+
+        $r0 := @parameter1: org.simpleframework.xml.stream.Style;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.Format: void <init>(int,java.lang.String,org.simpleframework.xml.stream.Style)>($i0, null, $r0);
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.Format $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Format;
+
+        $r0 := @parameter0: java.lang.String;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.Format: void <init>(int,java.lang.String)>(3, $r0);
+
+        return;
+    }
+
+    public void <init>(org.simpleframework.xml.stream.Style)
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        org.simpleframework.xml.stream.Format $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Format;
+
+        $r0 := @parameter0: org.simpleframework.xml.stream.Style;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.Format: void <init>(int,java.lang.String,org.simpleframework.xml.stream.Style)>(3, null, $r0);
+
+        return;
+    }
+
+    public int getIndent()
+    {
+        int i0;
+        org.simpleframework.xml.stream.Format $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.Format;
+
+        i0 = $r0.<org.simpleframework.xml.stream.Format: int indent>;
+
+        return i0;
+    }
+
+    public java.lang.String getProlog()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.stream.Format $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Format;
+
+        r0 = $r1.<org.simpleframework.xml.stream.Format: java.lang.String prolog>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.stream.Style getStyle()
+    {
+        org.simpleframework.xml.stream.Style r0;
+        org.simpleframework.xml.stream.Format $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Format;
+
+        r0 = $r1.<org.simpleframework.xml.stream.Format: org.simpleframework.xml.stream.Style style>;
+
+        return r0;
+    }
+}

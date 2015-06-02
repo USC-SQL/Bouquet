@@ -1,0 +1,116 @@
+class org.simpleframework.xml.stream.DocumentReader$Entry extends org.simpleframework.xml.stream.EventAttribute
+{
+    private final org.w3c.dom.Node node;
+
+    public void <init>(org.w3c.dom.Node)
+    {
+        org.w3c.dom.Node $r0;
+        org.simpleframework.xml.stream.DocumentReader$Entry $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.DocumentReader$Entry;
+
+        $r0 := @parameter0: org.w3c.dom.Node;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.EventAttribute: void <init>()>();
+
+        $r1.<org.simpleframework.xml.stream.DocumentReader$Entry: org.w3c.dom.Node node> = $r0;
+
+        return;
+    }
+
+    public java.lang.String getName()
+    {
+        java.lang.String $r0;
+        org.w3c.dom.Node $r1;
+        org.simpleframework.xml.stream.DocumentReader$Entry $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.DocumentReader$Entry;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.DocumentReader$Entry: org.w3c.dom.Node node>;
+
+        $r0 = interfaceinvoke $r1.<org.w3c.dom.Node: java.lang.String getLocalName()>();
+
+        return $r0;
+    }
+
+    public java.lang.String getPrefix()
+    {
+        java.lang.String $r0;
+        org.w3c.dom.Node $r1;
+        org.simpleframework.xml.stream.DocumentReader$Entry $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.DocumentReader$Entry;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.DocumentReader$Entry: org.w3c.dom.Node node>;
+
+        $r0 = interfaceinvoke $r1.<org.w3c.dom.Node: java.lang.String getPrefix()>();
+
+        return $r0;
+    }
+
+    public java.lang.String getReference()
+    {
+        java.lang.String $r0;
+        org.w3c.dom.Node $r1;
+        org.simpleframework.xml.stream.DocumentReader$Entry $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.DocumentReader$Entry;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.DocumentReader$Entry: org.w3c.dom.Node node>;
+
+        $r0 = interfaceinvoke $r1.<org.w3c.dom.Node: java.lang.String getNamespaceURI()>();
+
+        return $r0;
+    }
+
+    public java.lang.Object getSource()
+    {
+        org.w3c.dom.Node r0;
+        org.simpleframework.xml.stream.DocumentReader$Entry $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.DocumentReader$Entry;
+
+        r0 = $r1.<org.simpleframework.xml.stream.DocumentReader$Entry: org.w3c.dom.Node node>;
+
+        return r0;
+    }
+
+    public java.lang.String getValue()
+    {
+        java.lang.String $r0;
+        org.w3c.dom.Node $r1;
+        org.simpleframework.xml.stream.DocumentReader$Entry $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.DocumentReader$Entry;
+
+        $r1 = $r2.<org.simpleframework.xml.stream.DocumentReader$Entry: org.w3c.dom.Node node>;
+
+        $r0 = interfaceinvoke $r1.<org.w3c.dom.Node: java.lang.String getNodeValue()>();
+
+        return $r0;
+    }
+
+    public boolean isReserved()
+    {
+        boolean $z0, $z1;
+        java.lang.String $r0, $r1;
+        org.simpleframework.xml.stream.DocumentReader$Entry $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.DocumentReader$Entry;
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.stream.DocumentReader$Entry: java.lang.String getPrefix()>();
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.stream.DocumentReader$Entry: java.lang.String getName()>();
+
+        if $r0 == null goto label1;
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("xml");
+
+        return $z0;
+
+     label1:
+        $z1 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("xml");
+
+        return $z1;
+    }
+}

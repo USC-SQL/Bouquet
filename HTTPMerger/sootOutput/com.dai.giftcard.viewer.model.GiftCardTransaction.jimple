@@ -1,0 +1,41 @@
+public class com.dai.giftcard.viewer.model.GiftCardTransaction extends java.lang.Object implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    public double Amount;
+    public double Balance;
+    public java.util.Date Date;
+    public int Sequence;
+
+    public void <init>()
+    {
+        java.util.Date $r0;
+        com.dai.giftcard.viewer.model.GiftCardTransaction $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.model.GiftCardTransaction;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<com.dai.giftcard.viewer.model.GiftCardTransaction: int Sequence> = 0;
+
+        $r0 = new java.util.Date;
+
+        specialinvoke $r0.<java.util.Date: void <init>()>();
+
+        $r1.<com.dai.giftcard.viewer.model.GiftCardTransaction: java.util.Date Date> = $r0;
+
+        $r1.<com.dai.giftcard.viewer.model.GiftCardTransaction: double Amount> = 0.0;
+
+        $r1.<com.dai.giftcard.viewer.model.GiftCardTransaction: double Balance> = 0.0;
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.dai.giftcard.viewer.model.GiftCardTransaction: long serialVersionUID> = 5338703621089806993L;
+
+        <com.dai.giftcard.viewer.model.GiftCardTransaction: long serialVersionUID> = 5338703621089806993L;
+
+        return;
+    }
+}

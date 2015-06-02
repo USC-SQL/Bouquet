@@ -1,0 +1,93 @@
+class org.simpleframework.xml.transform.DateType$DateFormat extends java.lang.Object
+{
+    private java.text.SimpleDateFormat format;
+
+    public void <init>(java.lang.String)
+    {
+        java.text.SimpleDateFormat $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.DateType$DateFormat $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.DateType$DateFormat;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0 = new java.text.SimpleDateFormat;
+
+        specialinvoke $r0.<java.text.SimpleDateFormat: void <init>(java.lang.String)>($r1);
+
+        $r2.<org.simpleframework.xml.transform.DateType$DateFormat: java.text.SimpleDateFormat format> = $r0;
+
+        return;
+    }
+
+    public java.util.Date getDate(java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Throwable $r0;
+        java.util.Date $r1;
+        java.text.SimpleDateFormat $r2;
+        java.lang.String $r3;
+        org.simpleframework.xml.transform.DateType$DateFormat $r4;
+
+        $r4 := @this: org.simpleframework.xml.transform.DateType$DateFormat;
+
+        $r3 := @parameter0: java.lang.String;
+
+        entermonitor $r4;
+
+     label1:
+        $r2 = $r4.<org.simpleframework.xml.transform.DateType$DateFormat: java.text.SimpleDateFormat format>;
+
+        $r1 = virtualinvoke $r2.<java.text.SimpleDateFormat: java.util.Date parse(java.lang.String)>($r3);
+
+     label2:
+        exitmonitor $r4;
+
+        return $r1;
+
+     label3:
+        $r0 := @caughtexception;
+
+        exitmonitor $r4;
+
+        throw $r0;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+
+    public java.lang.String getText(java.util.Date) throws java.lang.Exception
+    {
+        java.lang.Throwable $r0;
+        java.lang.String $r1;
+        java.text.SimpleDateFormat $r2;
+        java.util.Date $r3;
+        org.simpleframework.xml.transform.DateType$DateFormat $r4;
+
+        $r4 := @this: org.simpleframework.xml.transform.DateType$DateFormat;
+
+        $r3 := @parameter0: java.util.Date;
+
+        entermonitor $r4;
+
+     label1:
+        $r2 = $r4.<org.simpleframework.xml.transform.DateType$DateFormat: java.text.SimpleDateFormat format>;
+
+        $r1 = virtualinvoke $r2.<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>($r3);
+
+     label2:
+        exitmonitor $r4;
+
+        return $r1;
+
+     label3:
+        $r0 := @caughtexception;
+
+        exitmonitor $r4;
+
+        throw $r0;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

@@ -1,0 +1,59 @@
+class org.simpleframework.xml.stream.PullReader$Text extends org.simpleframework.xml.stream.EventToken
+{
+    private final org.xmlpull.v1.XmlPullParser source;
+    private final java.lang.String text;
+
+    public void <init>(org.xmlpull.v1.XmlPullParser)
+    {
+        java.lang.String $r0;
+        org.xmlpull.v1.XmlPullParser $r1;
+        org.simpleframework.xml.stream.PullReader$Text $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.PullReader$Text;
+
+        $r1 := @parameter0: org.xmlpull.v1.XmlPullParser;
+
+        specialinvoke $r2.<org.simpleframework.xml.stream.EventToken: void <init>()>();
+
+        $r0 = interfaceinvoke $r1.<org.xmlpull.v1.XmlPullParser: java.lang.String getText()>();
+
+        $r2.<org.simpleframework.xml.stream.PullReader$Text: java.lang.String text> = $r0;
+
+        $r2.<org.simpleframework.xml.stream.PullReader$Text: org.xmlpull.v1.XmlPullParser source> = $r1;
+
+        return;
+    }
+
+    public java.lang.Object getSource()
+    {
+        org.xmlpull.v1.XmlPullParser r0;
+        org.simpleframework.xml.stream.PullReader$Text $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.PullReader$Text;
+
+        r0 = $r1.<org.simpleframework.xml.stream.PullReader$Text: org.xmlpull.v1.XmlPullParser source>;
+
+        return r0;
+    }
+
+    public java.lang.String getValue()
+    {
+        java.lang.String r0;
+        org.simpleframework.xml.stream.PullReader$Text $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.PullReader$Text;
+
+        r0 = $r1.<org.simpleframework.xml.stream.PullReader$Text: java.lang.String text>;
+
+        return r0;
+    }
+
+    public boolean isText()
+    {
+        org.simpleframework.xml.stream.PullReader$Text $r0;
+
+        $r0 := @this: org.simpleframework.xml.stream.PullReader$Text;
+
+        return 1;
+    }
+}

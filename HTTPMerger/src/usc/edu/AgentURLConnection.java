@@ -1,10 +1,17 @@
 package usc.edu;
+import android.util.Log;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.params.HttpParams;
+
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
+import java.net.*;
 import java.security.Permission;
 import java.util.Hashtable;
 import java.util.List;
@@ -13,6 +20,29 @@ import java.util.Map;
  * Created by dingli on 4/22/15.
  */
 public class AgentURLConnection {
+    private static int counter=0;
+    public  static void LogCallStart(){
+        if(counter ==0 )
+        {
+            Long currentmilli=System.currentTimeMillis();
+            System.out.println("Block Starts: "+currentmilli);
+        }
+        counter++;
+        System.out.println("Start counter: "+counter);
+
+
+    }
+    public  static void LogCallReturn(){
+        counter--;
+        Long currentmilli=System.currentTimeMillis();
+
+        System.out.println("End counter: "+counter+" "+currentmilli);
+        if(counter ==0 )
+        {
+            System.out.println("Block Ends: "+currentmilli);
+        }
+
+    }
     private static String getStringFromInputStream(InputStream is) {
 
         BufferedReader br = null;
@@ -41,6 +71,7 @@ public class AgentURLConnection {
         return sb.toString();
 
     }
+
     public static Hashtable<String,String> contentcache=new Hashtable<String,String>();
     public static boolean getAllowUserInteraction(URLConnection urlconn) {
         return urlconn.getAllowUserInteraction();
@@ -194,10 +225,11 @@ public class AgentURLConnection {
         return urlconn.getInputStream();
     }*/
     //for ground truth
-
+    /*
     public static InputStream getInputStream(URLConnection urlconn) throws IOException {
         System.out.println("It works! "+urlconn.getURL().toString()+" "+urlconn.getDoOutput());
         long start=System.currentTimeMillis();
+        Log.d("myapp", Log.getStackTraceString(new Exception()));
 
         InputStream in=urlconn.getInputStream();
         String s=getStringFromInputStream(in);
@@ -209,8 +241,57 @@ public class AgentURLConnection {
         System.out.println((end-start));
 
         return returnstream;
-    }
+    }*/
+    public static InputStream getInputStream(URLConnection urlconn) throws IOException {
+        System.out.println("URLgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput()+" "+android.os.Process.myTid()+" "+Thread.currentThread().getId());
 
+        /*URL url = new URL("http://dingli.usc.edu:1988");
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.addRequestProperty("targetlink", urlconn.getURL().toString());
+        urlConnection.getInputStream();*/
+
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            //StackTraceElement[] selem=e.getStackTrace();
+            e.printStackTrace( System.out);
+            //System.out.println("AT " + selem[1]);
+            //e.printStackTrace();
+        }
+        System.out.println("HTTPcall start: " + System.currentTimeMillis());
+
+        InputStream in=urlconn.getInputStream();
+        System.out.println("HTTPcall end: " + System.currentTimeMillis());
+
+
+        return in;
+    }
+    public static InputStream getInputStream(HttpURLConnection urlconn) throws IOException {
+        System.out.println("HTTPRULgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput()+" "+android.os.Process.myTid()+" "+Thread.currentThread().getId());
+
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            //StackTraceElement[] selem=e.getStackTrace();
+
+            //System.out.println("AT " + selem[1]);
+            e.printStackTrace( System.out);
+        }
+        /*URL url = new URL("http://dingli.usc.edu:1988");
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        for(String key:urlconn.getHeaderFields().keySet())
+        {
+            urlConnection.addRequestProperty(key,urlconn.getHeaderFields().get(key).get(0));
+        }
+        urlConnection.getInputStream();
+        System.out.println(urlconn.getHeaderFields());*/
+        System.out.println("HTTPcall start: " + System.currentTimeMillis());
+        InputStream in=urlconn.getInputStream();
+        System.out.println("HTTPcall end: " + System.currentTimeMillis());
+
+
+        return in;
+    }
     public static long getLastModified(URLConnection urlconn) {
         return urlconn.getLastModified();
     }
@@ -304,4 +385,54 @@ public class AgentURLConnection {
     public static void connect(URLConnection urlconn) throws IOException {
         urlconn.connect();
     }
+    //Below are APIs for apache HTTP client
+    /*
+    public static HttpResponse HttpResponseexecute(HttpUriRequest request,HttpClient client) throws IOException, URISyntaxException {
+
+        System.out.println("it works " + request.getURI().toString() + " " + request.getMethod());
+
+        if(request instanceof HttpPost)
+        {
+            URI oldurl=request.getURI();
+            System.out.println(oldurl.toString());
+            ((HttpPost)request).setURI(new URI("http://ec2-52-24-51-136.us-west-2.compute.amazonaws.com:1988"));
+            request.addHeader("targetlink", oldurl.toString());
+            request.setHeader("targetlink", oldurl.toString());
+
+            request.addHeader("targetmethod", request.getMethod());
+            long start=System.currentTimeMillis();
+            HttpResponse r=client.execute(request);
+            String output=getStringFromInputStream(r.getEntity().getContent());
+            int mylength=output.length();
+            //int mylength=getStringFromInputStream(r.getEntity().getContent()).length();
+            HttpEntity newentity=	new StringEntity(output);
+            long end=System.currentTimeMillis();
+            r.setEntity(newentity);
+            System.out.println(mylength+" "+(end-start));
+
+            return r;
+        }
+
+        HttpResponse r=client.execute(request);
+        return r;
+    }*/
+    public static HttpResponse HttpResponseexecute(HttpClient client,HttpUriRequest request) throws IOException, URISyntaxException {
+        System.out.println("HTTP execute it works " + request.getURI().toString() + " " + request.getMethod());
+
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            //StackTraceElement[] selem=e.getStackTrace();
+
+           // System.out.println("AT "+selem[1]);
+            e.printStackTrace( System.out);
+        }
+        System.out.println("HTTPcall start: " + System.currentTimeMillis());
+
+        HttpResponse r= client.execute(request);
+        System.out.println("HTTPcall end: " + System.currentTimeMillis());
+        return r;
+
+    }
+
 }

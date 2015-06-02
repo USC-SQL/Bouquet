@@ -1,0 +1,79 @@
+class org.simpleframework.xml.stream.StreamProvider extends java.lang.Object implements org.simpleframework.xml.stream.Provider
+{
+    private final javax.xml.stream.XMLInputFactory factory;
+
+    public void <init>()
+    {
+        javax.xml.stream.XMLInputFactory $r0;
+        org.simpleframework.xml.stream.StreamProvider $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.StreamProvider;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r0 = staticinvoke <javax.xml.stream.XMLInputFactory: javax.xml.stream.XMLInputFactory newInstance()>();
+
+        $r1.<org.simpleframework.xml.stream.StreamProvider: javax.xml.stream.XMLInputFactory factory> = $r0;
+
+        return;
+    }
+
+    private org.simpleframework.xml.stream.EventReader provide(javax.xml.stream.XMLEventReader) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.StreamReader $r0;
+        javax.xml.stream.XMLEventReader $r1;
+        org.simpleframework.xml.stream.StreamProvider $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.StreamProvider;
+
+        $r1 := @parameter0: javax.xml.stream.XMLEventReader;
+
+        $r0 = new org.simpleframework.xml.stream.StreamReader;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.StreamReader: void <init>(javax.xml.stream.XMLEventReader)>($r1);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.EventReader provide(java.io.InputStream) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.EventReader $r0;
+        javax.xml.stream.XMLEventReader $r1;
+        javax.xml.stream.XMLInputFactory $r2;
+        java.io.InputStream $r3;
+        org.simpleframework.xml.stream.StreamProvider $r4;
+
+        $r4 := @this: org.simpleframework.xml.stream.StreamProvider;
+
+        $r3 := @parameter0: java.io.InputStream;
+
+        $r2 = $r4.<org.simpleframework.xml.stream.StreamProvider: javax.xml.stream.XMLInputFactory factory>;
+
+        $r1 = virtualinvoke $r2.<javax.xml.stream.XMLInputFactory: javax.xml.stream.XMLEventReader createXMLEventReader(java.io.InputStream)>($r3);
+
+        $r0 = specialinvoke $r4.<org.simpleframework.xml.stream.StreamProvider: org.simpleframework.xml.stream.EventReader provide(javax.xml.stream.XMLEventReader)>($r1);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.EventReader provide(java.io.Reader) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.EventReader $r0;
+        javax.xml.stream.XMLEventReader $r1;
+        javax.xml.stream.XMLInputFactory $r2;
+        java.io.Reader $r3;
+        org.simpleframework.xml.stream.StreamProvider $r4;
+
+        $r4 := @this: org.simpleframework.xml.stream.StreamProvider;
+
+        $r3 := @parameter0: java.io.Reader;
+
+        $r2 = $r4.<org.simpleframework.xml.stream.StreamProvider: javax.xml.stream.XMLInputFactory factory>;
+
+        $r1 = virtualinvoke $r2.<javax.xml.stream.XMLInputFactory: javax.xml.stream.XMLEventReader createXMLEventReader(java.io.Reader)>($r3);
+
+        $r0 = specialinvoke $r4.<org.simpleframework.xml.stream.StreamProvider: org.simpleframework.xml.stream.EventReader provide(javax.xml.stream.XMLEventReader)>($r1);
+
+        return $r0;
+    }
+}

@@ -1,0 +1,173 @@
+public class com.dai.giftcard.viewer.reader.us.verification.KmartUSReader extends com.dai.giftcard.viewer.reader.BaseCardReader
+{
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.reader.us.verification.KmartUSReader $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.reader.us.verification.KmartUSReader;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.reader.BaseCardReader: void <init>()>();
+
+        $r0.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: boolean IsVerificaitonImage> = 1;
+
+        return;
+    }
+
+    public boolean GetCardBalanceRequest() throws java.lang.Exception
+    {
+        byte $b0;
+        double $d0;
+        org.apache.http.client.HttpClient $r0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r1, $r12, $r15;
+        java.lang.String $r2, $r9, $r13, $r16, $r17;
+        com.dai.giftcard.viewer.model.StringPair $r3, $r6, $r7, $r8, $r10, $r11, $r14;
+        java.util.ArrayList $r4;
+        com.dai.giftcard.viewer.reader.us.verification.KmartUSReader $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.reader.us.verification.KmartUSReader;
+
+        $r4 = new java.util.ArrayList;
+
+        specialinvoke $r4.<java.util.ArrayList: void <init>()>();
+
+        $r3 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r3.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("storeId", "10151");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+        $r6 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("catalogId", "10104");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r6);
+
+        $r7 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r2 = $r5.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: java.lang.String CaptchaKey>;
+
+        specialinvoke $r7.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("recaptcha_challenge_field", $r2);
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r7);
+
+        $r8 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r1 = $r5.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r9 = $r1.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String VerificationCode>;
+
+        specialinvoke $r8.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("recaptcha_response_field", $r9);
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r8);
+
+        $r10 = new com.dai.giftcard.viewer.model.StringPair;
+
+        specialinvoke $r10.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("ajaxFlag", "true");
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r10);
+
+        $r11 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r12 = $r5.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r13 = $r12.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number>;
+
+        specialinvoke $r11.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("giftCardNumber", $r13);
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r11);
+
+        $r14 = new com.dai.giftcard.viewer.model.StringPair;
+
+        $r15 = $r5.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $r16 = $r15.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Pin>;
+
+        specialinvoke $r14.<com.dai.giftcard.viewer.model.StringPair: void <init>(java.lang.String,java.lang.String)>("giftCardPin", $r16);
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r14);
+
+        $r0 = $r5.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: org.apache.http.client.HttpClient httpclient>;
+
+        $r17 = staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: java.lang.String HttpPost(org.apache.http.client.HttpClient,java.lang.String,java.util.List)>($r0, "http://www.kmart.com/shc/s/GiftCardBalanceInqCmdAjax", $r4);
+
+        $d0 = virtualinvoke $r5.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: double ParseBalanceResult(java.lang.String)>($r17);
+
+        $b0 = $d0 cmpl 0.0;
+
+        if $b0 < 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public java.lang.String GetVerificaitonImageUrl() throws java.lang.Exception
+    {
+        org.apache.http.client.HttpClient $r0;
+        android.graphics.Bitmap $r1;
+        java.lang.String $r2, $r4;
+        com.dai.giftcard.viewer.reader.us.verification.KmartUSReader $r3;
+
+        $r3 := @this: com.dai.giftcard.viewer.reader.us.verification.KmartUSReader;
+
+        staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: void HttpGetGoogleImage(com.dai.giftcard.viewer.reader.BaseCardReader,java.lang.String)>($r3, "6LfyHQgAAAAAADSe3UoyUYcuC9OquE72U0kUBHkX");
+
+        $r0 = $r3.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: org.apache.http.client.HttpClient httpclient>;
+
+        $r2 = $r3.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: java.lang.String CaptchaImageUrl>;
+
+        $r1 = staticinvoke <com.dai.giftcard.viewer.helper.HttpHelper: android.graphics.Bitmap HttpGetImage(org.apache.http.client.HttpClient,java.lang.String)>($r0, $r2);
+
+        $r3.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: android.graphics.Bitmap VerificationMemoryImageByte> = $r1;
+
+        $r4 = $r3.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: java.lang.String CaptchaImageUrl>;
+
+        return $r4;
+    }
+
+    public double ParseBalanceResult(java.lang.String) throws java.lang.Exception
+    {
+        double $d0, $d1;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r0, $r8;
+        org.json.simple.JSONObject $r1;
+        java.lang.Object $r2, $r6;
+        org.json.simple.parser.JSONParser $r3;
+        java.lang.String $r4, $r7;
+        com.dai.giftcard.viewer.reader.us.verification.KmartUSReader $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.reader.us.verification.KmartUSReader;
+
+        $r4 := @parameter0: java.lang.String;
+
+        $r3 = new org.json.simple.parser.JSONParser;
+
+        specialinvoke $r3.<org.json.simple.parser.JSONParser: void <init>()>();
+
+        $r2 = virtualinvoke $r3.<org.json.simple.parser.JSONParser: java.lang.Object parse(java.lang.String)>($r4);
+
+        $r1 = (org.json.simple.JSONObject) $r2;
+
+        if $r1 == null goto label1;
+
+        $r6 = virtualinvoke $r1.<org.json.simple.JSONObject: java.lang.Object get(java.lang.Object)>("gcbalanceval");
+
+        $r7 = (java.lang.String) $r6;
+
+        $r0 = $r5.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $d0 = staticinvoke <com.dai.giftcard.viewer.helper.StringHelper: double GetDollar(java.lang.String)>($r7);
+
+        $r0.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance> = $d0;
+
+        $r8 = $r5.<com.dai.giftcard.viewer.reader.us.verification.KmartUSReader: com.dai.giftcard.viewer.model.GiftCardEntity card>;
+
+        $d1 = $r8.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance>;
+
+        return $d1;
+
+     label1:
+        return -1.0;
+    }
+}

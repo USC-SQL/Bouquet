@@ -1,0 +1,417 @@
+class org.simpleframework.xml.transform.PackageMatcher extends java.lang.Object implements org.simpleframework.xml.transform.Matcher
+{
+
+    public void <init>()
+    {
+        org.simpleframework.xml.transform.PackageMatcher $r0;
+
+        $r0 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private org.simpleframework.xml.transform.Transform matchEnum(java.lang.Class)
+    {
+        org.simpleframework.xml.transform.EnumTransform $r0, $r4;
+        boolean $z0, $z1;
+        java.lang.Class $r1, $r2;
+        org.simpleframework.xml.transform.PackageMatcher $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r2 = virtualinvoke $r1.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        if $r2 == null goto label2;
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isEnum()>();
+
+        if $z0 == 0 goto label1;
+
+        $r0 = new org.simpleframework.xml.transform.EnumTransform;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.EnumTransform: void <init>(java.lang.Class)>($r1);
+
+        return $r0;
+
+     label1:
+        $z1 = virtualinvoke $r1.<java.lang.Class: boolean isEnum()>();
+
+        if $z1 == 0 goto label2;
+
+        $r4 = new org.simpleframework.xml.transform.EnumTransform;
+
+        specialinvoke $r4.<org.simpleframework.xml.transform.EnumTransform: void <init>(java.lang.Class)>($r1);
+
+        return $r4;
+
+     label2:
+        return null;
+    }
+
+    private org.simpleframework.xml.transform.Transform matchFile(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.FileTransform $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.transform.PackageMatcher $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        if $r1 != class "java/io/File" goto label1;
+
+        $r0 = new org.simpleframework.xml.transform.FileTransform;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.FileTransform: void <init>()>();
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+
+    private org.simpleframework.xml.transform.Transform matchLanguage(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.ClassTransform r0;
+        org.simpleframework.xml.transform.StringTransform r1;
+        org.simpleframework.xml.transform.CharacterTransform r2;
+        org.simpleframework.xml.transform.ByteTransform r3;
+        org.simpleframework.xml.transform.ShortTransform r4;
+        org.simpleframework.xml.transform.FloatTransform r5;
+        org.simpleframework.xml.transform.DoubleTransform r6;
+        org.simpleframework.xml.transform.LongTransform r7;
+        org.simpleframework.xml.transform.IntegerTransform r8;
+        org.simpleframework.xml.transform.BooleanTransform r9;
+        java.lang.Class $r10;
+        org.simpleframework.xml.transform.PackageMatcher $r11;
+
+        $r11 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        $r10 := @parameter0: java.lang.Class;
+
+        if $r10 != class "java/lang/Boolean" goto label01;
+
+        r9 = new org.simpleframework.xml.transform.BooleanTransform;
+
+        specialinvoke r9.<org.simpleframework.xml.transform.BooleanTransform: void <init>()>();
+
+        return r9;
+
+     label01:
+        if $r10 != class "java/lang/Integer" goto label02;
+
+        r8 = new org.simpleframework.xml.transform.IntegerTransform;
+
+        specialinvoke r8.<org.simpleframework.xml.transform.IntegerTransform: void <init>()>();
+
+        return r8;
+
+     label02:
+        if $r10 != class "java/lang/Long" goto label03;
+
+        r7 = new org.simpleframework.xml.transform.LongTransform;
+
+        specialinvoke r7.<org.simpleframework.xml.transform.LongTransform: void <init>()>();
+
+        return r7;
+
+     label03:
+        if $r10 != class "java/lang/Double" goto label04;
+
+        r6 = new org.simpleframework.xml.transform.DoubleTransform;
+
+        specialinvoke r6.<org.simpleframework.xml.transform.DoubleTransform: void <init>()>();
+
+        return r6;
+
+     label04:
+        if $r10 != class "java/lang/Float" goto label05;
+
+        r5 = new org.simpleframework.xml.transform.FloatTransform;
+
+        specialinvoke r5.<org.simpleframework.xml.transform.FloatTransform: void <init>()>();
+
+        return r5;
+
+     label05:
+        if $r10 != class "java/lang/Short" goto label06;
+
+        r4 = new org.simpleframework.xml.transform.ShortTransform;
+
+        specialinvoke r4.<org.simpleframework.xml.transform.ShortTransform: void <init>()>();
+
+        return r4;
+
+     label06:
+        if $r10 != class "java/lang/Byte" goto label07;
+
+        r3 = new org.simpleframework.xml.transform.ByteTransform;
+
+        specialinvoke r3.<org.simpleframework.xml.transform.ByteTransform: void <init>()>();
+
+        return r3;
+
+     label07:
+        if $r10 != class "java/lang/Character" goto label08;
+
+        r2 = new org.simpleframework.xml.transform.CharacterTransform;
+
+        specialinvoke r2.<org.simpleframework.xml.transform.CharacterTransform: void <init>()>();
+
+        return r2;
+
+     label08:
+        if $r10 != class "java/lang/String" goto label09;
+
+        r1 = new org.simpleframework.xml.transform.StringTransform;
+
+        specialinvoke r1.<org.simpleframework.xml.transform.StringTransform: void <init>()>();
+
+        return r1;
+
+     label09:
+        if $r10 != class "java/lang/Class" goto label10;
+
+        r0 = new org.simpleframework.xml.transform.ClassTransform;
+
+        specialinvoke r0.<org.simpleframework.xml.transform.ClassTransform: void <init>()>();
+
+        return r0;
+
+     label10:
+        return null;
+    }
+
+    private org.simpleframework.xml.transform.Transform matchMath(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.BigIntegerTransform r0;
+        org.simpleframework.xml.transform.BigDecimalTransform r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.transform.PackageMatcher $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        if $r2 != class "java/math/BigDecimal" goto label1;
+
+        r1 = new org.simpleframework.xml.transform.BigDecimalTransform;
+
+        specialinvoke r1.<org.simpleframework.xml.transform.BigDecimalTransform: void <init>()>();
+
+        return r1;
+
+     label1:
+        if $r2 != class "java/math/BigInteger" goto label2;
+
+        r0 = new org.simpleframework.xml.transform.BigIntegerTransform;
+
+        specialinvoke r0.<org.simpleframework.xml.transform.BigIntegerTransform: void <init>()>();
+
+        return r0;
+
+     label2:
+        return null;
+    }
+
+    private org.simpleframework.xml.transform.Transform matchSQL(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.DateTransform $r0, $r3, $r4;
+        java.lang.Class $r1;
+        org.simpleframework.xml.transform.PackageMatcher $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        if $r1 != class "java/sql/Time" goto label1;
+
+        $r0 = new org.simpleframework.xml.transform.DateTransform;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.DateTransform: void <init>(java.lang.Class)>($r1);
+
+        return $r0;
+
+     label1:
+        if $r1 != class "java/sql/Date" goto label2;
+
+        $r3 = new org.simpleframework.xml.transform.DateTransform;
+
+        specialinvoke $r3.<org.simpleframework.xml.transform.DateTransform: void <init>(java.lang.Class)>($r1);
+
+        return $r3;
+
+     label2:
+        if $r1 != class "java/sql/Timestamp" goto label3;
+
+        $r4 = new org.simpleframework.xml.transform.DateTransform;
+
+        specialinvoke $r4.<org.simpleframework.xml.transform.DateTransform: void <init>(java.lang.Class)>($r1);
+
+        return $r4;
+
+     label3:
+        return null;
+    }
+
+    private org.simpleframework.xml.transform.Transform matchURL(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.URLTransform $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.transform.PackageMatcher $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        if $r1 != class "java/net/URL" goto label1;
+
+        $r0 = new org.simpleframework.xml.transform.URLTransform;
+
+        specialinvoke $r0.<org.simpleframework.xml.transform.URLTransform: void <init>()>();
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+
+    private org.simpleframework.xml.transform.Transform matchUtility(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.TimeZoneTransform r0;
+        org.simpleframework.xml.transform.GregorianCalendarTransform r1;
+        org.simpleframework.xml.transform.CurrencyTransform r2;
+        org.simpleframework.xml.transform.LocaleTransform r3;
+        org.simpleframework.xml.transform.DateTransform r4;
+        java.lang.Class $r5;
+        org.simpleframework.xml.transform.PackageMatcher $r6;
+
+        $r6 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        $r5 := @parameter0: java.lang.Class;
+
+        if $r5 != class "java/util/Date" goto label1;
+
+        r4 = new org.simpleframework.xml.transform.DateTransform;
+
+        specialinvoke r4.<org.simpleframework.xml.transform.DateTransform: void <init>(java.lang.Class)>($r5);
+
+        return r4;
+
+     label1:
+        if $r5 != class "java/util/Locale" goto label2;
+
+        r3 = new org.simpleframework.xml.transform.LocaleTransform;
+
+        specialinvoke r3.<org.simpleframework.xml.transform.LocaleTransform: void <init>()>();
+
+        return r3;
+
+     label2:
+        if $r5 != class "java/util/Currency" goto label3;
+
+        r2 = new org.simpleframework.xml.transform.CurrencyTransform;
+
+        specialinvoke r2.<org.simpleframework.xml.transform.CurrencyTransform: void <init>()>();
+
+        return r2;
+
+     label3:
+        if $r5 != class "java/util/GregorianCalendar" goto label4;
+
+        r1 = new org.simpleframework.xml.transform.GregorianCalendarTransform;
+
+        specialinvoke r1.<org.simpleframework.xml.transform.GregorianCalendarTransform: void <init>()>();
+
+        return r1;
+
+     label4:
+        if $r5 != class "java/util/TimeZone" goto label5;
+
+        r0 = new org.simpleframework.xml.transform.TimeZoneTransform;
+
+        specialinvoke r0.<org.simpleframework.xml.transform.TimeZoneTransform: void <init>()>();
+
+        return r0;
+
+     label5:
+        return null;
+    }
+
+    public org.simpleframework.xml.transform.Transform match(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.transform.Transform $r0, $r4, $r5, $r6, $r7, $r8, $r9;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5;
+        java.lang.String $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.transform.PackageMatcher $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.PackageMatcher;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = virtualinvoke $r2.<java.lang.Class: java.lang.String getName()>();
+
+        $z0 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("java.lang");
+
+        if $z0 == 0 goto label1;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.transform.PackageMatcher: org.simpleframework.xml.transform.Transform matchLanguage(java.lang.Class)>($r2);
+
+        return $r0;
+
+     label1:
+        $z1 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("java.util");
+
+        if $z1 == 0 goto label2;
+
+        $r4 = specialinvoke $r3.<org.simpleframework.xml.transform.PackageMatcher: org.simpleframework.xml.transform.Transform matchUtility(java.lang.Class)>($r2);
+
+        return $r4;
+
+     label2:
+        $z2 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("java.net");
+
+        if $z2 == 0 goto label3;
+
+        $r5 = specialinvoke $r3.<org.simpleframework.xml.transform.PackageMatcher: org.simpleframework.xml.transform.Transform matchURL(java.lang.Class)>($r2);
+
+        return $r5;
+
+     label3:
+        $z3 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("java.io");
+
+        if $z3 == 0 goto label4;
+
+        $r6 = specialinvoke $r3.<org.simpleframework.xml.transform.PackageMatcher: org.simpleframework.xml.transform.Transform matchFile(java.lang.Class)>($r2);
+
+        return $r6;
+
+     label4:
+        $z4 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("java.sql");
+
+        if $z4 == 0 goto label5;
+
+        $r7 = specialinvoke $r3.<org.simpleframework.xml.transform.PackageMatcher: org.simpleframework.xml.transform.Transform matchSQL(java.lang.Class)>($r2);
+
+        return $r7;
+
+     label5:
+        $z5 = virtualinvoke $r1.<java.lang.String: boolean startsWith(java.lang.String)>("java.math");
+
+        if $z5 == 0 goto label6;
+
+        $r8 = specialinvoke $r3.<org.simpleframework.xml.transform.PackageMatcher: org.simpleframework.xml.transform.Transform matchMath(java.lang.Class)>($r2);
+
+        return $r8;
+
+     label6:
+        $r9 = specialinvoke $r3.<org.simpleframework.xml.transform.PackageMatcher: org.simpleframework.xml.transform.Transform matchEnum(java.lang.Class)>($r2);
+
+        return $r9;
+    }
+}

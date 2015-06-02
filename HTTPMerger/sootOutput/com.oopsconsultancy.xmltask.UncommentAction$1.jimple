@@ -1,0 +1,72 @@
+class com.oopsconsultancy.xmltask.UncommentAction$1 extends java.lang.Object implements org.xml.sax.ErrorHandler
+{
+    final com.oopsconsultancy.xmltask.UncommentAction this$0;
+
+    void <init>(com.oopsconsultancy.xmltask.UncommentAction)
+    {
+        com.oopsconsultancy.xmltask.UncommentAction $r0;
+        com.oopsconsultancy.xmltask.UncommentAction$1 $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.UncommentAction$1;
+
+        $r0 := @parameter0: com.oopsconsultancy.xmltask.UncommentAction;
+
+        $r1.<com.oopsconsultancy.xmltask.UncommentAction$1: com.oopsconsultancy.xmltask.UncommentAction this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void error(org.xml.sax.SAXParseException)
+    {
+        java.lang.String $r0;
+        java.io.PrintStream $r1;
+        org.xml.sax.SAXParseException $r2;
+        com.oopsconsultancy.xmltask.UncommentAction$1 $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.UncommentAction$1;
+
+        $r2 := @parameter0: org.xml.sax.SAXParseException;
+
+        $r1 = <java.lang.System: java.io.PrintStream err>;
+
+        $r0 = virtualinvoke $r2.<org.xml.sax.SAXParseException: java.lang.String getMessage()>();
+
+        virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>($r0);
+
+        return;
+    }
+
+    public void fatalError(org.xml.sax.SAXParseException)
+    {
+        org.xml.sax.SAXParseException $r0;
+        com.oopsconsultancy.xmltask.UncommentAction$1 $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.UncommentAction$1;
+
+        $r0 := @parameter0: org.xml.sax.SAXParseException;
+
+        return;
+    }
+
+    public void warning(org.xml.sax.SAXParseException)
+    {
+        java.lang.String $r0;
+        java.io.PrintStream $r1;
+        org.xml.sax.SAXParseException $r2;
+        com.oopsconsultancy.xmltask.UncommentAction$1 $r3;
+
+        $r3 := @this: com.oopsconsultancy.xmltask.UncommentAction$1;
+
+        $r2 := @parameter0: org.xml.sax.SAXParseException;
+
+        $r1 = <java.lang.System: java.io.PrintStream err>;
+
+        $r0 = virtualinvoke $r2.<org.xml.sax.SAXParseException: java.lang.String getMessage()>();
+
+        virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>($r0);
+
+        return;
+    }
+}

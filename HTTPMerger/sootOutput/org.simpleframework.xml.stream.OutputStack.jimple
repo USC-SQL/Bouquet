@@ -1,0 +1,151 @@
+class org.simpleframework.xml.stream.OutputStack extends java.util.ArrayList
+{
+    private final java.util.Set active;
+
+    public void <init>(java.util.Set)
+    {
+        java.util.Set $r0;
+        org.simpleframework.xml.stream.OutputStack $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputStack;
+
+        $r0 := @parameter0: java.util.Set;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $r1.<org.simpleframework.xml.stream.OutputStack: java.util.Set active> = $r0;
+
+        return;
+    }
+
+    public org.simpleframework.xml.stream.OutputNode bottom()
+    {
+        java.lang.Object $r0;
+        int $i0;
+        org.simpleframework.xml.stream.OutputNode $r1;
+        org.simpleframework.xml.stream.OutputStack $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.OutputStack;
+
+        $i0 = virtualinvoke $r2.<org.simpleframework.xml.stream.OutputStack: int size()>();
+
+        if $i0 > 0 goto label1;
+
+        return null;
+
+     label1:
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.stream.OutputStack: java.lang.Object get(int)>(0);
+
+        $r1 = (org.simpleframework.xml.stream.OutputNode) $r0;
+
+        return $r1;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        org.simpleframework.xml.stream.OutputStack$Sequence $r0;
+        org.simpleframework.xml.stream.OutputStack $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputStack;
+
+        $r0 = new org.simpleframework.xml.stream.OutputStack$Sequence;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.OutputStack$Sequence: void <init>(org.simpleframework.xml.stream.OutputStack)>($r1);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.OutputNode pop()
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        int $i0, $i1;
+        org.simpleframework.xml.stream.OutputStack $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.OutputStack;
+
+        $i0 = virtualinvoke $r1.<org.simpleframework.xml.stream.OutputStack: int size()>();
+
+        if $i0 > 0 goto label1;
+
+        return null;
+
+     label1:
+        $i1 = $i0 + -1;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.stream.OutputStack: org.simpleframework.xml.stream.OutputNode purge(int)>($i1);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.OutputNode purge(int)
+    {
+        org.simpleframework.xml.stream.OutputNode $r0;
+        java.lang.Object $r1;
+        java.util.Set $r2;
+        int $i0;
+        org.simpleframework.xml.stream.OutputStack $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.OutputStack;
+
+        $i0 := @parameter0: int;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.stream.OutputStack: java.lang.Object remove(int)>($i0);
+
+        $r0 = (org.simpleframework.xml.stream.OutputNode) $r1;
+
+        if $r0 == null goto label1;
+
+        $r2 = $r3.<org.simpleframework.xml.stream.OutputStack: java.util.Set active>;
+
+        interfaceinvoke $r2.<java.util.Set: boolean remove(java.lang.Object)>($r0);
+
+        return $r0;
+
+     label1:
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.OutputNode push(org.simpleframework.xml.stream.OutputNode)
+    {
+        java.util.Set $r0;
+        org.simpleframework.xml.stream.OutputNode $r1;
+        org.simpleframework.xml.stream.OutputStack $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.OutputStack;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.OutputStack: java.util.Set active>;
+
+        interfaceinvoke $r0.<java.util.Set: boolean add(java.lang.Object)>($r1);
+
+        virtualinvoke $r2.<org.simpleframework.xml.stream.OutputStack: boolean add(java.lang.Object)>($r1);
+
+        return $r1;
+    }
+
+    public org.simpleframework.xml.stream.OutputNode top()
+    {
+        java.lang.Object $r0;
+        int $i0, $i1;
+        org.simpleframework.xml.stream.OutputNode $r1;
+        org.simpleframework.xml.stream.OutputStack $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.OutputStack;
+
+        $i0 = virtualinvoke $r2.<org.simpleframework.xml.stream.OutputStack: int size()>();
+
+        if $i0 > 0 goto label1;
+
+        return null;
+
+     label1:
+        $i1 = $i0 + -1;
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.stream.OutputStack: java.lang.Object get(int)>($i1);
+
+        $r1 = (org.simpleframework.xml.stream.OutputNode) $r0;
+
+        return $r1;
+    }
+}

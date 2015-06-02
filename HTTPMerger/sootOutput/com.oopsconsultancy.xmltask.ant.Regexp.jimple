@@ -1,0 +1,320 @@
+public class com.oopsconsultancy.xmltask.ant.Regexp extends java.lang.Object implements com.oopsconsultancy.xmltask.ant.Instruction
+{
+    private java.lang.String buffer;
+    private boolean caseSensitive;
+    private java.lang.String ifProperty;
+    private java.lang.String path;
+    private java.lang.String pattern;
+    private java.lang.String property;
+    private java.lang.String replace;
+    private com.oopsconsultancy.xmltask.ant.XmlTask task;
+    private boolean unicodeCase;
+    private java.lang.String unlessProperty;
+
+    public void <init>()
+    {
+        com.oopsconsultancy.xmltask.ant.Regexp $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<com.oopsconsultancy.xmltask.ant.Regexp: boolean caseSensitive> = 1;
+
+        $r0.<com.oopsconsultancy.xmltask.ant.Regexp: boolean unicodeCase> = 0;
+
+        return;
+    }
+
+    private void register()
+    {
+        boolean $z0, $z1, $z2;
+        java.lang.IllegalStateException $r0;
+        com.oopsconsultancy.xmltask.ant.XmlTask $r1, $r15, $r22, $r28;
+        java.lang.IllegalArgumentException $r2, $r14, $r21;
+        java.lang.String $r3, $r4, $r8, $r9, $r10, $r11, $r12, $r13, $r16, $r17, $r18, $r19, $r20, $r23, $r24, $r25, $r26, $r27;
+        com.oopsconsultancy.xmltask.XmlReplace $r5;
+        com.oopsconsultancy.xmltask.RegexpAction $r6;
+        com.oopsconsultancy.xmltask.ant.Regexp $r7;
+
+        $r7 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r6 = null;
+
+        $r3 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String replace>;
+
+        if $r3 == null goto label03;
+
+        $r8 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String property>;
+
+        if $r8 != null goto label01;
+
+        $r9 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String buffer>;
+
+        if $r9 == null goto label02;
+
+     label01:
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Can only specify one of replace/property/buffer for a regexp");
+
+        throw $r2;
+
+     label02:
+        $r1 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: com.oopsconsultancy.xmltask.ant.XmlTask task>;
+
+        $r4 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String pattern>;
+
+        $r10 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String replace>;
+
+        $r6 = staticinvoke <com.oopsconsultancy.xmltask.RegexpAction: com.oopsconsultancy.xmltask.RegexpAction createReplacement(com.oopsconsultancy.xmltask.ant.XmlTask,java.lang.String,java.lang.String)>($r1, $r4, $r10);
+
+     label03:
+        $r11 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String property>;
+
+        if $r11 == null goto label06;
+
+        $r12 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String replace>;
+
+        if $r12 != null goto label04;
+
+        $r13 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String buffer>;
+
+        if $r13 == null goto label05;
+
+     label04:
+        $r14 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r14.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Can only specify one of replace/property/buffer for a regexp");
+
+        throw $r14;
+
+     label05:
+        $r15 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: com.oopsconsultancy.xmltask.ant.XmlTask task>;
+
+        $r16 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String pattern>;
+
+        $r17 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String property>;
+
+        $r6 = staticinvoke <com.oopsconsultancy.xmltask.RegexpAction: com.oopsconsultancy.xmltask.RegexpAction createCopyToProperty(com.oopsconsultancy.xmltask.ant.XmlTask,java.lang.String,java.lang.String)>($r15, $r16, $r17);
+
+     label06:
+        $r18 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String buffer>;
+
+        if $r18 == null goto label09;
+
+        $r19 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String replace>;
+
+        if $r19 != null goto label07;
+
+        $r20 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String property>;
+
+        if $r20 == null goto label08;
+
+     label07:
+        $r21 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r21.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Can only specify one of replace/property/buffer for a regexp");
+
+        throw $r21;
+
+     label08:
+        $r22 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: com.oopsconsultancy.xmltask.ant.XmlTask task>;
+
+        $r23 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String pattern>;
+
+        $r24 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String buffer>;
+
+        $r6 = staticinvoke <com.oopsconsultancy.xmltask.RegexpAction: com.oopsconsultancy.xmltask.RegexpAction createCopyToBuffer(com.oopsconsultancy.xmltask.ant.XmlTask,java.lang.String,java.lang.String)>($r22, $r23, $r24);
+
+     label09:
+        if $r6 != null goto label10;
+
+        $r0 = new java.lang.IllegalStateException;
+
+        specialinvoke $r0.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Failed to build a regexp action from inputs");
+
+        throw $r0;
+
+     label10:
+        $z0 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: boolean caseSensitive>;
+
+        if $z0 != 0 goto label12;
+
+        $z1 = 1;
+
+     label11:
+        virtualinvoke $r6.<com.oopsconsultancy.xmltask.RegexpAction: void setCaseInsensitive(boolean)>($z1);
+
+        $z2 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: boolean unicodeCase>;
+
+        virtualinvoke $r6.<com.oopsconsultancy.xmltask.RegexpAction: void setUnicodeCase(boolean)>($z2);
+
+        $r5 = new com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r25 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String path>;
+
+        specialinvoke $r5.<com.oopsconsultancy.xmltask.XmlReplace: void <init>(java.lang.String,com.oopsconsultancy.xmltask.Action)>($r25, $r6);
+
+        $r26 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String ifProperty>;
+
+        virtualinvoke $r5.<com.oopsconsultancy.xmltask.XmlReplace: void setIf(java.lang.String)>($r26);
+
+        $r27 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String unlessProperty>;
+
+        virtualinvoke $r5.<com.oopsconsultancy.xmltask.XmlReplace: void setUnless(java.lang.String)>($r27);
+
+        $r28 = $r7.<com.oopsconsultancy.xmltask.ant.Regexp: com.oopsconsultancy.xmltask.ant.XmlTask task>;
+
+        virtualinvoke $r28.<com.oopsconsultancy.xmltask.ant.XmlTask: void add(com.oopsconsultancy.xmltask.XmlReplace)>($r5);
+
+        return;
+
+     label12:
+        $z1 = 0;
+
+        goto label11;
+    }
+
+    public void process(com.oopsconsultancy.xmltask.ant.XmlTask)
+    {
+        com.oopsconsultancy.xmltask.ant.XmlTask $r0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r0 := @parameter0: com.oopsconsultancy.xmltask.ant.XmlTask;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Regexp: com.oopsconsultancy.xmltask.ant.XmlTask task> = $r0;
+
+        specialinvoke $r1.<com.oopsconsultancy.xmltask.ant.Regexp: void register()>();
+
+        return;
+    }
+
+    public void setBuffer(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String buffer> = $r0;
+
+        return;
+    }
+
+    public void setCaseSensitive(boolean)
+    {
+        boolean $z0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<com.oopsconsultancy.xmltask.ant.Regexp: boolean caseSensitive> = $z0;
+
+        return;
+    }
+
+    public void setIf(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String ifProperty> = $r0;
+
+        return;
+    }
+
+    public void setPath(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String path> = $r0;
+
+        return;
+    }
+
+    public void setPattern(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String pattern> = $r0;
+
+        return;
+    }
+
+    public void setProperty(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String property> = $r0;
+
+        return;
+    }
+
+    public void setReplace(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String replace> = $r0;
+
+        return;
+    }
+
+    public void setUnicodeCase(boolean)
+    {
+        boolean $z0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<com.oopsconsultancy.xmltask.ant.Regexp: boolean unicodeCase> = $z0;
+
+        return;
+    }
+
+    public void setUnless(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Regexp $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Regexp;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Regexp: java.lang.String unlessProperty> = $r0;
+
+        return;
+    }
+}

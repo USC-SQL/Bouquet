@@ -1,0 +1,66 @@
+public final class org.jsoup.select.Evaluator$Matches extends org.jsoup.select.Evaluator
+{
+    private java.util.regex.Pattern pattern;
+
+    public void <init>(java.util.regex.Pattern)
+    {
+        java.util.regex.Pattern $r0;
+        org.jsoup.select.Evaluator$Matches $r1;
+
+        $r1 := @this: org.jsoup.select.Evaluator$Matches;
+
+        $r0 := @parameter0: java.util.regex.Pattern;
+
+        specialinvoke $r1.<org.jsoup.select.Evaluator: void <init>()>();
+
+        $r1.<org.jsoup.select.Evaluator$Matches: java.util.regex.Pattern pattern> = $r0;
+
+        return;
+    }
+
+    public boolean matches(org.jsoup.nodes.Element, org.jsoup.nodes.Element)
+    {
+        boolean $z0;
+        java.util.regex.Matcher $r0;
+        java.lang.String $r1;
+        java.util.regex.Pattern $r2;
+        org.jsoup.nodes.Element $r3, $r4;
+        org.jsoup.select.Evaluator$Matches $r5;
+
+        $r5 := @this: org.jsoup.select.Evaluator$Matches;
+
+        $r3 := @parameter0: org.jsoup.nodes.Element;
+
+        $r4 := @parameter1: org.jsoup.nodes.Element;
+
+        $r2 = $r5.<org.jsoup.select.Evaluator$Matches: java.util.regex.Pattern pattern>;
+
+        $r1 = virtualinvoke $r4.<org.jsoup.nodes.Element: java.lang.String text()>();
+
+        $r0 = virtualinvoke $r2.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r1);
+
+        $z0 = virtualinvoke $r0.<java.util.regex.Matcher: boolean find()>();
+
+        return $z0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.Object[] $r0;
+        java.lang.String $r1;
+        java.util.regex.Pattern $r2;
+        org.jsoup.select.Evaluator$Matches $r3;
+
+        $r3 := @this: org.jsoup.select.Evaluator$Matches;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r2 = $r3.<org.jsoup.select.Evaluator$Matches: java.util.regex.Pattern pattern>;
+
+        $r0[0] = $r2;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(":matches(%s", $r0);
+
+        return $r1;
+    }
+}

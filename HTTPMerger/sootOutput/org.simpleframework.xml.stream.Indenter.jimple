@@ -1,0 +1,237 @@
+class org.simpleframework.xml.stream.Indenter extends java.lang.Object
+{
+    private org.simpleframework.xml.stream.Indenter$Cache cache;
+    private int count;
+    private int indent;
+    private int index;
+
+    public void <init>()
+    {
+        org.simpleframework.xml.stream.Format $r0;
+        org.simpleframework.xml.stream.Indenter $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Indenter;
+
+        $r0 = new org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.Format: void <init>()>();
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.Indenter: void <init>(org.simpleframework.xml.stream.Format)>($r0);
+
+        return;
+    }
+
+    public void <init>(org.simpleframework.xml.stream.Format)
+    {
+        org.simpleframework.xml.stream.Format $r0;
+        org.simpleframework.xml.stream.Indenter $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Indenter;
+
+        $r0 := @parameter0: org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.Indenter: void <init>(org.simpleframework.xml.stream.Format,int)>($r0, 16);
+
+        return;
+    }
+
+    private void <init>(org.simpleframework.xml.stream.Format, int)
+    {
+        org.simpleframework.xml.stream.Indenter$Cache $r0;
+        int $i0, $i1;
+        org.simpleframework.xml.stream.Format $r1;
+        org.simpleframework.xml.stream.Indenter $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.Indenter;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.Format;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $i1 = virtualinvoke $r1.<org.simpleframework.xml.stream.Format: int getIndent()>();
+
+        $r2.<org.simpleframework.xml.stream.Indenter: int indent> = $i1;
+
+        $r0 = new org.simpleframework.xml.stream.Indenter$Cache;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.Indenter$Cache: void <init>(org.simpleframework.xml.stream.Indenter,int)>($r2, $i0);
+
+        $r2.<org.simpleframework.xml.stream.Indenter: org.simpleframework.xml.stream.Indenter$Cache cache> = $r0;
+
+        return;
+    }
+
+    private java.lang.String create()
+    {
+        java.lang.String $r0;
+        char[] $r1;
+        int $i0, $i1, $i2, $i3, $i4;
+        org.simpleframework.xml.stream.Indenter $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.Indenter;
+
+        $i0 = $r2.<org.simpleframework.xml.stream.Indenter: int count>;
+
+        $i2 = $i0 + 1;
+
+        $r1 = newarray (char)[$i2];
+
+        $i3 = $r2.<org.simpleframework.xml.stream.Indenter: int count>;
+
+        if $i3 <= 0 goto label3;
+
+        $r1[0] = 10;
+
+        $i4 = 1;
+
+     label1:
+        $i1 = $r2.<org.simpleframework.xml.stream.Indenter: int count>;
+
+        if $i4 > $i1 goto label2;
+
+        $r1[$i4] = 32;
+
+        $i4 = $i4 + 1;
+
+        goto label1;
+
+     label2:
+        $r0 = new java.lang.String;
+
+        specialinvoke $r0.<java.lang.String: void <init>(char[])>($r1);
+
+        return $r0;
+
+     label3:
+        return "\n";
+    }
+
+    private java.lang.String indent(int)
+    {
+        org.simpleframework.xml.stream.Indenter$Cache $r0, $r5, $r6;
+        java.lang.String $r1, $r2, $r4;
+        int $i0, $i1, $i2;
+        org.simpleframework.xml.stream.Indenter $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.Indenter;
+
+        $i0 := @parameter0: int;
+
+        $i1 = $r3.<org.simpleframework.xml.stream.Indenter: int indent>;
+
+        if $i1 <= 0 goto label2;
+
+        $r0 = $r3.<org.simpleframework.xml.stream.Indenter: org.simpleframework.xml.stream.Indenter$Cache cache>;
+
+        $r2 = virtualinvoke $r0.<org.simpleframework.xml.stream.Indenter$Cache: java.lang.String get(int)>($i0);
+
+        $r1 = $r2;
+
+        if $r2 != null goto label1;
+
+        $r4 = specialinvoke $r3.<org.simpleframework.xml.stream.Indenter: java.lang.String create()>();
+
+        $r1 = $r4;
+
+        $r5 = $r3.<org.simpleframework.xml.stream.Indenter: org.simpleframework.xml.stream.Indenter$Cache cache>;
+
+        virtualinvoke $r5.<org.simpleframework.xml.stream.Indenter$Cache: void set(int,java.lang.String)>($i0, $r4);
+
+     label1:
+        $r6 = $r3.<org.simpleframework.xml.stream.Indenter: org.simpleframework.xml.stream.Indenter$Cache cache>;
+
+        $i2 = virtualinvoke $r6.<org.simpleframework.xml.stream.Indenter$Cache: int size()>();
+
+        if $i2 <= 0 goto label2;
+
+        return $r1;
+
+     label2:
+        return "";
+    }
+
+    public java.lang.String pop()
+    {
+        java.lang.String $r0;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        org.simpleframework.xml.stream.Indenter $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Indenter;
+
+        $i0 = $r1.<org.simpleframework.xml.stream.Indenter: int index>;
+
+        $i2 = $i0 + -1;
+
+        $r1.<org.simpleframework.xml.stream.Indenter: int index> = $i2;
+
+        $r0 = specialinvoke $r1.<org.simpleframework.xml.stream.Indenter: java.lang.String indent(int)>($i2);
+
+        $i3 = $r1.<org.simpleframework.xml.stream.Indenter: int indent>;
+
+        if $i3 <= 0 goto label1;
+
+        $i1 = $r1.<org.simpleframework.xml.stream.Indenter: int count>;
+
+        $i4 = $r1.<org.simpleframework.xml.stream.Indenter: int indent>;
+
+        $i5 = $i1 - $i4;
+
+        $r1.<org.simpleframework.xml.stream.Indenter: int count> = $i5;
+
+        return $r0;
+
+     label1:
+        return $r0;
+    }
+
+    public java.lang.String push()
+    {
+        java.lang.String $r0;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        org.simpleframework.xml.stream.Indenter $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Indenter;
+
+        $i0 = $r1.<org.simpleframework.xml.stream.Indenter: int index>;
+
+        $i1 = $i0 + 1;
+
+        $r1.<org.simpleframework.xml.stream.Indenter: int index> = $i1;
+
+        $r0 = specialinvoke $r1.<org.simpleframework.xml.stream.Indenter: java.lang.String indent(int)>($i0);
+
+        $i2 = $r1.<org.simpleframework.xml.stream.Indenter: int indent>;
+
+        if $i2 <= 0 goto label1;
+
+        $i3 = $r1.<org.simpleframework.xml.stream.Indenter: int count>;
+
+        $i4 = $r1.<org.simpleframework.xml.stream.Indenter: int indent>;
+
+        $i5 = $i3 + $i4;
+
+        $r1.<org.simpleframework.xml.stream.Indenter: int count> = $i5;
+
+        return $r0;
+
+     label1:
+        return $r0;
+    }
+
+    public java.lang.String top()
+    {
+        java.lang.String $r0;
+        int $i0;
+        org.simpleframework.xml.stream.Indenter $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Indenter;
+
+        $i0 = $r1.<org.simpleframework.xml.stream.Indenter: int index>;
+
+        $r0 = specialinvoke $r1.<org.simpleframework.xml.stream.Indenter: java.lang.String indent(int)>($i0);
+
+        return $r0;
+    }
+}

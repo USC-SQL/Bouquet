@@ -1,0 +1,819 @@
+class org.simpleframework.xml.core.MethodScanner extends org.simpleframework.xml.core.ContactList
+{
+    private final org.simpleframework.xml.DefaultType access;
+    private final org.simpleframework.xml.core.MethodPartFactory factory;
+    private final org.simpleframework.xml.core.Hierarchy hierarchy;
+    private final org.simpleframework.xml.core.MethodScanner$PartMap read;
+    private final java.lang.Class type;
+    private final org.simpleframework.xml.core.MethodScanner$PartMap write;
+
+    public void <init>(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.MethodScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.MethodScanner: void <init>(java.lang.Class,org.simpleframework.xml.DefaultType)>($r0, null);
+
+        return;
+    }
+
+    public void <init>(java.lang.Class, org.simpleframework.xml.DefaultType) throws java.lang.Exception
+    {
+        org.simpleframework.xml.DefaultType $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.core.MethodScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r0 := @parameter1: org.simpleframework.xml.DefaultType;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void <init>(java.lang.Class,org.simpleframework.xml.DefaultType,boolean)>($r1, $r0, 1);
+
+        return;
+    }
+
+    public void <init>(java.lang.Class, org.simpleframework.xml.DefaultType, boolean) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodScanner$PartMap $r0, $r6;
+        org.simpleframework.xml.core.Hierarchy $r1;
+        org.simpleframework.xml.core.MethodPartFactory $r2;
+        boolean $z0;
+        org.simpleframework.xml.DefaultType $r3;
+        java.lang.Class $r4;
+        org.simpleframework.xml.core.MethodScanner $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r3 := @parameter1: org.simpleframework.xml.DefaultType;
+
+        $z0 := @parameter2: boolean;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.ContactList: void <init>()>();
+
+        $r2 = new org.simpleframework.xml.core.MethodPartFactory;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodPartFactory: void <init>(boolean)>($z0);
+
+        $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodPartFactory factory> = $r2;
+
+        $r1 = new org.simpleframework.xml.core.Hierarchy;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.Hierarchy: void <init>(java.lang.Class)>($r4);
+
+        $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.Hierarchy hierarchy> = $r1;
+
+        $r0 = new org.simpleframework.xml.core.MethodScanner$PartMap;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.MethodScanner$PartMap: void <init>(org.simpleframework.xml.core.MethodScanner,org.simpleframework.xml.core.MethodScanner$1)>($r5, null);
+
+        $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap write> = $r0;
+
+        $r6 = new org.simpleframework.xml.core.MethodScanner$PartMap;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner$PartMap: void <init>(org.simpleframework.xml.core.MethodScanner,org.simpleframework.xml.core.MethodScanner$1)>($r5, null);
+
+        $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read> = $r6;
+
+        $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.DefaultType access> = $r3;
+
+        $r5.<org.simpleframework.xml.core.MethodScanner: java.lang.Class type> = $r4;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.MethodScanner: void scan(java.lang.Class)>($r4);
+
+        return;
+    }
+
+    private void build() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodPart $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2, $r7;
+        boolean $z0;
+        java.util.Iterator $r3;
+        org.simpleframework.xml.core.MethodScanner$PartMap $r4, $r6;
+        org.simpleframework.xml.core.MethodScanner $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r4 = $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.MethodScanner$PartMap: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r1 = (java.lang.String) $r2;
+
+        $r6 = $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        $r7 = virtualinvoke $r6.<org.simpleframework.xml.core.MethodScanner$PartMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r0 = (org.simpleframework.xml.core.MethodPart) $r7;
+
+        if $r0 == null goto label1;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.MethodScanner: void build(org.simpleframework.xml.core.MethodPart,java.lang.String)>($r0, $r1);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void build(org.simpleframework.xml.core.MethodPart) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodContact $r0;
+        org.simpleframework.xml.core.MethodPart $r1;
+        org.simpleframework.xml.core.MethodScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.MethodPart;
+
+        $r0 = new org.simpleframework.xml.core.MethodContact;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.MethodContact: void <init>(org.simpleframework.xml.core.MethodPart)>($r1);
+
+        virtualinvoke $r2.<org.simpleframework.xml.core.MethodScanner: boolean add(java.lang.Object)>($r0);
+
+        return;
+    }
+
+    private void build(org.simpleframework.xml.core.MethodPart, java.lang.String) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodScanner$PartMap $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.core.MethodPart $r2, $r3;
+        org.simpleframework.xml.core.MethodScanner $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.MethodPart;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r0 = $r4.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap write>;
+
+        $r3 = virtualinvoke $r0.<org.simpleframework.xml.core.MethodScanner$PartMap: org.simpleframework.xml.core.MethodPart take(java.lang.String)>($r1);
+
+        if $r3 == null goto label1;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.MethodScanner: void build(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodPart)>($r2, $r3);
+
+        return;
+
+     label1:
+        specialinvoke $r4.<org.simpleframework.xml.core.MethodScanner: void build(org.simpleframework.xml.core.MethodPart)>($r2);
+
+        return;
+    }
+
+    private void build(org.simpleframework.xml.core.MethodPart, org.simpleframework.xml.core.MethodPart) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodContact $r0;
+        java.lang.Class $r1, $r2, $r11;
+        java.lang.Object[] $r3, $r13;
+        org.simpleframework.xml.core.MethodException $r4, $r12;
+        boolean $z0;
+        java.lang.String $r5;
+        java.lang.annotation.Annotation $r6, $r7;
+        org.simpleframework.xml.core.MethodPart $r8, $r9;
+        org.simpleframework.xml.core.MethodScanner $r10;
+
+        $r10 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r8 := @parameter0: org.simpleframework.xml.core.MethodPart;
+
+        $r9 := @parameter1: org.simpleframework.xml.core.MethodPart;
+
+        $r6 = interfaceinvoke $r8.<org.simpleframework.xml.core.MethodPart: java.lang.annotation.Annotation getAnnotation()>();
+
+        $r5 = interfaceinvoke $r8.<org.simpleframework.xml.core.MethodPart: java.lang.String getName()>();
+
+        $r7 = interfaceinvoke $r9.<org.simpleframework.xml.core.MethodPart: java.lang.annotation.Annotation getAnnotation()>();
+
+        $z0 = virtualinvoke $r7.<java.lang.Object: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 != 0 goto label1;
+
+        $r4 = new org.simpleframework.xml.core.MethodException;
+
+        $r3 = newarray (java.lang.Object)[2];
+
+        $r3[0] = $r5;
+
+        $r1 = $r10.<org.simpleframework.xml.core.MethodScanner: java.lang.Class type>;
+
+        $r3[1] = $r1;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.MethodException: void <init>(java.lang.String,java.lang.Object[])>("Annotations do not match for \'%s\' in %s", $r3);
+
+        throw $r4;
+
+     label1:
+        $r11 = interfaceinvoke $r8.<org.simpleframework.xml.core.MethodPart: java.lang.Class getType()>();
+
+        $r2 = interfaceinvoke $r9.<org.simpleframework.xml.core.MethodPart: java.lang.Class getType()>();
+
+        if $r11 == $r2 goto label2;
+
+        $r12 = new org.simpleframework.xml.core.MethodException;
+
+        $r13 = newarray (java.lang.Object)[2];
+
+        $r13[0] = $r5;
+
+        $r13[1] = $r11;
+
+        specialinvoke $r12.<org.simpleframework.xml.core.MethodException: void <init>(java.lang.String,java.lang.Object[])>("Method types do not match for %s in %s", $r13);
+
+        throw $r12;
+
+     label2:
+        $r0 = new org.simpleframework.xml.core.MethodContact;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.MethodContact: void <init>(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodPart)>($r8, $r9);
+
+        virtualinvoke $r10.<org.simpleframework.xml.core.MethodScanner: boolean add(java.lang.Object)>($r0);
+
+        return;
+    }
+
+    private void process(java.lang.reflect.Method) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodScanner$PartMap $r0, $r8, $r10;
+        org.simpleframework.xml.core.MethodType $r1, $r2, $r7, $r9;
+        org.simpleframework.xml.core.MethodPart $r3;
+        org.simpleframework.xml.core.MethodPartFactory $r4;
+        java.lang.reflect.Method $r5;
+        org.simpleframework.xml.core.MethodScanner $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r5 := @parameter0: java.lang.reflect.Method;
+
+        $r4 = $r6.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodPartFactory factory>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.MethodPartFactory: org.simpleframework.xml.core.MethodPart getInstance(java.lang.reflect.Method)>($r5);
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.core.MethodPart: org.simpleframework.xml.core.MethodType getMethodType()>();
+
+        $r2 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType GET>;
+
+        if $r1 != $r2 goto label1;
+
+        $r0 = $r6.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner: void process(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r0);
+
+     label1:
+        $r7 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType IS>;
+
+        if $r1 != $r7 goto label2;
+
+        $r8 = $r6.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner: void process(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r8);
+
+     label2:
+        $r9 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType SET>;
+
+        if $r1 != $r9 goto label3;
+
+        $r10 = $r6.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap write>;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner: void process(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r10);
+
+        return;
+
+     label3:
+        return;
+    }
+
+    private void process(java.lang.reflect.Method, java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodScanner$PartMap $r0, $r9, $r11;
+        org.simpleframework.xml.core.MethodType $r1, $r2, $r8, $r10;
+        org.simpleframework.xml.core.MethodPart $r3;
+        org.simpleframework.xml.core.MethodPartFactory $r4;
+        java.lang.annotation.Annotation $r5;
+        java.lang.reflect.Method $r6;
+        org.simpleframework.xml.core.MethodScanner $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r6 := @parameter0: java.lang.reflect.Method;
+
+        $r5 := @parameter1: java.lang.annotation.Annotation;
+
+        $r4 = $r7.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodPartFactory factory>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.MethodPartFactory: org.simpleframework.xml.core.MethodPart getInstance(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r6, $r5);
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.core.MethodPart: org.simpleframework.xml.core.MethodType getMethodType()>();
+
+        $r2 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType GET>;
+
+        if $r1 != $r2 goto label1;
+
+        $r0 = $r7.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.MethodScanner: void process(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r0);
+
+     label1:
+        $r8 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType IS>;
+
+        if $r1 != $r8 goto label2;
+
+        $r9 = $r7.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.MethodScanner: void process(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r9);
+
+     label2:
+        $r10 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType SET>;
+
+        if $r1 != $r10 goto label3;
+
+        $r11 = $r7.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap write>;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.MethodScanner: void process(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r11);
+
+        return;
+
+     label3:
+        return;
+    }
+
+    private void process(org.simpleframework.xml.core.MethodPart, org.simpleframework.xml.core.MethodScanner$PartMap)
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.core.MethodScanner$PartMap $r1;
+        org.simpleframework.xml.core.MethodPart $r2;
+        org.simpleframework.xml.core.MethodScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.MethodPart;
+
+        $r1 := @parameter1: org.simpleframework.xml.core.MethodScanner$PartMap;
+
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.core.MethodPart: java.lang.String getName()>();
+
+        if $r0 == null goto label1;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.MethodScanner$PartMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($r0, $r2);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void remove(java.lang.reflect.Method, java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodScanner$PartMap $r0, $r9, $r11;
+        org.simpleframework.xml.core.MethodType $r1, $r2, $r8, $r10;
+        org.simpleframework.xml.core.MethodPart $r3;
+        org.simpleframework.xml.core.MethodPartFactory $r4;
+        java.lang.annotation.Annotation $r5;
+        java.lang.reflect.Method $r6;
+        org.simpleframework.xml.core.MethodScanner $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r6 := @parameter0: java.lang.reflect.Method;
+
+        $r5 := @parameter1: java.lang.annotation.Annotation;
+
+        $r4 = $r7.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodPartFactory factory>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.MethodPartFactory: org.simpleframework.xml.core.MethodPart getInstance(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r6, $r5);
+
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.core.MethodPart: org.simpleframework.xml.core.MethodType getMethodType()>();
+
+        $r2 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType GET>;
+
+        if $r1 != $r2 goto label1;
+
+        $r0 = $r7.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.MethodScanner: void remove(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r0);
+
+     label1:
+        $r8 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType IS>;
+
+        if $r1 != $r8 goto label2;
+
+        $r9 = $r7.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.MethodScanner: void remove(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r9);
+
+     label2:
+        $r10 = <org.simpleframework.xml.core.MethodType: org.simpleframework.xml.core.MethodType SET>;
+
+        if $r1 != $r10 goto label3;
+
+        $r11 = $r7.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap write>;
+
+        specialinvoke $r7.<org.simpleframework.xml.core.MethodScanner: void remove(org.simpleframework.xml.core.MethodPart,org.simpleframework.xml.core.MethodScanner$PartMap)>($r3, $r11);
+
+        return;
+
+     label3:
+        return;
+    }
+
+    private void remove(org.simpleframework.xml.core.MethodPart, org.simpleframework.xml.core.MethodScanner$PartMap) throws java.lang.Exception
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.core.MethodScanner$PartMap $r1;
+        org.simpleframework.xml.core.MethodPart $r2;
+        org.simpleframework.xml.core.MethodScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r2 := @parameter0: org.simpleframework.xml.core.MethodPart;
+
+        $r1 := @parameter1: org.simpleframework.xml.core.MethodScanner$PartMap;
+
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.core.MethodPart: java.lang.String getName()>();
+
+        if $r0 == null goto label1;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.MethodScanner$PartMap: java.lang.Object remove(java.lang.Object)>($r0);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void scan(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.DefaultType $r0;
+        java.lang.Object $r1, $r9;
+        boolean $z0, $z1;
+        java.util.Iterator $r2, $r8;
+        org.simpleframework.xml.core.Hierarchy $r3, $r7;
+        java.lang.Class $r4, $r5, $r10;
+        org.simpleframework.xml.core.MethodScanner $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r3 = $r6.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.Hierarchy hierarchy>;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.Hierarchy: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (java.lang.Class) $r1;
+
+        $r0 = $r6.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.DefaultType access>;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner: void scan(java.lang.Class,org.simpleframework.xml.DefaultType)>($r5, $r0);
+
+        goto label1;
+
+     label2:
+        $r7 = $r6.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.Hierarchy hierarchy>;
+
+        $r8 = virtualinvoke $r7.<org.simpleframework.xml.core.Hierarchy: java.util.Iterator iterator()>();
+
+     label3:
+        $z1 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label4;
+
+        $r9 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r10 = (java.lang.Class) $r9;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner: void scan(java.lang.Class,java.lang.Class)>($r10, $r4);
+
+        goto label3;
+
+     label4:
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner: void build()>();
+
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner: void validate()>();
+
+        return;
+    }
+
+    private void scan(java.lang.Class, java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.reflect.Method[] $r0;
+        java.lang.reflect.Method $r1;
+        int $i0, $i1;
+        java.lang.Class $r2, $r3;
+        org.simpleframework.xml.core.MethodScanner $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r3 := @parameter1: java.lang.Class;
+
+        $r0 = virtualinvoke $r2.<java.lang.Class: java.lang.reflect.Method[] getDeclaredMethods()>();
+
+        $i1 = lengthof $r0;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label2;
+
+        $r1 = $r0[$i0];
+
+        specialinvoke $r4.<org.simpleframework.xml.core.MethodScanner: void scan(java.lang.reflect.Method)>($r1);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void scan(java.lang.Class, org.simpleframework.xml.DefaultType) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodPartFactory $r0;
+        java.lang.reflect.Method[] $r1;
+        java.lang.reflect.Method $r2;
+        int $i0, $i1;
+        org.simpleframework.xml.DefaultType $r3, $r4;
+        java.lang.Class $r5, $r7;
+        org.simpleframework.xml.core.MethodScanner $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r5 := @parameter0: java.lang.Class;
+
+        $r3 := @parameter1: org.simpleframework.xml.DefaultType;
+
+        $r1 = virtualinvoke $r5.<java.lang.Class: java.lang.reflect.Method[] getDeclaredMethods()>();
+
+        $r4 = <org.simpleframework.xml.DefaultType: org.simpleframework.xml.DefaultType PROPERTY>;
+
+        if $r3 != $r4 goto label3;
+
+        $i1 = lengthof $r1;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label4;
+
+        $r2 = $r1[$i0];
+
+        $r0 = $r6.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodPartFactory factory>;
+
+        $r7 = virtualinvoke $r0.<org.simpleframework.xml.core.MethodPartFactory: java.lang.Class getType(java.lang.reflect.Method)>($r2);
+
+        if $r7 == null goto label2;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method)>($r2);
+
+     label2:
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label3:
+        return;
+
+     label4:
+        return;
+    }
+
+    private void scan(java.lang.reflect.Method) throws java.lang.Exception
+    {
+        java.lang.annotation.Annotation[] $r0;
+        java.lang.annotation.Annotation $r1;
+        int $i0, $i1;
+        java.lang.reflect.Method $r2;
+        org.simpleframework.xml.core.MethodScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r2 := @parameter0: java.lang.reflect.Method;
+
+        $r0 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.annotation.Annotation[] getDeclaredAnnotations()>();
+
+        $i1 = lengthof $r0;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label2;
+
+        $r1 = $r0[$i0];
+
+        specialinvoke $r3.<org.simpleframework.xml.core.MethodScanner: void scan(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r2, $r1);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void scan(java.lang.reflect.Method, java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10;
+        java.lang.annotation.Annotation $r0;
+        java.lang.reflect.Method $r1;
+        org.simpleframework.xml.core.MethodScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r1 := @parameter0: java.lang.reflect.Method;
+
+        $r0 := @parameter1: java.lang.annotation.Annotation;
+
+        $z0 = $r0 instanceof org.simpleframework.xml.Attribute;
+
+        if $z0 == 0 goto label01;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label01:
+        $z1 = $r0 instanceof org.simpleframework.xml.ElementUnion;
+
+        if $z1 == 0 goto label02;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label02:
+        $z2 = $r0 instanceof org.simpleframework.xml.ElementListUnion;
+
+        if $z2 == 0 goto label03;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label03:
+        $z3 = $r0 instanceof org.simpleframework.xml.ElementMapUnion;
+
+        if $z3 == 0 goto label04;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label04:
+        $z4 = $r0 instanceof org.simpleframework.xml.ElementList;
+
+        if $z4 == 0 goto label05;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label05:
+        $z5 = $r0 instanceof org.simpleframework.xml.ElementArray;
+
+        if $z5 == 0 goto label06;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label06:
+        $z6 = $r0 instanceof org.simpleframework.xml.ElementMap;
+
+        if $z6 == 0 goto label07;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label07:
+        $z7 = $r0 instanceof org.simpleframework.xml.Element;
+
+        if $z7 == 0 goto label08;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label08:
+        $z8 = $r0 instanceof org.simpleframework.xml.Transient;
+
+        if $z8 == 0 goto label09;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void remove(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label09:
+        $z9 = $r0 instanceof org.simpleframework.xml.Version;
+
+        if $z9 == 0 goto label10;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+     label10:
+        $z10 = $r0 instanceof org.simpleframework.xml.Text;
+
+        if $z10 == 0 goto label11;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.MethodScanner: void process(java.lang.reflect.Method,java.lang.annotation.Annotation)>($r1, $r0);
+
+        return;
+
+     label11:
+        return;
+    }
+
+    private void validate() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.MethodPart $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2, $r7;
+        boolean $z0;
+        java.util.Iterator $r3;
+        org.simpleframework.xml.core.MethodScanner$PartMap $r4, $r6;
+        org.simpleframework.xml.core.MethodScanner $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r4 = $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap write>;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.core.MethodScanner$PartMap: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r1 = (java.lang.String) $r2;
+
+        $r6 = $r5.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap write>;
+
+        $r7 = virtualinvoke $r6.<org.simpleframework.xml.core.MethodScanner$PartMap: java.lang.Object get(java.lang.Object)>($r1);
+
+        $r0 = (org.simpleframework.xml.core.MethodPart) $r7;
+
+        if $r0 == null goto label1;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.MethodScanner: void validate(org.simpleframework.xml.core.MethodPart,java.lang.String)>($r0, $r1);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void validate(org.simpleframework.xml.core.MethodPart, java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.MethodException $r1;
+        java.lang.reflect.Method $r2;
+        java.lang.Class $r3;
+        org.simpleframework.xml.core.MethodScanner$PartMap $r4;
+        java.lang.String $r5;
+        org.simpleframework.xml.core.MethodPart $r6, $r7;
+        org.simpleframework.xml.core.MethodScanner $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.MethodScanner;
+
+        $r6 := @parameter0: org.simpleframework.xml.core.MethodPart;
+
+        $r5 := @parameter1: java.lang.String;
+
+        $r4 = $r8.<org.simpleframework.xml.core.MethodScanner: org.simpleframework.xml.core.MethodScanner$PartMap read>;
+
+        $r7 = virtualinvoke $r4.<org.simpleframework.xml.core.MethodScanner$PartMap: org.simpleframework.xml.core.MethodPart take(java.lang.String)>($r5);
+
+        $r2 = interfaceinvoke $r6.<org.simpleframework.xml.core.MethodPart: java.lang.reflect.Method getMethod()>();
+
+        if $r7 != null goto label1;
+
+        $r1 = new org.simpleframework.xml.core.MethodException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r2;
+
+        $r3 = $r8.<org.simpleframework.xml.core.MethodScanner: java.lang.Class type>;
+
+        $r0[1] = $r3;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.MethodException: void <init>(java.lang.String,java.lang.Object[])>("No matching get method for %s in %s", $r0);
+
+        throw $r1;
+
+     label1:
+        return;
+    }
+}

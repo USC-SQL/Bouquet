@@ -1,0 +1,77 @@
+class org.simpleframework.xml.transform.CurrencyTransform extends java.lang.Object implements org.simpleframework.xml.transform.Transform
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.transform.CurrencyTransform $r0;
+
+        $r0 := @this: org.simpleframework.xml.transform.CurrencyTransform;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public volatile java.lang.Object read(java.lang.String) throws java.lang.Exception
+    {
+        java.util.Currency $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.CurrencyTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.CurrencyTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.transform.CurrencyTransform: java.util.Currency read(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public java.util.Currency read(java.lang.String)
+    {
+        java.util.Currency $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.CurrencyTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.CurrencyTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = staticinvoke <java.util.Currency: java.util.Currency getInstance(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public volatile java.lang.String write(java.lang.Object) throws java.lang.Exception
+    {
+        java.util.Currency $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.transform.CurrencyTransform $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.CurrencyTransform;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r0 = (java.util.Currency) $r2;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.transform.CurrencyTransform: java.lang.String write(java.util.Currency)>($r0);
+
+        return $r1;
+    }
+
+    public java.lang.String write(java.util.Currency)
+    {
+        java.lang.String $r0;
+        java.util.Currency $r1;
+        org.simpleframework.xml.transform.CurrencyTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.CurrencyTransform;
+
+        $r1 := @parameter0: java.util.Currency;
+
+        $r0 = virtualinvoke $r1.<java.util.Currency: java.lang.String toString()>();
+
+        return $r0;
+    }
+}

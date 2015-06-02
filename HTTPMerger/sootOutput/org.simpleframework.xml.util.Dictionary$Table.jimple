@@ -1,0 +1,20 @@
+class org.simpleframework.xml.util.Dictionary$Table extends java.util.HashMap
+{
+    final org.simpleframework.xml.util.Dictionary this$0;
+
+    public void <init>(org.simpleframework.xml.util.Dictionary)
+    {
+        org.simpleframework.xml.util.Dictionary $r0;
+        org.simpleframework.xml.util.Dictionary$Table $r1;
+
+        $r1 := @this: org.simpleframework.xml.util.Dictionary$Table;
+
+        $r0 := @parameter0: org.simpleframework.xml.util.Dictionary;
+
+        $r1.<org.simpleframework.xml.util.Dictionary$Table: org.simpleframework.xml.util.Dictionary this$0> = $r0;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        return;
+    }
+}

@@ -1,0 +1,233 @@
+class org.simpleframework.xml.stream.StreamReader extends java.lang.Object implements org.simpleframework.xml.stream.EventReader
+{
+    private org.simpleframework.xml.stream.EventNode peek;
+    private javax.xml.stream.XMLEventReader reader;
+
+    public void <init>(javax.xml.stream.XMLEventReader)
+    {
+        javax.xml.stream.XMLEventReader $r0;
+        org.simpleframework.xml.stream.StreamReader $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r0 := @parameter0: javax.xml.stream.XMLEventReader;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<org.simpleframework.xml.stream.StreamReader: javax.xml.stream.XMLEventReader reader> = $r0;
+
+        return;
+    }
+
+    private org.simpleframework.xml.stream.StreamReader$Entry attribute(javax.xml.stream.events.Attribute)
+    {
+        org.simpleframework.xml.stream.StreamReader$Entry $r0;
+        javax.xml.stream.events.Attribute $r1;
+        org.simpleframework.xml.stream.StreamReader $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r1 := @parameter0: javax.xml.stream.events.Attribute;
+
+        $r0 = new org.simpleframework.xml.stream.StreamReader$Entry;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.StreamReader$Entry: void <init>(javax.xml.stream.events.Attribute)>($r1);
+
+        return $r0;
+    }
+
+    private org.simpleframework.xml.stream.StreamReader$Start build(org.simpleframework.xml.stream.StreamReader$Start)
+    {
+        org.simpleframework.xml.stream.StreamReader$Entry $r0;
+        javax.xml.stream.events.Attribute $r1;
+        java.lang.Object $r2;
+        boolean $z0, $z1;
+        java.util.Iterator $r3;
+        org.simpleframework.xml.stream.StreamReader$Start $r4;
+        org.simpleframework.xml.stream.StreamReader $r5;
+
+        $r5 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.StreamReader$Start;
+
+        $r3 = virtualinvoke $r4.<org.simpleframework.xml.stream.StreamReader$Start: java.util.Iterator getAttributes()>();
+
+     label1:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r1 = (javax.xml.stream.events.Attribute) $r2;
+
+        $r0 = specialinvoke $r5.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.StreamReader$Entry attribute(javax.xml.stream.events.Attribute)>($r1);
+
+        $z1 = virtualinvoke $r0.<org.simpleframework.xml.stream.StreamReader$Entry: boolean isReserved()>();
+
+        if $z1 != 0 goto label1;
+
+        virtualinvoke $r4.<org.simpleframework.xml.stream.StreamReader$Start: boolean add(java.lang.Object)>($r0);
+
+        goto label1;
+
+     label2:
+        return $r4;
+    }
+
+    private org.simpleframework.xml.stream.StreamReader$End end()
+    {
+        org.simpleframework.xml.stream.StreamReader$End $r0;
+        org.simpleframework.xml.stream.StreamReader $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r0 = new org.simpleframework.xml.stream.StreamReader$End;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.StreamReader$End: void <init>(org.simpleframework.xml.stream.StreamReader$1)>(null);
+
+        return $r0;
+    }
+
+    private org.simpleframework.xml.stream.EventNode read() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.EventNode $r0;
+        org.simpleframework.xml.stream.StreamReader$End $r1;
+        org.simpleframework.xml.stream.StreamReader$Text $r2;
+        org.simpleframework.xml.stream.StreamReader$Start $r3;
+        boolean $z0, $z1, $z2, $z3;
+        javax.xml.stream.events.XMLEvent $r4;
+        javax.xml.stream.XMLEventReader $r5;
+        org.simpleframework.xml.stream.StreamReader $r6;
+
+        $r6 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r5 = $r6.<org.simpleframework.xml.stream.StreamReader: javax.xml.stream.XMLEventReader reader>;
+
+        $r4 = interfaceinvoke $r5.<javax.xml.stream.XMLEventReader: javax.xml.stream.events.XMLEvent nextEvent()>();
+
+        $z0 = interfaceinvoke $r4.<javax.xml.stream.events.XMLEvent: boolean isEndDocument()>();
+
+        if $z0 != 0 goto label4;
+
+        $z1 = interfaceinvoke $r4.<javax.xml.stream.events.XMLEvent: boolean isStartElement()>();
+
+        if $z1 == 0 goto label1;
+
+        $r3 = specialinvoke $r6.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.StreamReader$Start start(javax.xml.stream.events.XMLEvent)>($r4);
+
+        return $r3;
+
+     label1:
+        $z2 = interfaceinvoke $r4.<javax.xml.stream.events.XMLEvent: boolean isCharacters()>();
+
+        if $z2 == 0 goto label2;
+
+        $r2 = specialinvoke $r6.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.StreamReader$Text text(javax.xml.stream.events.XMLEvent)>($r4);
+
+        return $r2;
+
+     label2:
+        $z3 = interfaceinvoke $r4.<javax.xml.stream.events.XMLEvent: boolean isEndElement()>();
+
+        if $z3 == 0 goto label3;
+
+        $r1 = specialinvoke $r6.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.StreamReader$End end()>();
+
+        return $r1;
+
+     label3:
+        $r0 = specialinvoke $r6.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.EventNode read()>();
+
+        return $r0;
+
+     label4:
+        return null;
+    }
+
+    private org.simpleframework.xml.stream.StreamReader$Start start(javax.xml.stream.events.XMLEvent)
+    {
+        boolean $z0;
+        org.simpleframework.xml.stream.StreamReader$Start $r0, $r3;
+        javax.xml.stream.events.XMLEvent $r1;
+        org.simpleframework.xml.stream.StreamReader $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r1 := @parameter0: javax.xml.stream.events.XMLEvent;
+
+        $r0 = new org.simpleframework.xml.stream.StreamReader$Start;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.StreamReader$Start: void <init>(javax.xml.stream.events.XMLEvent)>($r1);
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.stream.StreamReader$Start: boolean isEmpty()>();
+
+        if $z0 == 0 goto label1;
+
+        $r3 = specialinvoke $r2.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.StreamReader$Start build(org.simpleframework.xml.stream.StreamReader$Start)>($r0);
+
+        return $r3;
+
+     label1:
+        return $r0;
+    }
+
+    private org.simpleframework.xml.stream.StreamReader$Text text(javax.xml.stream.events.XMLEvent)
+    {
+        org.simpleframework.xml.stream.StreamReader$Text $r0;
+        javax.xml.stream.events.XMLEvent $r1;
+        org.simpleframework.xml.stream.StreamReader $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r1 := @parameter0: javax.xml.stream.events.XMLEvent;
+
+        $r0 = new org.simpleframework.xml.stream.StreamReader$Text;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.StreamReader$Text: void <init>(javax.xml.stream.events.XMLEvent)>($r1);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.EventNode next() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.EventNode $r0, $r2;
+        org.simpleframework.xml.stream.StreamReader $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r0 = $r1.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.EventNode peek>;
+
+        if $r0 != null goto label1;
+
+        $r2 = specialinvoke $r1.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.EventNode read()>();
+
+        return $r2;
+
+     label1:
+        $r1.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.EventNode peek> = null;
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.EventNode peek() throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.EventNode $r0, $r2, $r3;
+        org.simpleframework.xml.stream.StreamReader $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.StreamReader;
+
+        $r0 = $r1.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.EventNode peek>;
+
+        if $r0 != null goto label1;
+
+        $r2 = virtualinvoke $r1.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.EventNode next()>();
+
+        $r1.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.EventNode peek> = $r2;
+
+     label1:
+        $r3 = $r1.<org.simpleframework.xml.stream.StreamReader: org.simpleframework.xml.stream.EventNode peek>;
+
+        return $r3;
+    }
+}

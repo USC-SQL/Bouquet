@@ -1,0 +1,77 @@
+class org.simpleframework.xml.strategy.ObjectValue extends java.lang.Object implements org.simpleframework.xml.strategy.Value
+{
+    private java.lang.Class type;
+    private java.lang.Object value;
+
+    public void <init>(java.lang.Class)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.strategy.ObjectValue $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.ObjectValue;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<org.simpleframework.xml.strategy.ObjectValue: java.lang.Class type> = $r0;
+
+        return;
+    }
+
+    public int getLength()
+    {
+        org.simpleframework.xml.strategy.ObjectValue $r0;
+
+        $r0 := @this: org.simpleframework.xml.strategy.ObjectValue;
+
+        return 0;
+    }
+
+    public java.lang.Class getType()
+    {
+        java.lang.Class r0;
+        org.simpleframework.xml.strategy.ObjectValue $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.ObjectValue;
+
+        r0 = $r1.<org.simpleframework.xml.strategy.ObjectValue: java.lang.Class type>;
+
+        return r0;
+    }
+
+    public java.lang.Object getValue()
+    {
+        java.lang.Object r0;
+        org.simpleframework.xml.strategy.ObjectValue $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.ObjectValue;
+
+        r0 = $r1.<org.simpleframework.xml.strategy.ObjectValue: java.lang.Object value>;
+
+        return r0;
+    }
+
+    public boolean isReference()
+    {
+        org.simpleframework.xml.strategy.ObjectValue $r0;
+
+        $r0 := @this: org.simpleframework.xml.strategy.ObjectValue;
+
+        return 0;
+    }
+
+    public void setValue(java.lang.Object)
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.strategy.ObjectValue $r1;
+
+        $r1 := @this: org.simpleframework.xml.strategy.ObjectValue;
+
+        $r0 := @parameter0: java.lang.Object;
+
+        $r1.<org.simpleframework.xml.strategy.ObjectValue: java.lang.Object value> = $r0;
+
+        return;
+    }
+}

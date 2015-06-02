@@ -1,0 +1,80 @@
+class org.simpleframework.xml.stream.PullProvider extends java.lang.Object implements org.simpleframework.xml.stream.Provider
+{
+    private final org.xmlpull.v1.XmlPullParserFactory factory;
+
+    public void <init>() throws java.lang.Exception
+    {
+        org.xmlpull.v1.XmlPullParserFactory $r0, $r2;
+        org.simpleframework.xml.stream.PullProvider $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.PullProvider;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r0 = staticinvoke <org.xmlpull.v1.XmlPullParserFactory: org.xmlpull.v1.XmlPullParserFactory newInstance()>();
+
+        $r1.<org.simpleframework.xml.stream.PullProvider: org.xmlpull.v1.XmlPullParserFactory factory> = $r0;
+
+        $r2 = $r1.<org.simpleframework.xml.stream.PullProvider: org.xmlpull.v1.XmlPullParserFactory factory>;
+
+        virtualinvoke $r2.<org.xmlpull.v1.XmlPullParserFactory: void setNamespaceAware(boolean)>(1);
+
+        return;
+    }
+
+    public org.simpleframework.xml.stream.EventReader provide(java.io.InputStream) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.PullReader $r0;
+        org.xmlpull.v1.XmlPullParser $r1;
+        org.xmlpull.v1.XmlPullParserFactory $r2;
+        java.io.InputStream $r3;
+        org.simpleframework.xml.stream.PullProvider $r4;
+
+        $r4 := @this: org.simpleframework.xml.stream.PullProvider;
+
+        $r3 := @parameter0: java.io.InputStream;
+
+        $r2 = $r4.<org.simpleframework.xml.stream.PullProvider: org.xmlpull.v1.XmlPullParserFactory factory>;
+
+        $r1 = virtualinvoke $r2.<org.xmlpull.v1.XmlPullParserFactory: org.xmlpull.v1.XmlPullParser newPullParser()>();
+
+        if $r3 == null goto label1;
+
+        interfaceinvoke $r1.<org.xmlpull.v1.XmlPullParser: void setInput(java.io.InputStream,java.lang.String)>($r3, null);
+
+     label1:
+        $r0 = new org.simpleframework.xml.stream.PullReader;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.PullReader: void <init>(org.xmlpull.v1.XmlPullParser)>($r1);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.stream.EventReader provide(java.io.Reader) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.PullReader $r0;
+        org.xmlpull.v1.XmlPullParser $r1;
+        org.xmlpull.v1.XmlPullParserFactory $r2;
+        java.io.Reader $r3;
+        org.simpleframework.xml.stream.PullProvider $r4;
+
+        $r4 := @this: org.simpleframework.xml.stream.PullProvider;
+
+        $r3 := @parameter0: java.io.Reader;
+
+        $r2 = $r4.<org.simpleframework.xml.stream.PullProvider: org.xmlpull.v1.XmlPullParserFactory factory>;
+
+        $r1 = virtualinvoke $r2.<org.xmlpull.v1.XmlPullParserFactory: org.xmlpull.v1.XmlPullParser newPullParser()>();
+
+        if $r3 == null goto label1;
+
+        interfaceinvoke $r1.<org.xmlpull.v1.XmlPullParser: void setInput(java.io.Reader)>($r3);
+
+     label1:
+        $r0 = new org.simpleframework.xml.stream.PullReader;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.PullReader: void <init>(org.xmlpull.v1.XmlPullParser)>($r1);
+
+        return $r0;
+    }
+}

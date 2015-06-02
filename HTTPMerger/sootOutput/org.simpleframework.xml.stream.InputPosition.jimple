@@ -1,0 +1,58 @@
+class org.simpleframework.xml.stream.InputPosition extends java.lang.Object implements org.simpleframework.xml.stream.Position
+{
+    private org.simpleframework.xml.stream.EventNode source;
+
+    public void <init>(org.simpleframework.xml.stream.EventNode)
+    {
+        org.simpleframework.xml.stream.EventNode $r0;
+        org.simpleframework.xml.stream.InputPosition $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.InputPosition;
+
+        $r0 := @parameter0: org.simpleframework.xml.stream.EventNode;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<org.simpleframework.xml.stream.InputPosition: org.simpleframework.xml.stream.EventNode source> = $r0;
+
+        return;
+    }
+
+    public int getLine()
+    {
+        int $i0;
+        org.simpleframework.xml.stream.EventNode $r0;
+        org.simpleframework.xml.stream.InputPosition $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.InputPosition;
+
+        $r0 = $r1.<org.simpleframework.xml.stream.InputPosition: org.simpleframework.xml.stream.EventNode source>;
+
+        $i0 = interfaceinvoke $r0.<org.simpleframework.xml.stream.EventNode: int getLine()>();
+
+        return $i0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        java.lang.Integer $r1;
+        java.lang.Object[] $r2;
+        int $i0;
+        org.simpleframework.xml.stream.InputPosition $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.InputPosition;
+
+        $r2 = newarray (java.lang.Object)[1];
+
+        $i0 = virtualinvoke $r3.<org.simpleframework.xml.stream.InputPosition: int getLine()>();
+
+        $r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r2[0] = $r1;
+
+        $r0 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("line %s", $r2);
+
+        return $r0;
+    }
+}

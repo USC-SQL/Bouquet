@@ -1,0 +1,15 @@
+public interface  org.simpleframework.xml.stream.NodeMap extends java.lang.Object implements java.lang.Iterable
+{
+
+    public abstract org.simpleframework.xml.stream.Node get(java.lang.String);
+
+    public abstract java.lang.String getName();
+
+    public abstract org.simpleframework.xml.stream.Node getNode();
+
+    public abstract java.util.Iterator iterator();
+
+    public abstract org.simpleframework.xml.stream.Node put(java.lang.String, java.lang.String);
+
+    public abstract org.simpleframework.xml.stream.Node remove(java.lang.String);
+}

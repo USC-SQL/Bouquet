@@ -1,0 +1,239 @@
+class org.simpleframework.xml.core.ClassInstantiator extends java.lang.Object implements org.simpleframework.xml.core.Instantiator
+{
+    private final java.util.List creators;
+    private final org.simpleframework.xml.core.Creator primary;
+    private final org.simpleframework.xml.core.ParameterMap registry;
+    private final java.lang.Class type;
+
+    public void <init>(java.util.List, org.simpleframework.xml.core.Creator, org.simpleframework.xml.core.ParameterMap, java.lang.Class)
+    {
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.ParameterMap $r1;
+        org.simpleframework.xml.core.Creator $r2;
+        java.util.List $r3;
+        org.simpleframework.xml.core.ClassInstantiator $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r3 := @parameter0: java.util.List;
+
+        $r2 := @parameter1: org.simpleframework.xml.core.Creator;
+
+        $r1 := @parameter2: org.simpleframework.xml.core.ParameterMap;
+
+        $r0 := @parameter3: java.lang.Class;
+
+        specialinvoke $r4.<java.lang.Object: void <init>()>();
+
+        $r4.<org.simpleframework.xml.core.ClassInstantiator: java.util.List creators> = $r3;
+
+        $r4.<org.simpleframework.xml.core.ClassInstantiator: org.simpleframework.xml.core.ParameterMap registry> = $r1;
+
+        $r4.<org.simpleframework.xml.core.ClassInstantiator: org.simpleframework.xml.core.Creator primary> = $r2;
+
+        $r4.<org.simpleframework.xml.core.ClassInstantiator: java.lang.Class type> = $r0;
+
+        return;
+    }
+
+    private org.simpleframework.xml.core.Creator getCreator(org.simpleframework.xml.core.Criteria) throws java.lang.Exception
+    {
+        byte $b0;
+        java.lang.Object $r0;
+        boolean $z0;
+        java.util.Iterator $r1;
+        java.util.List $r2;
+        org.simpleframework.xml.core.Creator $r3, $r4;
+        double $d0, $d1;
+        org.simpleframework.xml.core.Criteria $r5;
+        org.simpleframework.xml.core.ClassInstantiator $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Criteria;
+
+        $r3 = $r6.<org.simpleframework.xml.core.ClassInstantiator: org.simpleframework.xml.core.Creator primary>;
+
+        $d0 = 0.0;
+
+        $r2 = $r6.<org.simpleframework.xml.core.ClassInstantiator: java.util.List creators>;
+
+        $r1 = interfaceinvoke $r2.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r1.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r0 = interfaceinvoke $r1.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = (org.simpleframework.xml.core.Creator) $r0;
+
+        $d1 = interfaceinvoke $r4.<org.simpleframework.xml.core.Creator: double getScore(org.simpleframework.xml.core.Criteria)>($r5);
+
+        $b0 = $d1 cmpl $d0;
+
+        if $b0 <= 0 goto label1;
+
+        $r3 = $r4;
+
+        $d0 = $d1;
+
+        goto label1;
+
+     label2:
+        return $r3;
+    }
+
+    public java.util.List getCreators()
+    {
+        java.util.List $r0;
+        java.util.ArrayList $r1;
+        org.simpleframework.xml.core.ClassInstantiator $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r1 = new java.util.ArrayList;
+
+        $r0 = $r2.<org.simpleframework.xml.core.ClassInstantiator: java.util.List creators>;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>(java.util.Collection)>($r0);
+
+        return $r1;
+    }
+
+    public java.lang.Object getInstance() throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.core.Creator $r1;
+        org.simpleframework.xml.core.ClassInstantiator $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ClassInstantiator: org.simpleframework.xml.core.Creator primary>;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.core.Creator: java.lang.Object getInstance()>();
+
+        return $r0;
+    }
+
+    public java.lang.Object getInstance(org.simpleframework.xml.core.Criteria) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.Creator $r2;
+        java.lang.Class $r3;
+        org.simpleframework.xml.core.PersistenceException $r4;
+        org.simpleframework.xml.core.Criteria $r5;
+        org.simpleframework.xml.core.ClassInstantiator $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Criteria;
+
+        $r2 = specialinvoke $r6.<org.simpleframework.xml.core.ClassInstantiator: org.simpleframework.xml.core.Creator getCreator(org.simpleframework.xml.core.Criteria)>($r5);
+
+        if $r2 != null goto label1;
+
+        $r4 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r1 = newarray (java.lang.Object)[1];
+
+        $r3 = $r6.<org.simpleframework.xml.core.ClassInstantiator: java.lang.Class type>;
+
+        $r1[0] = $r3;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Constructor not matched for %s", $r1);
+
+        throw $r4;
+
+     label1:
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Creator: java.lang.Object getInstance(org.simpleframework.xml.core.Criteria)>($r5);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Parameter getParameter(java.lang.String)
+    {
+        org.simpleframework.xml.core.Parameter $r0;
+        java.lang.Object $r1;
+        org.simpleframework.xml.core.ParameterMap $r2;
+        java.lang.String $r3;
+        org.simpleframework.xml.core.ClassInstantiator $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 = $r4.<org.simpleframework.xml.core.ClassInstantiator: org.simpleframework.xml.core.ParameterMap registry>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.ParameterMap: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r0 = (org.simpleframework.xml.core.Parameter) $r1;
+
+        return $r0;
+    }
+
+    public java.util.List getParameters()
+    {
+        java.util.List $r0;
+        org.simpleframework.xml.core.ParameterMap $r1;
+        org.simpleframework.xml.core.ClassInstantiator $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ClassInstantiator: org.simpleframework.xml.core.ParameterMap registry>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ParameterMap: java.util.List getAll()>();
+
+        return $r0;
+    }
+
+    public boolean isDefault()
+    {
+        org.simpleframework.xml.core.Creator $r0;
+        int $i0;
+        java.util.List $r1;
+        org.simpleframework.xml.core.ClassInstantiator $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ClassInstantiator: java.util.List creators>;
+
+        $i0 = interfaceinvoke $r1.<java.util.List: int size()>();
+
+        if $i0 > 1 goto label2;
+
+        $r0 = $r2.<org.simpleframework.xml.core.ClassInstantiator: org.simpleframework.xml.core.Creator primary>;
+
+        if $r0 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+
+     label2:
+        return 0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.Object[] $r0;
+        java.lang.String $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.ClassInstantiator $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassInstantiator;
+
+        $r0 = newarray (java.lang.Object)[1];
+
+        $r2 = $r3.<org.simpleframework.xml.core.ClassInstantiator: java.lang.Class type>;
+
+        $r0[0] = $r2;
+
+        $r1 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("creator for %s", $r0);
+
+        return $r1;
+    }
+}

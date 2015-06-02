@@ -1,0 +1,258 @@
+class org.simpleframework.xml.core.CompositeValue extends java.lang.Object implements org.simpleframework.xml.core.Converter
+{
+    private final org.simpleframework.xml.core.Context context;
+    private final org.simpleframework.xml.core.Entry entry;
+    private final org.simpleframework.xml.core.Traverser root;
+    private final org.simpleframework.xml.stream.Style style;
+    private final org.simpleframework.xml.strategy.Type type;
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.core.Entry, org.simpleframework.xml.strategy.Type) throws java.lang.Exception
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        org.simpleframework.xml.core.Traverser $r1;
+        org.simpleframework.xml.strategy.Type $r2;
+        org.simpleframework.xml.core.Entry $r3;
+        org.simpleframework.xml.core.Context $r4;
+        org.simpleframework.xml.core.CompositeValue $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.CompositeValue;
+
+        $r4 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r3 := @parameter1: org.simpleframework.xml.core.Entry;
+
+        $r2 := @parameter2: org.simpleframework.xml.strategy.Type;
+
+        specialinvoke $r5.<java.lang.Object: void <init>()>();
+
+        $r1 = new org.simpleframework.xml.core.Traverser;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.Traverser: void <init>(org.simpleframework.xml.core.Context)>($r4);
+
+        $r5.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Traverser root> = $r1;
+
+        $r0 = interfaceinvoke $r4.<org.simpleframework.xml.core.Context: org.simpleframework.xml.stream.Style getStyle()>();
+
+        $r5.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.stream.Style style> = $r0;
+
+        $r5.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Context context> = $r4;
+
+        $r5.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Entry entry> = $r3;
+
+        $r5.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.strategy.Type type> = $r2;
+
+        return;
+    }
+
+    private boolean validate(org.simpleframework.xml.stream.InputNode, java.lang.String) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Traverser $r0;
+        boolean $z0, $z1;
+        java.lang.Class $r1;
+        org.simpleframework.xml.strategy.Type $r2;
+        org.simpleframework.xml.stream.Style $r3;
+        java.lang.String $r4, $r7;
+        org.simpleframework.xml.stream.InputNode $r5, $r8;
+        org.simpleframework.xml.core.CompositeValue $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.CompositeValue;
+
+        $r5 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 := @parameter1: java.lang.String;
+
+        $r3 = $r6.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.stream.Style style>;
+
+        $r7 = interfaceinvoke $r3.<org.simpleframework.xml.stream.Style: java.lang.String getElement(java.lang.String)>($r4);
+
+        $r8 = interfaceinvoke $r5.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext(java.lang.String)>($r7);
+
+        $r2 = $r6.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        if $r8 != null goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = interfaceinvoke $r8.<org.simpleframework.xml.stream.InputNode: boolean isEmpty()>();
+
+        if $z0 != 0 goto label2;
+
+        $r0 = $r6.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Traverser root>;
+
+        $z1 = virtualinvoke $r0.<org.simpleframework.xml.core.Traverser: boolean validate(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r8, $r1);
+
+        return $z1;
+
+     label2:
+        return 1;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.core.Traverser $r1;
+        boolean $z0;
+        java.lang.Class $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        org.simpleframework.xml.stream.InputNode $r4, $r6;
+        org.simpleframework.xml.core.CompositeValue $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.CompositeValue;
+
+        $r4 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r6 = interfaceinvoke $r4.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.InputNode getNext()>();
+
+        $r3 = $r5.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        if $r6 != null goto label1;
+
+        return null;
+
+     label1:
+        $z0 = interfaceinvoke $r6.<org.simpleframework.xml.stream.InputNode: boolean isEmpty()>();
+
+        if $z0 != 0 goto label2;
+
+        $r1 = $r5.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Traverser root>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Traverser: java.lang.Object read(org.simpleframework.xml.stream.InputNode,java.lang.Class)>($r6, $r2);
+
+        return $r0;
+
+     label2:
+        return null;
+    }
+
+    public java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.PersistenceException $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Entry $r3;
+        org.simpleframework.xml.strategy.Type $r4;
+        java.lang.Object $r5, $r8;
+        org.simpleframework.xml.stream.InputNode $r6;
+        org.simpleframework.xml.core.CompositeValue $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.CompositeValue;
+
+        $r6 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r5 := @parameter1: java.lang.Object;
+
+        $r4 = $r7.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r2 = interfaceinvoke $r4.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        if $r5 == null goto label1;
+
+        $r1 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r2;
+
+        $r3 = $r7.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Entry entry>;
+
+        $r0[1] = $r3;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Can not read value of %s for %s", $r0);
+
+        throw $r1;
+
+     label1:
+        $r8 = virtualinvoke $r7.<org.simpleframework.xml.core.CompositeValue: java.lang.Object read(org.simpleframework.xml.stream.InputNode)>($r6);
+
+        return $r8;
+    }
+
+    public boolean validate(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Context $r0;
+        org.simpleframework.xml.core.Entry $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.strategy.Type $r3;
+        java.lang.String $r4, $r5;
+        org.simpleframework.xml.stream.InputNode $r6;
+        org.simpleframework.xml.core.CompositeValue $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.CompositeValue;
+
+        $r6 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r3 = $r7.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r2 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r1 = $r7.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Entry entry>;
+
+        $r5 = virtualinvoke $r1.<org.simpleframework.xml.core.Entry: java.lang.String getValue()>();
+
+        $r4 = $r5;
+
+        if $r5 != null goto label1;
+
+        $r0 = $r7.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Context context>;
+
+        $r4 = interfaceinvoke $r0.<org.simpleframework.xml.core.Context: java.lang.String getName(java.lang.Class)>($r2);
+
+     label1:
+        $z0 = specialinvoke $r7.<org.simpleframework.xml.core.CompositeValue: boolean validate(org.simpleframework.xml.stream.InputNode,java.lang.String)>($r6, $r4);
+
+        return $z0;
+    }
+
+    public void write(org.simpleframework.xml.stream.OutputNode, java.lang.Object) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Traverser $r0;
+        org.simpleframework.xml.stream.Style $r1;
+        org.simpleframework.xml.core.Context $r2;
+        org.simpleframework.xml.core.Entry $r3;
+        java.lang.Class $r4;
+        org.simpleframework.xml.strategy.Type $r5;
+        java.lang.String $r6, $r7, $r11;
+        java.lang.Object $r8;
+        org.simpleframework.xml.stream.OutputNode $r9;
+        org.simpleframework.xml.core.CompositeValue $r10;
+
+        $r10 := @this: org.simpleframework.xml.core.CompositeValue;
+
+        $r9 := @parameter0: org.simpleframework.xml.stream.OutputNode;
+
+        $r8 := @parameter1: java.lang.Object;
+
+        $r5 = $r10.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.strategy.Type type>;
+
+        $r4 = interfaceinvoke $r5.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $r3 = $r10.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Entry entry>;
+
+        $r7 = virtualinvoke $r3.<org.simpleframework.xml.core.Entry: java.lang.String getValue()>();
+
+        $r6 = $r7;
+
+        if $r7 != null goto label1;
+
+        $r2 = $r10.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Context context>;
+
+        $r6 = interfaceinvoke $r2.<org.simpleframework.xml.core.Context: java.lang.String getName(java.lang.Class)>($r4);
+
+     label1:
+        $r1 = $r10.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.stream.Style style>;
+
+        $r11 = interfaceinvoke $r1.<org.simpleframework.xml.stream.Style: java.lang.String getElement(java.lang.String)>($r6);
+
+        $r0 = $r10.<org.simpleframework.xml.core.CompositeValue: org.simpleframework.xml.core.Traverser root>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Traverser: void write(org.simpleframework.xml.stream.OutputNode,java.lang.Object,java.lang.Class,java.lang.String)>($r9, $r8, $r4, $r11);
+
+        return;
+    }
+}

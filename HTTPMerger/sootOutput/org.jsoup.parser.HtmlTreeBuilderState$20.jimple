@@ -1,0 +1,137 @@
+final enum class org.jsoup.parser.HtmlTreeBuilderState$20 extends org.jsoup.parser.HtmlTreeBuilderState
+{
+
+    void <init>(java.lang.String, int)
+    {
+        int $i0;
+        java.lang.String $r0;
+        org.jsoup.parser.HtmlTreeBuilderState$20 $r1;
+
+        $r1 := @this: org.jsoup.parser.HtmlTreeBuilderState$20;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r1.<org.jsoup.parser.HtmlTreeBuilderState: void <init>(java.lang.String,int,org.jsoup.parser.HtmlTreeBuilderState$1)>($r0, $i0, null);
+
+        return;
+    }
+
+    boolean process(org.jsoup.parser.Token, org.jsoup.parser.HtmlTreeBuilder)
+    {
+        org.jsoup.parser.Token$EndTag $r0;
+        org.jsoup.parser.HtmlTreeBuilderState $r1, $r10, $r13;
+        java.lang.String $r2, $r9, $r12;
+        org.jsoup.parser.Token$StartTag $r3, $r11;
+        org.jsoup.parser.Token$Comment $r4;
+        org.jsoup.parser.Token$Character $r5;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11;
+        org.jsoup.parser.HtmlTreeBuilder $r6;
+        org.jsoup.parser.Token $r7;
+        org.jsoup.parser.HtmlTreeBuilderState$20 $r8;
+
+        $r8 := @this: org.jsoup.parser.HtmlTreeBuilderState$20;
+
+        $r7 := @parameter0: org.jsoup.parser.Token;
+
+        $r6 := @parameter1: org.jsoup.parser.HtmlTreeBuilder;
+
+        $z0 = staticinvoke <org.jsoup.parser.HtmlTreeBuilderState: boolean access$100(org.jsoup.parser.Token)>($r7);
+
+        if $z0 == 0 goto label2;
+
+        $r5 = virtualinvoke $r7.<org.jsoup.parser.Token: org.jsoup.parser.Token$Character asCharacter()>();
+
+        virtualinvoke $r6.<org.jsoup.parser.HtmlTreeBuilder: void insert(org.jsoup.parser.Token$Character)>($r5);
+
+     label1:
+        return 1;
+
+     label2:
+        $z1 = virtualinvoke $r7.<org.jsoup.parser.Token: boolean isComment()>();
+
+        if $z1 == 0 goto label3;
+
+        $r4 = virtualinvoke $r7.<org.jsoup.parser.Token: org.jsoup.parser.Token$Comment asComment()>();
+
+        virtualinvoke $r6.<org.jsoup.parser.HtmlTreeBuilder: void insert(org.jsoup.parser.Token$Comment)>($r4);
+
+        goto label1;
+
+     label3:
+        $z2 = virtualinvoke $r7.<org.jsoup.parser.Token: boolean isDoctype()>();
+
+        if $z2 == 0 goto label4;
+
+        virtualinvoke $r6.<org.jsoup.parser.HtmlTreeBuilder: void error(org.jsoup.parser.HtmlTreeBuilderState)>($r8);
+
+        return 0;
+
+     label4:
+        $z3 = virtualinvoke $r7.<org.jsoup.parser.Token: boolean isStartTag()>();
+
+        if $z3 == 0 goto label5;
+
+        $r3 = virtualinvoke $r7.<org.jsoup.parser.Token: org.jsoup.parser.Token$StartTag asStartTag()>();
+
+        $r2 = virtualinvoke $r3.<org.jsoup.parser.Token$StartTag: java.lang.String name()>();
+
+        $z4 = virtualinvoke $r2.<java.lang.String: boolean equals(java.lang.Object)>("html");
+
+        if $z4 == 0 goto label5;
+
+        $r1 = <org.jsoup.parser.HtmlTreeBuilderState$20: org.jsoup.parser.HtmlTreeBuilderState InBody>;
+
+        $z5 = virtualinvoke $r6.<org.jsoup.parser.HtmlTreeBuilder: boolean process(org.jsoup.parser.Token,org.jsoup.parser.HtmlTreeBuilderState)>($r7, $r1);
+
+        return $z5;
+
+     label5:
+        $z6 = virtualinvoke $r7.<org.jsoup.parser.Token: boolean isEndTag()>();
+
+        if $z6 == 0 goto label6;
+
+        $r0 = virtualinvoke $r7.<org.jsoup.parser.Token: org.jsoup.parser.Token$EndTag asEndTag()>();
+
+        $r9 = virtualinvoke $r0.<org.jsoup.parser.Token$EndTag: java.lang.String name()>();
+
+        $z7 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>("html");
+
+        if $z7 == 0 goto label6;
+
+        $r10 = <org.jsoup.parser.HtmlTreeBuilderState$20: org.jsoup.parser.HtmlTreeBuilderState AfterAfterFrameset>;
+
+        virtualinvoke $r6.<org.jsoup.parser.HtmlTreeBuilder: void transition(org.jsoup.parser.HtmlTreeBuilderState)>($r10);
+
+        goto label1;
+
+     label6:
+        $z8 = virtualinvoke $r7.<org.jsoup.parser.Token: boolean isStartTag()>();
+
+        if $z8 == 0 goto label7;
+
+        $r11 = virtualinvoke $r7.<org.jsoup.parser.Token: org.jsoup.parser.Token$StartTag asStartTag()>();
+
+        $r12 = virtualinvoke $r11.<org.jsoup.parser.Token$StartTag: java.lang.String name()>();
+
+        $z9 = virtualinvoke $r12.<java.lang.String: boolean equals(java.lang.Object)>("noframes");
+
+        if $z9 == 0 goto label7;
+
+        $r13 = <org.jsoup.parser.HtmlTreeBuilderState$20: org.jsoup.parser.HtmlTreeBuilderState InHead>;
+
+        $z10 = virtualinvoke $r6.<org.jsoup.parser.HtmlTreeBuilder: boolean process(org.jsoup.parser.Token,org.jsoup.parser.HtmlTreeBuilderState)>($r7, $r13);
+
+        return $z10;
+
+     label7:
+        $z11 = virtualinvoke $r7.<org.jsoup.parser.Token: boolean isEOF()>();
+
+        if $z11 != 0 goto label1;
+
+        virtualinvoke $r6.<org.jsoup.parser.HtmlTreeBuilder: void error(org.jsoup.parser.HtmlTreeBuilderState)>($r8);
+
+        return 0;
+    }
+}

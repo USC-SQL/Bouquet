@@ -1,0 +1,77 @@
+class org.simpleframework.xml.transform.ByteTransform extends java.lang.Object implements org.simpleframework.xml.transform.Transform
+{
+
+    void <init>()
+    {
+        org.simpleframework.xml.transform.ByteTransform $r0;
+
+        $r0 := @this: org.simpleframework.xml.transform.ByteTransform;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.Byte read(java.lang.String)
+    {
+        java.lang.Byte $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.ByteTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.ByteTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public volatile java.lang.Object read(java.lang.String) throws java.lang.Exception
+    {
+        java.lang.Byte $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.transform.ByteTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.ByteTransform;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = virtualinvoke $r2.<org.simpleframework.xml.transform.ByteTransform: java.lang.Byte read(java.lang.String)>($r1);
+
+        return $r0;
+    }
+
+    public java.lang.String write(java.lang.Byte)
+    {
+        java.lang.String $r0;
+        java.lang.Byte $r1;
+        org.simpleframework.xml.transform.ByteTransform $r2;
+
+        $r2 := @this: org.simpleframework.xml.transform.ByteTransform;
+
+        $r1 := @parameter0: java.lang.Byte;
+
+        $r0 = virtualinvoke $r1.<java.lang.Byte: java.lang.String toString()>();
+
+        return $r0;
+    }
+
+    public volatile java.lang.String write(java.lang.Object) throws java.lang.Exception
+    {
+        java.lang.Byte $r0;
+        java.lang.String $r1;
+        java.lang.Object $r2;
+        org.simpleframework.xml.transform.ByteTransform $r3;
+
+        $r3 := @this: org.simpleframework.xml.transform.ByteTransform;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        $r0 = (java.lang.Byte) $r2;
+
+        $r1 = virtualinvoke $r3.<org.simpleframework.xml.transform.ByteTransform: java.lang.String write(java.lang.Byte)>($r0);
+
+        return $r1;
+    }
+}

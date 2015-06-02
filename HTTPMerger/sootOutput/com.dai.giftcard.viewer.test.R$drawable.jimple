@@ -1,0 +1,516 @@
+public final class com.dai.giftcard.viewer.test.R$drawable extends java.lang.Object
+{
+    public static final int adidas;
+    public static final int americanairlines;
+    public static final int americaneagleoutfitters;
+    public static final int americastacoshop;
+    public static final int applebee;
+    public static final int babiesrus;
+    public static final int barnesandnoble;
+    public static final int bartelldrugs;
+    public static final int bedbathandbeyond;
+    public static final int bestbuy;
+    public static final int bg_android_hero;
+    public static final int blank;
+    public static final int blockbuster;
+    public static final int bloomingdales;
+    public static final int bobo;
+    public static final int bostonmarket;
+    public static final int bravobriorestaurant;
+    public static final int brinkerrestaurants;
+    public static final int brookstone;
+    public static final int burgerkingcrown;
+    public static final int burlingtoncoatfactory;
+    public static final int champssports;
+    public static final int cheesecakefactory;
+    public static final int chilisrestaurants;
+    public static final int cinemark;
+    public static final int coldstonecreamery;
+    public static final int culvers;
+    public static final int cvspharmacy;
+    public static final int dairyqueen;
+    public static final int dardenrestaurants;
+    public static final int dell;
+    public static final int dominos;
+    public static final int dsw;
+    public static final int exxonmobil;
+    public static final int forever21;
+    public static final int gamestop;
+    public static final int gibsonsgroup;
+    public static final int homedepot;
+    public static final int ic_launcher;
+    public static final int ic_media_ff;
+    public static final int ic_media_next;
+    public static final int ic_media_pause;
+    public static final int ic_media_play;
+    public static final int ic_media_previous;
+    public static final int ic_media_rew;
+    public static final int ic_menu_account_list;
+    public static final int ic_menu_add;
+    public static final int ic_menu_agenda;
+    public static final int ic_menu_allfriends;
+    public static final int ic_menu_always_landscape_portrait;
+    public static final int ic_menu_archive;
+    public static final int ic_menu_attachment;
+    public static final int ic_menu_back;
+    public static final int ic_menu_block;
+    public static final int ic_menu_blocked_user;
+    public static final int ic_menu_call;
+    public static final int ic_menu_camera;
+    public static final int ic_menu_cc;
+    public static final int ic_menu_chat_dashboard;
+    public static final int ic_menu_clear_playlist;
+    public static final int ic_menu_close_clear_cancel;
+    public static final int ic_menu_compass;
+    public static final int ic_menu_compose;
+    public static final int ic_menu_crop;
+    public static final int ic_menu_day;
+    public static final int ic_menu_delete;
+    public static final int ic_menu_directions;
+    public static final int ic_menu_edit;
+    public static final int ic_menu_emoticons;
+    public static final int ic_menu_end_conversation;
+    public static final int ic_menu_forward;
+    public static final int ic_menu_friendslist;
+    public static final int ic_menu_gallery;
+    public static final int ic_menu_goto;
+    public static final int ic_menu_help;
+    public static final int ic_menu_home;
+    public static final int ic_menu_info_details;
+    public static final int ic_menu_invite;
+    public static final int ic_menu_login;
+    public static final int ic_menu_manage;
+    public static final int ic_menu_mapmode;
+    public static final int ic_menu_mark;
+    public static final int ic_menu_month;
+    public static final int ic_menu_more;
+    public static final int ic_menu_my_calendar;
+    public static final int ic_menu_mylocation;
+    public static final int ic_menu_myplaces;
+    public static final int ic_menu_notifications;
+    public static final int ic_menu_play_clip;
+    public static final int ic_menu_preferences;
+    public static final int ic_menu_recent_history;
+    public static final int ic_menu_refresh;
+    public static final int ic_menu_report_image;
+    public static final int ic_menu_revert;
+    public static final int ic_menu_rotate;
+    public static final int ic_menu_save;
+    public static final int ic_menu_search;
+    public static final int ic_menu_send;
+    public static final int ic_menu_set_as;
+    public static final int ic_menu_share;
+    public static final int ic_menu_slideshow;
+    public static final int ic_menu_sort_alphabetically;
+    public static final int ic_menu_sort_by_size;
+    public static final int ic_menu_star;
+    public static final int ic_menu_start_conversation;
+    public static final int ic_menu_stop;
+    public static final int ic_menu_today;
+    public static final int ic_menu_upload;
+    public static final int ic_menu_upload_you_tube;
+    public static final int ic_menu_view;
+    public static final int ic_menu_week;
+    public static final int ic_menu_zoom;
+    public static final int ic_notification_clear_all;
+    public static final int islandsrestaurants;
+    public static final int izzysonline;
+    public static final int jcpenney;
+    public static final int kmart;
+    public static final int kohl;
+    public static final int landrysinc;
+    public static final int landsend;
+    public static final int lettuceentertainyou;
+    public static final int logo;
+    public static final int lowes;
+    public static final int macys;
+    public static final int maggianoslittleitaly;
+    public static final int marriott;
+    public static final int mccormickandschmicks;
+    public static final int mcdonalds;
+    public static final int menswearhouse;
+    public static final int menu_full_bg;
+    public static final int mimiscaf;
+    public static final int neimanmarcus;
+    public static final int ninetyninerestaurants;
+    public static final int ocharleys;
+    public static final int officedepot;
+    public static final int oldnavy;
+    public static final int outback;
+    public static final int pacsun;
+    public static final int papamurphys;
+    public static final int paylessshoesource;
+    public static final int peetscoffeeandtea;
+    public static final int pfchangs;
+    public static final int pizzafresh;
+    public static final int pizzahut;
+    public static final int potterybarn;
+    public static final int qdoba;
+    public static final int redbox;
+    public static final int regalentertainmentgroup;
+    public static final int rei;
+    public static final int ritasice;
+    public static final int sears;
+    public static final int seveneleven;
+    public static final int shell;
+    public static final int somaintimates;
+    public static final int starbucks;
+    public static final int tacotime;
+    public static final int target;
+    public static final int thelimited;
+    public static final int tjmaxx;
+    public static final int toysrus;
+    public static final int ulta;
+    public static final int victoriasecret;
+    public static final int walmart;
+    public static final int wendys;
+    public static final int wholefoods;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.test.R$drawable $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.test.R$drawable;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.dai.giftcard.viewer.test.R$drawable: int adidas> = 2130837504;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int wholefoods> = 2130837667;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int wendys> = 2130837666;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int walmart> = 2130837665;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int victoriasecret> = 2130837664;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ulta> = 2130837663;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int toysrus> = 2130837662;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int tjmaxx> = 2130837661;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int thelimited> = 2130837660;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int target> = 2130837659;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int tacotime> = 2130837658;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int starbucks> = 2130837657;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int somaintimates> = 2130837656;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int shell> = 2130837655;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int seveneleven> = 2130837654;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int sears> = 2130837653;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ritasice> = 2130837652;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int rei> = 2130837651;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int regalentertainmentgroup> = 2130837650;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int redbox> = 2130837649;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int qdoba> = 2130837648;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int potterybarn> = 2130837647;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int pizzahut> = 2130837646;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int pizzafresh> = 2130837645;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int pfchangs> = 2130837644;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int peetscoffeeandtea> = 2130837643;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int paylessshoesource> = 2130837642;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int papamurphys> = 2130837641;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int pacsun> = 2130837640;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int outback> = 2130837639;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int oldnavy> = 2130837638;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int officedepot> = 2130837637;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ocharleys> = 2130837636;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ninetyninerestaurants> = 2130837635;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int neimanmarcus> = 2130837634;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int mimiscaf> = 2130837633;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int menu_full_bg> = 2130837668;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int menswearhouse> = 2130837632;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int mcdonalds> = 2130837631;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int mccormickandschmicks> = 2130837630;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int marriott> = 2130837629;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int maggianoslittleitaly> = 2130837628;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int macys> = 2130837627;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int lowes> = 2130837626;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int logo> = 2130837625;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int lettuceentertainyou> = 2130837624;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int landsend> = 2130837623;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int landrysinc> = 2130837622;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int kohl> = 2130837621;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int kmart> = 2130837620;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int jcpenney> = 2130837619;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int izzysonline> = 2130837618;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int islandsrestaurants> = 2130837617;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_notification_clear_all> = 2130837616;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_zoom> = 2130837615;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_week> = 2130837614;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_view> = 2130837613;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_upload_you_tube> = 2130837612;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_upload> = 2130837611;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_today> = 2130837610;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_stop> = 2130837609;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_start_conversation> = 2130837608;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_star> = 2130837607;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_sort_by_size> = 2130837606;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_sort_alphabetically> = 2130837605;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_slideshow> = 2130837604;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_share> = 2130837603;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_set_as> = 2130837602;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_send> = 2130837601;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_search> = 2130837600;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_save> = 2130837599;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_rotate> = 2130837598;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_revert> = 2130837597;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_report_image> = 2130837596;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_refresh> = 2130837595;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_recent_history> = 2130837594;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_preferences> = 2130837593;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_play_clip> = 2130837592;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_notifications> = 2130837591;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_myplaces> = 2130837590;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_mylocation> = 2130837589;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_my_calendar> = 2130837588;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_more> = 2130837587;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_month> = 2130837586;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_mark> = 2130837585;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_mapmode> = 2130837584;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_manage> = 2130837583;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_login> = 2130837582;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_invite> = 2130837581;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_info_details> = 2130837580;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_home> = 2130837579;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_help> = 2130837578;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_goto> = 2130837577;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_gallery> = 2130837576;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_friendslist> = 2130837575;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_forward> = 2130837574;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_end_conversation> = 2130837573;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_emoticons> = 2130837572;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_edit> = 2130837571;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_directions> = 2130837570;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_delete> = 2130837569;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_day> = 2130837568;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_crop> = 2130837567;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_compose> = 2130837566;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_compass> = 2130837565;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_close_clear_cancel> = 2130837564;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_clear_playlist> = 2130837563;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_chat_dashboard> = 2130837562;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_cc> = 2130837561;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_camera> = 2130837560;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_call> = 2130837559;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_blocked_user> = 2130837558;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_block> = 2130837557;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_back> = 2130837556;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_attachment> = 2130837555;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_archive> = 2130837554;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_always_landscape_portrait> = 2130837553;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_allfriends> = 2130837552;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_agenda> = 2130837551;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_add> = 2130837550;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_menu_account_list> = 2130837549;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_media_rew> = 2130837548;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_media_previous> = 2130837547;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_media_play> = 2130837546;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_media_pause> = 2130837545;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_media_next> = 2130837544;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_media_ff> = 2130837543;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int ic_launcher> = 2130837542;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int homedepot> = 2130837541;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int gibsonsgroup> = 2130837540;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int gamestop> = 2130837539;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int forever21> = 2130837538;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int exxonmobil> = 2130837537;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int dsw> = 2130837536;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int dominos> = 2130837535;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int dell> = 2130837534;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int dardenrestaurants> = 2130837533;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int dairyqueen> = 2130837532;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int cvspharmacy> = 2130837531;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int culvers> = 2130837530;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int coldstonecreamery> = 2130837529;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int cinemark> = 2130837528;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int chilisrestaurants> = 2130837527;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int cheesecakefactory> = 2130837526;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int champssports> = 2130837525;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int burlingtoncoatfactory> = 2130837524;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int burgerkingcrown> = 2130837523;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int brookstone> = 2130837522;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int brinkerrestaurants> = 2130837521;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int bravobriorestaurant> = 2130837520;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int bostonmarket> = 2130837519;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int bobo> = 2130837518;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int bloomingdales> = 2130837517;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int blockbuster> = 2130837516;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int blank> = 2130837515;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int bg_android_hero> = 2130837514;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int bestbuy> = 2130837513;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int bedbathandbeyond> = 2130837512;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int bartelldrugs> = 2130837511;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int barnesandnoble> = 2130837510;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int babiesrus> = 2130837509;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int applebee> = 2130837508;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int americastacoshop> = 2130837507;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int americaneagleoutfitters> = 2130837506;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int americanairlines> = 2130837505;
+
+        <com.dai.giftcard.viewer.test.R$drawable: int adidas> = 2130837504;
+
+        return;
+    }
+}

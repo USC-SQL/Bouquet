@@ -1,0 +1,106 @@
+final enum class org.simpleframework.xml.stream.Formatter$Tag extends java.lang.Enum
+{
+    private static final org.simpleframework.xml.stream.Formatter$Tag[] $VALUES;
+    public static final enum org.simpleframework.xml.stream.Formatter$Tag COMMENT;
+    public static final enum org.simpleframework.xml.stream.Formatter$Tag END;
+    public static final enum org.simpleframework.xml.stream.Formatter$Tag START;
+    public static final enum org.simpleframework.xml.stream.Formatter$Tag TEXT;
+
+    static void <clinit>()
+    {
+        org.simpleframework.xml.stream.Formatter$Tag[] $r0;
+        org.simpleframework.xml.stream.Formatter$Tag $r1, $r2, $r3, $r4, $r5, $r6, $r7, $r8;
+
+        $r1 = new org.simpleframework.xml.stream.Formatter$Tag;
+
+        specialinvoke $r1.<org.simpleframework.xml.stream.Formatter$Tag: void <init>(java.lang.String,int)>("COMMENT", 0);
+
+        <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag COMMENT> = $r1;
+
+        $r2 = new org.simpleframework.xml.stream.Formatter$Tag;
+
+        specialinvoke $r2.<org.simpleframework.xml.stream.Formatter$Tag: void <init>(java.lang.String,int)>("START", 1);
+
+        <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag START> = $r2;
+
+        $r3 = new org.simpleframework.xml.stream.Formatter$Tag;
+
+        specialinvoke $r3.<org.simpleframework.xml.stream.Formatter$Tag: void <init>(java.lang.String,int)>("TEXT", 2);
+
+        <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag TEXT> = $r3;
+
+        $r4 = new org.simpleframework.xml.stream.Formatter$Tag;
+
+        specialinvoke $r4.<org.simpleframework.xml.stream.Formatter$Tag: void <init>(java.lang.String,int)>("END", 3);
+
+        <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag END> = $r4;
+
+        $r0 = newarray (org.simpleframework.xml.stream.Formatter$Tag)[4];
+
+        $r5 = <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag COMMENT>;
+
+        $r0[0] = $r5;
+
+        $r6 = <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag START>;
+
+        $r0[1] = $r6;
+
+        $r7 = <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag TEXT>;
+
+        $r0[2] = $r7;
+
+        $r8 = <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag END>;
+
+        $r0[3] = $r8;
+
+        <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag[] $VALUES> = $r0;
+
+        return;
+    }
+
+    private void <init>(java.lang.String, int)
+    {
+        int $i0;
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.Formatter$Tag $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.Formatter$Tag;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        specialinvoke $r1.<java.lang.Enum: void <init>(java.lang.String,int)>($r0, $i0);
+
+        return;
+    }
+
+    public static org.simpleframework.xml.stream.Formatter$Tag valueOf(java.lang.String)
+    {
+        org.simpleframework.xml.stream.Formatter$Tag $r0;
+        java.lang.Enum $r1;
+        java.lang.String $r2;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(class "org/simpleframework/xml/stream/Formatter$Tag", $r2);
+
+        $r0 = (org.simpleframework.xml.stream.Formatter$Tag) $r1;
+
+        return $r0;
+    }
+
+    public static final org.simpleframework.xml.stream.Formatter$Tag[] values()
+    {
+        java.lang.Object $r0;
+        org.simpleframework.xml.stream.Formatter$Tag[] $r1, $r2;
+
+        $r1 = <org.simpleframework.xml.stream.Formatter$Tag: org.simpleframework.xml.stream.Formatter$Tag[] $VALUES>;
+
+        $r0 = virtualinvoke $r1.<java.lang.Object: java.lang.Object clone()>();
+
+        $r2 = (org.simpleframework.xml.stream.Formatter$Tag[]) $r0;
+
+        return $r2;
+    }
+}

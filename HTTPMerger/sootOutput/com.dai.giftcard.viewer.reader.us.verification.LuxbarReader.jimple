@@ -1,0 +1,16 @@
+public class com.dai.giftcard.viewer.reader.us.verification.LuxbarReader extends com.dai.giftcard.viewer.reader.VcDeliveryVerificationReader
+{
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.reader.us.verification.LuxbarReader $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.reader.us.verification.LuxbarReader;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.reader.VcDeliveryVerificationReader: void <init>()>();
+
+        $r0.<com.dai.giftcard.viewer.reader.us.verification.LuxbarReader: java.lang.String url> = "https://premium.vcdelivery.com/V2/ritasice/balancechecker.aspx";
+
+        return;
+    }
+}

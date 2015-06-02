@@ -1,0 +1,312 @@
+class org.simpleframework.xml.core.GroupExtractor extends java.lang.Object implements org.simpleframework.xml.core.Group
+{
+    private final org.simpleframework.xml.core.LabelMap elements;
+    private final org.simpleframework.xml.core.ExtractorFactory factory;
+    private final java.lang.annotation.Annotation label;
+    private final org.simpleframework.xml.core.GroupExtractor$Registry registry;
+
+    public void <init>(org.simpleframework.xml.core.Contact, java.lang.annotation.Annotation, org.simpleframework.xml.stream.Format) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.GroupExtractor$Registry $r0;
+        org.simpleframework.xml.core.LabelMap $r1, $r7;
+        org.simpleframework.xml.core.ExtractorFactory $r2;
+        org.simpleframework.xml.stream.Format $r3;
+        java.lang.annotation.Annotation $r4;
+        org.simpleframework.xml.core.Contact $r5;
+        org.simpleframework.xml.core.GroupExtractor $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Contact;
+
+        $r4 := @parameter1: java.lang.annotation.Annotation;
+
+        $r3 := @parameter2: org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r6.<java.lang.Object: void <init>()>();
+
+        $r2 = new org.simpleframework.xml.core.ExtractorFactory;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ExtractorFactory: void <init>(org.simpleframework.xml.core.Contact,java.lang.annotation.Annotation,org.simpleframework.xml.stream.Format)>($r5, $r4, $r3);
+
+        $r6.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.ExtractorFactory factory> = $r2;
+
+        $r1 = new org.simpleframework.xml.core.LabelMap;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.LabelMap: void <init>()>();
+
+        $r6.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.LabelMap elements> = $r1;
+
+        $r0 = new org.simpleframework.xml.core.GroupExtractor$Registry;
+
+        $r7 = $r6.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.LabelMap elements>;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.GroupExtractor$Registry: void <init>(org.simpleframework.xml.core.LabelMap)>($r7);
+
+        $r6.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry> = $r0;
+
+        $r6.<org.simpleframework.xml.core.GroupExtractor: java.lang.annotation.Annotation label> = $r4;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.GroupExtractor: void extract()>();
+
+        return;
+    }
+
+    private void extract() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Extractor $r0;
+        org.simpleframework.xml.core.ExtractorFactory $r1;
+        org.simpleframework.xml.core.GroupExtractor $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r1 = $r2.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.ExtractorFactory factory>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ExtractorFactory: org.simpleframework.xml.core.Extractor getInstance()>();
+
+        if $r0 == null goto label1;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.GroupExtractor: void extract(org.simpleframework.xml.core.Extractor)>($r0);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void extract(org.simpleframework.xml.core.Extractor) throws java.lang.Exception
+    {
+        java.lang.annotation.Annotation $r0;
+        java.lang.Object $r1;
+        boolean $z0;
+        java.util.Iterator $r2;
+        java.util.List $r3;
+        org.simpleframework.xml.core.Extractor $r4;
+        org.simpleframework.xml.core.GroupExtractor $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r4 := @parameter0: org.simpleframework.xml.core.Extractor;
+
+        $r3 = interfaceinvoke $r4.<org.simpleframework.xml.core.Extractor: java.util.List getAnnotations()>();
+
+        $r2 = interfaceinvoke $r3.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (java.lang.annotation.Annotation) $r1;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.GroupExtractor: void extract(org.simpleframework.xml.core.Extractor,java.lang.annotation.Annotation)>($r4, $r0);
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void extract(org.simpleframework.xml.core.Extractor, java.lang.annotation.Annotation) throws java.lang.Exception
+    {
+        java.lang.String $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.core.Label $r2;
+        org.simpleframework.xml.core.GroupExtractor$Registry $r3, $r7, $r8;
+        java.lang.annotation.Annotation $r4;
+        org.simpleframework.xml.core.Extractor $r5;
+        org.simpleframework.xml.core.GroupExtractor $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r5 := @parameter0: org.simpleframework.xml.core.Extractor;
+
+        $r4 := @parameter1: java.lang.annotation.Annotation;
+
+        $r2 = interfaceinvoke $r5.<org.simpleframework.xml.core.Extractor: org.simpleframework.xml.core.Label getLabel(java.lang.annotation.Annotation)>($r4);
+
+        $r1 = interfaceinvoke $r5.<org.simpleframework.xml.core.Extractor: java.lang.Class getType(java.lang.annotation.Annotation)>($r4);
+
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.core.Label: java.lang.String getName()>();
+
+        $r3 = $r6.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry>;
+
+        if $r3 == null goto label1;
+
+        $r7 = $r6.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry>;
+
+        virtualinvoke $r7.<org.simpleframework.xml.core.GroupExtractor$Registry: void register(java.lang.String,org.simpleframework.xml.core.Label)>($r0, $r2);
+
+        $r8 = $r6.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry>;
+
+        virtualinvoke $r8.<org.simpleframework.xml.core.GroupExtractor$Registry: void register(java.lang.Class,org.simpleframework.xml.core.Label)>($r1, $r2);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public org.simpleframework.xml.core.LabelMap getElements() throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.LabelMap $r0, $r2;
+        org.simpleframework.xml.core.GroupExtractor $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r0 = $r1.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r2 = virtualinvoke $r0.<org.simpleframework.xml.core.LabelMap: org.simpleframework.xml.core.LabelMap getLabels()>();
+
+        return $r2;
+    }
+
+    public org.simpleframework.xml.core.Label getLabel(java.lang.Class)
+    {
+        org.simpleframework.xml.core.Label $r0;
+        org.simpleframework.xml.core.GroupExtractor$Registry $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.GroupExtractor $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.GroupExtractor$Registry: org.simpleframework.xml.core.Label resolve(java.lang.Class)>($r2);
+
+        return $r0;
+    }
+
+    public java.util.Set getNames() throws java.lang.Exception
+    {
+        java.util.Set $r0;
+        org.simpleframework.xml.core.LabelMap $r1;
+        org.simpleframework.xml.core.GroupExtractor $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r1 = $r2.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.LabelMap: java.util.Set getKeys()>();
+
+        return $r0;
+    }
+
+    public java.util.Set getPaths() throws java.lang.Exception
+    {
+        java.util.Set $r0;
+        org.simpleframework.xml.core.LabelMap $r1;
+        org.simpleframework.xml.core.GroupExtractor $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r1 = $r2.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.LabelMap elements>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.LabelMap: java.util.Set getPaths()>();
+
+        return $r0;
+    }
+
+    public boolean isDeclared(java.lang.Class)
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.GroupExtractor$Registry $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.core.GroupExtractor $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r0 = $r2.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.GroupExtractor$Registry: boolean containsKey(java.lang.Object)>($r1);
+
+        return $z0;
+    }
+
+    public boolean isInline()
+    {
+        org.simpleframework.xml.core.Label $r0;
+        java.lang.Object $r1;
+        boolean $z0, $z1, $z2;
+        java.util.Iterator $r2;
+        org.simpleframework.xml.core.GroupExtractor$Registry $r3, $r5;
+        org.simpleframework.xml.core.GroupExtractor $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r3 = $r4.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry>;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.GroupExtractor$Registry: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r1 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r0 = (org.simpleframework.xml.core.Label) $r1;
+
+        $z1 = interfaceinvoke $r0.<org.simpleframework.xml.core.Label: boolean isInline()>();
+
+        if $z1 != 0 goto label1;
+
+        return 0;
+
+     label2:
+        $r5 = $r4.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry>;
+
+        $z2 = virtualinvoke $r5.<org.simpleframework.xml.core.GroupExtractor$Registry: boolean isEmpty()>();
+
+        if $z2 != 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public boolean isValid(java.lang.Class)
+    {
+        org.simpleframework.xml.core.Label $r0;
+        org.simpleframework.xml.core.GroupExtractor$Registry $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.GroupExtractor $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.core.GroupExtractor: org.simpleframework.xml.core.GroupExtractor$Registry registry>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.GroupExtractor$Registry: org.simpleframework.xml.core.Label resolve(java.lang.Class)>($r2);
+
+        if $r0 == null goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        java.lang.annotation.Annotation $r1;
+        org.simpleframework.xml.core.GroupExtractor $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.GroupExtractor;
+
+        $r1 = $r2.<org.simpleframework.xml.core.GroupExtractor: java.lang.annotation.Annotation label>;
+
+        $r0 = virtualinvoke $r1.<java.lang.Object: java.lang.String toString()>();
+
+        return $r0;
+    }
+}

@@ -1,0 +1,1612 @@
+public class org.json.simple.parser.JSONParser extends java.lang.Object
+{
+    public static final int S_END;
+    public static final int S_INIT;
+    public static final int S_IN_ARRAY;
+    public static final int S_IN_ERROR;
+    public static final int S_IN_FINISHED_VALUE;
+    public static final int S_IN_OBJECT;
+    public static final int S_IN_PAIR_VALUE;
+    public static final int S_PASSED_PAIR_KEY;
+    private java.util.LinkedList handlerStatusStack;
+    private org.json.simple.parser.Yylex lexer;
+    private int status;
+    private org.json.simple.parser.Yytoken token;
+
+    public void <init>()
+    {
+        org.json.simple.parser.Yylex $r0;
+        org.json.simple.parser.JSONParser $r1;
+
+        $r1 := @this: org.json.simple.parser.JSONParser;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.json.simple.parser.Yylex;
+
+        specialinvoke $r0.<org.json.simple.parser.Yylex: void <init>(java.io.Reader)>(null);
+
+        $r1.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yylex lexer> = $r0;
+
+        $r1.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token> = null;
+
+        $r1.<org.json.simple.parser.JSONParser: int status> = 0;
+
+        return;
+    }
+
+    private java.util.List createArrayContainer(org.json.simple.parser.ContainerFactory)
+    {
+        java.util.List $r0;
+        org.json.simple.JSONArray $r1, $r4;
+        org.json.simple.parser.ContainerFactory $r2;
+        org.json.simple.parser.JSONParser $r3;
+
+        $r3 := @this: org.json.simple.parser.JSONParser;
+
+        $r2 := @parameter0: org.json.simple.parser.ContainerFactory;
+
+        if $r2 != null goto label1;
+
+        $r1 = new org.json.simple.JSONArray;
+
+        specialinvoke $r1.<org.json.simple.JSONArray: void <init>()>();
+
+        return $r1;
+
+     label1:
+        $r0 = interfaceinvoke $r2.<org.json.simple.parser.ContainerFactory: java.util.List creatArrayContainer()>();
+
+        if $r0 != null goto label2;
+
+        $r4 = new org.json.simple.JSONArray;
+
+        specialinvoke $r4.<org.json.simple.JSONArray: void <init>()>();
+
+        return $r4;
+
+     label2:
+        return $r0;
+    }
+
+    private java.util.Map createObjectContainer(org.json.simple.parser.ContainerFactory)
+    {
+        java.util.Map $r0;
+        org.json.simple.JSONObject $r1, $r4;
+        org.json.simple.parser.ContainerFactory $r2;
+        org.json.simple.parser.JSONParser $r3;
+
+        $r3 := @this: org.json.simple.parser.JSONParser;
+
+        $r2 := @parameter0: org.json.simple.parser.ContainerFactory;
+
+        if $r2 != null goto label1;
+
+        $r1 = new org.json.simple.JSONObject;
+
+        specialinvoke $r1.<org.json.simple.JSONObject: void <init>()>();
+
+        return $r1;
+
+     label1:
+        $r0 = interfaceinvoke $r2.<org.json.simple.parser.ContainerFactory: java.util.Map createObjectContainer()>();
+
+        if $r0 != null goto label2;
+
+        $r4 = new org.json.simple.JSONObject;
+
+        specialinvoke $r4.<org.json.simple.JSONObject: void <init>()>();
+
+        return $r4;
+
+     label2:
+        return $r0;
+    }
+
+    private void nextToken() throws org.json.simple.parser.ParseException, java.io.IOException
+    {
+        org.json.simple.parser.Yytoken $r0, $r3, $r4;
+        org.json.simple.parser.Yylex $r1;
+        org.json.simple.parser.JSONParser $r2;
+
+        $r2 := @this: org.json.simple.parser.JSONParser;
+
+        $r1 = $r2.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yylex lexer>;
+
+        $r0 = virtualinvoke $r1.<org.json.simple.parser.Yylex: org.json.simple.parser.Yytoken yylex()>();
+
+        $r2.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token> = $r0;
+
+        $r3 = $r2.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        if $r3 != null goto label1;
+
+        $r4 = new org.json.simple.parser.Yytoken;
+
+        specialinvoke $r4.<org.json.simple.parser.Yytoken: void <init>(int,java.lang.Object)>(-1, null);
+
+        $r2.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token> = $r4;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private int peekStatus(java.util.LinkedList)
+    {
+        java.lang.Integer $r0;
+        java.lang.Object $r1;
+        int $i0, $i1;
+        java.util.LinkedList $r2;
+        org.json.simple.parser.JSONParser $r3;
+
+        $r3 := @this: org.json.simple.parser.JSONParser;
+
+        $r2 := @parameter0: java.util.LinkedList;
+
+        $i0 = virtualinvoke $r2.<java.util.LinkedList: int size()>();
+
+        if $i0 != 0 goto label1;
+
+        return -1;
+
+     label1:
+        $r1 = virtualinvoke $r2.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+        $r0 = (java.lang.Integer) $r1;
+
+        $i1 = virtualinvoke $r0.<java.lang.Integer: int intValue()>();
+
+        return $i1;
+    }
+
+    public int getPosition()
+    {
+        int $i0;
+        org.json.simple.parser.Yylex $r0;
+        org.json.simple.parser.JSONParser $r1;
+
+        $r1 := @this: org.json.simple.parser.JSONParser;
+
+        $r0 = $r1.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yylex lexer>;
+
+        $i0 = virtualinvoke $r0.<org.json.simple.parser.Yylex: int getPosition()>();
+
+        return $i0;
+    }
+
+    public java.lang.Object parse(java.io.Reader) throws java.io.IOException, org.json.simple.parser.ParseException
+    {
+        java.lang.Object $r0;
+        java.io.Reader $r1;
+        org.json.simple.parser.JSONParser $r2;
+
+        $r2 := @this: org.json.simple.parser.JSONParser;
+
+        $r1 := @parameter0: java.io.Reader;
+
+        $r0 = virtualinvoke $r2.<org.json.simple.parser.JSONParser: java.lang.Object parse(java.io.Reader,org.json.simple.parser.ContainerFactory)>($r1, null);
+
+        return $r0;
+    }
+
+    public java.lang.Object parse(java.io.Reader, org.json.simple.parser.ContainerFactory) throws java.io.IOException, org.json.simple.parser.ParseException
+    {
+        java.lang.String $r0, $r31, $r37, $r43;
+        boolean $z0;
+        java.util.List $r1, $r2, $r40, $r49, $r53, $r57;
+        java.util.Map $r3, $r4, $r33, $r39, $r45, $r54;
+        java.lang.Integer $r5, $r17, $r18, $r28, $r41, $r46, $r55, $r58;
+        org.json.simple.parser.Yytoken $r6, $r15, $r16, $r19, $r22, $r23, $r24, $r26, $r29, $r34, $r47, $r50, $r60, $r61, $r63;
+        org.json.simple.parser.ParseException $r7, $r21, $r59, $r62;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13, $i14, $i15, $i16, $i17, $i18, $i19, $i20, $i21, $i22, $i23, $i24;
+        java.util.LinkedList $r8, $r9;
+        java.lang.Object $r10, $r20, $r25, $r27, $r30, $r32, $r35, $r36, $r38, $r42, $r44, $r48, $r51, $r52, $r56;
+        java.io.IOException $r11;
+        org.json.simple.parser.ContainerFactory $r12;
+        java.io.Reader $r13;
+        org.json.simple.parser.JSONParser $r14;
+
+        $r14 := @this: org.json.simple.parser.JSONParser;
+
+        $r13 := @parameter0: java.io.Reader;
+
+        $r12 := @parameter1: org.json.simple.parser.ContainerFactory;
+
+        virtualinvoke $r14.<org.json.simple.parser.JSONParser: void reset(java.io.Reader)>($r13);
+
+        $r8 = new java.util.LinkedList;
+
+        specialinvoke $r8.<java.util.LinkedList: void <init>()>();
+
+        $r9 = new java.util.LinkedList;
+
+        specialinvoke $r9.<java.util.LinkedList: void <init>()>();
+
+     label01:
+        specialinvoke $r14.<org.json.simple.parser.JSONParser: void nextToken()>();
+
+     label02:
+        $i0 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        lookupswitch($i0)
+        {
+            case -1: goto label70;
+            case 0: goto label07;
+            case 1: goto label20;
+            case 2: goto label25;
+            case 3: goto label52;
+            case 4: goto label37;
+            default: goto label03;
+        };
+
+     label03:
+        $i1 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        if $i1 != -1 goto label72;
+
+     label04:
+        $r7 = new org.json.simple.parser.ParseException;
+
+        $i2 = virtualinvoke $r14.<org.json.simple.parser.JSONParser: int getPosition()>();
+
+        $r6 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        specialinvoke $r7.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>($i2, 1, $r6);
+
+     label05:
+        throw $r7;
+
+     label06:
+        $r11 := @caughtexception;
+
+        throw $r11;
+
+     label07:
+        $r15 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i3 = $r15.<org.json.simple.parser.Yytoken: int type>;
+
+        lookupswitch($i3)
+        {
+            case 0: goto label09;
+            case 1: goto label14;
+            case 2: goto label08;
+            case 3: goto label17;
+            default: goto label08;
+        };
+
+     label08:
+        $r14.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label03;
+
+     label09:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 1;
+
+        $r5 = new java.lang.Integer;
+
+        $i4 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+     label10:
+        specialinvoke $r5.<java.lang.Integer: void <init>(int)>($i4);
+
+        virtualinvoke $r8.<java.util.LinkedList: void addFirst(java.lang.Object)>($r5);
+
+     label11:
+        $r16 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+     label12:
+        $r10 = $r16.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+        virtualinvoke $r9.<java.util.LinkedList: void addFirst(java.lang.Object)>($r10);
+
+     label13:
+        goto label03;
+
+     label14:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 2;
+
+        $r17 = new java.lang.Integer;
+
+     label15:
+        $i5 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r17.<java.lang.Integer: void <init>(int)>($i5);
+
+        virtualinvoke $r8.<java.util.LinkedList: void addFirst(java.lang.Object)>($r17);
+
+        $r3 = specialinvoke $r14.<org.json.simple.parser.JSONParser: java.util.Map createObjectContainer(org.json.simple.parser.ContainerFactory)>($r12);
+
+        virtualinvoke $r9.<java.util.LinkedList: void addFirst(java.lang.Object)>($r3);
+
+     label16:
+        goto label03;
+
+     label17:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 3;
+
+        $r18 = new java.lang.Integer;
+
+     label18:
+        $i6 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r18.<java.lang.Integer: void <init>(int)>($i6);
+
+        virtualinvoke $r8.<java.util.LinkedList: void addFirst(java.lang.Object)>($r18);
+
+        $r1 = specialinvoke $r14.<org.json.simple.parser.JSONParser: java.util.List createArrayContainer(org.json.simple.parser.ContainerFactory)>($r12);
+
+        virtualinvoke $r9.<java.util.LinkedList: void addFirst(java.lang.Object)>($r1);
+
+     label19:
+        goto label03;
+
+     label20:
+        $r19 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i7 = $r19.<org.json.simple.parser.Yytoken: int type>;
+
+     label21:
+        if $i7 != -1 goto label23;
+
+        $r20 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+     label22:
+        return $r20;
+
+     label23:
+        $r21 = new org.json.simple.parser.ParseException;
+
+        $i8 = virtualinvoke $r14.<org.json.simple.parser.JSONParser: int getPosition()>();
+
+        $r22 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        specialinvoke $r21.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>($i8, 1, $r22);
+
+     label24:
+        throw $r21;
+
+     label25:
+        $r23 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i9 = $r23.<org.json.simple.parser.Yytoken: int type>;
+
+     label26:
+        lookupswitch($i9)
+        {
+            case 0: goto label28;
+            case 1: goto label27;
+            case 2: goto label34;
+            case 3: goto label27;
+            case 4: goto label27;
+            case 5: goto label03;
+            default: goto label27;
+        };
+
+     label27:
+        $r14.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label03;
+
+     label28:
+        $r24 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $r25 = $r24.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+        $z0 = $r25 instanceof java.lang.String;
+
+        if $z0 == 0 goto label33;
+
+        $r26 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $r27 = $r26.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+     label29:
+        $r0 = (java.lang.String) $r27;
+
+        virtualinvoke $r9.<java.util.LinkedList: void addFirst(java.lang.Object)>($r0);
+
+     label30:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 4;
+
+        $r28 = new java.lang.Integer;
+
+     label31:
+        $i10 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r28.<java.lang.Integer: void <init>(int)>($i10);
+
+        virtualinvoke $r8.<java.util.LinkedList: void addFirst(java.lang.Object)>($r28);
+
+     label32:
+        goto label03;
+
+     label33:
+        $r14.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label03;
+
+     label34:
+        $i11 = virtualinvoke $r9.<java.util.LinkedList: int size()>();
+
+        if $i11 <= 1 goto label36;
+
+        virtualinvoke $r8.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        virtualinvoke $r9.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $i12 = specialinvoke $r14.<org.json.simple.parser.JSONParser: int peekStatus(java.util.LinkedList)>($r8);
+
+     label35:
+        $r14.<org.json.simple.parser.JSONParser: int status> = $i12;
+
+        goto label03;
+
+     label36:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 1;
+
+        goto label03;
+
+     label37:
+        $r29 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i13 = $r29.<org.json.simple.parser.Yytoken: int type>;
+
+     label38:
+        lookupswitch($i13)
+        {
+            case 0: goto label40;
+            case 1: goto label48;
+            case 2: goto label39;
+            case 3: goto label44;
+            case 4: goto label39;
+            case 5: goto label39;
+            case 6: goto label03;
+            default: goto label39;
+        };
+
+     label39:
+        $r14.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label03;
+
+     label40:
+        virtualinvoke $r8.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $r30 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $r31 = (java.lang.String) $r30;
+
+        $r32 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+     label41:
+        $r33 = (java.util.Map) $r32;
+
+        $r34 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+     label42:
+        $r35 = $r34.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+        interfaceinvoke $r33.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r31, $r35);
+
+        $i14 = specialinvoke $r14.<org.json.simple.parser.JSONParser: int peekStatus(java.util.LinkedList)>($r8);
+
+     label43:
+        $r14.<org.json.simple.parser.JSONParser: int status> = $i14;
+
+        goto label03;
+
+     label44:
+        virtualinvoke $r8.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $r36 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $r37 = (java.lang.String) $r36;
+
+        $r38 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+        $r39 = (java.util.Map) $r38;
+
+        $r40 = specialinvoke $r14.<org.json.simple.parser.JSONParser: java.util.List createArrayContainer(org.json.simple.parser.ContainerFactory)>($r12);
+
+        interfaceinvoke $r39.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r37, $r40);
+
+     label45:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 3;
+
+        $r41 = new java.lang.Integer;
+
+     label46:
+        $i15 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r41.<java.lang.Integer: void <init>(int)>($i15);
+
+        virtualinvoke $r8.<java.util.LinkedList: void addFirst(java.lang.Object)>($r41);
+
+        virtualinvoke $r9.<java.util.LinkedList: void addFirst(java.lang.Object)>($r40);
+
+     label47:
+        goto label03;
+
+     label48:
+        virtualinvoke $r8.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $r42 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $r43 = (java.lang.String) $r42;
+
+        $r44 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+        $r45 = (java.util.Map) $r44;
+
+        $r4 = specialinvoke $r14.<org.json.simple.parser.JSONParser: java.util.Map createObjectContainer(org.json.simple.parser.ContainerFactory)>($r12);
+
+        interfaceinvoke $r45.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r43, $r4);
+
+     label49:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 2;
+
+        $r46 = new java.lang.Integer;
+
+     label50:
+        $i16 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r46.<java.lang.Integer: void <init>(int)>($i16);
+
+        virtualinvoke $r8.<java.util.LinkedList: void addFirst(java.lang.Object)>($r46);
+
+        virtualinvoke $r9.<java.util.LinkedList: void addFirst(java.lang.Object)>($r4);
+
+     label51:
+        goto label03;
+
+     label52:
+        $r47 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i17 = $r47.<org.json.simple.parser.Yytoken: int type>;
+
+     label53:
+        lookupswitch($i17)
+        {
+            case 0: goto label55;
+            case 1: goto label62;
+            case 2: goto label54;
+            case 3: goto label66;
+            case 4: goto label59;
+            case 5: goto label03;
+            default: goto label54;
+        };
+
+     label54:
+        $r14.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label03;
+
+     label55:
+        $r48 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+     label56:
+        $r49 = (java.util.List) $r48;
+
+        $r50 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+     label57:
+        $r51 = $r50.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+        interfaceinvoke $r49.<java.util.List: boolean add(java.lang.Object)>($r51);
+
+     label58:
+        goto label03;
+
+     label59:
+        $i18 = virtualinvoke $r9.<java.util.LinkedList: int size()>();
+
+        if $i18 <= 1 goto label61;
+
+        virtualinvoke $r8.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        virtualinvoke $r9.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $i19 = specialinvoke $r14.<org.json.simple.parser.JSONParser: int peekStatus(java.util.LinkedList)>($r8);
+
+     label60:
+        $r14.<org.json.simple.parser.JSONParser: int status> = $i19;
+
+        goto label03;
+
+     label61:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 1;
+
+        goto label03;
+
+     label62:
+        $r52 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+        $r53 = (java.util.List) $r52;
+
+        $r54 = specialinvoke $r14.<org.json.simple.parser.JSONParser: java.util.Map createObjectContainer(org.json.simple.parser.ContainerFactory)>($r12);
+
+        interfaceinvoke $r53.<java.util.List: boolean add(java.lang.Object)>($r54);
+
+     label63:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 2;
+
+        $r55 = new java.lang.Integer;
+
+     label64:
+        $i20 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r55.<java.lang.Integer: void <init>(int)>($i20);
+
+        virtualinvoke $r8.<java.util.LinkedList: void addFirst(java.lang.Object)>($r55);
+
+        virtualinvoke $r9.<java.util.LinkedList: void addFirst(java.lang.Object)>($r54);
+
+     label65:
+        goto label03;
+
+     label66:
+        $r56 = virtualinvoke $r9.<java.util.LinkedList: java.lang.Object getFirst()>();
+
+        $r57 = (java.util.List) $r56;
+
+        $r2 = specialinvoke $r14.<org.json.simple.parser.JSONParser: java.util.List createArrayContainer(org.json.simple.parser.ContainerFactory)>($r12);
+
+        interfaceinvoke $r57.<java.util.List: boolean add(java.lang.Object)>($r2);
+
+     label67:
+        $r14.<org.json.simple.parser.JSONParser: int status> = 3;
+
+        $r58 = new java.lang.Integer;
+
+     label68:
+        $i21 = $r14.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r58.<java.lang.Integer: void <init>(int)>($i21);
+
+        virtualinvoke $r8.<java.util.LinkedList: void addFirst(java.lang.Object)>($r58);
+
+        virtualinvoke $r9.<java.util.LinkedList: void addFirst(java.lang.Object)>($r2);
+
+     label69:
+        goto label03;
+
+     label70:
+        $r59 = new org.json.simple.parser.ParseException;
+
+        $i22 = virtualinvoke $r14.<org.json.simple.parser.JSONParser: int getPosition()>();
+
+        $r60 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        specialinvoke $r59.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>($i22, 1, $r60);
+
+     label71:
+        throw $r59;
+
+     label72:
+        $r61 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i23 = $r61.<org.json.simple.parser.Yytoken: int type>;
+
+        if $i23 != -1 goto label01;
+
+        $r62 = new org.json.simple.parser.ParseException;
+
+        $i24 = virtualinvoke $r14.<org.json.simple.parser.JSONParser: int getPosition()>();
+
+        $r63 = $r14.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        specialinvoke $r62.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>($i24, 1, $r63);
+
+        throw $r62;
+
+        catch java.io.IOException from label01 to label02 with label06;
+        catch java.io.IOException from label04 to label05 with label06;
+        catch java.io.IOException from label10 to label11 with label06;
+        catch java.io.IOException from label12 to label13 with label06;
+        catch java.io.IOException from label15 to label16 with label06;
+        catch java.io.IOException from label18 to label19 with label06;
+        catch java.io.IOException from label21 to label22 with label06;
+        catch java.io.IOException from label23 to label24 with label06;
+        catch java.io.IOException from label26 to label27 with label06;
+        catch java.io.IOException from label29 to label30 with label06;
+        catch java.io.IOException from label31 to label32 with label06;
+        catch java.io.IOException from label34 to label35 with label06;
+        catch java.io.IOException from label38 to label39 with label06;
+        catch java.io.IOException from label40 to label41 with label06;
+        catch java.io.IOException from label42 to label43 with label06;
+        catch java.io.IOException from label44 to label45 with label06;
+        catch java.io.IOException from label46 to label47 with label06;
+        catch java.io.IOException from label48 to label49 with label06;
+        catch java.io.IOException from label50 to label51 with label06;
+        catch java.io.IOException from label53 to label54 with label06;
+        catch java.io.IOException from label55 to label56 with label06;
+        catch java.io.IOException from label57 to label58 with label06;
+        catch java.io.IOException from label59 to label60 with label06;
+        catch java.io.IOException from label62 to label63 with label06;
+        catch java.io.IOException from label64 to label65 with label06;
+        catch java.io.IOException from label66 to label67 with label06;
+        catch java.io.IOException from label68 to label69 with label06;
+        catch java.io.IOException from label70 to label71 with label06;
+    }
+
+    public java.lang.Object parse(java.lang.String) throws org.json.simple.parser.ParseException
+    {
+        java.lang.Object $r0;
+        java.lang.String $r1;
+        org.json.simple.parser.JSONParser $r2;
+
+        $r2 := @this: org.json.simple.parser.JSONParser;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = virtualinvoke $r2.<org.json.simple.parser.JSONParser: java.lang.Object parse(java.lang.String,org.json.simple.parser.ContainerFactory)>($r1, null);
+
+        return $r0;
+    }
+
+    public java.lang.Object parse(java.lang.String, org.json.simple.parser.ContainerFactory) throws org.json.simple.parser.ParseException
+    {
+        org.json.simple.parser.ParseException $r0;
+        java.lang.Object $r1;
+        java.io.StringReader $r2;
+        java.io.IOException $r3;
+        org.json.simple.parser.ContainerFactory $r4;
+        java.lang.String $r5;
+        org.json.simple.parser.JSONParser $r6;
+
+        $r6 := @this: org.json.simple.parser.JSONParser;
+
+        $r5 := @parameter0: java.lang.String;
+
+        $r4 := @parameter1: org.json.simple.parser.ContainerFactory;
+
+        $r2 = new java.io.StringReader;
+
+        specialinvoke $r2.<java.io.StringReader: void <init>(java.lang.String)>($r5);
+
+     label1:
+        $r1 = virtualinvoke $r6.<org.json.simple.parser.JSONParser: java.lang.Object parse(java.io.Reader,org.json.simple.parser.ContainerFactory)>($r2, $r4);
+
+     label2:
+        return $r1;
+
+     label3:
+        $r3 := @caughtexception;
+
+        $r0 = new org.json.simple.parser.ParseException;
+
+        specialinvoke $r0.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>(-1, 2, $r3);
+
+        throw $r0;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public void parse(java.io.Reader, org.json.simple.parser.ContentHandler) throws java.io.IOException, org.json.simple.parser.ParseException
+    {
+        org.json.simple.parser.ContentHandler $r0;
+        java.io.Reader $r1;
+        org.json.simple.parser.JSONParser $r2;
+
+        $r2 := @this: org.json.simple.parser.JSONParser;
+
+        $r1 := @parameter0: java.io.Reader;
+
+        $r0 := @parameter1: org.json.simple.parser.ContentHandler;
+
+        virtualinvoke $r2.<org.json.simple.parser.JSONParser: void parse(java.io.Reader,org.json.simple.parser.ContentHandler,boolean)>($r1, $r0, 0);
+
+        return;
+    }
+
+    public void parse(java.io.Reader, org.json.simple.parser.ContentHandler, boolean) throws java.io.IOException, org.json.simple.parser.ParseException
+    {
+        java.lang.String $r0;
+        java.lang.Integer $r1, $r18, $r19, $r28, $r32, $r33, $r34, $r35, $r39, $r40;
+        org.json.simple.parser.Yytoken $r2, $r15, $r17, $r20, $r22, $r23, $r24, $r26, $r29, $r30, $r36, $r37, $r42, $r43, $r45;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13, $i14, $i15, $i16, $i17, $i18, $i19, $i20, $i21, $i22, $i23, $i24, $i25;
+        java.util.LinkedList $r3, $r12, $r13, $r14;
+        java.lang.RuntimeException $r4;
+        org.json.simple.parser.ParseException $r5, $r16, $r21, $r41, $r44;
+        java.lang.Object $r6, $r25, $r27, $r31, $r38;
+        java.io.IOException $r7;
+        java.lang.Error $r8;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11, $z12, $z13, $z14, $z15;
+        org.json.simple.parser.ContentHandler $r9;
+        java.io.Reader $r10;
+        org.json.simple.parser.JSONParser $r11;
+
+        $r11 := @this: org.json.simple.parser.JSONParser;
+
+        $r10 := @parameter0: java.io.Reader;
+
+        $r9 := @parameter1: org.json.simple.parser.ContentHandler;
+
+        $z0 := @parameter2: boolean;
+
+        if $z0 != 0 goto label007;
+
+        virtualinvoke $r11.<org.json.simple.parser.JSONParser: void reset(java.io.Reader)>($r10);
+
+        $r3 = new java.util.LinkedList;
+
+        specialinvoke $r3.<java.util.LinkedList: void <init>()>();
+
+        $r11.<org.json.simple.parser.JSONParser: java.util.LinkedList handlerStatusStack> = $r3;
+
+     label001:
+        $r12 = $r11.<org.json.simple.parser.JSONParser: java.util.LinkedList handlerStatusStack>;
+
+     label002:
+        $i0 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        lookupswitch($i0)
+        {
+            case -1: goto label098;
+            case 0: goto label008;
+            case 1: goto label027;
+            case 2: goto label037;
+            case 3: goto label076;
+            case 4: goto label054;
+            case 5: goto label073;
+            case 6: goto label018;
+            default: goto label003;
+        };
+
+     label003:
+        $i1 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        if $i1 != -1 goto label100;
+
+        $r5 = new org.json.simple.parser.ParseException;
+
+     label004:
+        $i2 = virtualinvoke $r11.<org.json.simple.parser.JSONParser: int getPosition()>();
+
+        $r2 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        specialinvoke $r5.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>($i2, 1, $r2);
+
+     label005:
+        throw $r5;
+
+     label006:
+        $r7 := @caughtexception;
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        throw $r7;
+
+     label007:
+        $r13 = $r11.<org.json.simple.parser.JSONParser: java.util.LinkedList handlerStatusStack>;
+
+        if $r13 != null goto label001;
+
+        virtualinvoke $r11.<org.json.simple.parser.JSONParser: void reset(java.io.Reader)>($r10);
+
+        $r14 = new java.util.LinkedList;
+
+        specialinvoke $r14.<java.util.LinkedList: void <init>()>();
+
+        $r11.<org.json.simple.parser.JSONParser: java.util.LinkedList handlerStatusStack> = $r14;
+
+        goto label001;
+
+     label008:
+        interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: void startJSON()>();
+
+        specialinvoke $r11.<org.json.simple.parser.JSONParser: void nextToken()>();
+
+     label009:
+        $r15 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i3 = $r15.<org.json.simple.parser.Yytoken: int type>;
+
+        lookupswitch($i3)
+        {
+            case 0: goto label013;
+            case 1: goto label019;
+            case 2: goto label010;
+            case 3: goto label023;
+            default: goto label010;
+        };
+
+     label010:
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+     label011:
+        goto label003;
+
+     label012:
+        $r16 := @caughtexception;
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        throw $r16;
+
+     label013:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 1;
+
+        $r1 = new java.lang.Integer;
+
+        $i4 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+     label014:
+        specialinvoke $r1.<java.lang.Integer: void <init>(int)>($i4);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r1);
+
+     label015:
+        $r17 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+     label016:
+        $r6 = $r17.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+        $z1 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean primitive(java.lang.Object)>($r6);
+
+     label017:
+        if $z1 != 0 goto label003;
+
+     label018:
+        return;
+
+     label019:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 2;
+
+        $r18 = new java.lang.Integer;
+
+     label020:
+        $i5 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r18.<java.lang.Integer: void <init>(int)>($i5);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r18);
+
+        $z2 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean startObject()>();
+
+     label021:
+        if $z2 != 0 goto label003;
+
+     label022:
+        return;
+
+     label023:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 3;
+
+        $r19 = new java.lang.Integer;
+
+     label024:
+        $i6 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r19.<java.lang.Integer: void <init>(int)>($i6);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r19);
+
+        $z3 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean startArray()>();
+
+     label025:
+        if $z3 != 0 goto label003;
+
+     label026:
+        return;
+
+     label027:
+        specialinvoke $r11.<org.json.simple.parser.JSONParser: void nextToken()>();
+
+     label028:
+        $r20 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i7 = $r20.<org.json.simple.parser.Yytoken: int type>;
+
+     label029:
+        if $i7 != -1 goto label033;
+
+        interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: void endJSON()>();
+
+     label030:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 6;
+
+     label031:
+        return;
+
+     label032:
+        $r4 := @caughtexception;
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        throw $r4;
+
+     label033:
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        $r21 = new org.json.simple.parser.ParseException;
+
+     label034:
+        $i8 = virtualinvoke $r11.<org.json.simple.parser.JSONParser: int getPosition()>();
+
+        $r22 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        specialinvoke $r21.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>($i8, 1, $r22);
+
+     label035:
+        throw $r21;
+
+     label036:
+        $r8 := @caughtexception;
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        throw $r8;
+
+     label037:
+        specialinvoke $r11.<org.json.simple.parser.JSONParser: void nextToken()>();
+
+     label038:
+        $r23 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i9 = $r23.<org.json.simple.parser.Yytoken: int type>;
+
+     label039:
+        lookupswitch($i9)
+        {
+            case 0: goto label041;
+            case 1: goto label040;
+            case 2: goto label048;
+            case 3: goto label040;
+            case 4: goto label040;
+            case 5: goto label003;
+            default: goto label040;
+        };
+
+     label040:
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label003;
+
+     label041:
+        $r24 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $r25 = $r24.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+     label042:
+        $z4 = $r25 instanceof java.lang.String;
+
+     label043:
+        if $z4 == 0 goto label047;
+
+        $r26 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $r27 = $r26.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+        $r0 = (java.lang.String) $r27;
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = 4;
+
+        $r28 = new java.lang.Integer;
+
+     label044:
+        $i10 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r28.<java.lang.Integer: void <init>(int)>($i10);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r28);
+
+        $z5 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean startObjectEntry(java.lang.String)>($r0);
+
+     label045:
+        if $z5 != 0 goto label003;
+
+     label046:
+        return;
+
+     label047:
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label003;
+
+     label048:
+        $i11 = virtualinvoke $r12.<java.util.LinkedList: int size()>();
+
+        if $i11 <= 1 goto label052;
+
+        virtualinvoke $r12.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $i12 = specialinvoke $r11.<org.json.simple.parser.JSONParser: int peekStatus(java.util.LinkedList)>($r12);
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = $i12;
+
+     label049:
+        $z6 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean endObject()>();
+
+     label050:
+        if $z6 != 0 goto label003;
+
+     label051:
+        return;
+
+     label052:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 1;
+
+     label053:
+        goto label049;
+
+     label054:
+        specialinvoke $r11.<org.json.simple.parser.JSONParser: void nextToken()>();
+
+     label055:
+        $r29 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i13 = $r29.<org.json.simple.parser.Yytoken: int type>;
+
+     label056:
+        lookupswitch($i13)
+        {
+            case 0: goto label058;
+            case 1: goto label068;
+            case 2: goto label057;
+            case 3: goto label063;
+            case 4: goto label057;
+            case 5: goto label057;
+            case 6: goto label003;
+            default: goto label057;
+        };
+
+     label057:
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label003;
+
+     label058:
+        virtualinvoke $r12.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $i14 = specialinvoke $r11.<org.json.simple.parser.JSONParser: int peekStatus(java.util.LinkedList)>($r12);
+
+     label059:
+        $r11.<org.json.simple.parser.JSONParser: int status> = $i14;
+
+        $r30 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+     label060:
+        $r31 = $r30.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+        $z7 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean primitive(java.lang.Object)>($r31);
+
+        if $z7 == 0 goto label102;
+
+        $z8 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean endObjectEntry()>();
+
+     label061:
+        if $z8 != 0 goto label003;
+
+     label062:
+        return;
+
+     label063:
+        virtualinvoke $r12.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $r32 = new java.lang.Integer;
+
+        specialinvoke $r32.<java.lang.Integer: void <init>(int)>(5);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r32);
+
+     label064:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 3;
+
+        $r33 = new java.lang.Integer;
+
+     label065:
+        $i15 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r33.<java.lang.Integer: void <init>(int)>($i15);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r33);
+
+        $z9 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean startArray()>();
+
+     label066:
+        if $z9 != 0 goto label003;
+
+     label067:
+        return;
+
+     label068:
+        virtualinvoke $r12.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $r34 = new java.lang.Integer;
+
+        specialinvoke $r34.<java.lang.Integer: void <init>(int)>(5);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r34);
+
+     label069:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 2;
+
+        $r35 = new java.lang.Integer;
+
+     label070:
+        $i16 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r35.<java.lang.Integer: void <init>(int)>($i16);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r35);
+
+        $z10 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean startObject()>();
+
+     label071:
+        if $z10 != 0 goto label003;
+
+     label072:
+        return;
+
+     label073:
+        virtualinvoke $r12.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $i17 = specialinvoke $r11.<org.json.simple.parser.JSONParser: int peekStatus(java.util.LinkedList)>($r12);
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = $i17;
+
+        $z11 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean endObjectEntry()>();
+
+     label074:
+        if $z11 != 0 goto label003;
+
+     label075:
+        return;
+
+     label076:
+        specialinvoke $r11.<org.json.simple.parser.JSONParser: void nextToken()>();
+
+     label077:
+        $r36 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i18 = $r36.<org.json.simple.parser.Yytoken: int type>;
+
+     label078:
+        lookupswitch($i18)
+        {
+            case 0: goto label080;
+            case 1: goto label090;
+            case 2: goto label079;
+            case 3: goto label094;
+            case 4: goto label084;
+            case 5: goto label003;
+            default: goto label079;
+        };
+
+     label079:
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        goto label003;
+
+     label080:
+        $r37 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+     label081:
+        $r38 = $r37.<org.json.simple.parser.Yytoken: java.lang.Object value>;
+
+        $z12 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean primitive(java.lang.Object)>($r38);
+
+     label082:
+        if $z12 != 0 goto label003;
+
+     label083:
+        return;
+
+     label084:
+        $i19 = virtualinvoke $r12.<java.util.LinkedList: int size()>();
+
+        if $i19 <= 1 goto label088;
+
+        virtualinvoke $r12.<java.util.LinkedList: java.lang.Object removeFirst()>();
+
+        $i20 = specialinvoke $r11.<org.json.simple.parser.JSONParser: int peekStatus(java.util.LinkedList)>($r12);
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = $i20;
+
+     label085:
+        $z13 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean endArray()>();
+
+     label086:
+        if $z13 != 0 goto label003;
+
+     label087:
+        return;
+
+     label088:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 1;
+
+     label089:
+        goto label085;
+
+     label090:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 2;
+
+        $r39 = new java.lang.Integer;
+
+     label091:
+        $i21 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r39.<java.lang.Integer: void <init>(int)>($i21);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r39);
+
+        $z14 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean startObject()>();
+
+     label092:
+        if $z14 != 0 goto label003;
+
+     label093:
+        return;
+
+     label094:
+        $r11.<org.json.simple.parser.JSONParser: int status> = 3;
+
+        $r40 = new java.lang.Integer;
+
+     label095:
+        $i22 = $r11.<org.json.simple.parser.JSONParser: int status>;
+
+        specialinvoke $r40.<java.lang.Integer: void <init>(int)>($i22);
+
+        virtualinvoke $r12.<java.util.LinkedList: void addFirst(java.lang.Object)>($r40);
+
+        $z15 = interfaceinvoke $r9.<org.json.simple.parser.ContentHandler: boolean startArray()>();
+
+     label096:
+        if $z15 != 0 goto label003;
+
+     label097:
+        return;
+
+     label098:
+        $r41 = new org.json.simple.parser.ParseException;
+
+        $i23 = virtualinvoke $r11.<org.json.simple.parser.JSONParser: int getPosition()>();
+
+        $r42 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        specialinvoke $r41.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>($i23, 1, $r42);
+
+     label099:
+        throw $r41;
+
+     label100:
+        $r43 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        $i24 = $r43.<org.json.simple.parser.Yytoken: int type>;
+
+     label101:
+        if $i24 != -1 goto label002;
+
+        $r11.<org.json.simple.parser.JSONParser: int status> = -1;
+
+        $r44 = new org.json.simple.parser.ParseException;
+
+        $i25 = virtualinvoke $r11.<org.json.simple.parser.JSONParser: int getPosition()>();
+
+        $r45 = $r11.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token>;
+
+        specialinvoke $r44.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>($i25, 1, $r45);
+
+        throw $r44;
+
+     label102:
+        return;
+
+        catch java.io.IOException from label004 to label005 with label006;
+        catch org.json.simple.parser.ParseException from label004 to label006 with label012;
+        catch java.lang.RuntimeException from label002 to label006 with label032;
+        catch java.lang.Error from label002 to label006 with label036;
+        catch java.io.IOException from label008 to label009 with label006;
+        catch org.json.simple.parser.ParseException from label008 to label009 with label012;
+        catch java.lang.RuntimeException from label008 to label011 with label032;
+        catch java.lang.Error from label008 to label011 with label036;
+        catch java.io.IOException from label014 to label015 with label006;
+        catch java.io.IOException from label016 to label017 with label006;
+        catch java.io.IOException from label020 to label021 with label006;
+        catch java.io.IOException from label024 to label025 with label006;
+        catch java.io.IOException from label027 to label028 with label006;
+        catch java.io.IOException from label029 to label030 with label006;
+        catch org.json.simple.parser.ParseException from label014 to label015 with label012;
+        catch org.json.simple.parser.ParseException from label016 to label017 with label012;
+        catch org.json.simple.parser.ParseException from label020 to label021 with label012;
+        catch org.json.simple.parser.ParseException from label024 to label025 with label012;
+        catch org.json.simple.parser.ParseException from label027 to label028 with label012;
+        catch org.json.simple.parser.ParseException from label029 to label030 with label012;
+        catch java.lang.RuntimeException from label013 to label018 with label032;
+        catch java.lang.RuntimeException from label019 to label022 with label032;
+        catch java.lang.RuntimeException from label023 to label026 with label032;
+        catch java.lang.RuntimeException from label027 to label031 with label032;
+        catch java.lang.Error from label013 to label018 with label036;
+        catch java.lang.Error from label019 to label022 with label036;
+        catch java.lang.Error from label023 to label026 with label036;
+        catch java.lang.Error from label027 to label031 with label036;
+        catch java.io.IOException from label034 to label035 with label006;
+        catch org.json.simple.parser.ParseException from label034 to label036 with label012;
+        catch java.lang.RuntimeException from label033 to label036 with label032;
+        catch java.lang.Error from label033 to label036 with label036;
+        catch java.io.IOException from label037 to label038 with label006;
+        catch java.io.IOException from label039 to label040 with label006;
+        catch java.io.IOException from label044 to label045 with label006;
+        catch java.io.IOException from label048 to label050 with label006;
+        catch java.io.IOException from label053 to label055 with label006;
+        catch java.io.IOException from label056 to label057 with label006;
+        catch java.io.IOException from label058 to label059 with label006;
+        catch java.io.IOException from label060 to label061 with label006;
+        catch java.io.IOException from label063 to label064 with label006;
+        catch java.io.IOException from label065 to label066 with label006;
+        catch java.io.IOException from label068 to label069 with label006;
+        catch java.io.IOException from label070 to label071 with label006;
+        catch java.io.IOException from label073 to label074 with label006;
+        catch java.io.IOException from label076 to label077 with label006;
+        catch java.io.IOException from label078 to label079 with label006;
+        catch java.io.IOException from label081 to label082 with label006;
+        catch java.io.IOException from label084 to label086 with label006;
+        catch java.io.IOException from label089 to label090 with label006;
+        catch java.io.IOException from label091 to label092 with label006;
+        catch java.io.IOException from label095 to label096 with label006;
+        catch java.io.IOException from label098 to label099 with label006;
+        catch org.json.simple.parser.ParseException from label037 to label038 with label012;
+        catch org.json.simple.parser.ParseException from label039 to label040 with label012;
+        catch org.json.simple.parser.ParseException from label044 to label045 with label012;
+        catch org.json.simple.parser.ParseException from label048 to label050 with label012;
+        catch org.json.simple.parser.ParseException from label053 to label055 with label012;
+        catch org.json.simple.parser.ParseException from label056 to label057 with label012;
+        catch org.json.simple.parser.ParseException from label058 to label059 with label012;
+        catch org.json.simple.parser.ParseException from label060 to label061 with label012;
+        catch org.json.simple.parser.ParseException from label063 to label064 with label012;
+        catch org.json.simple.parser.ParseException from label065 to label066 with label012;
+        catch org.json.simple.parser.ParseException from label068 to label069 with label012;
+        catch org.json.simple.parser.ParseException from label070 to label071 with label012;
+        catch org.json.simple.parser.ParseException from label073 to label074 with label012;
+        catch org.json.simple.parser.ParseException from label076 to label077 with label012;
+        catch org.json.simple.parser.ParseException from label078 to label079 with label012;
+        catch org.json.simple.parser.ParseException from label081 to label082 with label012;
+        catch org.json.simple.parser.ParseException from label084 to label086 with label012;
+        catch org.json.simple.parser.ParseException from label089 to label090 with label012;
+        catch org.json.simple.parser.ParseException from label091 to label092 with label012;
+        catch org.json.simple.parser.ParseException from label095 to label096 with label012;
+        catch org.json.simple.parser.ParseException from label098 to label100 with label012;
+        catch java.lang.RuntimeException from label037 to label042 with label032;
+        catch java.lang.RuntimeException from label043 to label046 with label032;
+        catch java.lang.RuntimeException from label047 to label051 with label032;
+        catch java.lang.RuntimeException from label052 to label062 with label032;
+        catch java.lang.RuntimeException from label063 to label067 with label032;
+        catch java.lang.RuntimeException from label068 to label072 with label032;
+        catch java.lang.RuntimeException from label073 to label075 with label032;
+        catch java.lang.RuntimeException from label076 to label083 with label032;
+        catch java.lang.RuntimeException from label084 to label087 with label032;
+        catch java.lang.RuntimeException from label088 to label093 with label032;
+        catch java.lang.RuntimeException from label094 to label097 with label032;
+        catch java.lang.RuntimeException from label098 to label101 with label032;
+        catch java.lang.Error from label037 to label046 with label036;
+        catch java.lang.Error from label047 to label051 with label036;
+        catch java.lang.Error from label052 to label062 with label036;
+        catch java.lang.Error from label063 to label067 with label036;
+        catch java.lang.Error from label068 to label072 with label036;
+        catch java.lang.Error from label073 to label075 with label036;
+        catch java.lang.Error from label076 to label083 with label036;
+        catch java.lang.Error from label084 to label087 with label036;
+        catch java.lang.Error from label088 to label093 with label036;
+        catch java.lang.Error from label094 to label097 with label036;
+        catch java.lang.Error from label098 to label101 with label036;
+    }
+
+    public void parse(java.lang.String, org.json.simple.parser.ContentHandler) throws org.json.simple.parser.ParseException
+    {
+        org.json.simple.parser.ContentHandler $r0;
+        java.lang.String $r1;
+        org.json.simple.parser.JSONParser $r2;
+
+        $r2 := @this: org.json.simple.parser.JSONParser;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 := @parameter1: org.json.simple.parser.ContentHandler;
+
+        virtualinvoke $r2.<org.json.simple.parser.JSONParser: void parse(java.lang.String,org.json.simple.parser.ContentHandler,boolean)>($r1, $r0, 0);
+
+        return;
+    }
+
+    public void parse(java.lang.String, org.json.simple.parser.ContentHandler, boolean) throws org.json.simple.parser.ParseException
+    {
+        org.json.simple.parser.ParseException $r0;
+        java.io.StringReader $r1;
+        java.io.IOException $r2;
+        boolean $z0;
+        org.json.simple.parser.ContentHandler $r3;
+        java.lang.String $r4;
+        org.json.simple.parser.JSONParser $r5;
+
+        $r5 := @this: org.json.simple.parser.JSONParser;
+
+        $r4 := @parameter0: java.lang.String;
+
+        $r3 := @parameter1: org.json.simple.parser.ContentHandler;
+
+        $z0 := @parameter2: boolean;
+
+        $r1 = new java.io.StringReader;
+
+        specialinvoke $r1.<java.io.StringReader: void <init>(java.lang.String)>($r4);
+
+     label1:
+        virtualinvoke $r5.<org.json.simple.parser.JSONParser: void parse(java.io.Reader,org.json.simple.parser.ContentHandler,boolean)>($r1, $r3, $z0);
+
+     label2:
+        return;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r0 = new org.json.simple.parser.ParseException;
+
+        specialinvoke $r0.<org.json.simple.parser.ParseException: void <init>(int,int,java.lang.Object)>(-1, 2, $r2);
+
+        throw $r0;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public void reset()
+    {
+        org.json.simple.parser.JSONParser $r0;
+
+        $r0 := @this: org.json.simple.parser.JSONParser;
+
+        $r0.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yytoken token> = null;
+
+        $r0.<org.json.simple.parser.JSONParser: int status> = 0;
+
+        $r0.<org.json.simple.parser.JSONParser: java.util.LinkedList handlerStatusStack> = null;
+
+        return;
+    }
+
+    public void reset(java.io.Reader)
+    {
+        org.json.simple.parser.Yylex $r0;
+        java.io.Reader $r1;
+        org.json.simple.parser.JSONParser $r2;
+
+        $r2 := @this: org.json.simple.parser.JSONParser;
+
+        $r1 := @parameter0: java.io.Reader;
+
+        $r0 = $r2.<org.json.simple.parser.JSONParser: org.json.simple.parser.Yylex lexer>;
+
+        virtualinvoke $r0.<org.json.simple.parser.Yylex: void yyreset(java.io.Reader)>($r1);
+
+        virtualinvoke $r2.<org.json.simple.parser.JSONParser: void reset()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.json.simple.parser.JSONParser: int S_END> = 6;
+
+        <org.json.simple.parser.JSONParser: int S_PASSED_PAIR_KEY> = 4;
+
+        <org.json.simple.parser.JSONParser: int S_IN_PAIR_VALUE> = 5;
+
+        <org.json.simple.parser.JSONParser: int S_IN_OBJECT> = 2;
+
+        <org.json.simple.parser.JSONParser: int S_IN_FINISHED_VALUE> = 1;
+
+        <org.json.simple.parser.JSONParser: int S_IN_ERROR> = -1;
+
+        <org.json.simple.parser.JSONParser: int S_IN_ARRAY> = 3;
+
+        <org.json.simple.parser.JSONParser: int S_INIT> = 0;
+
+        <org.json.simple.parser.JSONParser: int S_END> = 6;
+
+        return;
+    }
+}

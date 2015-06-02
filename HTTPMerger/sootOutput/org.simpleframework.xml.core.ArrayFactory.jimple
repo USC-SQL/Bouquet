@@ -1,0 +1,168 @@
+class org.simpleframework.xml.core.ArrayFactory extends org.simpleframework.xml.core.Factory
+{
+
+    public void <init>(org.simpleframework.xml.core.Context, org.simpleframework.xml.strategy.Type)
+    {
+        org.simpleframework.xml.strategy.Type $r0;
+        org.simpleframework.xml.core.Context $r1;
+        org.simpleframework.xml.core.ArrayFactory $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ArrayFactory;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Context;
+
+        $r0 := @parameter1: org.simpleframework.xml.strategy.Type;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.Factory: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.strategy.Type)>($r1, $r0);
+
+        return;
+    }
+
+    private java.lang.Class getComponentType() throws java.lang.Exception
+    {
+        java.lang.Object[] $r0;
+        org.simpleframework.xml.core.InstantiationException $r1;
+        boolean $z0;
+        java.lang.Class $r2, $r5;
+        org.simpleframework.xml.strategy.Type $r3;
+        org.simpleframework.xml.core.ArrayFactory $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ArrayFactory;
+
+        $r2 = virtualinvoke $r4.<org.simpleframework.xml.core.ArrayFactory: java.lang.Class getType()>();
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isArray()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new org.simpleframework.xml.core.InstantiationException;
+
+        $r0 = newarray (java.lang.Object)[2];
+
+        $r0[0] = $r2;
+
+        $r3 = $r4.<org.simpleframework.xml.core.ArrayFactory: org.simpleframework.xml.strategy.Type type>;
+
+        $r0[1] = $r3;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.InstantiationException: void <init>(java.lang.String,java.lang.Object[])>("The %s not an array for %s", $r0);
+
+        throw $r1;
+
+     label1:
+        $r5 = virtualinvoke $r2.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        return $r5;
+    }
+
+    private org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.strategy.Value, java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.ArrayInstance $r0;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.InstantiationException $r2;
+        boolean $z0;
+        org.simpleframework.xml.strategy.Type $r3;
+        java.lang.Class $r4, $r5;
+        org.simpleframework.xml.strategy.Value $r6;
+        org.simpleframework.xml.core.ArrayFactory $r7;
+
+        $r7 := @this: org.simpleframework.xml.core.ArrayFactory;
+
+        $r6 := @parameter0: org.simpleframework.xml.strategy.Value;
+
+        $r4 := @parameter1: java.lang.Class;
+
+        $r5 = specialinvoke $r7.<org.simpleframework.xml.core.ArrayFactory: java.lang.Class getComponentType()>();
+
+        $z0 = virtualinvoke $r5.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($r4);
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new org.simpleframework.xml.core.InstantiationException;
+
+        $r1 = newarray (java.lang.Object)[3];
+
+        $r1[0] = $r5;
+
+        $r1[1] = $r4;
+
+        $r3 = $r7.<org.simpleframework.xml.core.ArrayFactory: org.simpleframework.xml.strategy.Type type>;
+
+        $r1[2] = $r3;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.InstantiationException: void <init>(java.lang.String,java.lang.Object[])>("Array of type %s cannot hold %s for %s", $r1);
+
+        throw $r2;
+
+     label1:
+        $r0 = new org.simpleframework.xml.core.ArrayInstance;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.ArrayInstance: void <init>(org.simpleframework.xml.strategy.Value)>($r6);
+
+        return $r0;
+    }
+
+    public java.lang.Object getInstance() throws java.lang.Exception
+    {
+        java.lang.Object $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.core.ArrayFactory $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ArrayFactory;
+
+        $r1 = specialinvoke $r2.<org.simpleframework.xml.core.ArrayFactory: java.lang.Class getComponentType()>();
+
+        if $r1 == null goto label1;
+
+        $r0 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int)>($r1, 0);
+
+        return $r0;
+
+     label1:
+        return null;
+    }
+
+    public org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Instance $r0;
+        java.lang.Class $r1;
+        java.lang.Object[] $r2;
+        org.simpleframework.xml.strategy.Value $r3;
+        org.simpleframework.xml.stream.Position $r4;
+        org.simpleframework.xml.strategy.Type $r5;
+        org.simpleframework.xml.core.ElementException $r6;
+        org.simpleframework.xml.stream.InputNode $r7;
+        org.simpleframework.xml.core.ArrayFactory $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.ArrayFactory;
+
+        $r7 := @parameter0: org.simpleframework.xml.stream.InputNode;
+
+        $r4 = interfaceinvoke $r7.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.Position getPosition()>();
+
+        $r3 = virtualinvoke $r8.<org.simpleframework.xml.core.ArrayFactory: org.simpleframework.xml.strategy.Value getOverride(org.simpleframework.xml.stream.InputNode)>($r7);
+
+        if $r3 != null goto label1;
+
+        $r6 = new org.simpleframework.xml.core.ElementException;
+
+        $r2 = newarray (java.lang.Object)[2];
+
+        $r5 = $r8.<org.simpleframework.xml.core.ArrayFactory: org.simpleframework.xml.strategy.Type type>;
+
+        $r2[0] = $r5;
+
+        $r2[1] = $r4;
+
+        specialinvoke $r6.<org.simpleframework.xml.core.ElementException: void <init>(java.lang.String,java.lang.Object[])>("Array length required for %s at %s", $r2);
+
+        throw $r6;
+
+     label1:
+        $r1 = interfaceinvoke $r3.<org.simpleframework.xml.strategy.Value: java.lang.Class getType()>();
+
+        $r0 = specialinvoke $r8.<org.simpleframework.xml.core.ArrayFactory: org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.strategy.Value,java.lang.Class)>($r3, $r1);
+
+        return $r0;
+    }
+}

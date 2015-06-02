@@ -1,0 +1,9 @@
+public annotation interface  org.simpleframework.xml.Text extends java.lang.Object implements java.lang.annotation.Annotation
+{
+
+    public abstract boolean data();
+
+    public abstract java.lang.String empty();
+
+    public abstract boolean required();
+}

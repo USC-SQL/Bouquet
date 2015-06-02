@@ -1,0 +1,78 @@
+class org.simpleframework.xml.core.ParameterMap extends java.util.LinkedHashMap implements java.lang.Iterable
+{
+
+    public void <init>()
+    {
+        org.simpleframework.xml.core.ParameterMap $r0;
+
+        $r0 := @this: org.simpleframework.xml.core.ParameterMap;
+
+        specialinvoke $r0.<java.util.LinkedHashMap: void <init>()>();
+
+        return;
+    }
+
+    public org.simpleframework.xml.core.Parameter get(int)
+    {
+        org.simpleframework.xml.core.Parameter $r0;
+        java.lang.Object $r1;
+        java.util.List $r2;
+        int $i0;
+        org.simpleframework.xml.core.ParameterMap $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ParameterMap;
+
+        $i0 := @parameter0: int;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.ParameterMap: java.util.List getAll()>();
+
+        $r1 = interfaceinvoke $r2.<java.util.List: java.lang.Object get(int)>($i0);
+
+        $r0 = (org.simpleframework.xml.core.Parameter) $r1;
+
+        return $r0;
+    }
+
+    public java.util.List getAll()
+    {
+        java.util.List $r0;
+        java.util.ArrayList $r1;
+        boolean $z0;
+        java.util.Collection $r2;
+        org.simpleframework.xml.core.ParameterMap $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ParameterMap;
+
+        $r2 = virtualinvoke $r3.<org.simpleframework.xml.core.ParameterMap: java.util.Collection values()>();
+
+        $z0 = interfaceinvoke $r2.<java.util.Collection: boolean isEmpty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>(java.util.Collection)>($r2);
+
+        return $r1;
+
+     label1:
+        $r0 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        return $r0;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        java.util.Iterator $r0;
+        java.util.Collection $r1;
+        org.simpleframework.xml.core.ParameterMap $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ParameterMap;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.core.ParameterMap: java.util.Collection values()>();
+
+        $r0 = interfaceinvoke $r1.<java.util.Collection: java.util.Iterator iterator()>();
+
+        return $r0;
+    }
+}

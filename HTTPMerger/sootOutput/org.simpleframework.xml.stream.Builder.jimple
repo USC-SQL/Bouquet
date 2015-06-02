@@ -1,0 +1,147 @@
+class org.simpleframework.xml.stream.Builder extends java.lang.Object implements org.simpleframework.xml.stream.Style
+{
+    private final org.simpleframework.xml.stream.Builder$Cache attributes;
+    private final org.simpleframework.xml.stream.Builder$Cache elements;
+    private final org.simpleframework.xml.stream.Style style;
+
+    public void <init>(org.simpleframework.xml.stream.Style)
+    {
+        org.simpleframework.xml.stream.Builder$Cache $r0, $r3;
+        org.simpleframework.xml.stream.Style $r1;
+        org.simpleframework.xml.stream.Builder $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.Builder;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.Style;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.stream.Builder$Cache;
+
+        specialinvoke $r0.<org.simpleframework.xml.stream.Builder$Cache: void <init>(org.simpleframework.xml.stream.Builder)>($r2);
+
+        $r2.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Builder$Cache attributes> = $r0;
+
+        $r3 = new org.simpleframework.xml.stream.Builder$Cache;
+
+        specialinvoke $r3.<org.simpleframework.xml.stream.Builder$Cache: void <init>(org.simpleframework.xml.stream.Builder)>($r2);
+
+        $r2.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Builder$Cache elements> = $r3;
+
+        $r2.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Style style> = $r1;
+
+        return;
+    }
+
+    public java.lang.String getAttribute(java.lang.String)
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        java.lang.Object $r1;
+        org.simpleframework.xml.stream.Builder$Cache $r2, $r7;
+        java.lang.String $r3, $r4, $r6;
+        org.simpleframework.xml.stream.Builder $r5;
+
+        $r5 := @this: org.simpleframework.xml.stream.Builder;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 = $r5.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Builder$Cache attributes>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.stream.Builder$Cache: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r4 = (java.lang.String) $r1;
+
+        if $r4 == null goto label1;
+
+        return $r4;
+
+     label1:
+        $r0 = $r5.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Style style>;
+
+        $r6 = interfaceinvoke $r0.<org.simpleframework.xml.stream.Style: java.lang.String getAttribute(java.lang.String)>($r3);
+
+        if $r6 == null goto label2;
+
+        $r7 = $r5.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Builder$Cache attributes>;
+
+        virtualinvoke $r7.<org.simpleframework.xml.stream.Builder$Cache: java.lang.Object put(java.lang.Object,java.lang.Object)>($r3, $r6);
+
+     label2:
+        return $r6;
+    }
+
+    public java.lang.String getElement(java.lang.String)
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        java.lang.Object $r1;
+        org.simpleframework.xml.stream.Builder$Cache $r2, $r7;
+        java.lang.String $r3, $r4, $r6;
+        org.simpleframework.xml.stream.Builder $r5;
+
+        $r5 := @this: org.simpleframework.xml.stream.Builder;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 = $r5.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Builder$Cache elements>;
+
+        $r1 = virtualinvoke $r2.<org.simpleframework.xml.stream.Builder$Cache: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r4 = (java.lang.String) $r1;
+
+        if $r4 == null goto label1;
+
+        return $r4;
+
+     label1:
+        $r0 = $r5.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Style style>;
+
+        $r6 = interfaceinvoke $r0.<org.simpleframework.xml.stream.Style: java.lang.String getElement(java.lang.String)>($r3);
+
+        if $r6 == null goto label2;
+
+        $r7 = $r5.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Builder$Cache elements>;
+
+        virtualinvoke $r7.<org.simpleframework.xml.stream.Builder$Cache: java.lang.Object put(java.lang.Object,java.lang.Object)>($r3, $r6);
+
+     label2:
+        return $r6;
+    }
+
+    public void setAttribute(java.lang.String, java.lang.String)
+    {
+        org.simpleframework.xml.stream.Builder$Cache $r0;
+        java.lang.String $r1, $r2;
+        org.simpleframework.xml.stream.Builder $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.Builder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r0 = $r3.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Builder$Cache attributes>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.stream.Builder$Cache: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+
+    public void setElement(java.lang.String, java.lang.String)
+    {
+        org.simpleframework.xml.stream.Builder$Cache $r0;
+        java.lang.String $r1, $r2;
+        org.simpleframework.xml.stream.Builder $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.Builder;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r0 = $r3.<org.simpleframework.xml.stream.Builder: org.simpleframework.xml.stream.Builder$Cache elements>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.stream.Builder$Cache: java.lang.Object put(java.lang.Object,java.lang.Object)>($r1, $r2);
+
+        return;
+    }
+}

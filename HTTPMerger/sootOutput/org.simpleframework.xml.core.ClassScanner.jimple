@@ -1,0 +1,814 @@
+class org.simpleframework.xml.core.ClassScanner extends java.lang.Object
+{
+    private org.simpleframework.xml.Default access;
+    private org.simpleframework.xml.core.Function commit;
+    private org.simpleframework.xml.core.Function complete;
+    private org.simpleframework.xml.core.NamespaceDecorator decorator;
+    private org.simpleframework.xml.Namespace namespace;
+    private org.simpleframework.xml.Order order;
+    private org.simpleframework.xml.core.Function persist;
+    private org.simpleframework.xml.core.Function replace;
+    private org.simpleframework.xml.core.Function resolve;
+    private org.simpleframework.xml.Root root;
+    private org.simpleframework.xml.core.ConstructorScanner scanner;
+    private org.simpleframework.xml.core.Function validate;
+
+    public void <init>(java.lang.Class, org.simpleframework.xml.stream.Format) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0;
+        org.simpleframework.xml.core.ConstructorScanner $r1;
+        org.simpleframework.xml.stream.Format $r2;
+        java.lang.Class $r3;
+        org.simpleframework.xml.core.ClassScanner $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r3 := @parameter0: java.lang.Class;
+
+        $r2 := @parameter1: org.simpleframework.xml.stream.Format;
+
+        specialinvoke $r4.<java.lang.Object: void <init>()>();
+
+        $r1 = new org.simpleframework.xml.core.ConstructorScanner;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.ConstructorScanner: void <init>(java.lang.Class,org.simpleframework.xml.stream.Format)>($r3, $r2);
+
+        $r4.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.ConstructorScanner scanner> = $r1;
+
+        $r0 = new org.simpleframework.xml.core.NamespaceDecorator;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void <init>()>();
+
+        $r4.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.NamespaceDecorator decorator> = $r0;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.ClassScanner: void scan(java.lang.Class)>($r3);
+
+        return;
+    }
+
+    private void access(java.lang.Class)
+    {
+        org.simpleframework.xml.Default $r0;
+        java.lang.annotation.Annotation $r1;
+        boolean $z0;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isAnnotationPresent(java.lang.Class)>(class "org/simpleframework/xml/Default");
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke $r2.<java.lang.Class: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/Default");
+
+        $r0 = (org.simpleframework.xml.Default) $r1;
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Default access> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void commit(java.lang.reflect.Method)
+    {
+        org.simpleframework.xml.core.Function $r0;
+        java.lang.annotation.Annotation $r1;
+        java.lang.reflect.Method $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.reflect.Method;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/core/Commit");
+
+        if $r1 == null goto label1;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function getFunction(java.lang.reflect.Method)>($r2);
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function commit> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void complete(java.lang.reflect.Method)
+    {
+        org.simpleframework.xml.core.Function $r0;
+        java.lang.annotation.Annotation $r1;
+        java.lang.reflect.Method $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.reflect.Method;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/core/Complete");
+
+        if $r1 == null goto label1;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function getFunction(java.lang.reflect.Method)>($r2);
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function complete> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private org.simpleframework.xml.core.Function getFunction(java.lang.reflect.Method)
+    {
+        org.simpleframework.xml.core.Function $r0;
+        boolean $z0, $z1;
+        java.lang.reflect.Method $r1;
+        org.simpleframework.xml.core.ClassScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r1 := @parameter0: java.lang.reflect.Method;
+
+        $z0 = specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: boolean isContextual(java.lang.reflect.Method)>($r1);
+
+        $z1 = virtualinvoke $r1.<java.lang.reflect.Method: boolean isAccessible()>();
+
+        if $z1 != 0 goto label1;
+
+        virtualinvoke $r1.<java.lang.reflect.Method: void setAccessible(boolean)>(1);
+
+     label1:
+        $r0 = new org.simpleframework.xml.core.Function;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.Function: void <init>(java.lang.reflect.Method,boolean)>($r1, $z0);
+
+        return $r0;
+    }
+
+    private void global(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.Default $r0;
+        org.simpleframework.xml.Order $r1;
+        org.simpleframework.xml.Root $r2;
+        org.simpleframework.xml.Namespace $r3;
+        java.lang.Class $r4;
+        org.simpleframework.xml.core.ClassScanner $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r3 = $r5.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Namespace namespace>;
+
+        if $r3 != null goto label1;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.ClassScanner: void namespace(java.lang.Class)>($r4);
+
+     label1:
+        $r2 = $r5.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Root root>;
+
+        if $r2 != null goto label2;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.ClassScanner: void root(java.lang.Class)>($r4);
+
+     label2:
+        $r1 = $r5.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Order order>;
+
+        if $r1 != null goto label3;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.ClassScanner: void order(java.lang.Class)>($r4);
+
+     label3:
+        $r0 = $r5.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Default access>;
+
+        if $r0 != null goto label4;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.ClassScanner: void access(java.lang.Class)>($r4);
+
+        return;
+
+     label4:
+        return;
+    }
+
+    private boolean isContextual(java.lang.reflect.Method)
+    {
+        boolean $z0;
+        java.lang.Class $r0, $r1;
+        java.lang.Class[] $r2;
+        int $i0;
+        java.lang.reflect.Method $r3;
+        org.simpleframework.xml.core.ClassScanner $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r3 := @parameter0: java.lang.reflect.Method;
+
+        $r2 = virtualinvoke $r3.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $i0 = lengthof $r2;
+
+        if $i0 != 1 goto label1;
+
+        $r0 = class "java/util/Map";
+
+        $r1 = $r2[0];
+
+        $z0 = virtualinvoke $r0.<java.lang.Object: boolean equals(java.lang.Object)>($r1);
+
+        return $z0;
+
+     label1:
+        return 0;
+    }
+
+    private void namespace(java.lang.Class)
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0;
+        java.lang.annotation.Annotation $r1;
+        boolean $z0;
+        org.simpleframework.xml.Namespace $r2, $r5, $r6;
+        java.lang.Class $r3;
+        org.simpleframework.xml.core.ClassScanner $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r3 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r3.<java.lang.Class: boolean isAnnotationPresent(java.lang.Class)>(class "org/simpleframework/xml/Namespace");
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke $r3.<java.lang.Class: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/Namespace");
+
+        $r2 = (org.simpleframework.xml.Namespace) $r1;
+
+        $r4.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Namespace namespace> = $r2;
+
+        $r5 = $r4.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Namespace namespace>;
+
+        if $r5 == null goto label2;
+
+        $r0 = $r4.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        $r6 = $r4.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Namespace namespace>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void add(org.simpleframework.xml.Namespace)>($r6);
+
+        return;
+
+     label1:
+        return;
+
+     label2:
+        return;
+    }
+
+    private void order(java.lang.Class)
+    {
+        org.simpleframework.xml.Order $r0;
+        java.lang.annotation.Annotation $r1;
+        boolean $z0;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isAnnotationPresent(java.lang.Class)>(class "org/simpleframework/xml/Order");
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke $r2.<java.lang.Class: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/Order");
+
+        $r0 = (org.simpleframework.xml.Order) $r1;
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Order order> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void persist(java.lang.reflect.Method)
+    {
+        org.simpleframework.xml.core.Function $r0;
+        java.lang.annotation.Annotation $r1;
+        java.lang.reflect.Method $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.reflect.Method;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/core/Persist");
+
+        if $r1 == null goto label1;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function getFunction(java.lang.reflect.Method)>($r2);
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function persist> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void process(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0;
+        org.simpleframework.xml.Namespace $r1, $r4;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Namespace namespace>;
+
+        if $r1 == null goto label1;
+
+        $r0 = $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        $r4 = $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Namespace namespace>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void set(org.simpleframework.xml.Namespace)>($r4);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void replace(java.lang.reflect.Method)
+    {
+        org.simpleframework.xml.core.Function $r0;
+        java.lang.annotation.Annotation $r1;
+        java.lang.reflect.Method $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.reflect.Method;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/core/Replace");
+
+        if $r1 == null goto label1;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function getFunction(java.lang.reflect.Method)>($r2);
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function replace> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void resolve(java.lang.reflect.Method)
+    {
+        org.simpleframework.xml.core.Function $r0;
+        java.lang.annotation.Annotation $r1;
+        java.lang.reflect.Method $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.reflect.Method;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/core/Resolve");
+
+        if $r1 == null goto label1;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function getFunction(java.lang.reflect.Method)>($r2);
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function resolve> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void root(java.lang.Class)
+    {
+        org.simpleframework.xml.Root $r0;
+        java.lang.annotation.Annotation $r1;
+        boolean $z0;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r2.<java.lang.Class: boolean isAnnotationPresent(java.lang.Class)>(class "org/simpleframework/xml/Root");
+
+        if $z0 == 0 goto label1;
+
+        $r1 = virtualinvoke $r2.<java.lang.Class: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/Root");
+
+        $r0 = (org.simpleframework.xml.Root) $r1;
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Root root> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    private void scan(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.Class $r0, $r1;
+        org.simpleframework.xml.core.ClassScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $r1 = $r0;
+
+     label1:
+        if $r0 == null goto label2;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void global(java.lang.Class)>($r0);
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void scope(java.lang.Class)>($r0);
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void scan(java.lang.Class,java.lang.Class)>($r1, $r0);
+
+        $r0 = virtualinvoke $r0.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        goto label1;
+
+     label2:
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void process(java.lang.Class)>($r1);
+
+        return;
+    }
+
+    private void scan(java.lang.Class, java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.reflect.Method $r0;
+        java.lang.reflect.Method[] $r1;
+        int $i0, $i1;
+        java.lang.Class $r2, $r3;
+        org.simpleframework.xml.core.ClassScanner $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r3 := @parameter1: java.lang.Class;
+
+        $r1 = virtualinvoke $r3.<java.lang.Class: java.lang.reflect.Method[] getDeclaredMethods()>();
+
+        $i0 = 0;
+
+     label1:
+        $i1 = lengthof $r1;
+
+        if $i0 >= $i1 goto label2;
+
+        $r0 = $r1[$i0];
+
+        specialinvoke $r4.<org.simpleframework.xml.core.ClassScanner: void scan(java.lang.reflect.Method)>($r0);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void scan(java.lang.reflect.Method)
+    {
+        org.simpleframework.xml.core.Function $r0, $r3, $r4, $r5, $r6, $r7;
+        java.lang.reflect.Method $r1;
+        org.simpleframework.xml.core.ClassScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r1 := @parameter0: java.lang.reflect.Method;
+
+        $r0 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function commit>;
+
+        if $r0 != null goto label1;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void commit(java.lang.reflect.Method)>($r1);
+
+     label1:
+        $r3 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function validate>;
+
+        if $r3 != null goto label2;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void validate(java.lang.reflect.Method)>($r1);
+
+     label2:
+        $r4 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function persist>;
+
+        if $r4 != null goto label3;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void persist(java.lang.reflect.Method)>($r1);
+
+     label3:
+        $r5 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function complete>;
+
+        if $r5 != null goto label4;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void complete(java.lang.reflect.Method)>($r1);
+
+     label4:
+        $r6 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function replace>;
+
+        if $r6 != null goto label5;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void replace(java.lang.reflect.Method)>($r1);
+
+     label5:
+        $r7 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function resolve>;
+
+        if $r7 != null goto label6;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.ClassScanner: void resolve(java.lang.reflect.Method)>($r1);
+
+        return;
+
+     label6:
+        return;
+    }
+
+    private void scope(java.lang.Class)
+    {
+        org.simpleframework.xml.core.NamespaceDecorator $r0;
+        org.simpleframework.xml.Namespace[] $r1;
+        org.simpleframework.xml.NamespaceList $r2;
+        java.lang.annotation.Annotation $r3;
+        boolean $z0;
+        org.simpleframework.xml.Namespace $r4;
+        int $i0, $i1;
+        java.lang.Class $r5;
+        org.simpleframework.xml.core.ClassScanner $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r5 := @parameter0: java.lang.Class;
+
+        $z0 = virtualinvoke $r5.<java.lang.Class: boolean isAnnotationPresent(java.lang.Class)>(class "org/simpleframework/xml/NamespaceList");
+
+        if $z0 == 0 goto label2;
+
+        $r3 = virtualinvoke $r5.<java.lang.Class: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/NamespaceList");
+
+        $r2 = (org.simpleframework.xml.NamespaceList) $r3;
+
+        $r1 = interfaceinvoke $r2.<org.simpleframework.xml.NamespaceList: org.simpleframework.xml.Namespace[] value()>();
+
+        $i1 = lengthof $r1;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 >= $i1 goto label3;
+
+        $r4 = $r1[$i0];
+
+        $r0 = $r6.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.NamespaceDecorator: void add(org.simpleframework.xml.Namespace)>($r4);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label2:
+        return;
+
+     label3:
+        return;
+    }
+
+    private void validate(java.lang.reflect.Method)
+    {
+        org.simpleframework.xml.core.Function $r0;
+        java.lang.annotation.Annotation $r1;
+        java.lang.reflect.Method $r2;
+        org.simpleframework.xml.core.ClassScanner $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r2 := @parameter0: java.lang.reflect.Method;
+
+        $r1 = virtualinvoke $r2.<java.lang.reflect.Method: java.lang.annotation.Annotation getAnnotation(java.lang.Class)>(class "org/simpleframework/xml/core/Validate");
+
+        if $r1 == null goto label1;
+
+        $r0 = specialinvoke $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function getFunction(java.lang.reflect.Method)>($r2);
+
+        $r3.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function validate> = $r0;
+
+        return;
+
+     label1:
+        return;
+    }
+
+    public org.simpleframework.xml.core.Function getCommit()
+    {
+        org.simpleframework.xml.core.Function r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function commit>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Function getComplete()
+    {
+        org.simpleframework.xml.core.Function r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function complete>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Decorator getDecorator()
+    {
+        org.simpleframework.xml.core.NamespaceDecorator r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.NamespaceDecorator decorator>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.Default getDefault()
+    {
+        org.simpleframework.xml.Default r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Default access>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.Order getOrder()
+    {
+        org.simpleframework.xml.Order r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Order order>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.ParameterMap getParameters()
+    {
+        org.simpleframework.xml.core.ParameterMap $r0;
+        org.simpleframework.xml.core.ConstructorScanner $r1;
+        org.simpleframework.xml.core.ClassScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.ConstructorScanner scanner>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ConstructorScanner: org.simpleframework.xml.core.ParameterMap getParameters()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Function getPersist()
+    {
+        org.simpleframework.xml.core.Function r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function persist>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Function getReplace()
+    {
+        org.simpleframework.xml.core.Function r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function replace>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Function getResolve()
+    {
+        org.simpleframework.xml.core.Function r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function resolve>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.Root getRoot()
+    {
+        org.simpleframework.xml.Root r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Root root>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.core.Signature getSignature()
+    {
+        org.simpleframework.xml.core.Signature $r0;
+        org.simpleframework.xml.core.ConstructorScanner $r1;
+        org.simpleframework.xml.core.ClassScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.ConstructorScanner scanner>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ConstructorScanner: org.simpleframework.xml.core.Signature getSignature()>();
+
+        return $r0;
+    }
+
+    public java.util.List getSignatures()
+    {
+        java.util.List $r0;
+        org.simpleframework.xml.core.ConstructorScanner $r1;
+        org.simpleframework.xml.core.ClassScanner $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r1 = $r2.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.ConstructorScanner scanner>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.ConstructorScanner: java.util.List getSignatures()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Function getValidate()
+    {
+        org.simpleframework.xml.core.Function r0;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.core.Function validate>;
+
+        return r0;
+    }
+
+    public boolean isStrict()
+    {
+        boolean $z0;
+        org.simpleframework.xml.Root $r0, $r2;
+        org.simpleframework.xml.core.ClassScanner $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.ClassScanner;
+
+        $r0 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Root root>;
+
+        if $r0 == null goto label1;
+
+        $r2 = $r1.<org.simpleframework.xml.core.ClassScanner: org.simpleframework.xml.Root root>;
+
+        $z0 = interfaceinvoke $r2.<org.simpleframework.xml.Root: boolean strict()>();
+
+        return $z0;
+
+     label1:
+        return 1;
+    }
+}

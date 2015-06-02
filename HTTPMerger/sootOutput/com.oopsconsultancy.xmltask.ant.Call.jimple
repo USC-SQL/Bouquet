@@ -1,0 +1,268 @@
+public class com.oopsconsultancy.xmltask.ant.Call extends java.lang.Object implements com.oopsconsultancy.xmltask.ant.Instruction
+{
+    private java.lang.String buffer;
+    private java.lang.String ifProperty;
+    private boolean inheritAll;
+    private boolean inheritRefs;
+    private org.apache.tools.ant.taskdefs.MacroDef macro;
+    private java.util.List params;
+    private java.lang.String path;
+    private java.lang.String target;
+    private java.lang.String unlessProperty;
+
+    public void <init>()
+    {
+        java.util.ArrayList $r0;
+        com.oopsconsultancy.xmltask.ant.Call $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String path> = null;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String target> = null;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String buffer> = null;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: boolean inheritAll> = 1;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: boolean inheritRefs> = 0;
+
+        $r0 = new java.util.ArrayList;
+
+        specialinvoke $r0.<java.util.ArrayList: void <init>()>();
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.util.List params> = $r0;
+
+        return;
+    }
+
+    public void addConfiguredParam(com.oopsconsultancy.xmltask.ant.Param)
+    {
+        java.util.List $r0;
+        com.oopsconsultancy.xmltask.ant.Param $r1;
+        com.oopsconsultancy.xmltask.ant.Call $r2;
+
+        $r2 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $r1 := @parameter0: com.oopsconsultancy.xmltask.ant.Param;
+
+        $r0 = $r2.<com.oopsconsultancy.xmltask.ant.Call: java.util.List params>;
+
+        interfaceinvoke $r0.<java.util.List: boolean add(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    public java.lang.Object createActions()
+    {
+        org.apache.tools.ant.taskdefs.MacroDef$NestedSequential $r0;
+        org.apache.tools.ant.taskdefs.MacroDef $r1, $r3;
+        com.oopsconsultancy.xmltask.ant.Call $r2;
+
+        $r2 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $r1 = new org.apache.tools.ant.taskdefs.MacroDef;
+
+        specialinvoke $r1.<org.apache.tools.ant.taskdefs.MacroDef: void <init>()>();
+
+        $r2.<com.oopsconsultancy.xmltask.ant.Call: org.apache.tools.ant.taskdefs.MacroDef macro> = $r1;
+
+        $r3 = $r2.<com.oopsconsultancy.xmltask.ant.Call: org.apache.tools.ant.taskdefs.MacroDef macro>;
+
+        $r0 = virtualinvoke $r3.<org.apache.tools.ant.taskdefs.MacroDef: org.apache.tools.ant.taskdefs.MacroDef$NestedSequential createSequential()>();
+
+        return $r0;
+    }
+
+    public void process(com.oopsconsultancy.xmltask.ant.XmlTask)
+    {
+        com.oopsconsultancy.xmltask.AnonymousCallAction $r0;
+        org.apache.tools.ant.taskdefs.MacroDef $r1, $r16;
+        com.oopsconsultancy.xmltask.CallAction $r2;
+        com.oopsconsultancy.xmltask.XmlReplace $r3;
+        java.util.List $r4, $r18;
+        boolean $z0, $z1;
+        java.lang.String $r5, $r6, $r7, $r10, $r11, $r12, $r13, $r14, $r15, $r17;
+        com.oopsconsultancy.xmltask.ant.XmlTask $r8;
+        com.oopsconsultancy.xmltask.ant.Call $r9;
+
+        $r9 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $r8 := @parameter0: com.oopsconsultancy.xmltask.ant.XmlTask;
+
+        $r3 = null;
+
+        $r5 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String path>;
+
+        if $r5 == null goto label2;
+
+        $r7 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String target>;
+
+        if $r7 == null goto label2;
+
+        $r3 = new com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r10 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String path>;
+
+        $r2 = new com.oopsconsultancy.xmltask.CallAction;
+
+        $r11 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String target>;
+
+        $z0 = $r9.<com.oopsconsultancy.xmltask.ant.Call: boolean inheritAll>;
+
+        $z1 = $r9.<com.oopsconsultancy.xmltask.ant.Call: boolean inheritRefs>;
+
+        $r6 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String buffer>;
+
+        $r4 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.util.List params>;
+
+        specialinvoke $r2.<com.oopsconsultancy.xmltask.CallAction: void <init>(java.lang.String,com.oopsconsultancy.xmltask.ant.XmlTask,boolean,boolean,java.lang.String,java.util.List)>($r11, $r8, $z0, $z1, $r6, $r4);
+
+        specialinvoke $r3.<com.oopsconsultancy.xmltask.XmlReplace: void <init>(java.lang.String,com.oopsconsultancy.xmltask.Action)>($r10, $r2);
+
+     label1:
+        if $r3 == null goto label3;
+
+        $r12 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String ifProperty>;
+
+        virtualinvoke $r3.<com.oopsconsultancy.xmltask.XmlReplace: void setIf(java.lang.String)>($r12);
+
+        $r13 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String unlessProperty>;
+
+        virtualinvoke $r3.<com.oopsconsultancy.xmltask.XmlReplace: void setUnless(java.lang.String)>($r13);
+
+        virtualinvoke $r8.<com.oopsconsultancy.xmltask.ant.XmlTask: void add(com.oopsconsultancy.xmltask.XmlReplace)>($r3);
+
+        return;
+
+     label2:
+        $r14 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String path>;
+
+        if $r14 == null goto label1;
+
+        $r1 = $r9.<com.oopsconsultancy.xmltask.ant.Call: org.apache.tools.ant.taskdefs.MacroDef macro>;
+
+        if $r1 == null goto label1;
+
+        $r3 = new com.oopsconsultancy.xmltask.XmlReplace;
+
+        $r15 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String path>;
+
+        $r0 = new com.oopsconsultancy.xmltask.AnonymousCallAction;
+
+        $r16 = $r9.<com.oopsconsultancy.xmltask.ant.Call: org.apache.tools.ant.taskdefs.MacroDef macro>;
+
+        $r17 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String buffer>;
+
+        $r18 = $r9.<com.oopsconsultancy.xmltask.ant.Call: java.util.List params>;
+
+        specialinvoke $r0.<com.oopsconsultancy.xmltask.AnonymousCallAction: void <init>(org.apache.tools.ant.taskdefs.MacroDef,com.oopsconsultancy.xmltask.ant.XmlTask,java.lang.String,java.util.List)>($r16, $r8, $r17, $r18);
+
+        specialinvoke $r3.<com.oopsconsultancy.xmltask.XmlReplace: void <init>(java.lang.String,com.oopsconsultancy.xmltask.Action)>($r15, $r0);
+
+        goto label1;
+
+     label3:
+        return;
+    }
+
+    public void setBuffer(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Call $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String buffer> = $r0;
+
+        return;
+    }
+
+    public void setIf(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Call $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String ifProperty> = $r0;
+
+        return;
+    }
+
+    public void setInheritAll(boolean)
+    {
+        boolean $z0;
+        com.oopsconsultancy.xmltask.ant.Call $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<com.oopsconsultancy.xmltask.ant.Call: boolean inheritAll> = $z0;
+
+        return;
+    }
+
+    public void setInheritRefs(boolean)
+    {
+        boolean $z0;
+        com.oopsconsultancy.xmltask.ant.Call $r0;
+
+        $r0 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<com.oopsconsultancy.xmltask.ant.Call: boolean inheritRefs> = $z0;
+
+        return;
+    }
+
+    public void setPath(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Call $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String path> = $r0;
+
+        return;
+    }
+
+    public void setTarget(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Call $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String target> = $r0;
+
+        return;
+    }
+
+    public void setUnless(java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.Call $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.Call;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1.<com.oopsconsultancy.xmltask.ant.Call: java.lang.String unlessProperty> = $r0;
+
+        return;
+    }
+}

@@ -1,0 +1,77 @@
+public class org.simpleframework.xml.filter.StackFilter extends java.lang.Object implements org.simpleframework.xml.filter.Filter
+{
+    private java.util.Stack stack;
+
+    public void <init>()
+    {
+        java.util.Stack $r0;
+        org.simpleframework.xml.filter.StackFilter $r1;
+
+        $r1 := @this: org.simpleframework.xml.filter.StackFilter;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        $r0 = new java.util.Stack;
+
+        specialinvoke $r0.<java.util.Stack: void <init>()>();
+
+        $r1.<org.simpleframework.xml.filter.StackFilter: java.util.Stack stack> = $r0;
+
+        return;
+    }
+
+    public void push(org.simpleframework.xml.filter.Filter)
+    {
+        java.util.Stack $r0;
+        org.simpleframework.xml.filter.Filter $r1;
+        org.simpleframework.xml.filter.StackFilter $r2;
+
+        $r2 := @this: org.simpleframework.xml.filter.StackFilter;
+
+        $r1 := @parameter0: org.simpleframework.xml.filter.Filter;
+
+        $r0 = $r2.<org.simpleframework.xml.filter.StackFilter: java.util.Stack stack>;
+
+        virtualinvoke $r0.<java.util.Stack: java.lang.Object push(java.lang.Object)>($r1);
+
+        return;
+    }
+
+    public java.lang.String replace(java.lang.String)
+    {
+        org.simpleframework.xml.filter.Filter $r0;
+        java.lang.Object $r1;
+        java.util.Stack $r2, $r6;
+        int $i0;
+        java.lang.String $r3, $r4;
+        org.simpleframework.xml.filter.StackFilter $r5;
+
+        $r5 := @this: org.simpleframework.xml.filter.StackFilter;
+
+        $r3 := @parameter0: java.lang.String;
+
+        $r2 = $r5.<org.simpleframework.xml.filter.StackFilter: java.util.Stack stack>;
+
+        $i0 = virtualinvoke $r2.<java.util.Stack: int size()>();
+
+     label1:
+        $i0 = $i0 + -1;
+
+        if $i0 < 0 goto label2;
+
+        $r6 = $r5.<org.simpleframework.xml.filter.StackFilter: java.util.Stack stack>;
+
+        $r1 = virtualinvoke $r6.<java.util.Stack: java.lang.Object get(int)>($i0);
+
+        $r0 = (org.simpleframework.xml.filter.Filter) $r1;
+
+        $r4 = interfaceinvoke $r0.<org.simpleframework.xml.filter.Filter: java.lang.String replace(java.lang.String)>($r3);
+
+        if $r4 == null goto label1;
+
+        return $r4;
+
+     label2:
+        return null;
+    }
+}

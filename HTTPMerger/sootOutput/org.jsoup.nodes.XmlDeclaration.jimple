@@ -1,0 +1,136 @@
+public class org.jsoup.nodes.XmlDeclaration extends org.jsoup.nodes.Node
+{
+    private static final java.lang.String DECL_KEY;
+    private final boolean isProcessingInstruction;
+
+    public void <init>(java.lang.String, java.lang.String, boolean)
+    {
+        org.jsoup.nodes.Attributes $r0;
+        boolean $z0;
+        java.lang.String $r1, $r2;
+        org.jsoup.nodes.XmlDeclaration $r3;
+
+        $r3 := @this: org.jsoup.nodes.XmlDeclaration;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 := @parameter2: boolean;
+
+        specialinvoke $r3.<org.jsoup.nodes.Node: void <init>(java.lang.String)>($r2);
+
+        $r0 = $r3.<org.jsoup.nodes.XmlDeclaration: org.jsoup.nodes.Attributes attributes>;
+
+        virtualinvoke $r0.<org.jsoup.nodes.Attributes: void put(java.lang.String,java.lang.String)>("declaration", $r1);
+
+        $r3.<org.jsoup.nodes.XmlDeclaration: boolean isProcessingInstruction> = $z0;
+
+        return;
+    }
+
+    public java.lang.String getWholeDeclaration()
+    {
+        java.lang.String $r0;
+        org.jsoup.nodes.Attributes $r1;
+        org.jsoup.nodes.XmlDeclaration $r2;
+
+        $r2 := @this: org.jsoup.nodes.XmlDeclaration;
+
+        $r1 = $r2.<org.jsoup.nodes.XmlDeclaration: org.jsoup.nodes.Attributes attributes>;
+
+        $r0 = virtualinvoke $r1.<org.jsoup.nodes.Attributes: java.lang.String get(java.lang.String)>("declaration");
+
+        return $r0;
+    }
+
+    public java.lang.String nodeName()
+    {
+        org.jsoup.nodes.XmlDeclaration $r0;
+
+        $r0 := @this: org.jsoup.nodes.XmlDeclaration;
+
+        return "#declaration";
+    }
+
+    void outerHtmlHead(java.lang.StringBuilder, int, org.jsoup.nodes.Document$OutputSettings)
+    {
+        java.lang.String $r0, $r6;
+        boolean $z0;
+        org.jsoup.nodes.Document$OutputSettings $r1;
+        int $i0;
+        java.lang.StringBuilder $r2, $r4, $r5, $r7;
+        org.jsoup.nodes.XmlDeclaration $r3;
+
+        $r3 := @this: org.jsoup.nodes.XmlDeclaration;
+
+        $r2 := @parameter0: java.lang.StringBuilder;
+
+        $i0 := @parameter1: int;
+
+        $r1 := @parameter2: org.jsoup.nodes.Document$OutputSettings;
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("<");
+
+        $z0 = $r3.<org.jsoup.nodes.XmlDeclaration: boolean isProcessingInstruction>;
+
+        if $z0 == 0 goto label2;
+
+        $r0 = "!";
+
+     label1:
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r6 = virtualinvoke $r3.<org.jsoup.nodes.XmlDeclaration: java.lang.String getWholeDeclaration()>();
+
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+
+        virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">");
+
+        return;
+
+     label2:
+        $r0 = "?";
+
+        goto label1;
+    }
+
+    void outerHtmlTail(java.lang.StringBuilder, int, org.jsoup.nodes.Document$OutputSettings)
+    {
+        org.jsoup.nodes.Document$OutputSettings $r0;
+        int $i0;
+        java.lang.StringBuilder $r1;
+        org.jsoup.nodes.XmlDeclaration $r2;
+
+        $r2 := @this: org.jsoup.nodes.XmlDeclaration;
+
+        $r1 := @parameter0: java.lang.StringBuilder;
+
+        $i0 := @parameter1: int;
+
+        $r0 := @parameter2: org.jsoup.nodes.Document$OutputSettings;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        org.jsoup.nodes.XmlDeclaration $r1;
+
+        $r1 := @this: org.jsoup.nodes.XmlDeclaration;
+
+        $r0 = virtualinvoke $r1.<org.jsoup.nodes.XmlDeclaration: java.lang.String outerHtml()>();
+
+        return $r0;
+    }
+
+    public static void <clinit>()
+    {
+        <org.jsoup.nodes.XmlDeclaration: java.lang.String DECL_KEY> = "declaration";
+
+        <org.jsoup.nodes.XmlDeclaration: java.lang.String DECL_KEY> = "declaration";
+
+        return;
+    }
+}

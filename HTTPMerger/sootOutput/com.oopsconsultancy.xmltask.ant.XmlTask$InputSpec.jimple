@@ -1,0 +1,54 @@
+public abstract class com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec extends java.lang.Object
+{
+    protected java.lang.String name;
+    final com.oopsconsultancy.xmltask.ant.XmlTask this$0;
+
+    public void <init>(com.oopsconsultancy.xmltask.ant.XmlTask, java.lang.String)
+    {
+        java.lang.String $r0;
+        com.oopsconsultancy.xmltask.ant.XmlTask $r1;
+        com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec $r2;
+
+        $r2 := @this: com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec;
+
+        $r1 := @parameter0: com.oopsconsultancy.xmltask.ant.XmlTask;
+
+        $r0 := @parameter1: java.lang.String;
+
+        $r2.<com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec: com.oopsconsultancy.xmltask.ant.XmlTask this$0> = $r1;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r2.<com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec: java.lang.String name> = null;
+
+        $r2.<com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec: java.lang.String name> = $r0;
+
+        return;
+    }
+
+    public abstract org.w3c.dom.Document getDocument() throws java.lang.Exception;
+
+    public java.lang.String getName()
+    {
+        java.lang.String r0;
+        com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec;
+
+        r0 = $r1.<com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec: java.lang.String name>;
+
+        return r0;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String r0;
+        com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec $r1;
+
+        $r1 := @this: com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec;
+
+        r0 = $r1.<com.oopsconsultancy.xmltask.ant.XmlTask$InputSpec: java.lang.String name>;
+
+        return r0;
+    }
+}

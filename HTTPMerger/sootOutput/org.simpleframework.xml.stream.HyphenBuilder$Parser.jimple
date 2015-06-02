@@ -1,0 +1,102 @@
+class org.simpleframework.xml.stream.HyphenBuilder$Parser extends org.simpleframework.xml.stream.Splitter
+{
+    final org.simpleframework.xml.stream.HyphenBuilder this$0;
+
+    private void <init>(org.simpleframework.xml.stream.HyphenBuilder, java.lang.String)
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.stream.HyphenBuilder $r1;
+        org.simpleframework.xml.stream.HyphenBuilder$Parser $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.HyphenBuilder$Parser;
+
+        $r1 := @parameter0: org.simpleframework.xml.stream.HyphenBuilder;
+
+        $r0 := @parameter1: java.lang.String;
+
+        $r2.<org.simpleframework.xml.stream.HyphenBuilder$Parser: org.simpleframework.xml.stream.HyphenBuilder this$0> = $r1;
+
+        specialinvoke $r2.<org.simpleframework.xml.stream.Splitter: void <init>(java.lang.String)>($r0);
+
+        return;
+    }
+
+    void <init>(org.simpleframework.xml.stream.HyphenBuilder, java.lang.String, org.simpleframework.xml.stream.HyphenBuilder$1)
+    {
+        org.simpleframework.xml.stream.HyphenBuilder$1 $r0;
+        java.lang.String $r1;
+        org.simpleframework.xml.stream.HyphenBuilder $r2;
+        org.simpleframework.xml.stream.HyphenBuilder$Parser $r3;
+
+        $r3 := @this: org.simpleframework.xml.stream.HyphenBuilder$Parser;
+
+        $r2 := @parameter0: org.simpleframework.xml.stream.HyphenBuilder;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r0 := @parameter2: org.simpleframework.xml.stream.HyphenBuilder$1;
+
+        specialinvoke $r3.<org.simpleframework.xml.stream.HyphenBuilder$Parser: void <init>(org.simpleframework.xml.stream.HyphenBuilder,java.lang.String)>($r2, $r1);
+
+        return;
+    }
+
+    protected void commit(char[], int, int)
+    {
+        java.lang.StringBuilder $r0, $r3;
+        int $i0, $i1, $i2, $i3;
+        char[] $r1;
+        org.simpleframework.xml.stream.HyphenBuilder$Parser $r2;
+
+        $r2 := @this: org.simpleframework.xml.stream.HyphenBuilder$Parser;
+
+        $r1 := @parameter0: char[];
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $r0 = $r2.<org.simpleframework.xml.stream.HyphenBuilder$Parser: java.lang.StringBuilder builder>;
+
+        virtualinvoke $r0.<java.lang.StringBuilder: java.lang.StringBuilder append(char[],int,int)>($r1, $i0, $i1);
+
+        $i2 = $i0 + $i1;
+
+        $i3 = $r2.<org.simpleframework.xml.stream.HyphenBuilder$Parser: int count>;
+
+        if $i2 >= $i3 goto label1;
+
+        $r3 = $r2.<org.simpleframework.xml.stream.HyphenBuilder$Parser: java.lang.StringBuilder builder>;
+
+        virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(45);
+
+        return;
+
+     label1:
+        return;
+    }
+
+    protected void parse(char[], int, int)
+    {
+        char $c0, $c3;
+        int $i1, $i2;
+        char[] $r0;
+        org.simpleframework.xml.stream.HyphenBuilder$Parser $r1;
+
+        $r1 := @this: org.simpleframework.xml.stream.HyphenBuilder$Parser;
+
+        $r0 := @parameter0: char[];
+
+        $i1 := @parameter1: int;
+
+        $i2 := @parameter2: int;
+
+        $c0 = $r0[$i1];
+
+        $c3 = virtualinvoke $r1.<org.simpleframework.xml.stream.HyphenBuilder$Parser: char toLower(char)>($c0);
+
+        $r0[$i1] = $c3;
+
+        return;
+    }
+}

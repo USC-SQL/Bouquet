@@ -1,0 +1,9 @@
+public interface  org.simpleframework.xml.stream.Node extends java.lang.Object
+{
+
+    public abstract java.lang.String getName();
+
+    public abstract org.simpleframework.xml.stream.Node getParent();
+
+    public abstract java.lang.String getValue() throws java.lang.Exception;
+}

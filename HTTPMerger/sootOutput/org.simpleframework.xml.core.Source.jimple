@@ -1,0 +1,481 @@
+class org.simpleframework.xml.core.Source extends java.lang.Object implements org.simpleframework.xml.core.Context
+{
+    private org.simpleframework.xml.core.TemplateEngine engine;
+    private org.simpleframework.xml.filter.Filter filter;
+    private org.simpleframework.xml.core.Session session;
+    private org.simpleframework.xml.strategy.Strategy strategy;
+    private org.simpleframework.xml.core.Support support;
+
+    public void <init>(org.simpleframework.xml.strategy.Strategy, org.simpleframework.xml.core.Support, org.simpleframework.xml.core.Session)
+    {
+        org.simpleframework.xml.core.TemplateEngine $r0;
+        org.simpleframework.xml.filter.Filter $r1;
+        org.simpleframework.xml.core.TemplateFilter $r2;
+        org.simpleframework.xml.core.Session $r3;
+        org.simpleframework.xml.core.Support $r4;
+        org.simpleframework.xml.strategy.Strategy $r5;
+        org.simpleframework.xml.core.Source $r6;
+
+        $r6 := @this: org.simpleframework.xml.core.Source;
+
+        $r5 := @parameter0: org.simpleframework.xml.strategy.Strategy;
+
+        $r4 := @parameter1: org.simpleframework.xml.core.Support;
+
+        $r3 := @parameter2: org.simpleframework.xml.core.Session;
+
+        specialinvoke $r6.<java.lang.Object: void <init>()>();
+
+        $r2 = new org.simpleframework.xml.core.TemplateFilter;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.TemplateFilter: void <init>(org.simpleframework.xml.core.Context,org.simpleframework.xml.filter.Filter)>($r6, $r4);
+
+        $r6.<org.simpleframework.xml.core.Source: org.simpleframework.xml.filter.Filter filter> = $r2;
+
+        $r0 = new org.simpleframework.xml.core.TemplateEngine;
+
+        $r1 = $r6.<org.simpleframework.xml.core.Source: org.simpleframework.xml.filter.Filter filter>;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.TemplateEngine: void <init>(org.simpleframework.xml.filter.Filter)>($r1);
+
+        $r6.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.TemplateEngine engine> = $r0;
+
+        $r6.<org.simpleframework.xml.core.Source: org.simpleframework.xml.strategy.Strategy strategy> = $r5;
+
+        $r6.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Support support> = $r4;
+
+        $r6.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Session session> = $r3;
+
+        return;
+    }
+
+    private org.simpleframework.xml.core.Scanner getScanner(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Scanner $r0;
+        org.simpleframework.xml.core.Support $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Source $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Source;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Support support>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Support: org.simpleframework.xml.core.Scanner getScanner(java.lang.Class)>($r2);
+
+        return $r0;
+    }
+
+    public java.lang.Object getAttribute(java.lang.Object)
+    {
+        org.simpleframework.xml.core.Session $r0;
+        java.lang.Object $r1, $r3;
+        org.simpleframework.xml.core.Source $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Source;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = $r2.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Session session>;
+
+        $r3 = virtualinvoke $r0.<org.simpleframework.xml.core.Session: java.lang.Object get(java.lang.Object)>($r1);
+
+        return $r3;
+    }
+
+    public org.simpleframework.xml.core.Caller getCaller(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Caller $r0;
+        org.simpleframework.xml.core.Scanner $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Source $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Source;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = specialinvoke $r3.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Scanner getScanner(java.lang.Class)>($r2);
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Scanner: org.simpleframework.xml.core.Caller getCaller(org.simpleframework.xml.core.Context)>($r3);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Decorator getDecorator(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.Decorator $r0;
+        org.simpleframework.xml.core.Scanner $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Source $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Source;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = specialinvoke $r3.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Scanner getScanner(java.lang.Class)>($r2);
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Scanner: org.simpleframework.xml.core.Decorator getDecorator()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Instance getInstance(java.lang.Class)
+    {
+        org.simpleframework.xml.core.Instance $r0;
+        org.simpleframework.xml.core.Support $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Source $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Source;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Support support>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Support: org.simpleframework.xml.core.Instance getInstance(java.lang.Class)>($r2);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.strategy.Value)
+    {
+        org.simpleframework.xml.core.Instance $r0;
+        org.simpleframework.xml.core.Support $r1;
+        org.simpleframework.xml.strategy.Value $r2;
+        org.simpleframework.xml.core.Source $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Source;
+
+        $r2 := @parameter0: org.simpleframework.xml.strategy.Value;
+
+        $r1 = $r3.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Support support>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Support: org.simpleframework.xml.core.Instance getInstance(org.simpleframework.xml.strategy.Value)>($r2);
+
+        return $r0;
+    }
+
+    public java.lang.String getName(java.lang.Class) throws java.lang.Exception
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.core.Support $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Source $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Source;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = $r3.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Support support>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Support: java.lang.String getName(java.lang.Class)>($r2);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.strategy.Value getOverride(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.stream.InputNode) throws java.lang.Exception
+    {
+        org.simpleframework.xml.strategy.Value $r0;
+        org.simpleframework.xml.core.Session $r1;
+        org.simpleframework.xml.strategy.Strategy $r2;
+        java.lang.Object[] $r3;
+        org.simpleframework.xml.stream.NodeMap $r4;
+        org.simpleframework.xml.core.PersistenceException $r5;
+        org.simpleframework.xml.stream.InputNode $r6;
+        org.simpleframework.xml.strategy.Type $r7;
+        org.simpleframework.xml.core.Source $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.Source;
+
+        $r7 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r6 := @parameter1: org.simpleframework.xml.stream.InputNode;
+
+        $r4 = interfaceinvoke $r6.<org.simpleframework.xml.stream.InputNode: org.simpleframework.xml.stream.NodeMap getAttributes()>();
+
+        if $r4 != null goto label1;
+
+        $r5 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r3 = newarray (java.lang.Object)[1];
+
+        $r3[0] = $r6;
+
+        specialinvoke $r5.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("No attributes for %s", $r3);
+
+        throw $r5;
+
+     label1:
+        $r2 = $r8.<org.simpleframework.xml.core.Source: org.simpleframework.xml.strategy.Strategy strategy>;
+
+        $r1 = $r8.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Session session>;
+
+        $r0 = interfaceinvoke $r2.<org.simpleframework.xml.strategy.Strategy: org.simpleframework.xml.strategy.Value read(org.simpleframework.xml.strategy.Type,org.simpleframework.xml.stream.NodeMap,java.util.Map)>($r7, $r4, $r1);
+
+        return $r0;
+    }
+
+    public java.lang.String getProperty(java.lang.String)
+    {
+        org.simpleframework.xml.core.TemplateEngine $r0;
+        java.lang.String $r1, $r3;
+        org.simpleframework.xml.core.Source $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Source;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r0 = $r2.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.TemplateEngine engine>;
+
+        $r3 = virtualinvoke $r0.<org.simpleframework.xml.core.TemplateEngine: java.lang.String process(java.lang.String)>($r1);
+
+        return $r3;
+    }
+
+    public org.simpleframework.xml.core.Schema getSchema(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.core.ClassSchema $r0;
+        java.lang.Object[] $r1;
+        org.simpleframework.xml.core.Scanner $r2;
+        org.simpleframework.xml.core.PersistenceException $r3;
+        java.lang.Class $r4;
+        org.simpleframework.xml.core.Source $r5;
+
+        $r5 := @this: org.simpleframework.xml.core.Source;
+
+        $r4 := @parameter0: java.lang.Class;
+
+        $r2 = specialinvoke $r5.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Scanner getScanner(java.lang.Class)>($r4);
+
+        if $r2 != null goto label1;
+
+        $r3 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r1 = newarray (java.lang.Object)[1];
+
+        $r1[0] = $r4;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("Invalid schema class %s", $r1);
+
+        throw $r3;
+
+     label1:
+        $r0 = new org.simpleframework.xml.core.ClassSchema;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.ClassSchema: void <init>(org.simpleframework.xml.core.Scanner,org.simpleframework.xml.core.Context)>($r2, $r5);
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Session getSession()
+    {
+        org.simpleframework.xml.core.Session r0;
+        org.simpleframework.xml.core.Source $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.Source;
+
+        r0 = $r1.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Session session>;
+
+        return r0;
+    }
+
+    public org.simpleframework.xml.stream.Style getStyle()
+    {
+        org.simpleframework.xml.stream.Style $r0;
+        org.simpleframework.xml.core.Support $r1;
+        org.simpleframework.xml.core.Source $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Source;
+
+        $r1 = $r2.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Support support>;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Support: org.simpleframework.xml.stream.Style getStyle()>();
+
+        return $r0;
+    }
+
+    public org.simpleframework.xml.core.Support getSupport()
+    {
+        org.simpleframework.xml.core.Support r0;
+        org.simpleframework.xml.core.Source $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.Source;
+
+        r0 = $r1.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Support support>;
+
+        return r0;
+    }
+
+    public java.lang.Class getType(org.simpleframework.xml.strategy.Type, java.lang.Object)
+    {
+        java.lang.Class $r0, $r4;
+        java.lang.Object $r1;
+        org.simpleframework.xml.strategy.Type $r2;
+        org.simpleframework.xml.core.Source $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Source;
+
+        $r2 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r1 := @parameter1: java.lang.Object;
+
+        if $r1 == null goto label1;
+
+        $r0 = virtualinvoke $r1.<java.lang.Object: java.lang.Class getClass()>();
+
+        return $r0;
+
+     label1:
+        $r4 = interfaceinvoke $r2.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        return $r4;
+    }
+
+    public org.simpleframework.xml.Version getVersion(java.lang.Class) throws java.lang.Exception
+    {
+        org.simpleframework.xml.Version $r0;
+        org.simpleframework.xml.core.Scanner $r1;
+        java.lang.Class $r2;
+        org.simpleframework.xml.core.Source $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.Source;
+
+        $r2 := @parameter0: java.lang.Class;
+
+        $r1 = specialinvoke $r3.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Scanner getScanner(java.lang.Class)>($r2);
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Scanner: org.simpleframework.xml.Version getRevision()>();
+
+        return $r0;
+    }
+
+    public boolean isFloat(java.lang.Class) throws java.lang.Exception
+    {
+        boolean $z0;
+        java.lang.Class $r0;
+        org.simpleframework.xml.core.Source $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.Source;
+
+        $r0 := @parameter0: java.lang.Class;
+
+        $z0 = staticinvoke <org.simpleframework.xml.core.Support: boolean isFloat(java.lang.Class)>($r0);
+
+        return $z0;
+    }
+
+    public boolean isFloat(org.simpleframework.xml.strategy.Type) throws java.lang.Exception
+    {
+        boolean $z0;
+        java.lang.Class $r0;
+        org.simpleframework.xml.strategy.Type $r1;
+        org.simpleframework.xml.core.Source $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Source;
+
+        $r1 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.core.Source: boolean isFloat(java.lang.Class)>($r0);
+
+        return $z0;
+    }
+
+    public boolean isPrimitive(java.lang.Class) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Support $r0;
+        java.lang.Class $r1;
+        org.simpleframework.xml.core.Source $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Source;
+
+        $r1 := @parameter0: java.lang.Class;
+
+        $r0 = $r2.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Support support>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.Support: boolean isPrimitive(java.lang.Class)>($r1);
+
+        return $z0;
+    }
+
+    public boolean isPrimitive(org.simpleframework.xml.strategy.Type) throws java.lang.Exception
+    {
+        boolean $z0;
+        java.lang.Class $r0;
+        org.simpleframework.xml.strategy.Type $r1;
+        org.simpleframework.xml.core.Source $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.Source;
+
+        $r1 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r0 = interfaceinvoke $r1.<org.simpleframework.xml.strategy.Type: java.lang.Class getType()>();
+
+        $z0 = virtualinvoke $r2.<org.simpleframework.xml.core.Source: boolean isPrimitive(java.lang.Class)>($r0);
+
+        return $z0;
+    }
+
+    public boolean isStrict()
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Session $r0;
+        org.simpleframework.xml.core.Source $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.Source;
+
+        $r0 = $r1.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Session session>;
+
+        $z0 = virtualinvoke $r0.<org.simpleframework.xml.core.Session: boolean isStrict()>();
+
+        return $z0;
+    }
+
+    public boolean setOverride(org.simpleframework.xml.strategy.Type, java.lang.Object, org.simpleframework.xml.stream.OutputNode) throws java.lang.Exception
+    {
+        boolean $z0;
+        org.simpleframework.xml.core.Session $r0;
+        org.simpleframework.xml.strategy.Strategy $r1;
+        java.lang.Object[] $r2;
+        org.simpleframework.xml.stream.NodeMap $r3;
+        org.simpleframework.xml.core.PersistenceException $r4;
+        org.simpleframework.xml.stream.OutputNode $r5;
+        java.lang.Object $r6;
+        org.simpleframework.xml.strategy.Type $r7;
+        org.simpleframework.xml.core.Source $r8;
+
+        $r8 := @this: org.simpleframework.xml.core.Source;
+
+        $r7 := @parameter0: org.simpleframework.xml.strategy.Type;
+
+        $r6 := @parameter1: java.lang.Object;
+
+        $r5 := @parameter2: org.simpleframework.xml.stream.OutputNode;
+
+        $r3 = interfaceinvoke $r5.<org.simpleframework.xml.stream.OutputNode: org.simpleframework.xml.stream.NodeMap getAttributes()>();
+
+        if $r3 != null goto label1;
+
+        $r4 = new org.simpleframework.xml.core.PersistenceException;
+
+        $r2 = newarray (java.lang.Object)[1];
+
+        $r2[0] = $r5;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.PersistenceException: void <init>(java.lang.String,java.lang.Object[])>("No attributes for %s", $r2);
+
+        throw $r4;
+
+     label1:
+        $r1 = $r8.<org.simpleframework.xml.core.Source: org.simpleframework.xml.strategy.Strategy strategy>;
+
+        $r0 = $r8.<org.simpleframework.xml.core.Source: org.simpleframework.xml.core.Session session>;
+
+        $z0 = interfaceinvoke $r1.<org.simpleframework.xml.strategy.Strategy: boolean write(org.simpleframework.xml.strategy.Type,java.lang.Object,org.simpleframework.xml.stream.NodeMap,java.util.Map)>($r7, $r6, $r3, $r0);
+
+        return $z0;
+    }
+}

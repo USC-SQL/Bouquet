@@ -1,0 +1,53 @@
+class com.dai.giftcard.viewer.activity.CardFormPageActivity$14 extends android.os.Handler
+{
+    final com.dai.giftcard.viewer.activity.CardFormPageActivity this$0;
+
+    void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$14 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$14;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$14: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0> = $r0;
+
+        specialinvoke $r1.<android.os.Handler: void <init>()>();
+
+        return;
+    }
+
+    public void handleMessage(android.os.Message)
+    {
+        android.widget.Toast $r0;
+        android.content.Context $r1, $r7;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r2, $r5, $r6;
+        android.os.Message $r3;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$14 $r4;
+
+        $r4 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity$14;
+
+        $r3 := @parameter0: android.os.Message;
+
+        $r2 = $r4.<com.dai.giftcard.viewer.activity.CardFormPageActivity$14: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0>;
+
+        staticinvoke <com.dai.giftcard.viewer.activity.CardFormPageActivity: void access$200(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r2);
+
+        $r5 = $r4.<com.dai.giftcard.viewer.activity.CardFormPageActivity$14: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0>;
+
+        $r1 = virtualinvoke $r5.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: void SaveCard(android.content.Context)>($r1);
+
+        $r6 = $r4.<com.dai.giftcard.viewer.activity.CardFormPageActivity$14: com.dai.giftcard.viewer.activity.CardFormPageActivity this$0>;
+
+        $r7 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r0 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r7, 2131034122, 0);
+
+        virtualinvoke $r0.<android.widget.Toast: void show()>();
+
+        return;
+    }
+}

@@ -1,0 +1,5 @@
+interface  org.simpleframework.xml.convert.Scanner extends java.lang.Object
+{
+
+    public abstract java.lang.annotation.Annotation scan(java.lang.Class);
+}

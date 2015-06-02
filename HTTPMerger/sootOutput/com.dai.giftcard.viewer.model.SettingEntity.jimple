@@ -1,0 +1,17 @@
+public class com.dai.giftcard.viewer.model.SettingEntity extends java.lang.Object
+{
+    public int ID;
+    public java.lang.String Key;
+    public java.lang.String Value;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.model.SettingEntity $r0;
+
+        $r0 := @this: com.dai.giftcard.viewer.model.SettingEntity;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

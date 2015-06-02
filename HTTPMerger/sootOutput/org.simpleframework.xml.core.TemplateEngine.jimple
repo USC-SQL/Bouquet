@@ -1,0 +1,335 @@
+class org.simpleframework.xml.core.TemplateEngine extends java.lang.Object
+{
+    private org.simpleframework.xml.filter.Filter filter;
+    private org.simpleframework.xml.core.Template name;
+    private int off;
+    private org.simpleframework.xml.core.Template source;
+    private org.simpleframework.xml.core.Template text;
+
+    public void <init>(org.simpleframework.xml.filter.Filter)
+    {
+        org.simpleframework.xml.core.Template $r0, $r3, $r4;
+        org.simpleframework.xml.filter.Filter $r1;
+        org.simpleframework.xml.core.TemplateEngine $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TemplateEngine;
+
+        $r1 := @parameter0: org.simpleframework.xml.filter.Filter;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        $r0 = new org.simpleframework.xml.core.Template;
+
+        specialinvoke $r0.<org.simpleframework.xml.core.Template: void <init>()>();
+
+        $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source> = $r0;
+
+        $r3 = new org.simpleframework.xml.core.Template;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.Template: void <init>()>();
+
+        $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template name> = $r3;
+
+        $r4 = new org.simpleframework.xml.core.Template;
+
+        specialinvoke $r4.<org.simpleframework.xml.core.Template: void <init>()>();
+
+        $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text> = $r4;
+
+        $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.filter.Filter filter> = $r1;
+
+        return;
+    }
+
+    private void name()
+    {
+        char[] $r0;
+        org.simpleframework.xml.core.Template $r1, $r2, $r4, $r5, $r6, $r7, $r8;
+        int $i0, $i1, $i3, $i4, $i5;
+        char $c2;
+        org.simpleframework.xml.core.TemplateEngine $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.TemplateEngine;
+
+     label1:
+        $i0 = $r3.<org.simpleframework.xml.core.TemplateEngine: int off>;
+
+        $r1 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source>;
+
+        $i1 = $r1.<org.simpleframework.xml.core.Template: int count>;
+
+        if $i0 >= $i1 goto label2;
+
+        $r4 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source>;
+
+        $r0 = $r4.<org.simpleframework.xml.core.Template: char[] buf>;
+
+        $i3 = $r3.<org.simpleframework.xml.core.TemplateEngine: int off>;
+
+        $i4 = $i3 + 1;
+
+        $r3.<org.simpleframework.xml.core.TemplateEngine: int off> = $i4;
+
+        $c2 = $r0[$i3];
+
+        if $c2 != 125 goto label3;
+
+        specialinvoke $r3.<org.simpleframework.xml.core.TemplateEngine: void replace()>();
+
+     label2:
+        $r5 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template name>;
+
+        $i5 = virtualinvoke $r5.<org.simpleframework.xml.core.Template: int length()>();
+
+        if $i5 <= 0 goto label4;
+
+        $r6 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        virtualinvoke $r6.<org.simpleframework.xml.core.Template: void append(java.lang.String)>("${");
+
+        $r7 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        $r2 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template name>;
+
+        virtualinvoke $r7.<org.simpleframework.xml.core.Template: void append(org.simpleframework.xml.core.Template)>($r2);
+
+        return;
+
+     label3:
+        $r8 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template name>;
+
+        virtualinvoke $r8.<org.simpleframework.xml.core.Template: void append(char)>($c2);
+
+        goto label1;
+
+     label4:
+        return;
+    }
+
+    private void parse()
+    {
+        char[] $r0, $r6;
+        org.simpleframework.xml.core.Template $r1, $r3, $r4, $r5, $r7;
+        int $i0, $i1, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11;
+        char $c2, $c3;
+        org.simpleframework.xml.core.TemplateEngine $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TemplateEngine;
+
+     label1:
+        $i0 = $r2.<org.simpleframework.xml.core.TemplateEngine: int off>;
+
+        $r1 = $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source>;
+
+        $i1 = $r1.<org.simpleframework.xml.core.Template: int count>;
+
+        if $i0 >= $i1 goto label4;
+
+        $r3 = $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source>;
+
+        $r0 = $r3.<org.simpleframework.xml.core.Template: char[] buf>;
+
+        $i4 = $r2.<org.simpleframework.xml.core.TemplateEngine: int off>;
+
+        $i5 = $i4 + 1;
+
+        $r2.<org.simpleframework.xml.core.TemplateEngine: int off> = $i5;
+
+        $c2 = $r0[$i4];
+
+        if $c2 != 36 goto label3;
+
+        $i6 = $r2.<org.simpleframework.xml.core.TemplateEngine: int off>;
+
+        $r4 = $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source>;
+
+        $i7 = $r4.<org.simpleframework.xml.core.Template: int count>;
+
+        if $i6 >= $i7 goto label3;
+
+        $r5 = $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source>;
+
+        $r6 = $r5.<org.simpleframework.xml.core.Template: char[] buf>;
+
+        $i8 = $r2.<org.simpleframework.xml.core.TemplateEngine: int off>;
+
+        $i9 = $i8 + 1;
+
+        $r2.<org.simpleframework.xml.core.TemplateEngine: int off> = $i9;
+
+        $c3 = $r6[$i8];
+
+        if $c3 != 123 goto label2;
+
+        specialinvoke $r2.<org.simpleframework.xml.core.TemplateEngine: void name()>();
+
+        goto label1;
+
+     label2:
+        $i10 = $r2.<org.simpleframework.xml.core.TemplateEngine: int off>;
+
+        $i11 = $i10 + -1;
+
+        $r2.<org.simpleframework.xml.core.TemplateEngine: int off> = $i11;
+
+     label3:
+        $r7 = $r2.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        virtualinvoke $r7.<org.simpleframework.xml.core.Template: void append(char)>($c2);
+
+        goto label1;
+
+     label4:
+        return;
+    }
+
+    private void replace()
+    {
+        int $i0;
+        org.simpleframework.xml.core.Template $r0, $r2, $r3;
+        org.simpleframework.xml.core.TemplateEngine $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TemplateEngine;
+
+        $r0 = $r1.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template name>;
+
+        $i0 = virtualinvoke $r0.<org.simpleframework.xml.core.Template: int length()>();
+
+        if $i0 <= 0 goto label1;
+
+        $r2 = $r1.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template name>;
+
+        specialinvoke $r1.<org.simpleframework.xml.core.TemplateEngine: void replace(org.simpleframework.xml.core.Template)>($r2);
+
+     label1:
+        $r3 = $r1.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template name>;
+
+        virtualinvoke $r3.<org.simpleframework.xml.core.Template: void clear()>();
+
+        return;
+    }
+
+    private void replace(java.lang.String)
+    {
+        org.simpleframework.xml.core.Template $r0, $r5, $r6, $r7;
+        org.simpleframework.xml.filter.Filter $r1;
+        java.lang.String $r2, $r3;
+        org.simpleframework.xml.core.TemplateEngine $r4;
+
+        $r4 := @this: org.simpleframework.xml.core.TemplateEngine;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $r1 = $r4.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.filter.Filter filter>;
+
+        $r3 = interfaceinvoke $r1.<org.simpleframework.xml.filter.Filter: java.lang.String replace(java.lang.String)>($r2);
+
+        if $r3 != null goto label1;
+
+        $r0 = $r4.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Template: void append(java.lang.String)>("${");
+
+        $r5 = $r4.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        virtualinvoke $r5.<org.simpleframework.xml.core.Template: void append(java.lang.String)>($r2);
+
+        $r6 = $r4.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        virtualinvoke $r6.<org.simpleframework.xml.core.Template: void append(java.lang.String)>("}");
+
+        return;
+
+     label1:
+        $r7 = $r4.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        virtualinvoke $r7.<org.simpleframework.xml.core.Template: void append(java.lang.String)>($r3);
+
+        return;
+    }
+
+    private void replace(org.simpleframework.xml.core.Template)
+    {
+        java.lang.String $r0;
+        org.simpleframework.xml.core.Template $r1;
+        org.simpleframework.xml.core.TemplateEngine $r2;
+
+        $r2 := @this: org.simpleframework.xml.core.TemplateEngine;
+
+        $r1 := @parameter0: org.simpleframework.xml.core.Template;
+
+        $r0 = virtualinvoke $r1.<org.simpleframework.xml.core.Template: java.lang.String toString()>();
+
+        specialinvoke $r2.<org.simpleframework.xml.core.TemplateEngine: void replace(java.lang.String)>($r0);
+
+        return;
+    }
+
+    public void clear()
+    {
+        org.simpleframework.xml.core.Template $r0, $r2, $r3;
+        org.simpleframework.xml.core.TemplateEngine $r1;
+
+        $r1 := @this: org.simpleframework.xml.core.TemplateEngine;
+
+        $r0 = $r1.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template name>;
+
+        virtualinvoke $r0.<org.simpleframework.xml.core.Template: void clear()>();
+
+        $r2 = $r1.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        virtualinvoke $r2.<org.simpleframework.xml.core.Template: void clear()>();
+
+        $r3 = $r1.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source>;
+
+        virtualinvoke $r3.<org.simpleframework.xml.core.Template: void clear()>();
+
+        $r1.<org.simpleframework.xml.core.TemplateEngine: int off> = 0;
+
+        return;
+    }
+
+    public java.lang.String process(java.lang.String)
+    {
+        java.lang.Throwable $r0;
+        org.simpleframework.xml.core.Template $r1, $r4;
+        int $i0;
+        java.lang.String $r2, $r5;
+        org.simpleframework.xml.core.TemplateEngine $r3;
+
+        $r3 := @this: org.simpleframework.xml.core.TemplateEngine;
+
+        $r2 := @parameter0: java.lang.String;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int indexOf(int)>(36);
+
+        if $i0 >= 0 goto label1;
+
+        return $r2;
+
+     label1:
+        $r1 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template source>;
+
+        virtualinvoke $r1.<org.simpleframework.xml.core.Template: void append(java.lang.String)>($r2);
+
+        specialinvoke $r3.<org.simpleframework.xml.core.TemplateEngine: void parse()>();
+
+        $r4 = $r3.<org.simpleframework.xml.core.TemplateEngine: org.simpleframework.xml.core.Template text>;
+
+        $r5 = virtualinvoke $r4.<org.simpleframework.xml.core.Template: java.lang.String toString()>();
+
+     label2:
+        virtualinvoke $r3.<org.simpleframework.xml.core.TemplateEngine: void clear()>();
+
+        return $r5;
+
+     label3:
+        $r0 := @caughtexception;
+
+        virtualinvoke $r3.<org.simpleframework.xml.core.TemplateEngine: void clear()>();
+
+        throw $r0;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+    }
+}

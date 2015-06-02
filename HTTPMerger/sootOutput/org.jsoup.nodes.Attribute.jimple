@@ -1,0 +1,421 @@
+public class org.jsoup.nodes.Attribute extends java.lang.Object implements java.util.Map$Entry, java.lang.Cloneable
+{
+    private java.lang.String key;
+    private java.lang.String value;
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        java.lang.String $r0, $r1, $r3, $r4;
+        org.jsoup.nodes.Attribute $r2;
+
+        $r2 := @this: org.jsoup.nodes.Attribute;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r1 := @parameter1: java.lang.String;
+
+        specialinvoke $r2.<java.lang.Object: void <init>()>();
+
+        staticinvoke <org.jsoup.helper.Validate: void notEmpty(java.lang.String)>($r0);
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r1);
+
+        $r3 = virtualinvoke $r0.<java.lang.String: java.lang.String trim()>();
+
+        $r4 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r2.<org.jsoup.nodes.Attribute: java.lang.String key> = $r4;
+
+        $r2.<org.jsoup.nodes.Attribute: java.lang.String value> = $r1;
+
+        return;
+    }
+
+    public static org.jsoup.nodes.Attribute createFromEncoded(java.lang.String, java.lang.String)
+    {
+        org.jsoup.nodes.Attribute $r0;
+        java.lang.String $r1, $r2, $r3;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = staticinvoke <org.jsoup.nodes.Entities: java.lang.String unescape(java.lang.String,boolean)>($r2, 1);
+
+        $r0 = new org.jsoup.nodes.Attribute;
+
+        specialinvoke $r0.<org.jsoup.nodes.Attribute: void <init>(java.lang.String,java.lang.String)>($r1, $r3);
+
+        return $r0;
+    }
+
+    public volatile java.lang.Object clone() throws java.lang.CloneNotSupportedException
+    {
+        org.jsoup.nodes.Attribute $r0, $r1;
+
+        $r0 := @this: org.jsoup.nodes.Attribute;
+
+        $r1 = virtualinvoke $r0.<org.jsoup.nodes.Attribute: org.jsoup.nodes.Attribute clone()>();
+
+        return $r1;
+    }
+
+    public org.jsoup.nodes.Attribute clone()
+    {
+        java.lang.RuntimeException $r0;
+        java.lang.Object $r1;
+        java.lang.CloneNotSupportedException $r2;
+        org.jsoup.nodes.Attribute $r3, $r4;
+
+        $r3 := @this: org.jsoup.nodes.Attribute;
+
+     label1:
+        $r1 = specialinvoke $r3.<java.lang.Object: java.lang.Object clone()>();
+
+     label2:
+        $r4 = (org.jsoup.nodes.Attribute) $r1;
+
+        return $r4;
+
+     label3:
+        $r2 := @caughtexception;
+
+        $r0 = new java.lang.RuntimeException;
+
+        specialinvoke $r0.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r2);
+
+        throw $r0;
+
+        catch java.lang.CloneNotSupportedException from label1 to label2 with label3;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.lang.String $r0, $r1, $r5, $r6, $r7, $r8, $r9, $r10;
+        boolean $z0, $z1, $z2;
+        java.lang.Object $r2;
+        org.jsoup.nodes.Attribute $r3, $r4;
+
+        $r3 := @this: org.jsoup.nodes.Attribute;
+
+        $r2 := @parameter0: java.lang.Object;
+
+        if $r3 != $r2 goto label1;
+
+        return 1;
+
+     label1:
+        $z0 = $r2 instanceof org.jsoup.nodes.Attribute;
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r4 = (org.jsoup.nodes.Attribute) $r2;
+
+        $r0 = $r3.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        if $r0 == null goto label4;
+
+        $r1 = $r3.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        $r5 = $r4.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        $z1 = virtualinvoke $r1.<java.lang.String: boolean equals(java.lang.Object)>($r5);
+
+        if $z1 != 0 goto label5;
+
+     label3:
+        return 0;
+
+     label4:
+        $r6 = $r4.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        if $r6 != null goto label3;
+
+     label5:
+        $r7 = $r3.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        if $r7 == null goto label7;
+
+        $r8 = $r3.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        $r9 = $r4.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        $z2 = virtualinvoke $r8.<java.lang.String: boolean equals(java.lang.Object)>($r9);
+
+        if $z2 != 0 goto label8;
+
+     label6:
+        return 0;
+
+     label7:
+        $r10 = $r4.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        if $r10 == null goto label9;
+
+        goto label6;
+
+     label8:
+        return 1;
+
+     label9:
+        return 1;
+    }
+
+    public volatile java.lang.Object getKey()
+    {
+        java.lang.String $r0;
+        org.jsoup.nodes.Attribute $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attribute;
+
+        $r0 = virtualinvoke $r1.<org.jsoup.nodes.Attribute: java.lang.String getKey()>();
+
+        return $r0;
+    }
+
+    public java.lang.String getKey()
+    {
+        java.lang.String r0;
+        org.jsoup.nodes.Attribute $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attribute;
+
+        r0 = $r1.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        return r0;
+    }
+
+    public volatile java.lang.Object getValue()
+    {
+        java.lang.String $r0;
+        org.jsoup.nodes.Attribute $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attribute;
+
+        $r0 = virtualinvoke $r1.<org.jsoup.nodes.Attribute: java.lang.String getValue()>();
+
+        return $r0;
+    }
+
+    public java.lang.String getValue()
+    {
+        java.lang.String r0;
+        org.jsoup.nodes.Attribute $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attribute;
+
+        r0 = $r1.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        return r0;
+    }
+
+    public int hashCode()
+    {
+        java.lang.String $r0, $r2, $r3, $r4;
+        int $i0, $i1, $i2, $i3;
+        org.jsoup.nodes.Attribute $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attribute;
+
+        $i1 = 0;
+
+        $r0 = $r1.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        if $r0 == null goto label3;
+
+        $r2 = $r1.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int hashCode()>();
+
+     label1:
+        $i2 = $i0 * 31;
+
+        $r3 = $r1.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        if $r3 == null goto label2;
+
+        $r4 = $r1.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        $i1 = virtualinvoke $r4.<java.lang.String: int hashCode()>();
+
+     label2:
+        $i3 = $i2 + $i1;
+
+        return $i3;
+
+     label3:
+        $i0 = 0;
+
+        goto label1;
+    }
+
+    public java.lang.String html()
+    {
+        org.jsoup.nodes.Document$OutputSettings $r0;
+        org.jsoup.nodes.Document $r1;
+        java.lang.String $r2, $r7, $r8, $r11;
+        java.lang.StringBuilder $r3, $r5, $r6, $r9, $r10;
+        org.jsoup.nodes.Attribute $r4;
+
+        $r4 := @this: org.jsoup.nodes.Attribute;
+
+        $r3 = new java.lang.StringBuilder;
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = $r4.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2);
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=\"");
+
+        $r7 = $r4.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        $r1 = new org.jsoup.nodes.Document;
+
+        specialinvoke $r1.<org.jsoup.nodes.Document: void <init>(java.lang.String)>("");
+
+        $r0 = virtualinvoke $r1.<org.jsoup.nodes.Document: org.jsoup.nodes.Document$OutputSettings outputSettings()>();
+
+        $r8 = staticinvoke <org.jsoup.nodes.Entities: java.lang.String escape(java.lang.String,org.jsoup.nodes.Document$OutputSettings)>($r7, $r0);
+
+        $r9 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r8);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r11;
+    }
+
+    protected void html(java.lang.StringBuilder, org.jsoup.nodes.Document$OutputSettings)
+    {
+        java.lang.String $r0, $r6, $r7;
+        org.jsoup.nodes.Document$OutputSettings $r1;
+        java.lang.StringBuilder $r2, $r4, $r5, $r8;
+        org.jsoup.nodes.Attribute $r3;
+
+        $r3 := @this: org.jsoup.nodes.Attribute;
+
+        $r2 := @parameter0: java.lang.StringBuilder;
+
+        $r1 := @parameter1: org.jsoup.nodes.Document$OutputSettings;
+
+        $r0 = $r3.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        $r4 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r0);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=\"");
+
+        $r6 = $r3.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        $r7 = staticinvoke <org.jsoup.nodes.Entities: java.lang.String escape(java.lang.String,org.jsoup.nodes.Document$OutputSettings)>($r6, $r1);
+
+        $r8 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r7);
+
+        virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        return;
+    }
+
+    protected boolean isDataAttribute()
+    {
+        int $i0, $i1;
+        boolean $z0;
+        java.lang.String $r0, $r2, $r3;
+        org.jsoup.nodes.Attribute $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attribute;
+
+        $r0 = $r1.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        $z0 = virtualinvoke $r0.<java.lang.String: boolean startsWith(java.lang.String)>("data-");
+
+        if $z0 == 0 goto label1;
+
+        $r2 = $r1.<org.jsoup.nodes.Attribute: java.lang.String key>;
+
+        $i0 = virtualinvoke $r2.<java.lang.String: int length()>();
+
+        $r3 = "data-";
+
+        $i1 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        if $i0 <= $i1 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public void setKey(java.lang.String)
+    {
+        java.lang.String $r0, $r2, $r3;
+        org.jsoup.nodes.Attribute $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attribute;
+
+        $r0 := @parameter0: java.lang.String;
+
+        staticinvoke <org.jsoup.helper.Validate: void notEmpty(java.lang.String)>($r0);
+
+        $r2 = virtualinvoke $r0.<java.lang.String: java.lang.String trim()>();
+
+        $r3 = virtualinvoke $r2.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $r1.<org.jsoup.nodes.Attribute: java.lang.String key> = $r3;
+
+        return;
+    }
+
+    public volatile java.lang.Object setValue(java.lang.Object)
+    {
+        java.lang.String $r0, $r3;
+        java.lang.Object $r1;
+        org.jsoup.nodes.Attribute $r2;
+
+        $r2 := @this: org.jsoup.nodes.Attribute;
+
+        $r1 := @parameter0: java.lang.Object;
+
+        $r0 = (java.lang.String) $r1;
+
+        $r3 = virtualinvoke $r2.<org.jsoup.nodes.Attribute: java.lang.String setValue(java.lang.String)>($r0);
+
+        return $r3;
+    }
+
+    public java.lang.String setValue(java.lang.String)
+    {
+        java.lang.String $r0, r1;
+        org.jsoup.nodes.Attribute $r2;
+
+        $r2 := @this: org.jsoup.nodes.Attribute;
+
+        $r0 := @parameter0: java.lang.String;
+
+        staticinvoke <org.jsoup.helper.Validate: void notNull(java.lang.Object)>($r0);
+
+        r1 = $r2.<org.jsoup.nodes.Attribute: java.lang.String value>;
+
+        $r2.<org.jsoup.nodes.Attribute: java.lang.String value> = $r0;
+
+        return r1;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $r0;
+        org.jsoup.nodes.Attribute $r1;
+
+        $r1 := @this: org.jsoup.nodes.Attribute;
+
+        $r0 = virtualinvoke $r1.<org.jsoup.nodes.Attribute: java.lang.String html()>();
+
+        return $r0;
+    }
+}

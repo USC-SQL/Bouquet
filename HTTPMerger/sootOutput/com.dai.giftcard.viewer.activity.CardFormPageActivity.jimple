@@ -1,0 +1,1659 @@
+public class com.dai.giftcard.viewer.activity.CardFormPageActivity extends android.app.Activity implements android.view.View$OnClickListener, android.speech.tts.TextToSpeech$OnInitListener
+{
+    int CardId;
+    boolean IsFirstLoad;
+    private int MY_DATA_CHECK_CODE;
+    android.widget.Button btnCheckInput;
+    android.widget.Button btnRefreshForm;
+    private android.view.View$OnClickListener btnResetClick;
+    private android.view.View$OnClickListener btnResultClick;
+    android.widget.Button btnResultForm;
+    android.widget.ArrayAdapter cardTypeKeyAdapter;
+    java.lang.CharSequence[] csMenuPhone;
+    android.app.ProgressDialog dialog;
+    android.widget.EditText etBalance;
+    android.widget.EditText etCardNumber;
+    android.widget.EditText etCardPin;
+    android.widget.EditText etExpiryDate;
+    android.widget.TextView etLastUpdate;
+    android.widget.EditText etNote;
+    private android.os.Handler handlerSetUI;
+    private android.os.Handler handlerUpdateCorret;
+    private android.os.Handler handlerUpdateDemoCard;
+    private android.os.Handler handlerUpdateError;
+    android.widget.ImageView imgCard;
+    private android.speech.tts.TextToSpeech myTTS;
+    android.widget.Spinner spCardType;
+    private android.widget.AdapterView$OnItemSelectedListener spCardTypeItemSelected;
+
+    public void <init>()
+    {
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$16 $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$15 $r1;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$14 $r2;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$13 $r3;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$3 $r4;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$2 $r5;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$1 $r6;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r7;
+
+        $r7 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        specialinvoke $r7.<android.app.Activity: void <init>()>();
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsFirstLoad> = 1;
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int MY_DATA_CHECK_CODE> = 0;
+
+        $r6 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$1;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity$1: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r7);
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.AdapterView$OnItemSelectedListener spCardTypeItemSelected> = $r6;
+
+        $r5 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$2;
+
+        specialinvoke $r5.<com.dai.giftcard.viewer.activity.CardFormPageActivity$2: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r7);
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View$OnClickListener btnResultClick> = $r5;
+
+        $r4 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$3;
+
+        specialinvoke $r4.<com.dai.giftcard.viewer.activity.CardFormPageActivity$3: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r7);
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View$OnClickListener btnResetClick> = $r4;
+
+        $r3 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$13;
+
+        specialinvoke $r3.<com.dai.giftcard.viewer.activity.CardFormPageActivity$13: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r7);
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerSetUI> = $r3;
+
+        $r2 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$14;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity$14: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r7);
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateError> = $r2;
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$15;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$15: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r7);
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateCorret> = $r1;
+
+        $r0 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$16;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.activity.CardFormPageActivity$16: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r7);
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateDemoCard> = $r0;
+
+        return;
+    }
+
+    private com.dai.giftcard.viewer.model.GiftCardEntity BindGiftCardFromForm(com.dai.giftcard.viewer.model.GiftCardEntity)
+    {
+        android.text.Editable $r0, $r12, $r15;
+        android.widget.EditText $r1, $r11, $r14;
+        com.dai.giftcard.viewer.model.CardType $r2;
+        java.lang.String $r3, $r8, $r9, $r10, $r13, $r16;
+        java.lang.Object $r4;
+        android.widget.Spinner $r5;
+        long $l0;
+        int $i1, $i2, $i3, $i4;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r6;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r7;
+
+        $r7 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r6 := @parameter0: com.dai.giftcard.viewer.model.GiftCardEntity;
+
+        $i1 = $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        if $i1 == -1 goto label1;
+
+        $i2 = $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $l0 = (long) $i2;
+
+        $r6 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntity GetGiftCardById(long)>($l0);
+
+     label1:
+        $r5 = $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Spinner spCardType>;
+
+        $r4 = virtualinvoke $r5.<android.widget.Spinner: java.lang.Object getSelectedItem()>();
+
+        $r3 = virtualinvoke $r4.<java.lang.Object: java.lang.String toString()>();
+
+        $r2 = staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardType GetCardTypeByName(java.lang.String)>($r3);
+
+        $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType> = $r2;
+
+        $r8 = $r2.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Category> = $r8;
+
+        $r9 = $r2.<com.dai.giftcard.viewer.model.CardType: java.lang.String Key>;
+
+        $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String CardTypeKey> = $r9;
+
+        $r1 = $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardNumber>;
+
+        $r0 = virtualinvoke $r1.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r10 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+        $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Number> = $r10;
+
+        $r11 = $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardPin>;
+
+        $r12 = virtualinvoke $r11.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r13 = virtualinvoke $r12.<java.lang.Object: java.lang.String toString()>();
+
+        $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Pin> = $r13;
+
+        $r14 = $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etNote>;
+
+        $r15 = virtualinvoke $r14.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r16 = virtualinvoke $r15.<java.lang.Object: java.lang.String toString()>();
+
+        $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Note> = $r16;
+
+        $i3 = $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        if $i3 != -1 goto label2;
+
+        staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: void AddCard(android.content.Context,com.dai.giftcard.viewer.model.GiftCardEntity)>($r7, $r6);
+
+        $i4 = $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: int ID>;
+
+        $r7.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId> = $i4;
+
+        return $r6;
+
+     label2:
+        return $r6;
+    }
+
+    private void EventMenuEmail()
+    {
+        android.app.AlertDialog $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$9 $r1;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$10 $r2;
+        android.widget.Toast $r3;
+        android.content.Context $r4;
+        boolean $z0;
+        com.dai.giftcard.viewer.model.CardType $r5, $r11;
+        long $l0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r6;
+        int $i1;
+        java.lang.String $r7, $r12;
+        android.app.AlertDialog$Builder $r8, $r9, $r13, $r14, $r15;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r10;
+
+        $r10 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $i1 = $r10.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $l0 = (long) $i1;
+
+        $r6 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntity GetGiftCardById(long)>($l0);
+
+        $r5 = $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r7 = $r5.<com.dai.giftcard.viewer.model.CardType: java.lang.String Email>;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("");
+
+        if $z0 == 0 goto label1;
+
+        $r4 = virtualinvoke $r10.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r3 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r4, 2131034128, 0);
+
+        virtualinvoke $r3.<android.widget.Toast: void show()>();
+
+        return;
+
+     label1:
+        $r11 = $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r12 = $r11.<com.dai.giftcard.viewer.model.CardType: java.lang.String Email>;
+
+        $r8 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r8.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r10);
+
+        $r9 = virtualinvoke $r8.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>("Email the card provider");
+
+        $r13 = virtualinvoke $r9.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setCancelable(boolean)>(0);
+
+        $r14 = virtualinvoke $r13.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r12);
+
+        $r2 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$10;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity$10: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r10);
+
+        $r15 = virtualinvoke $r14.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Email", $r2);
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$9;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$9: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r10);
+
+        virtualinvoke $r15.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setNegativeButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Cancel", $r1);
+
+        $r0 = virtualinvoke $r8.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r0.<android.app.AlertDialog: void show()>();
+
+        return;
+    }
+
+    private void EventMenuPhone()
+    {
+        android.app.AlertDialog $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$4 $r1;
+        java.lang.Object[] $r2;
+        java.lang.CharSequence[] $r3, $r23, $r24;
+        android.widget.Toast $r4;
+        android.content.Context $r5;
+        java.lang.StringBuilder $r6, $r18, $r19;
+        boolean $z0, $z1;
+        com.dai.giftcard.viewer.model.CardType $r7, $r16, $r17, $r20, $r21;
+        long $l0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r8;
+        com.dai.giftcard.viewer.model.QueryType $r9;
+        int $i1, $i2, $i3;
+        java.util.ArrayList $r10;
+        java.lang.String $r11, $r12, $r13, $r22;
+        android.app.AlertDialog$Builder $r14;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r15;
+
+        $r15 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $i1 = $r15.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $l0 = (long) $i1;
+
+        $r8 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntity GetGiftCardById(long)>($l0);
+
+        $r10 = new java.util.ArrayList;
+
+        specialinvoke $r10.<java.util.ArrayList: void <init>()>();
+
+        $r7 = $r8.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $z0 = virtualinvoke $r7.<com.dai.giftcard.viewer.model.CardType: boolean HasCardPhone()>();
+
+        if $z0 == 0 goto label2;
+
+        $r16 = $r8.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r11 = $r16.<com.dai.giftcard.viewer.model.CardType: java.lang.String CardPhone>;
+
+        $r17 = $r8.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r12 = $r17.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r9 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType PhoneCall>;
+
+        $r13 = virtualinvoke $r9.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        if $r12 != $r13 goto label1;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r18 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r11);
+
+        $r19 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\nBalance Query");
+
+        $r11 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label1:
+        virtualinvoke $r10.<java.util.ArrayList: boolean add(java.lang.Object)>($r11);
+
+     label2:
+        $r20 = $r8.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $z1 = virtualinvoke $r20.<com.dai.giftcard.viewer.model.CardType: boolean HasMerchantPhone()>();
+
+        if $z1 == 0 goto label3;
+
+        $r21 = $r8.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r22 = $r21.<com.dai.giftcard.viewer.model.CardType: java.lang.String MerchantPhone>;
+
+        virtualinvoke $r10.<java.util.ArrayList: boolean add(java.lang.Object)>($r22);
+
+     label3:
+        $i2 = virtualinvoke $r10.<java.util.ArrayList: int size()>();
+
+        if $i2 != 0 goto label4;
+
+        $r5 = virtualinvoke $r15.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r4 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r5, 2131034128, 0);
+
+        virtualinvoke $r4.<android.widget.Toast: void show()>();
+
+        return;
+
+     label4:
+        $i3 = virtualinvoke $r10.<java.util.ArrayList: int size()>();
+
+        $r3 = newarray (java.lang.CharSequence)[$i3];
+
+        $r2 = virtualinvoke $r10.<java.util.ArrayList: java.lang.Object[] toArray(java.lang.Object[])>($r3);
+
+        $r23 = (java.lang.CharSequence[]) $r2;
+
+        $r15.<com.dai.giftcard.viewer.activity.CardFormPageActivity: java.lang.CharSequence[] csMenuPhone> = $r23;
+
+        $r14 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r14.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r15);
+
+        virtualinvoke $r14.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>("Ring Provider");
+
+        $r24 = $r15.<com.dai.giftcard.viewer.activity.CardFormPageActivity: java.lang.CharSequence[] csMenuPhone>;
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$4;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$4: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r15);
+
+        virtualinvoke $r14.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setItems(java.lang.CharSequence[],android.content.DialogInterface$OnClickListener)>($r24, $r1);
+
+        $r0 = virtualinvoke $r14.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r0.<android.app.AlertDialog: void show()>();
+
+        return;
+    }
+
+    private void EventMenuStore()
+    {
+        android.app.AlertDialog $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$7 $r1;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$8 $r2;
+        android.widget.Toast $r3;
+        android.content.Context $r4;
+        boolean $z0;
+        com.dai.giftcard.viewer.model.CardType $r5, $r11;
+        long $l0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r6;
+        int $i1;
+        java.lang.String $r7, $r12;
+        android.app.AlertDialog$Builder $r8, $r9, $r13, $r14, $r15;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r10;
+
+        $r10 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $i1 = $r10.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $l0 = (long) $i1;
+
+        $r6 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntity GetGiftCardById(long)>($l0);
+
+        $r5 = $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r7 = $r5.<com.dai.giftcard.viewer.model.CardType: java.lang.String MerchantStore>;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("");
+
+        if $z0 == 0 goto label1;
+
+        $r4 = virtualinvoke $r10.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r3 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r4, 2131034128, 0);
+
+        virtualinvoke $r3.<android.widget.Toast: void show()>();
+
+        return;
+
+     label1:
+        $r11 = $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r12 = $r11.<com.dai.giftcard.viewer.model.CardType: java.lang.String MerchantStore>;
+
+        $r8 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r8.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r10);
+
+        $r9 = virtualinvoke $r8.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>("Store locations");
+
+        $r13 = virtualinvoke $r9.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setCancelable(boolean)>(0);
+
+        $r14 = virtualinvoke $r13.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r12);
+
+        $r2 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$8;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity$8: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r10);
+
+        $r15 = virtualinvoke $r14.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Browser", $r2);
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$7;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$7: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r10);
+
+        virtualinvoke $r15.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setNegativeButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Cancel", $r1);
+
+        $r0 = virtualinvoke $r8.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r0.<android.app.AlertDialog: void show()>();
+
+        return;
+    }
+
+    private void EventMenuSubmit()
+    {
+        android.app.AlertDialog $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$11 $r1;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$12 $r2;
+        android.app.AlertDialog$Builder $r3, $r4, $r6, $r7, $r8;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r3 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r3.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r5);
+
+        $r4 = virtualinvoke $r3.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>("Submit this card");
+
+        $r6 = virtualinvoke $r4.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setCancelable(boolean)>(0);
+
+        $r7 = virtualinvoke $r6.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>("Send this card to developer if you have problem using it.");
+
+        $r2 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$12;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity$12: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r5);
+
+        $r8 = virtualinvoke $r7.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Email", $r2);
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$11;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$11: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r5);
+
+        virtualinvoke $r8.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setNegativeButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Cancel", $r1);
+
+        $r0 = virtualinvoke $r3.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r0.<android.app.AlertDialog: void show()>();
+
+        return;
+    }
+
+    private void EventMenuWeb()
+    {
+        android.app.AlertDialog $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$5 $r1;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity$6 $r2;
+        android.widget.Toast $r3;
+        android.content.Context $r4;
+        boolean $z0;
+        com.dai.giftcard.viewer.model.CardType $r5, $r11;
+        long $l0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r6;
+        int $i1;
+        java.lang.String $r7, $r12;
+        android.app.AlertDialog$Builder $r8, $r9, $r13, $r14, $r15;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r10;
+
+        $r10 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $i1 = $r10.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $l0 = (long) $i1;
+
+        $r6 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntity GetGiftCardById(long)>($l0);
+
+        $r5 = $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r7 = $r5.<com.dai.giftcard.viewer.model.CardType: java.lang.String MerchantWeb>;
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("");
+
+        if $z0 == 0 goto label1;
+
+        $r4 = virtualinvoke $r10.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r3 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r4, 2131034128, 0);
+
+        virtualinvoke $r3.<android.widget.Toast: void show()>();
+
+        return;
+
+     label1:
+        $r11 = $r6.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r12 = $r11.<com.dai.giftcard.viewer.model.CardType: java.lang.String MerchantWeb>;
+
+        $r8 = new android.app.AlertDialog$Builder;
+
+        specialinvoke $r8.<android.app.AlertDialog$Builder: void <init>(android.content.Context)>($r10);
+
+        $r9 = virtualinvoke $r8.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setTitle(java.lang.CharSequence)>("Open website");
+
+        $r13 = virtualinvoke $r9.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setCancelable(boolean)>(0);
+
+        $r14 = virtualinvoke $r13.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setMessage(java.lang.CharSequence)>($r12);
+
+        $r2 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$6;
+
+        specialinvoke $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity$6: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r10);
+
+        $r15 = virtualinvoke $r14.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setPositiveButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Browser", $r2);
+
+        $r1 = new com.dai.giftcard.viewer.activity.CardFormPageActivity$5;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity$5: void <init>(com.dai.giftcard.viewer.activity.CardFormPageActivity)>($r10);
+
+        virtualinvoke $r15.<android.app.AlertDialog$Builder: android.app.AlertDialog$Builder setNegativeButton(java.lang.CharSequence,android.content.DialogInterface$OnClickListener)>("Cancel", $r1);
+
+        $r0 = virtualinvoke $r8.<android.app.AlertDialog$Builder: android.app.AlertDialog create()>();
+
+        virtualinvoke $r0.<android.app.AlertDialog: void show()>();
+
+        return;
+    }
+
+    private void EventQuery()
+    {
+        double $d0;
+        android.text.Editable $r0, $r57;
+        com.dai.giftcard.viewer.task.QueryBalanceAsyncTask $r1;
+        android.widget.Toast $r2, $r45, $r51;
+        android.content.Context $r3, $r44, $r50;
+        java.lang.Void[] $r4, $r53;
+        int $i0, $i1;
+        com.dai.giftcard.viewer.task.QueryVerificationAsyncTask $r5;
+        com.dai.giftcard.viewer.reader.BaseCardReader $r6;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7;
+        java.lang.String $r7, $r8, $r22, $r24, $r26, $r28, $r30, $r32, $r34, $r37, $r39, $r41, $r43, $r47, $r49, $r55, $r58;
+        com.dai.giftcard.viewer.model.CardType $r9, $r21, $r25, $r29, $r33, $r35, $r36, $r40, $r46;
+        android.os.IBinder $r10;
+        android.widget.EditText $r11, $r54, $r56;
+        android.view.inputmethod.InputMethodManager $r12;
+        java.lang.Object $r13;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r14, $r20;
+        android.os.Handler $r15, $r16, $r17, $r52;
+        com.dai.giftcard.viewer.model.QueryType $r18, $r23, $r27, $r31, $r38, $r42, $r48;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r19;
+
+        $r19 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r13 = virtualinvoke $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: java.lang.Object getSystemService(java.lang.String)>("input_method");
+
+        $r12 = (android.view.inputmethod.InputMethodManager) $r13;
+
+        $r11 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardNumber>;
+
+        $r10 = virtualinvoke $r11.<android.widget.EditText: android.os.IBinder getWindowToken()>();
+
+        virtualinvoke $r12.<android.view.inputmethod.InputMethodManager: boolean hideSoftInputFromWindow(android.os.IBinder,int)>($r10, 0);
+
+        $r14 = new com.dai.giftcard.viewer.model.GiftCardEntity;
+
+        specialinvoke $r14.<com.dai.giftcard.viewer.model.GiftCardEntity: void <init>()>();
+
+        $r20 = specialinvoke $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: com.dai.giftcard.viewer.model.GiftCardEntity BindGiftCardFromForm(com.dai.giftcard.viewer.model.GiftCardEntity)>($r14);
+
+        $r9 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r7 = $r9.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r18 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType OnlinePending>;
+
+        $r8 = virtualinvoke $r18.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r8);
+
+        if $z0 != 0 goto label5;
+
+        $r21 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r22 = $r21.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r23 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType PhoneCall>;
+
+        $r24 = virtualinvoke $r23.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z1 = virtualinvoke $r22.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r24);
+
+        if $z1 != 0 goto label5;
+
+        $r25 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r26 = $r25.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r27 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType Store>;
+
+        $r28 = virtualinvoke $r27.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z2 = virtualinvoke $r26.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r28);
+
+        if $z2 != 0 goto label5;
+
+        $r29 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r30 = $r29.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r31 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType System>;
+
+        $r32 = virtualinvoke $r31.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z3 = virtualinvoke $r30.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r32);
+
+        if $z3 != 0 goto label5;
+
+        $r33 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r34 = $r33.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r19, $r34, 5000);
+
+        $r35 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r6 = $r35.<com.dai.giftcard.viewer.model.CardType: com.dai.giftcard.viewer.reader.BaseCardReader reader>;
+
+        $z4 = $r6.<com.dai.giftcard.viewer.reader.BaseCardReader: boolean IsVerificaitonImage>;
+
+        if $z4 == 0 goto label4;
+
+        $r5 = new com.dai.giftcard.viewer.task.QueryVerificationAsyncTask;
+
+        $i0 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $r15 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerSetUI>;
+
+        specialinvoke $r5.<com.dai.giftcard.viewer.task.QueryVerificationAsyncTask: void <init>(int,android.content.Context,android.os.Handler)>($i0, $r19, $r15);
+
+        $r4 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r5.<com.dai.giftcard.viewer.task.QueryVerificationAsyncTask: android.os.AsyncTask execute(java.lang.Object[])>($r4);
+
+     label1:
+        staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: void SaveCard(android.content.Context)>($r19);
+
+        $r36 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r37 = $r36.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r38 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType Store>;
+
+        $r39 = virtualinvoke $r38.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z5 = virtualinvoke $r37.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r39);
+
+        if $z5 == 0 goto label2;
+
+        $r3 = virtualinvoke $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r2 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r3, 2131034123, 0);
+
+        virtualinvoke $r2.<android.widget.Toast: void show()>();
+
+     label2:
+        $r40 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r41 = $r40.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r42 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType PhoneCall>;
+
+        $r43 = virtualinvoke $r42.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z6 = virtualinvoke $r41.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r43);
+
+        if $z6 == 0 goto label3;
+
+        $r44 = virtualinvoke $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r45 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r44, 2131034124, 0);
+
+        virtualinvoke $r45.<android.widget.Toast: void show()>();
+
+     label3:
+        $r46 = $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        $r47 = $r46.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r48 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType OnlinePending>;
+
+        $r49 = virtualinvoke $r48.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z7 = virtualinvoke $r47.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r49);
+
+        if $z7 == 0 goto label6;
+
+        $r50 = virtualinvoke $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r51 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r50, 2131034125, 0);
+
+        virtualinvoke $r51.<android.widget.Toast: void show()>();
+
+        return;
+
+     label4:
+        $r1 = new com.dai.giftcard.viewer.task.QueryBalanceAsyncTask;
+
+        $i1 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $r52 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateDemoCard>;
+
+        $r16 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateError>;
+
+        $r17 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateCorret>;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: void <init>(int,android.content.Context,android.os.Handler,android.os.Handler,android.os.Handler)>($i1, $r19, $r52, $r16, $r17);
+
+        $r53 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r1.<com.dai.giftcard.viewer.task.QueryBalanceAsyncTask: android.os.AsyncTask execute(java.lang.Object[])>($r53);
+
+        goto label1;
+
+     label5:
+        $r54 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance>;
+
+        $r0 = virtualinvoke $r54.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r55 = virtualinvoke $r0.<java.lang.Object: java.lang.String toString()>();
+
+        $d0 = staticinvoke <com.dai.giftcard.viewer.helper.StringHelper: double GetDollar(java.lang.String)>($r55);
+
+        $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance> = $d0;
+
+        $r56 = $r19.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate>;
+
+        $r57 = virtualinvoke $r56.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r58 = virtualinvoke $r57.<java.lang.Object: java.lang.String toString()>();
+
+        $r20.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String ExpiryDate> = $r58;
+
+        goto label1;
+
+     label6:
+        return;
+    }
+
+    private void LoadCardDetail()
+    {
+        com.dai.giftcard.viewer.model.CardType $r0;
+        android.widget.TextView $r1;
+        boolean $z0;
+        double $d0;
+        java.lang.String $r2, $r9, $r11, $r12, $r14, $r16;
+        android.text.Spanned $r3;
+        android.widget.EditText $r4, $r7, $r8, $r10, $r13, $r15;
+        long $l0;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r5;
+        int $i1, $i2;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r6;
+
+        $r6 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $i1 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        if $i1 != -1 goto label1;
+
+        return;
+
+     label1:
+        $i2 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        $l0 = (long) $i2;
+
+        $r5 = staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: com.dai.giftcard.viewer.model.GiftCardEntity GetGiftCardById(long)>($l0);
+
+        $r4 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardNumber>;
+
+        $r3 = virtualinvoke $r5.<com.dai.giftcard.viewer.model.GiftCardEntity: android.text.Spanned GetCardNumberWithColor()>();
+
+        virtualinvoke $r4.<android.widget.EditText: void setText(java.lang.CharSequence)>($r3);
+
+        $r7 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardPin>;
+
+        $r2 = $r5.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Pin>;
+
+        virtualinvoke $r7.<android.widget.EditText: void setText(java.lang.CharSequence)>($r2);
+
+        $r8 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance>;
+
+        $d0 = $r5.<com.dai.giftcard.viewer.model.GiftCardEntity: double Balance>;
+
+        $r9 = staticinvoke <com.dai.giftcard.viewer.helper.StringHelper: java.lang.String DisplayDollar(double)>($d0);
+
+        virtualinvoke $r8.<android.widget.EditText: void setText(java.lang.CharSequence)>($r9);
+
+        $r10 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate>;
+
+        $r11 = $r5.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String ExpiryDate>;
+
+        virtualinvoke $r10.<android.widget.EditText: void setText(java.lang.CharSequence)>($r11);
+
+        $r12 = $r5.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Note>;
+
+        $z0 = virtualinvoke $r12.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("");
+
+        if $z0 == 0 goto label3;
+
+        $r13 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etNote>;
+
+        virtualinvoke $r13.<android.widget.EditText: void setText(java.lang.CharSequence)>("");
+
+     label2:
+        $r1 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.TextView etLastUpdate>;
+
+        $r14 = virtualinvoke $r5.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String GetLastUpdate()>();
+
+        virtualinvoke $r1.<android.widget.TextView: void setText(java.lang.CharSequence)>($r14);
+
+        $r0 = $r5.<com.dai.giftcard.viewer.model.GiftCardEntity: com.dai.giftcard.viewer.model.CardType CardType>;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void LoadCardTypeValue(com.dai.giftcard.viewer.model.CardType)>($r0);
+
+        return;
+
+     label3:
+        $r15 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etNote>;
+
+        $r16 = $r5.<com.dai.giftcard.viewer.model.GiftCardEntity: java.lang.String Note>;
+
+        virtualinvoke $r15.<android.widget.EditText: void setText(java.lang.CharSequence)>($r16);
+
+        goto label2;
+    }
+
+    private void LoadCardTypeValue(com.dai.giftcard.viewer.model.CardType)
+    {
+        android.widget.Toast $r0, $r48;
+        android.widget.Button $r1, $r40;
+        com.dai.giftcard.viewer.model.QueryType $r2, $r23, $r26, $r29;
+        android.widget.EditText $r3, $r31, $r32, $r33, $r34, $r35, $r36, $r38, $r41, $r42, $r43, $r44, $r45, $r46;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6;
+        android.widget.TextView $r4, $r18;
+        android.view.View $r5, $r17;
+        android.widget.ImageView $r6;
+        android.content.Context $r7, $r37, $r47;
+        android.content.res.Resources $r8;
+        android.widget.Spinner $r9;
+        int $i0, $i1;
+        java.lang.String $r10, $r11, $r15, $r16, $r19, $r20, $r21, $r22, $r24, $r25, $r27, $r28, $r30, $r39;
+        android.widget.ArrayAdapter $r12;
+        com.dai.giftcard.viewer.model.CardType $r13;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r14;
+
+        $r14 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r13 := @parameter0: com.dai.giftcard.viewer.model.CardType;
+
+        if $r13 != null goto label1;
+
+        return;
+
+     label1:
+        $r12 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.ArrayAdapter cardTypeKeyAdapter>;
+
+        $i0 = virtualinvoke $r12.<android.widget.ArrayAdapter: int getPosition(java.lang.Object)>($r13);
+
+        $r9 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Spinner spCardType>;
+
+        virtualinvoke $r9.<android.widget.Spinner: void setSelection(int)>($i0);
+
+        $r8 = virtualinvoke $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.res.Resources getResources()>();
+
+        $r10 = $r13.<com.dai.giftcard.viewer.model.CardType: java.lang.String Logo>;
+
+        $r15 = virtualinvoke $r10.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>(".gif", "");
+
+        $r7 = virtualinvoke $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r11 = virtualinvoke $r7.<android.content.Context: java.lang.String getPackageName()>();
+
+        $i1 = virtualinvoke $r8.<android.content.res.Resources: int getIdentifier(java.lang.String,java.lang.String,java.lang.String)>($r15, "drawable", $r11);
+
+        $r6 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.ImageView imgCard>;
+
+        virtualinvoke $r6.<android.widget.ImageView: void setImageResource(int)>($i1);
+
+        $r5 = virtualinvoke $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296267);
+
+        $r4 = (android.widget.TextView) $r5;
+
+        $r16 = $r13.<com.dai.giftcard.viewer.model.CardType: java.lang.String Name>;
+
+        virtualinvoke $r4.<android.widget.TextView: void setText(java.lang.CharSequence)>($r16);
+
+        $r17 = virtualinvoke $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296270);
+
+        $r18 = (android.widget.TextView) $r17;
+
+        $r19 = $r13.<com.dai.giftcard.viewer.model.CardType: java.lang.String PasswordDisplay>;
+
+        $z0 = virtualinvoke $r19.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("-");
+
+        if $z0 == 0 goto label4;
+
+        virtualinvoke $r18.<android.widget.TextView: void setVisibility(int)>(8);
+
+        $r3 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardPin>;
+
+        virtualinvoke $r3.<android.widget.EditText: void setVisibility(int)>(8);
+
+     label2:
+        $r20 = $r13.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r2 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType PhoneCall>;
+
+        $r21 = virtualinvoke $r2.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z1 = virtualinvoke $r20.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r21);
+
+        if $z1 != 0 goto label3;
+
+        $r22 = $r13.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r23 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType Store>;
+
+        $r24 = virtualinvoke $r23.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z2 = virtualinvoke $r22.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r24);
+
+        if $z2 != 0 goto label3;
+
+        $r25 = $r13.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r26 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType System>;
+
+        $r27 = virtualinvoke $r26.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z3 = virtualinvoke $r25.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r27);
+
+        if $z3 != 0 goto label3;
+
+        $r28 = $r13.<com.dai.giftcard.viewer.model.CardType: java.lang.String Category>;
+
+        $r29 = <com.dai.giftcard.viewer.model.QueryType: com.dai.giftcard.viewer.model.QueryType OnlinePending>;
+
+        $r30 = virtualinvoke $r29.<com.dai.giftcard.viewer.model.QueryType: java.lang.String toString()>();
+
+        $z4 = virtualinvoke $r28.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>($r30);
+
+        if $z4 == 0 goto label5;
+
+     label3:
+        $r1 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Button btnResultForm>;
+
+        virtualinvoke $r1.<android.widget.Button: void setText(java.lang.CharSequence)>("Save");
+
+        $r31 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance>;
+
+        virtualinvoke $r31.<android.widget.EditText: void setFocusable(boolean)>(1);
+
+        $r32 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate>;
+
+        virtualinvoke $r32.<android.widget.EditText: void setFocusable(boolean)>(1);
+
+        $r33 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance>;
+
+        virtualinvoke $r33.<android.widget.EditText: void setTextColor(int)>(-16777216);
+
+        $r34 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate>;
+
+        virtualinvoke $r34.<android.widget.EditText: void setTextColor(int)>(-16777216);
+
+        $r35 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance>;
+
+        virtualinvoke $r35.<android.widget.EditText: void setHint(java.lang.CharSequence)>("manual update");
+
+        $r36 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate>;
+
+        virtualinvoke $r36.<android.widget.EditText: void setHint(java.lang.CharSequence)>("manual update");
+
+        $z5 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsFirstLoad>;
+
+        if $z5 == 0 goto label6;
+
+        $r37 = virtualinvoke $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r0 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r37, 2131034120, 0);
+
+        virtualinvoke $r0.<android.widget.Toast: void show()>();
+
+        $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsFirstLoad> = 0;
+
+        return;
+
+     label4:
+        virtualinvoke $r18.<android.widget.TextView: void setVisibility(int)>(0);
+
+        $r38 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardPin>;
+
+        virtualinvoke $r38.<android.widget.EditText: void setVisibility(int)>(0);
+
+        $r39 = $r13.<com.dai.giftcard.viewer.model.CardType: java.lang.String PasswordDisplay>;
+
+        virtualinvoke $r18.<android.widget.TextView: void setText(java.lang.CharSequence)>($r39);
+
+        goto label2;
+
+     label5:
+        $r40 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Button btnResultForm>;
+
+        virtualinvoke $r40.<android.widget.Button: void setText(java.lang.CharSequence)>("Update");
+
+        $r41 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance>;
+
+        virtualinvoke $r41.<android.widget.EditText: void setFocusable(boolean)>(0);
+
+        $r42 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate>;
+
+        virtualinvoke $r42.<android.widget.EditText: void setFocusable(boolean)>(0);
+
+        $r43 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance>;
+
+        virtualinvoke $r43.<android.widget.EditText: void setTextColor(int)>(-65536);
+
+        $r44 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate>;
+
+        virtualinvoke $r44.<android.widget.EditText: void setTextColor(int)>(-65536);
+
+        $r45 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance>;
+
+        virtualinvoke $r45.<android.widget.EditText: void setHint(java.lang.CharSequence)>("auto update from card");
+
+        $r46 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate>;
+
+        virtualinvoke $r46.<android.widget.EditText: void setHint(java.lang.CharSequence)>("auto update from card");
+
+        $z6 = $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsFirstLoad>;
+
+        if $z6 == 0 goto label7;
+
+        $r47 = virtualinvoke $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r48 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r47, 2131034119, 0);
+
+        virtualinvoke $r48.<android.widget.Toast: void show()>();
+
+        $r14.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsFirstLoad> = 0;
+
+        return;
+
+     label6:
+        return;
+
+     label7:
+        return;
+    }
+
+    static void access$000(com.dai.giftcard.viewer.activity.CardFormPageActivity, com.dai.giftcard.viewer.model.CardType)
+    {
+        com.dai.giftcard.viewer.model.CardType $r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r1;
+
+        $r1 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r0 := @parameter1: com.dai.giftcard.viewer.model.CardType;
+
+        specialinvoke $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void LoadCardTypeValue(com.dai.giftcard.viewer.model.CardType)>($r0);
+
+        return;
+    }
+
+    static void access$100(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r0;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void EventQuery()>();
+
+        return;
+    }
+
+    static void access$200(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r0;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        specialinvoke $r0.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void LoadCardDetail()>();
+
+        return;
+    }
+
+    static android.os.Handler access$300(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        android.os.Handler r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r1;
+
+        $r1 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        r0 = $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateDemoCard>;
+
+        return r0;
+    }
+
+    static android.os.Handler access$400(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        android.os.Handler r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r1;
+
+        $r1 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        r0 = $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateError>;
+
+        return r0;
+    }
+
+    static android.os.Handler access$500(com.dai.giftcard.viewer.activity.CardFormPageActivity)
+    {
+        android.os.Handler r0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r1;
+
+        $r1 := @parameter0: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        r0 = $r1.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.os.Handler handlerUpdateCorret>;
+
+        return r0;
+    }
+
+    public boolean IsCardSaved()
+    {
+        android.widget.Toast $r0;
+        android.content.Context $r1;
+        int $i0;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $i0 = $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        if $i0 != -1 goto label1;
+
+        $r1 = virtualinvoke $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r0 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r1, "Please save your card first.", 0);
+
+        virtualinvoke $r0.<android.widget.Toast: void show()>();
+
+        return 0;
+
+     label1:
+        return 1;
+    }
+
+    protected void onActivityResult(int, int, android.content.Intent)
+    {
+        android.speech.tts.TextToSpeech $r0, $r3;
+        android.content.Intent $r1, $r4;
+        int $i0, $i1, $i2;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 := @parameter2: android.content.Intent;
+
+        $i2 = $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int MY_DATA_CHECK_CODE>;
+
+        if $i0 != $i2 goto label2;
+
+        if $i1 != 1 goto label1;
+
+        $r0 = new android.speech.tts.TextToSpeech;
+
+        specialinvoke $r0.<android.speech.tts.TextToSpeech: void <init>(android.content.Context,android.speech.tts.TextToSpeech$OnInitListener)>($r2, $r2);
+
+        $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.speech.tts.TextToSpeech myTTS> = $r0;
+
+        $r3 = $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.speech.tts.TextToSpeech myTTS>;
+
+        virtualinvoke $r3.<android.speech.tts.TextToSpeech: int setSpeechRate(float)>(0.7F);
+
+        return;
+
+     label1:
+        $r4 = new android.content.Intent;
+
+        specialinvoke $r4.<android.content.Intent: void <init>()>();
+
+        virtualinvoke $r4.<android.content.Intent: android.content.Intent setAction(java.lang.String)>("android.speech.tts.engine.INSTALL_TTS_DATA");
+
+        virtualinvoke $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void startActivity(android.content.Intent)>($r4);
+
+        return;
+
+     label2:
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        android.speech.tts.TextToSpeech $r0;
+        java.lang.String $r1;
+        android.text.Editable $r2;
+        android.widget.EditText $r3;
+        android.view.View $r4;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r5;
+
+        $r5 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r4 := @parameter0: android.view.View;
+
+        $r3 = $r5.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardNumber>;
+
+        $r2 = virtualinvoke $r3.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r1 = virtualinvoke $r2.<java.lang.Object: java.lang.String toString()>();
+
+        $r0 = $r5.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.speech.tts.TextToSpeech myTTS>;
+
+        virtualinvoke $r0.<android.speech.tts.TextToSpeech: int speak(java.lang.String,int,java.util.HashMap)>($r1, 0, null);
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        com.dai.giftcard.viewer.model.CardType $r0;
+        long $l0, $l4;
+        android.os.IBinder $r1;
+        android.view.inputmethod.InputMethodManager $r2;
+        java.lang.Object $r3;
+        android.content.Context $r4;
+        android.widget.AdapterView$OnItemSelectedListener $r5;
+        android.widget.Spinner $r6, $r40, $r42;
+        java.util.ArrayList $r7;
+        android.widget.ArrayAdapter $r8, $r38, $r41;
+        android.widget.ImageView $r9, $r45;
+        android.widget.Button $r10, $r30, $r32, $r33, $r34, $r36;
+        android.widget.TextView $r11;
+        android.widget.EditText $r12, $r20, $r23, $r25, $r27, $r43;
+        android.view.View $r13, $r19, $r21, $r22, $r24, $r26, $r28, $r29, $r31, $r37, $r39;
+        com.dai.giftcard.viewer.model.CardTypeList $r14;
+        android.view.View$OnClickListener $r15, $r35;
+        android.content.Intent $r16, $r46;
+        int $i1, $i2, $i3, $i5;
+        android.os.Bundle $r17, $r44;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r18;
+
+        $r18 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r17 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r18.<android.app.Activity: void onCreate(android.os.Bundle)>($r17);
+
+        virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void setContentView(int)>(2130903041);
+
+        $r13 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296271);
+
+        $r12 = (android.widget.EditText) $r13;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardPin> = $r12;
+
+        $r19 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296273);
+
+        $r20 = (android.widget.EditText) $r19;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etBalance> = $r20;
+
+        $r21 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296277);
+
+        $r11 = (android.widget.TextView) $r21;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.TextView etLastUpdate> = $r11;
+
+        $r22 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296275);
+
+        $r23 = (android.widget.EditText) $r22;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etExpiryDate> = $r23;
+
+        $r24 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296276);
+
+        $r25 = (android.widget.EditText) $r24;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etNote> = $r25;
+
+        $r26 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296269);
+
+        $r27 = (android.widget.EditText) $r26;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardNumber> = $r27;
+
+        $r28 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296279);
+
+        $r10 = (android.widget.Button) $r28;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Button btnResultForm> = $r10;
+
+        $r29 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296280);
+
+        $r30 = (android.widget.Button) $r29;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Button btnRefreshForm> = $r30;
+
+        $r31 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296268);
+
+        $r32 = (android.widget.Button) $r31;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Button btnCheckInput> = $r32;
+
+        $r33 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Button btnResultForm>;
+
+        $r15 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View$OnClickListener btnResultClick>;
+
+        virtualinvoke $r33.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r15);
+
+        $r34 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Button btnRefreshForm>;
+
+        $r35 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View$OnClickListener btnResetClick>;
+
+        virtualinvoke $r34.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r35);
+
+        $r36 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Button btnCheckInput>;
+
+        virtualinvoke $r36.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r18);
+
+        $r37 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296266);
+
+        $r9 = (android.widget.ImageView) $r37;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.ImageView imgCard> = $r9;
+
+        $r8 = new android.widget.ArrayAdapter;
+
+        $r14 = <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardTypeList CardTypeList>;
+
+        $r7 = $r14.<com.dai.giftcard.viewer.model.CardTypeList: java.util.ArrayList list>;
+
+        specialinvoke $r8.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,java.util.List)>($r18, 17367048, $r7);
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.ArrayAdapter cardTypeKeyAdapter> = $r8;
+
+        $r38 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.ArrayAdapter cardTypeKeyAdapter>;
+
+        virtualinvoke $r38.<android.widget.ArrayAdapter: void setDropDownViewResource(int)>(17367049);
+
+        $r39 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.View findViewById(int)>(2131296265);
+
+        $r6 = (android.widget.Spinner) $r39;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Spinner spCardType> = $r6;
+
+        $r40 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Spinner spCardType>;
+
+        $r41 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.ArrayAdapter cardTypeKeyAdapter>;
+
+        virtualinvoke $r40.<android.widget.Spinner: void setAdapter(android.widget.SpinnerAdapter)>($r41);
+
+        $r42 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.Spinner spCardType>;
+
+        $r5 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.AdapterView$OnItemSelectedListener spCardTypeItemSelected>;
+
+        virtualinvoke $r42.<android.widget.Spinner: void setOnItemSelectedListener(android.widget.AdapterView$OnItemSelectedListener)>($r5);
+
+        $r4 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r3 = virtualinvoke $r4.<android.content.Context: java.lang.Object getSystemService(java.lang.String)>("input_method");
+
+        $r2 = (android.view.inputmethod.InputMethodManager) $r3;
+
+        $r43 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.EditText etCardNumber>;
+
+        $r1 = virtualinvoke $r43.<android.widget.EditText: android.os.IBinder getWindowToken()>();
+
+        virtualinvoke $r2.<android.view.inputmethod.InputMethodManager: boolean hideSoftInputFromWindow(android.os.IBinder,int)>($r1, 2);
+
+        $r16 = virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Intent getIntent()>();
+
+        $r44 = virtualinvoke $r16.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        $l0 = virtualinvoke $r44.<android.os.Bundle: long getLong(java.lang.String)>("cardid");
+
+        $i1 = (int) $l0;
+
+        $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId> = $i1;
+
+        $i2 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        if $i2 == -1 goto label2;
+
+        specialinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void LoadCardDetail()>();
+
+        $r45 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.widget.ImageView imgCard>;
+
+        virtualinvoke $r45.<android.widget.ImageView: boolean requestFocus()>();
+
+     label1:
+        $r46 = new android.content.Intent;
+
+        specialinvoke $r46.<android.content.Intent: void <init>()>();
+
+        virtualinvoke $r46.<android.content.Intent: android.content.Intent setAction(java.lang.String)>("android.speech.tts.engine.CHECK_TTS_DATA");
+
+        $i3 = $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int MY_DATA_CHECK_CODE>;
+
+        virtualinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void startActivityForResult(android.content.Intent,int)>($r46, $i3);
+
+        return;
+
+     label2:
+        $l4 = virtualinvoke $r44.<android.os.Bundle: long getLong(java.lang.String)>("cardtypeid");
+
+        $i5 = (int) $l4;
+
+        $r0 = staticinvoke <com.dai.giftcard.viewer.service.CardTypeService: com.dai.giftcard.viewer.model.CardType GetCardTypeByID(int)>($i5);
+
+        specialinvoke $r18.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void LoadCardTypeValue(com.dai.giftcard.viewer.model.CardType)>($r0);
+
+        goto label1;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        android.view.MenuInflater $r0;
+        android.view.Menu $r1;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        $r0 = virtualinvoke $r2.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.view.MenuInflater getMenuInflater()>();
+
+        virtualinvoke $r0.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131230720, $r1);
+
+        return 1;
+    }
+
+    public void onInit(int)
+    {
+        android.widget.Toast $r0;
+        java.util.Locale $r1, $r5;
+        android.speech.tts.TextToSpeech $r2, $r4;
+        int $i0, $i1;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r3;
+
+        $r3 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $i0 := @parameter0: int;
+
+        if $i0 != 0 goto label1;
+
+        $r2 = $r3.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.speech.tts.TextToSpeech myTTS>;
+
+        $r1 = <java.util.Locale: java.util.Locale US>;
+
+        $i1 = virtualinvoke $r2.<android.speech.tts.TextToSpeech: int isLanguageAvailable(java.util.Locale)>($r1);
+
+        if $i1 != 0 goto label2;
+
+        $r4 = $r3.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.speech.tts.TextToSpeech myTTS>;
+
+        $r5 = <java.util.Locale: java.util.Locale US>;
+
+        virtualinvoke $r4.<android.speech.tts.TextToSpeech: int setLanguage(java.util.Locale)>($r5);
+
+        return;
+
+     label1:
+        if $i0 != -1 goto label3;
+
+        $r0 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r3, "Sorry! Text To Speech failed...", 1);
+
+        virtualinvoke $r0.<android.widget.Toast: void show()>();
+
+        return;
+
+     label2:
+        return;
+
+     label3:
+        return;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        android.app.Activity $r0, $r7;
+        android.widget.Toast $r1;
+        android.content.Context $r2;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8;
+        android.content.Intent $r3;
+        com.dai.giftcard.viewer.model.GiftCardEntity $r4;
+        android.view.MenuItem $r5;
+        com.dai.giftcard.viewer.activity.CardFormPageActivity $r6;
+
+        $r6 := @this: com.dai.giftcard.viewer.activity.CardFormPageActivity;
+
+        $r5 := @parameter0: android.view.MenuItem;
+
+        $i0 = interfaceinvoke $r5.<android.view.MenuItem: int getItemId()>();
+
+        if $i0 != 2131296321 goto label01;
+
+        $z0 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsCardSaved()>();
+
+        if $z0 == 0 goto label01;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void EventMenuPhone()>();
+
+     label01:
+        $i1 = interfaceinvoke $r5.<android.view.MenuItem: int getItemId()>();
+
+        if $i1 != 2131296322 goto label02;
+
+        $z1 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsCardSaved()>();
+
+        if $z1 == 0 goto label02;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void EventMenuWeb()>();
+
+     label02:
+        $i2 = interfaceinvoke $r5.<android.view.MenuItem: int getItemId()>();
+
+        if $i2 != 2131296323 goto label03;
+
+        $z2 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsCardSaved()>();
+
+        if $z2 == 0 goto label03;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void EventMenuStore()>();
+
+     label03:
+        $i3 = interfaceinvoke $r5.<android.view.MenuItem: int getItemId()>();
+
+        if $i3 != 2131296324 goto label04;
+
+        $z3 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsCardSaved()>();
+
+        if $z3 == 0 goto label04;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void EventMenuEmail()>();
+
+     label04:
+        $i4 = interfaceinvoke $r5.<android.view.MenuItem: int getItemId()>();
+
+        if $i4 != 2131296317 goto label05;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void EventQuery()>();
+
+     label05:
+        $i5 = interfaceinvoke $r5.<android.view.MenuItem: int getItemId()>();
+
+        if $i5 != 2131296320 goto label06;
+
+        $z4 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsCardSaved()>();
+
+        if $z4 == 0 goto label06;
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void EventMenuSubmit()>();
+
+     label06:
+        $i6 = interfaceinvoke $r5.<android.view.MenuItem: int getItemId()>();
+
+        if $i6 != 2131296318 goto label07;
+
+        $r4 = new com.dai.giftcard.viewer.model.GiftCardEntity;
+
+        specialinvoke $r4.<com.dai.giftcard.viewer.model.GiftCardEntity: void <init>()>();
+
+        specialinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: com.dai.giftcard.viewer.model.GiftCardEntity BindGiftCardFromForm(com.dai.giftcard.viewer.model.GiftCardEntity)>($r4);
+
+        staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: void SaveCard(android.content.Context)>($r6);
+
+        $r2 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.content.Context getApplicationContext()>();
+
+        $r1 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r2, 2131034126, 0);
+
+        virtualinvoke $r1.<android.widget.Toast: void show()>();
+
+     label07:
+        $i7 = interfaceinvoke $r5.<android.view.MenuItem: int getItemId()>();
+
+        if $i7 != 2131296319 goto label10;
+
+        $z5 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: boolean IsCardSaved()>();
+
+        if $z5 == 0 goto label08;
+
+        $i8 = $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: int CardId>;
+
+        staticinvoke <com.dai.giftcard.viewer.service.GiftCardService: void DeleteCard(android.content.Context,int)>($r6, $i8);
+
+        $r3 = new android.content.Intent;
+
+        specialinvoke $r3.<android.content.Intent: void <init>()>();
+
+        $r0 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.app.Activity getParent()>();
+
+        if $r0 != null goto label09;
+
+        virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void setResult(int,android.content.Intent)>(-1, $r3);
+
+     label08:
+        virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: void finish()>();
+
+        return 1;
+
+     label09:
+        $r7 = virtualinvoke $r6.<com.dai.giftcard.viewer.activity.CardFormPageActivity: android.app.Activity getParent()>();
+
+        virtualinvoke $r7.<android.app.Activity: void setResult(int,android.content.Intent)>(-1, $r3);
+
+        goto label08;
+
+     label10:
+        return 0;
+    }
+}

@@ -1,0 +1,37 @@
+class com.dai.giftcard.viewer.activity.CameraPageActivity$5 extends java.lang.Object implements android.view.View$OnClickListener
+{
+    final com.dai.giftcard.viewer.activity.CameraPageActivity this$0;
+
+    void <init>(com.dai.giftcard.viewer.activity.CameraPageActivity)
+    {
+        com.dai.giftcard.viewer.activity.CameraPageActivity $r0;
+        com.dai.giftcard.viewer.activity.CameraPageActivity$5 $r1;
+
+        $r1 := @this: com.dai.giftcard.viewer.activity.CameraPageActivity$5;
+
+        $r0 := @parameter0: com.dai.giftcard.viewer.activity.CameraPageActivity;
+
+        $r1.<com.dai.giftcard.viewer.activity.CameraPageActivity$5: com.dai.giftcard.viewer.activity.CameraPageActivity this$0> = $r0;
+
+        specialinvoke $r1.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        com.dai.giftcard.viewer.activity.CameraPageActivity $r0;
+        android.view.View $r1;
+        com.dai.giftcard.viewer.activity.CameraPageActivity$5 $r2;
+
+        $r2 := @this: com.dai.giftcard.viewer.activity.CameraPageActivity$5;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r0 = $r2.<com.dai.giftcard.viewer.activity.CameraPageActivity$5: com.dai.giftcard.viewer.activity.CameraPageActivity this$0>;
+
+        staticinvoke <com.dai.giftcard.viewer.activity.CameraPageActivity: void access$000(com.dai.giftcard.viewer.activity.CameraPageActivity)>($r0);
+
+        return;
+    }
+}
