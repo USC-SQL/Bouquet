@@ -32,54 +32,53 @@ import soot.toolkits.scalar.FlowSet;
 import soot.util.Chain;
 
 public class Checker {
-	private SootMethod method;
-	private UnitGraph cfg;
-	private Set<Definition> interestingpoints;
-	public boolean isInteresting(Definition df)
-	{
-		return interestingpoints.contains(df);
-	}
-	private boolean HasUsed(Unit s, Definition df){
-		List<ValueBox> l=s.getUseBoxes();
-		for(int i=0;i<l.size();i++)
-		{
-			ValueBox bv=l.get(i);
-			if(bv.toString().equals(df.vb.toString()))
-				return true;
-		}
-		return false;
-	}
-	public Checker(SootMethod m)
-	{
-		Body b=m.retrieveActiveBody();
-		UnitGraph g=new BriefUnitGraph(m.retrieveActiveBody());
+    private SootMethod method;
+    private UnitGraph cfg;
+    private Set<Definition> interestingpoints;
 
-		HTTPAnalyzer httpan=new HTTPAnalyzer(g);
-		Chain units = b.getUnits();
-		Iterator stmtIt = units.snapshotIterator();
-		int offset=0;
-		// typical while loop for iterating over each statement
-		while (stmtIt.hasNext()) {
-			Stmt stmt= (Stmt)stmtIt.next();
-			if(ToolKit.isHttpOpen(stmt))
-			{
-	            FlowSet set = (FlowSet) httpan.getFlowBefore(stmt);
-	            System.out.println(set.size());
+    public boolean isInteresting(Definition df) {
+        return interestingpoints.contains(df);
+    }
 
-			}
-			else if(stmt instanceof ReturnStmt)
-			{
-				System.out.println(stmt);
-	            FlowSet set = (FlowSet) httpan.getFlowBefore(stmt);
-	            System.out.println(set.size());
-			}
+    private boolean HasUsed(Unit s, Definition df) {
+        List<ValueBox> l = s.getUseBoxes();
+        for (int i = 0; i < l.size(); i++) {
+            ValueBox bv = l.get(i);
+            if (bv.toString().equals(df.vb.toString()))
+                return true;
+        }
+        return false;
+    }
 
-		}
-	}
-	public Set<Definition> GetInterestingPoints(){
-		return interestingpoints;
-	}
-	public void Dumptofile(PrintWriter pw,String sig){
-		pw.println(sig+" "+interestingpoints);
-	}
+    public Checker(SootMethod m) {
+        Body b = m.retrieveActiveBody();
+        UnitGraph g = new BriefUnitGraph(m.retrieveActiveBody());
+
+        HTTPAnalyzer httpan = new HTTPAnalyzer(g);
+        Chain units = b.getUnits();
+        Iterator stmtIt = units.snapshotIterator();
+        int offset = 0;
+        // typical while loop for iterating over each statement
+        while (stmtIt.hasNext()) {
+            Stmt stmt = (Stmt) stmtIt.next();
+            if (ToolKit.isHttpOpen(stmt)) {
+                FlowSet set = (FlowSet) httpan.getFlowBefore(stmt);
+                System.out.println(set.size());
+
+            } else if (stmt instanceof ReturnStmt) {
+                System.out.println(stmt);
+                FlowSet set = (FlowSet) httpan.getFlowBefore(stmt);
+                System.out.println(set.size());
+            }
+
+        }
+    }
+
+    public Set<Definition> GetInterestingPoints() {
+        return interestingpoints;
+    }
+
+    public void Dumptofile(PrintWriter pw, String sig) {
+        pw.println(sig + " " + interestingpoints);
+    }
 }
