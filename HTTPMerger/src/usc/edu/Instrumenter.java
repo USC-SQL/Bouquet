@@ -3,6 +3,7 @@ package usc.edu;
 /**
  * Created by dingli on 4/21/15.
  */
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.HashSet;
@@ -31,63 +32,58 @@ import soot.jimple.internal.JimpleLocal;
 import soot.util.*;
 
 import java.util.*;
-public class Instrumenter extends BodyTransformer{
+
+public class Instrumenter extends BodyTransformer {
     /* some internal fields */
     static SootClass Agentclass;
-    static SootMethod increaseCounter, reportCounter,StringReporter;
+    static SootMethod increaseCounter, reportCounter, StringReporter;
     PrintWriter out;
     /*
      * internalTransform goes through a method body and inserts counter
      * instructions before an INVOKESTATIC instruction
      */
-    static int instrumentid=0;
-    public Instrumenter(PrintWriter pw)
-    {
-        out=pw;
+    static int instrumentid = 0;
+
+    public Instrumenter(PrintWriter pw) {
+        out = pw;
     }
+
     protected void internalTransform(final Body body, String phase, Map options) {
         Chain units = body.getUnits();
         SootMethod method = body.getMethod();
-        if(method.getSignature().startsWith("<"+AgentClassConstants.AgentClass))
-        {
+        if (method.getSignature().startsWith("<" + AgentClassConstants.AgentClass)) {
 
             return;
         }
         //if(method)
-        boolean flag=false;
+        boolean flag = false;
         Iterator stmtIt = units.snapshotIterator();
         while (stmtIt.hasNext()) {
 
             // cast back to a statement.
             Stmt stmt = (Stmt) stmtIt.next();
-            if(stmt.containsInvokeExpr())
-            {
-                InvokeExpr invoke=stmt.getInvokeExpr();
-                SootMethod agent=AgentClassConstants.QueryAgentMethod(invoke.getMethod().getSignature());
-                if(agent!=null)
-                {
-                    List<Value> arglist=new LinkedList<Value>();
-                    for(ValueBox vb:invoke.getUseBoxes())
-                    {
+            if (stmt.containsInvokeExpr()) {
+                InvokeExpr invoke = stmt.getInvokeExpr();
+                SootMethod agent = AgentClassConstants.QueryAgentMethod(invoke.getMethod().getSignature());
+                if (agent != null) {
+                    List<Value> arglist = new LinkedList<Value>();
+                    for (ValueBox vb : invoke.getUseBoxes()) {
                         arglist.add(vb.getValue());
                     }
                     //Jimple.v().newStaticInvokeExpr(agent.makeRef())
-                    if(stmt instanceof AssignStmt)
-                    {
-                        Value assivalue=((AssignStmt) stmt).getLeftOp();
-                        Stmt newassign=Jimple.v().newAssignStmt(assivalue, Jimple.v().newStaticInvokeExpr(agent.makeRef(), arglist));
+                    if (stmt instanceof AssignStmt) {
+                        Value assivalue = ((AssignStmt) stmt).getLeftOp();
+                        Stmt newassign = Jimple.v().newAssignStmt(assivalue, Jimple.v().newStaticInvokeExpr(agent.makeRef(), arglist));
                         units.insertBefore(newassign, stmt);
                         units.remove(stmt);
-                        flag=true;
+                        flag = true;
 
 
-                    }
-                    else if(stmt instanceof InvokeStmt)
-                    {
-                        Stmt newinvoke=Jimple.v().newInvokeStmt(Jimple.v().newStaticInvokeExpr(agent.makeRef(), arglist));
+                    } else if (stmt instanceof InvokeStmt) {
+                        Stmt newinvoke = Jimple.v().newInvokeStmt(Jimple.v().newStaticInvokeExpr(agent.makeRef(), arglist));
                         units.insertBefore(newinvoke, stmt);
                         units.remove(stmt);
-                        flag=true;
+                        flag = true;
 
                     }
 
@@ -115,11 +111,6 @@ public class Instrumenter extends BodyTransformer{
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }*/
-
-
-
-
-
 
 
     }

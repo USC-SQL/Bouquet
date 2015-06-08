@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a8ba0aa-15b8-4892-bf43-78ad029e4aee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/usc/edu/BCELUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/artifacts/HTTPMerger_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/HTTPBCELMerger_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/usc/edu/AgentClassConstants.java" afterPath="$PROJECT_DIR$/src/usc/edu/AgentClassConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/usc/edu/AgentURLConnection.java" afterPath="$PROJECT_DIR$/src/usc/edu/AgentURLConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/usc/edu/BCELInstrumenter.java" afterPath="$PROJECT_DIR$/src/usc/edu/BCELInstrumenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/HTTPBCELMerger_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
     </list>
@@ -36,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AgentURLConnection.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AgentURLConnection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/usc/edu/AgentURLConnection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="269" column="187" selection-start-line="269" selection-start-column="187" selection-end-line="269" selection-end-column="187" />
+              <caret line="284" column="10" selection-start-line="284" selection-start-column="10" selection-end-line="291" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/src/usc/edu/AgentClassConstants.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="139" />
+              <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -62,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/src/usc/edu/Instrumenter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="116" column="11" selection-start-line="116" selection-start-column="11" selection-end-line="116" selection-end-column="11" />
+              <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,7 +66,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BCELInstrumenter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BCELInstrumenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/usc/edu/BCELInstrumenter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -104,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/usc/edu/BCELUtils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="158" selection-start-line="26" selection-start-column="130" selection-end-line="26" selection-end-column="158" />
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -254,6 +250,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -350,15 +348,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Merger/HTTPMerger" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LoopTest" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.2529297" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -655,6 +651,13 @@
       <workItem from="1433278729534" duration="901000" />
       <workItem from="1433279645339" duration="142000" />
       <workItem from="1433279880830" duration="662000" />
+      <workItem from="1433281786639" duration="57000" />
+      <workItem from="1433281860024" duration="750000" />
+      <workItem from="1433285617870" duration="45000" />
+      <workItem from="1433285698599" duration="12000" />
+      <workItem from="1433286049946" duration="80000" />
+      <workItem from="1433286252269" duration="8000" />
+      <workItem from="1433286286076" duration="659000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1429651147070</created>
@@ -684,7 +687,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128453000" />
+    <option name="totallyTimeSpent" value="130064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1922" height="1054" extended-state="6" />
@@ -1140,7 +1143,7 @@
     <entry file="file://$PROJECT_DIR$/src/usc/edu/Instrumenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="116" column="11" selection-start-line="116" selection-start-column="11" selection-end-line="116" selection-end-column="11" />
+          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1150,7 +1153,7 @@
     <entry file="file://$PROJECT_DIR$/src/usc/edu/BCELUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="158" selection-start-line="26" selection-start-column="130" selection-end-line="26" selection-end-column="158" />
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1158,18 +1161,8 @@
     <entry file="file://$PROJECT_DIR$/src/usc/edu/AgentClassConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="139" />
+          <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="99" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/usc/edu/AgentURLConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="269" column="187" selection-start-line="269" selection-start-column="187" selection-end-line="269" selection-end-column="187" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1178,6 +1171,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/usc/edu/AgentURLConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="284" column="10" selection-start-line="284" selection-start-column="10" selection-end-line="291" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -14,56 +14,50 @@ import java.util.List;
 /**
  * Created by dingli on 5/13/15.
  */
-class ReplacePair{
+class ReplacePair {
     InstructionHandle oldins;
     Instruction newins;
 }
-public class BCELInstrumenter {
-    private static Method Instrumentmethod(MethodGen input, boolean Timeprof){
 
-        InstructionList ilist= input.getInstructionList();
+public class BCELInstrumenter {
+    private static Method Instrumentmethod(MethodGen input, boolean Timeprof) {
+
+        InstructionList ilist = input.getInstructionList();
 
         //System.out.println(ilist);
-        InstructionHandle[] ihs=ilist.getInstructionHandles();
-        ConstantPoolGen cpg=input.getConstantPool();
-        LinkedList<ReplacePair> ivs=new LinkedList<ReplacePair>();
-        boolean flag=false;
-        InstructionFactory inf=new InstructionFactory(input.getConstantPool());
-        Instruction MstartLogger=inf.createInvoke("usc.edu.AgentURLConnection", "LogCallStart", Type.VOID, new Type[0], Constants.INVOKESTATIC);
-        Instruction MendLogger=inf.createInvoke("usc.edu.AgentURLConnection", "LogCallReturn", Type.VOID, new Type[0], Constants.INVOKESTATIC);
-        if(Timeprof)
+        InstructionHandle[] ihs = ilist.getInstructionHandles();
+        ConstantPoolGen cpg = input.getConstantPool();
+        LinkedList<ReplacePair> ivs = new LinkedList<ReplacePair>();
+        boolean flag = false;
+        InstructionFactory inf = new InstructionFactory(input.getConstantPool());
+        Instruction MstartLogger = inf.createInvoke("usc.edu.AgentURLConnection", "LogCallStart", Type.VOID, new Type[0], Constants.INVOKESTATIC);
+        Instruction MendLogger = inf.createInvoke("usc.edu.AgentURLConnection", "LogCallReturn", Type.VOID, new Type[0], Constants.INVOKESTATIC);
+        if (Timeprof)
             ilist.insert(MstartLogger);
-        for(int i=0;i<ihs.length;i++)
-        {
-            if(BCELUtils.isTarget(ihs[i],cpg)){
-                ReplacePair p=new ReplacePair();
-                p.oldins=ihs[i];
-                p.newins=BCELUtils.getNewInstruction(ihs[i],cpg,inf);
+        for (int i = 0; i < ihs.length; i++) {
+            if (BCELUtils.isTarget(ihs[i], cpg)) {
+                ReplacePair p = new ReplacePair();
+                p.oldins = ihs[i];
+                p.newins = BCELUtils.getNewInstruction(ihs[i], cpg, inf);
                 System.out.println(input.getName());
                 ivs.push(p);
                 //flag=true;
 
 
                 //InstructionFactory inf=new InstructionFactory(input.getConstantPool());
-            }
-            else if(ihs[i].getInstruction() instanceof  ReturnInstruction && Timeprof)
-            {
-                flag=true;
-                ilist.insert(ihs[i],MendLogger);
-            }
-            else if(ihs[i].getInstruction() instanceof  ATHROW && Timeprof)
-            {
-                ilist.insert(ihs[i],MendLogger);
+            } else if (ihs[i].getInstruction() instanceof ReturnInstruction && Timeprof) {
+                flag = true;
+                ilist.insert(ihs[i], MendLogger);
+            } else if (ihs[i].getInstruction() instanceof ATHROW && Timeprof) {
+                ilist.insert(ihs[i], MendLogger);
 
             }
         }
-        if(flag)
-        {
+        if (flag) {
             System.out.println(input.getMethod().getCode());
         }
-        for(ReplacePair ih:ivs)
-        {
-            ilist.append(ih.oldins,ih.newins);
+        for (ReplacePair ih : ivs) {
+            ilist.append(ih.oldins, ih.newins);
             try {
                 ilist.delete(ih.oldins);
             } catch (TargetLostException e) {
@@ -71,7 +65,7 @@ public class BCELInstrumenter {
             }
             //System.out.println(inf.createInvoke(classname, methodname, Type.LONG, new Type[0], Constants.INVOKESTATIC));
             // ilist.insert(ih.getInstruction(),)
-           // ilist.
+            // ilist.
 
         }
         // instrument probes for time
@@ -80,32 +74,30 @@ public class BCELInstrumenter {
         input.removeLineNumbers();
         input.setMaxStack();
         input.setMaxLocals();
-        if(flag)
-        {
+        if (flag) {
             System.out.println(input.getMethod().getCode());
         }
         return input.getMethod();
     }
+
     public static void main(String args[]) throws IOException {
         if (!(args.length == 2 || args.length == 1)) {
             System.err.println("Usage: java -jar BCELInstrumenter.jar input_dir1 timeprof");
             System.exit(-1);
         }
         List<String> all_cls = get_all_classes(args[0]);
-        boolean timeprof=false;
-        if(args.length == 2)
-        {
-            timeprof=Boolean.parseBoolean(args[1]);
+        boolean timeprof = false;
+        if (args.length == 2) {
+            timeprof = Boolean.parseBoolean(args[1]);
 
         }
-        for(String myclasses:all_cls)
-        {
+        for (String myclasses : all_cls) {
             JavaClass jcls = new ClassParser(myclasses).parse();
             ClassGen cgen = new ClassGen(jcls);
             for (Method mthd : jcls.getMethods()) {
                 MethodGen method = new MethodGen(mthd, cgen.getClassName(), cgen.getConstantPool());
                 if (!method.isAbstract() && !method.isInterface()) {
-                    Method m = Instrumentmethod(method,timeprof);
+                    Method m = Instrumentmethod(method, timeprof);
                     cgen.replaceMethod(mthd, m);
 
                 }
@@ -123,6 +115,7 @@ public class BCELInstrumenter {
         }
 
     }
+
     private static List<String> get_all_classes(String cls_dir) {
         List<String> all_cls = new ArrayList<String>();
 

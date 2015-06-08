@@ -1,4 +1,5 @@
 package usc.edu;
+
 import android.util.Log;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -16,33 +17,35 @@ import java.security.Permission;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+
 /**
  * Created by dingli on 4/22/15.
  */
 public class AgentURLConnection {
-    private static int counter=0;
-    public  static void LogCallStart(){
-        if(counter ==0 )
-        {
-            Long currentmilli=System.currentTimeMillis();
-            System.out.println("Block Starts: "+currentmilli);
+    private static int counter = 0;
+
+    public static void LogCallStart() {
+        if (counter == 0) {
+            Long currentmilli = System.currentTimeMillis();
+            System.out.println("Block Starts: " + currentmilli);
         }
         counter++;
-        System.out.println("Start counter: "+counter);
+        System.out.println("Start counter: " + counter);
 
 
     }
-    public  static void LogCallReturn(){
-        counter--;
-        Long currentmilli=System.currentTimeMillis();
 
-        System.out.println("End counter: "+counter+" "+currentmilli);
-        if(counter ==0 )
-        {
-            System.out.println("Block Ends: "+currentmilli);
+    public static void LogCallReturn() {
+        counter--;
+        Long currentmilli = System.currentTimeMillis();
+
+        System.out.println("End counter: " + counter + " " + currentmilli);
+        if (counter == 0) {
+            System.out.println("Block Ends: " + currentmilli);
         }
 
     }
+
     private static String getStringFromInputStream(InputStream is) {
 
         BufferedReader br = null;
@@ -72,7 +75,8 @@ public class AgentURLConnection {
 
     }
 
-    public static Hashtable<String,String> contentcache=new Hashtable<String,String>();
+    public static Hashtable<String, String> contentcache = new Hashtable<String, String>();
+
     public static boolean getAllowUserInteraction(URLConnection urlconn) {
         return urlconn.getAllowUserInteraction();
     }
@@ -81,7 +85,7 @@ public class AgentURLConnection {
         return urlconn.getContent();
     }
 
-    public static Object getContent(URLConnection urlconn,Class[] types) throws IOException {
+    public static Object getContent(URLConnection urlconn, Class[] types) throws IOException {
         return urlconn.getContent(types);
     }
 
@@ -122,7 +126,7 @@ public class AgentURLConnection {
     }
 
 
-    public static String getHeaderField(URLConnection urlconn,int pos) {
+    public static String getHeaderField(URLConnection urlconn, int pos) {
         return urlconn.getHeaderField(pos);
     }
 
@@ -137,27 +141,27 @@ public class AgentURLConnection {
     }
 
 
-    public static void addRequestProperty(URLConnection urlconn,String field, String newValue) {
+    public static void addRequestProperty(URLConnection urlconn, String field, String newValue) {
         urlconn.addRequestProperty(field, newValue);
     }
 
 
-    public static String getHeaderField(URLConnection urlconn,String key) {
+    public static String getHeaderField(URLConnection urlconn, String key) {
         return urlconn.getHeaderField(key);
     }
 
 
-    public static long getHeaderFieldDate(URLConnection urlconn,String field, long defaultValue) {
+    public static long getHeaderFieldDate(URLConnection urlconn, String field, long defaultValue) {
         return urlconn.getHeaderFieldDate(field, defaultValue);
     }
 
 
-    public static int getHeaderFieldInt(URLConnection urlconn,String field, int defaultValue) {
+    public static int getHeaderFieldInt(URLConnection urlconn, String field, int defaultValue) {
         return urlconn.getHeaderFieldInt(field, defaultValue);
     }
 
 
-    public static String getHeaderFieldKey(URLConnection urlconn,int posn) {
+    public static String getHeaderFieldKey(URLConnection urlconn, int posn) {
         return urlconn.getHeaderFieldKey(posn);
     }
 
@@ -243,7 +247,7 @@ public class AgentURLConnection {
         return returnstream;
     }*/
     public static InputStream getInputStream(URLConnection urlconn) throws IOException {
-        System.out.println("URLgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput()+" "+android.os.Process.myTid()+" "+Thread.currentThread().getId());
+        System.out.println("URLgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
 
         /*URL url = new URL("http://dingli.usc.edu:1988");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -254,20 +258,21 @@ public class AgentURLConnection {
             throw new Exception();
         } catch (Exception e) {
             //StackTraceElement[] selem=e.getStackTrace();
-            e.printStackTrace( System.out);
+            e.printStackTrace(System.out);
             //System.out.println("AT " + selem[1]);
             //e.printStackTrace();
         }
         System.out.println("HTTPcall start: " + System.currentTimeMillis());
 
-        InputStream in=urlconn.getInputStream();
+        InputStream in = urlconn.getInputStream();
         System.out.println("HTTPcall end: " + System.currentTimeMillis());
 
 
         return in;
     }
+
     public static InputStream getInputStream(HttpURLConnection urlconn) throws IOException {
-        System.out.println("HTTPRULgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput()+" "+android.os.Process.myTid()+" "+Thread.currentThread().getId());
+        System.out.println("HTTPRULgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
 
         try {
             throw new Exception();
@@ -275,7 +280,7 @@ public class AgentURLConnection {
             //StackTraceElement[] selem=e.getStackTrace();
 
             //System.out.println("AT " + selem[1]);
-            e.printStackTrace( System.out);
+            e.printStackTrace(System.out);
         }
         /*URL url = new URL("http://dingli.usc.edu:1988");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -286,12 +291,13 @@ public class AgentURLConnection {
         urlConnection.getInputStream();
         System.out.println(urlconn.getHeaderFields());*/
         System.out.println("HTTPcall start: " + System.currentTimeMillis());
-        InputStream in=urlconn.getInputStream();
+        InputStream in = urlconn.getInputStream();
         System.out.println("HTTPcall end: " + System.currentTimeMillis());
 
 
         return in;
     }
+
     public static long getLastModified(URLConnection urlconn) {
         return urlconn.getLastModified();
     }
@@ -307,7 +313,7 @@ public class AgentURLConnection {
     }
 
 
-    public static String getRequestProperty(URLConnection urlconn,String field) {
+    public static String getRequestProperty(URLConnection urlconn, String field) {
         return urlconn.getRequestProperty(field);
     }
 
@@ -322,42 +328,42 @@ public class AgentURLConnection {
     }
 
 
-    public static void setAllowUserInteraction(URLConnection urlconn,boolean newValue) {
+    public static void setAllowUserInteraction(URLConnection urlconn, boolean newValue) {
         urlconn.setAllowUserInteraction(newValue);
     }
 
 
-    public static void setDefaultUseCaches(URLConnection urlconn,boolean newValue) {
+    public static void setDefaultUseCaches(URLConnection urlconn, boolean newValue) {
         urlconn.setDefaultUseCaches(newValue);
     }
 
 
-    public static void setDoInput(URLConnection urlconn,boolean newValue) {
+    public static void setDoInput(URLConnection urlconn, boolean newValue) {
         urlconn.setDoInput(newValue);
     }
 
 
-    public static void setDoOutput(URLConnection urlconn,boolean newValue) {
+    public static void setDoOutput(URLConnection urlconn, boolean newValue) {
         urlconn.setDoOutput(newValue);
     }
 
 
-    public static void setIfModifiedSince(URLConnection urlconn,long newValue) {
+    public static void setIfModifiedSince(URLConnection urlconn, long newValue) {
         urlconn.setIfModifiedSince(newValue);
     }
 
 
-    public static void setRequestProperty(URLConnection urlconn,String field, String newValue) {
+    public static void setRequestProperty(URLConnection urlconn, String field, String newValue) {
         urlconn.setRequestProperty(field, newValue);
     }
 
 
-    public static void setUseCaches(URLConnection urlconn,boolean newValue) {
+    public static void setUseCaches(URLConnection urlconn, boolean newValue) {
         urlconn.setUseCaches(newValue);
     }
 
 
-    public static void setConnectTimeout(URLConnection urlconn,int timeoutMillis) {
+    public static void setConnectTimeout(URLConnection urlconn, int timeoutMillis) {
         urlconn.setConnectTimeout(timeoutMillis);
     }
 
@@ -367,7 +373,7 @@ public class AgentURLConnection {
     }
 
 
-    public static void setReadTimeout(URLConnection urlconn,int timeoutMillis) {
+    public static void setReadTimeout(URLConnection urlconn, int timeoutMillis) {
         urlconn.setReadTimeout(timeoutMillis);
     }
 
@@ -385,6 +391,7 @@ public class AgentURLConnection {
     public static void connect(URLConnection urlconn) throws IOException {
         urlconn.connect();
     }
+
     //Below are APIs for apache HTTP client
     /*
     public static HttpResponse HttpResponseexecute(HttpUriRequest request,HttpClient client) throws IOException, URISyntaxException {
@@ -416,7 +423,7 @@ public class AgentURLConnection {
         HttpResponse r=client.execute(request);
         return r;
     }*/
-    public static HttpResponse HttpResponseexecute(HttpClient client,HttpUriRequest request) throws IOException, URISyntaxException {
+    public static HttpResponse HttpResponseexecute(HttpClient client, HttpUriRequest request) throws IOException, URISyntaxException {
         System.out.println("HTTP execute it works " + request.getURI().toString() + " " + request.getMethod());
 
         try {
@@ -424,12 +431,12 @@ public class AgentURLConnection {
         } catch (Exception e) {
             //StackTraceElement[] selem=e.getStackTrace();
 
-           // System.out.println("AT "+selem[1]);
-            e.printStackTrace( System.out);
+            // System.out.println("AT "+selem[1]);
+            e.printStackTrace(System.out);
         }
         System.out.println("HTTPcall start: " + System.currentTimeMillis());
 
-        HttpResponse r= client.execute(request);
+        HttpResponse r = client.execute(request);
         System.out.println("HTTPcall end: " + System.currentTimeMillis());
         return r;
 

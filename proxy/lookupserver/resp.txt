@@ -1,0 +1,7 @@
+mimimama
+
+add transaction chains for application insight, web app part.
+
+focus on javascript web site on windows Azure
+
+build a portal on Azure, see application insight on Azure
