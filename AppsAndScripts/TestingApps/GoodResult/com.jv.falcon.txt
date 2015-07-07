@@ -1,0 +1,8 @@
+0.16666666666666666 1 6
+summary_start
+<com.jv.falcon.util.ImageLoader: android.graphics.Bitmap downloadBitmap(java.lang.String,int,int)>
+$r7 = virtualinvoke $r6.<java.net.URLConnection: java.io.InputStream getInputStream()>()@6@<com.jv.falcon.util.ImageLoader: android.graphics.Bitmap downloadBitmap(java.lang.String,int,int)>:
+	$r7 = virtualinvoke $r6.<java.net.URLConnection: java.io.InputStream getInputStream()>()@32@<com.jv.falcon.util.ImageLoader: android.graphics.Bitmap downloadBitmap(java.lang.String,int,int)>
+
+
+summary_end

@@ -1,0 +1,8 @@
+0.2 1 5
+summary_start
+<com.c.j: java.lang.String b(java.lang.String,java.lang.String)>
+$r4 = virtualinvoke $r9.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@28@<com.c.j: java.lang.String b(java.lang.String,java.lang.String)>:
+	$r11 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@32@<com.c.j: java.lang.String b(java.lang.String,java.lang.String)>
+
+
+summary_end

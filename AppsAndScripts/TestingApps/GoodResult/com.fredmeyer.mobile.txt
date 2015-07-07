@@ -1,0 +1,8 @@
+0.16666666666666666 1 6
+summary_start
+<com.google.zxing.client.android.HttpHelper: java.lang.String consume(java.net.URLConnection)>
+$r3 = virtualinvoke $r0.<java.net.URLConnection: java.io.InputStream getInputStream()>()@9@<com.google.zxing.client.android.HttpHelper: java.lang.String consume(java.net.URLConnection)>:
+	$r6 = virtualinvoke $r0.<java.net.URLConnection: java.io.InputStream getInputStream()>()@10@<com.google.zxing.client.android.HttpHelper: java.lang.String consume(java.net.URLConnection)>
+
+
+summary_end

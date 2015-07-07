@@ -1,0 +1,8 @@
+0.16666666666666666 1 6
+summary_start
+<com.google.api.GoogleAPI: org.json.JSONObject retrieveJSON(java.net.URL,java.lang.String)>
+$r7 = virtualinvoke $r5.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@15@<com.google.api.GoogleAPI: org.json.JSONObject retrieveJSON(java.net.URL,java.lang.String)>:
+	$r7 = virtualinvoke $r5.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@19@<com.google.api.GoogleAPI: org.json.JSONObject retrieveJSON(java.net.URL,java.lang.String)>
+
+
+summary_end

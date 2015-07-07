@@ -1,0 +1,23 @@
+0.2608695652173913 6 23
+summary_start
+<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>
+$r22 = virtualinvoke $r13.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@80@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>:
+	$r4 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@91@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>
+
+$r21 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.Object getContent()>()@292@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>:
+	$r4 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@307@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>
+
+$r21 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.Object getContent()>()@219@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>:
+	$r4 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@234@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>
+
+$r23 = virtualinvoke $r13.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@223@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>:
+	$r4 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@234@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>
+
+$r21 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.Object getContent()>()@76@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>:
+	$r4 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@91@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>
+
+$r23 = virtualinvoke $r13.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@296@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>:
+	$r4 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@307@<com.seedlabs.core.i.a: android.os.Bundle a(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.Map,java.util.Map,int)>
+
+
+summary_end

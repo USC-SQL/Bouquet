@@ -1,0 +1,15 @@
+#! /bin/bash
+if [ $# -ne 1 ]
+then
+ echo "usage: instrumenter app"
+ exit;
+fi
+
+filename=${1%.apk}
+rm -r sootOutput
+rm -r oriclasses
+rm -r insclasses
+rm -r resource
+java -jar soot.jar -android-jars /home/dingli/AppChecker/libs -src-prec apk -f J -process-dir ${filename}.apk -allow-phantom-refs
+ls sootOutput | sed -e "s/.jimple//g"> classlist.txt
+mv sootOutput oriclasses

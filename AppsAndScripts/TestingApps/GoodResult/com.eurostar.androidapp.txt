@@ -1,0 +1,15 @@
+0.2 2 10
+summary_start
+<com.backelite.bkdroid.network.HttpUrlConnectionEngine: com.backelite.bkdroid.response.Response performPost(java.lang.String,java.lang.String,java.util.Map)>
+$r11 = virtualinvoke $r8.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@17@<com.backelite.bkdroid.network.HttpUrlConnectionEngine: com.backelite.bkdroid.response.Response performPost(java.lang.String,java.lang.String,java.util.Map)>:
+	$r12 = specialinvoke $r0.<com.backelite.bkdroid.network.HttpUrlConnectionEngine: com.backelite.bkdroid.response.Response buildResponse(java.io.InputStream,java.lang.String,java.net.HttpURLConnection)>($r4, $r1, $r8)@19@<com.backelite.bkdroid.network.HttpUrlConnectionEngine: com.backelite.bkdroid.response.Response performPost(java.lang.String,java.lang.String,java.util.Map)>
+
+
+summary_end
+summary_start
+<com.backelite.bkdroid.network.HttpUrlConnectionEngine: com.backelite.bkdroid.response.Response performRequest(java.lang.String,java.util.Map,java.lang.String)>
+$r8 = virtualinvoke $r7.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@11@<com.backelite.bkdroid.network.HttpUrlConnectionEngine: com.backelite.bkdroid.response.Response performRequest(java.lang.String,java.util.Map,java.lang.String)>:
+	$r9 = specialinvoke $r0.<com.backelite.bkdroid.network.HttpUrlConnectionEngine: com.backelite.bkdroid.response.Response buildResponse(java.io.InputStream,java.lang.String,java.net.HttpURLConnection)>($r4, $r1, $r7)@13@<com.backelite.bkdroid.network.HttpUrlConnectionEngine: com.backelite.bkdroid.response.Response performRequest(java.lang.String,java.util.Map,java.lang.String)>
+
+
+summary_end

@@ -1,0 +1,8 @@
+0.25 1 4
+summary_start
+<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>
+$r4 = virtualinvoke $r10.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@26@<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>:
+	$r12 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@30@<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>
+
+
+summary_end

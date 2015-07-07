@@ -1,0 +1,30 @@
+0.14814814814814814 4 27
+summary_start
+<grab.it.free.DownloadingVideoListActivity$6$3: void run()>
+$r10 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@12@<grab.it.free.DownloadingVideoListActivity$6$3: void run()>:
+	$r10 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@32@<grab.it.free.DownloadingVideoListActivity$6$3: void run()>
+
+
+summary_end
+summary_start
+<grab.it.free.DownloadingVideoListActivity$6$2: void run()>
+$r10 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@12@<grab.it.free.DownloadingVideoListActivity$6$2: void run()>:
+	$r10 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@32@<grab.it.free.DownloadingVideoListActivity$6$2: void run()>
+
+
+summary_end
+summary_start
+<grab.it.free.DownloadThread: void saveVideo(grab.it.free.VideoEntry,int)>
+$r20 = virtualinvoke $r19.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@46@<grab.it.free.DownloadThread: void saveVideo(grab.it.free.VideoEntry,int)>:
+	$r20 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@118@<grab.it.free.DownloadThread: void saveVideo(grab.it.free.VideoEntry,int)>
+	$r14 = staticinvoke <grab.it.free.YouTubeVideoURLFinder: java.lang.String findYouTubeSourceUrl(java.lang.String,java.lang.String)>($r14, $r12)@75@<grab.it.free.DownloadThread: void saveVideo(grab.it.free.VideoEntry,int)>
+
+
+summary_end
+summary_start
+<grab.it.free.DownloadingVideoListActivity$6$1: void run()>
+$r10 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@12@<grab.it.free.DownloadingVideoListActivity$6$1: void run()>:
+	$r10 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@32@<grab.it.free.DownloadingVideoListActivity$6$1: void run()>
+
+
+summary_end

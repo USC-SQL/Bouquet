@@ -1,0 +1,8 @@
+0.16666666666666666 1 6
+summary_start
+<com.usablenet.cvs.image.ImageUtils: android.graphics.Bitmap downloadImageNoSdcard(java.lang.String,java.util.concurrent.atomic.AtomicBoolean,com.usablenet.cvs.image.ImageUtils$ImageQuality)>
+$r10 = virtualinvoke $r9.<java.net.URLConnection: java.io.InputStream getInputStream()>()@11@<com.usablenet.cvs.image.ImageUtils: android.graphics.Bitmap downloadImageNoSdcard(java.lang.String,java.util.concurrent.atomic.AtomicBoolean,com.usablenet.cvs.image.ImageUtils$ImageQuality)>:
+	$r11 = virtualinvoke $r9.<java.net.URLConnection: java.io.InputStream getInputStream()>()@19@<com.usablenet.cvs.image.ImageUtils: android.graphics.Bitmap downloadImageNoSdcard(java.lang.String,java.util.concurrent.atomic.AtomicBoolean,com.usablenet.cvs.image.ImageUtils$ImageQuality)>
+
+
+summary_end

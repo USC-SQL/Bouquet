@@ -1,0 +1,8 @@
+0.16666666666666666 1 6
+summary_start
+<com.desoft.fights.core.main.FightsManager$searchFightsEntries: java.util.ArrayList doInBackground(java.lang.Void[])>
+$r12 = interfaceinvoke $r3.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r5)@20@<com.desoft.fights.core.main.FightsManager$searchFightsEntries: java.util.ArrayList doInBackground(java.lang.Void[])>:
+	$r12 = interfaceinvoke $r3.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r5)@40@<com.desoft.fights.core.main.FightsManager$searchFightsEntries: java.util.ArrayList doInBackground(java.lang.Void[])>
+
+
+summary_end

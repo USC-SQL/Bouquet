@@ -1,0 +1,43 @@
+0.375 6 16
+summary_start
+<org.myklos.sync.activesync.control.handler.ProvisionSyncHandler: org.myklos.sync.activesync.model.ProvisionSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>
+$r3 = virtualinvoke $r4.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@21@<org.myklos.sync.activesync.control.handler.ProvisionSyncHandler: org.myklos.sync.activesync.model.ProvisionSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>:
+	$r3 = virtualinvoke $r4.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@30@<org.myklos.sync.activesync.control.handler.ProvisionSyncHandler: org.myklos.sync.activesync.model.ProvisionSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>
+
+
+summary_end
+summary_start
+<org.myklos.sync.activesync.control.handler.FolderSyncHandler: org.myklos.sync.activesync.model.FolderSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>
+$r6 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@42@<org.myklos.sync.activesync.control.handler.FolderSyncHandler: org.myklos.sync.activesync.model.FolderSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>:
+	$r6 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@51@<org.myklos.sync.activesync.control.handler.FolderSyncHandler: org.myklos.sync.activesync.model.FolderSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>
+
+
+summary_end
+summary_start
+<org.myklos.sync.activesync.control.handler.FolderSyncHandler: boolean processAction(org.myklos.sync.activesync.context.ActiveSyncContext,org.myklos.inote.CalendarObject)>
+$r8 = virtualinvoke $r11.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@65@<org.myklos.sync.activesync.control.handler.FolderSyncHandler: boolean processAction(org.myklos.sync.activesync.context.ActiveSyncContext,org.myklos.inote.CalendarObject)>:
+	$r8 = virtualinvoke $r11.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@74@<org.myklos.sync.activesync.control.handler.FolderSyncHandler: boolean processAction(org.myklos.sync.activesync.context.ActiveSyncContext,org.myklos.inote.CalendarObject)>
+
+
+summary_end
+summary_start
+<org.myklos.sync.activesync.control.handler.FolderSyncHandler: void processOptions(org.myklos.sync.activesync.context.ActiveSyncContext)>
+$r3 = virtualinvoke $r5.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@44@<org.myklos.sync.activesync.control.handler.FolderSyncHandler: void processOptions(org.myklos.sync.activesync.context.ActiveSyncContext)>:
+	$r3 = virtualinvoke $r5.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@53@<org.myklos.sync.activesync.control.handler.FolderSyncHandler: void processOptions(org.myklos.sync.activesync.context.ActiveSyncContext)>
+
+
+summary_end
+summary_start
+<org.myklos.sync.activesync.control.handler.FolderSyncHandler: void processSettings(org.myklos.sync.activesync.context.ActiveSyncContext)>
+$r4 = virtualinvoke $r5.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@16@<org.myklos.sync.activesync.control.handler.FolderSyncHandler: void processSettings(org.myklos.sync.activesync.context.ActiveSyncContext)>:
+	$r4 = virtualinvoke $r5.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@25@<org.myklos.sync.activesync.control.handler.FolderSyncHandler: void processSettings(org.myklos.sync.activesync.context.ActiveSyncContext)>
+
+
+summary_end
+summary_start
+<org.myklos.sync.activesync.control.handler.ItemSyncHandler: org.myklos.sync.activesync.model.ItemSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>
+$r5 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@37@<org.myklos.sync.activesync.control.handler.ItemSyncHandler: org.myklos.sync.activesync.model.ItemSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>:
+	$r5 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@46@<org.myklos.sync.activesync.control.handler.ItemSyncHandler: org.myklos.sync.activesync.model.ItemSyncResponse process(org.myklos.sync.activesync.context.ActiveSyncContext)>
+
+
+summary_end

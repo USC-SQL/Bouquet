@@ -1,0 +1,8 @@
+0.14285714285714285 1 7
+summary_start
+<trek.lib.hack.Metra: core.lib.hack.Result getPredictions(trek.lib.Route,trek.lib.Stop,trek.lib.Stop,int,int)>
+$r13 = virtualinvoke $r15.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@40@<trek.lib.hack.Metra: core.lib.hack.Result getPredictions(trek.lib.Route,trek.lib.Stop,trek.lib.Stop,int,int)>:
+	$r16 = virtualinvoke $r15.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@51@<trek.lib.hack.Metra: core.lib.hack.Result getPredictions(trek.lib.Route,trek.lib.Stop,trek.lib.Stop,int,int)>
+
+
+summary_end

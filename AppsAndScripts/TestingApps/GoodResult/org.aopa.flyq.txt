@@ -1,0 +1,15 @@
+0.25 2 8
+summary_start
+<org.aopa.webplan.requests.WpGetRequest: org.aopa.webplan.requests.WpResponse executeRequest(java.net.HttpURLConnection)>
+$r6 = virtualinvoke $r1.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@6@<org.aopa.webplan.requests.WpGetRequest: org.aopa.webplan.requests.WpResponse executeRequest(java.net.HttpURLConnection)>:
+	$r7 = virtualinvoke $r1.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@9@<org.aopa.webplan.requests.WpGetRequest: org.aopa.webplan.requests.WpResponse executeRequest(java.net.HttpURLConnection)>
+
+
+summary_end
+summary_start
+<org.aopa.webplan.requests.WpPostRequest: org.aopa.webplan.requests.WpResponse executeRequest(java.net.HttpURLConnection)>
+$r14 = virtualinvoke $r1.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@39@<org.aopa.webplan.requests.WpPostRequest: org.aopa.webplan.requests.WpResponse executeRequest(java.net.HttpURLConnection)>:
+	$r11 = virtualinvoke $r1.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@42@<org.aopa.webplan.requests.WpPostRequest: org.aopa.webplan.requests.WpResponse executeRequest(java.net.HttpURLConnection)>
+
+
+summary_end

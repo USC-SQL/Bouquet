@@ -1,0 +1,8 @@
+0.1111111111111111 1 9
+summary_start
+<com.tapjoy.TapjoyVideo$1: void run()>
+$r11 = virtualinvoke $r10.<java.net.URLConnection: java.io.InputStream getInputStream()>()@33@<com.tapjoy.TapjoyVideo$1: void run()>:
+	$r11 = virtualinvoke $r9.<java.net.URLConnection: java.io.InputStream getInputStream()>()@36@<com.tapjoy.TapjoyVideo$1: void run()>
+
+
+summary_end

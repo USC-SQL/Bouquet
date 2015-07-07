@@ -1,0 +1,19 @@
+0.25 3 12
+summary_start
+<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>
+$r4 = virtualinvoke $r9.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@28@<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>:
+	$r11 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@32@<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>
+
+
+summary_end
+summary_start
+<com.xtify.sdk.a: com.xtify.sdk.c.b a(java.net.HttpURLConnection)>
+$r6 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@12@<com.xtify.sdk.a: com.xtify.sdk.c.b a(java.net.HttpURLConnection)>:
+	$r7 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@21@<com.xtify.sdk.a: com.xtify.sdk.c.b a(java.net.HttpURLConnection)>
+
+virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@1@<com.xtify.sdk.a: com.xtify.sdk.c.b a(java.net.HttpURLConnection)>:
+	$r7 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@21@<com.xtify.sdk.a: com.xtify.sdk.c.b a(java.net.HttpURLConnection)>
+	$r6 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@12@<com.xtify.sdk.a: com.xtify.sdk.c.b a(java.net.HttpURLConnection)>
+
+
+summary_end

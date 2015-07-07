@@ -1,0 +1,15 @@
+0.125 2 16
+summary_start
+<fr.cookbook.c.k: java.lang.String a(java.lang.String,boolean,java.lang.String)>
+$r6 = interfaceinvoke $r5.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@12@<fr.cookbook.c.k: java.lang.String a(java.lang.String,boolean,java.lang.String)>:
+	$r6 = interfaceinvoke $r5.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@44@<fr.cookbook.c.k: java.lang.String a(java.lang.String,boolean,java.lang.String)>
+
+
+summary_end
+summary_start
+<fr.cookbook.b.c.a: java.lang.String k(java.lang.String)>
+$r7 = interfaceinvoke $r3.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext)>($r4, $r5)@11@<fr.cookbook.b.c.a: java.lang.String k(java.lang.String)>:
+	$r7 = interfaceinvoke $r3.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r4)@37@<fr.cookbook.b.c.a: java.lang.String k(java.lang.String)>
+
+
+summary_end

@@ -1,0 +1,8 @@
+0.5 1 2
+summary_start
+<com.dmv.mydmv.businesslogic.MyDMVPlateModify: void setPlateText()>
+$r10 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@17@<com.dmv.mydmv.businesslogic.MyDMVPlateModify: void setPlateText()>:
+	$r11 = specialinvoke $r0.<com.dmv.mydmv.businesslogic.MyDMVPlateModify: android.graphics.Bitmap getImageFor(java.lang.String)>(" ")@21@<com.dmv.mydmv.businesslogic.MyDMVPlateModify: void setPlateText()>
+
+
+summary_end

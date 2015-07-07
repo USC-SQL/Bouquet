@@ -1,0 +1,8 @@
+0.125 1 8
+summary_start
+<org.gtmedia.woot.NetworkHelper: org.gtmedia.woot.Deals d(java.lang.String)>
+$r3 = interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r1)@5@<org.gtmedia.woot.NetworkHelper: org.gtmedia.woot.Deals d(java.lang.String)>:
+	$r11 = staticinvoke <org.gtmedia.woot.NetworkHelper: org.gtmedia.woot.AppData b(java.lang.String)>("http://wootcheck.com/wootcheck.js")@16@<org.gtmedia.woot.NetworkHelper: org.gtmedia.woot.Deals d(java.lang.String)>
+
+
+summary_end

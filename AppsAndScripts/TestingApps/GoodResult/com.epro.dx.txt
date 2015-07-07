@@ -1,0 +1,8 @@
+0.25 1 4
+summary_start
+<com.epro.dx.activity.ProductImageBrowseActivity: void getBitmapWithUrl(java.lang.String,int)>
+virtualinvoke $r12.<java.net.URLConnection: java.io.InputStream getInputStream()>()@31@<com.epro.dx.activity.ProductImageBrowseActivity: void getBitmapWithUrl(java.lang.String,int)>:
+	$r13 = virtualinvoke $r12.<java.net.URLConnection: java.io.InputStream getInputStream()>()@32@<com.epro.dx.activity.ProductImageBrowseActivity: void getBitmapWithUrl(java.lang.String,int)>
+
+
+summary_end

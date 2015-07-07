@@ -1,0 +1,24 @@
+0.11538461538461539 3 26
+summary_start
+<com.tapjoy.TapjoyVideo$1: void run()>
+$r11 = virtualinvoke $r10.<java.net.URLConnection: java.io.InputStream getInputStream()>()@33@<com.tapjoy.TapjoyVideo$1: void run()>:
+	$r11 = virtualinvoke $r9.<java.net.URLConnection: java.io.InputStream getInputStream()>()@36@<com.tapjoy.TapjoyVideo$1: void run()>
+
+
+summary_end
+summary_start
+<com.xtify.sdk.util.HttpHelper: com.xtify.sdk.util.HttpHelper$Response getResponse(java.net.HttpURLConnection)>
+$r2 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@1@<com.xtify.sdk.util.HttpHelper: com.xtify.sdk.util.HttpHelper$Response getResponse(java.net.HttpURLConnection)>:
+	$r5 = staticinvoke <com.xtify.sdk.util.HttpHelper: java.lang.String getResponseMessage(java.io.InputStream,java.net.HttpURLConnection)>($r2, $r0)@9@<com.xtify.sdk.util.HttpHelper: com.xtify.sdk.util.HttpHelper$Response getResponse(java.net.HttpURLConnection)>
+	$r5 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@11@<com.xtify.sdk.util.HttpHelper: com.xtify.sdk.util.HttpHelper$Response getResponse(java.net.HttpURLConnection)>
+
+
+summary_end
+summary_start
+<com.xtify.rn.HttpHelper: com.xtify.rn.HttpHelper$Response getResponse(java.net.HttpURLConnection)>
+$r2 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@1@<com.xtify.rn.HttpHelper: com.xtify.rn.HttpHelper$Response getResponse(java.net.HttpURLConnection)>:
+	$r5 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@11@<com.xtify.rn.HttpHelper: com.xtify.rn.HttpHelper$Response getResponse(java.net.HttpURLConnection)>
+	$r5 = staticinvoke <com.xtify.rn.HttpHelper: java.lang.String getResponseMessage(java.io.InputStream,java.net.HttpURLConnection)>($r2, $r0)@9@<com.xtify.rn.HttpHelper: com.xtify.rn.HttpHelper$Response getResponse(java.net.HttpURLConnection)>
+
+
+summary_end

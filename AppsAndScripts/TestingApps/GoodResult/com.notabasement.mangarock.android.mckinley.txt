@@ -1,0 +1,15 @@
+0.11764705882352941 2 17
+summary_start
+<jy: jz a(java.net.URL,java.util.Map,jo,kc)>
+$r16 = virtualinvoke $r7.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@31@<jy: jz a(java.net.URL,java.util.Map,jo,kc)>:
+	$r11 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@37@<jy: jz a(java.net.URL,java.util.Map,jo,kc)>
+
+
+summary_end
+summary_start
+<jy: jz a(java.net.URL,jo,kc)>
+$r13 = virtualinvoke $r6.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@25@<jy: jz a(java.net.URL,jo,kc)>:
+	$r8 = virtualinvoke $r6.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@31@<jy: jz a(java.net.URL,jo,kc)>
+
+
+summary_end

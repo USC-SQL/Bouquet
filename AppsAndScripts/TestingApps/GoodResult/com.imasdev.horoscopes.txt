@@ -1,0 +1,15 @@
+0.25 2 8
+summary_start
+<com.artech.common.ServiceHelper: com.artech.base.services.ServiceResponse doServerRequest(org.apache.http.client.methods.HttpRequestBase,java.lang.String,boolean,int)>
+$r6 = interfaceinvoke $r4.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r0)@18@<com.artech.common.ServiceHelper: com.artech.base.services.ServiceResponse doServerRequest(org.apache.http.client.methods.HttpRequestBase,java.lang.String,boolean,int)>:
+	$z1 = staticinvoke <com.artech.common.ServiceHelper: boolean shouldRetryRequest(int)>($i1)@25@<com.artech.common.ServiceHelper: com.artech.base.services.ServiceResponse doServerRequest(org.apache.http.client.methods.HttpRequestBase,java.lang.String,boolean,int)>
+
+
+summary_end
+summary_start
+<com.artech.common.ServiceHelper: com.artech.common.ServiceDataResult getData(java.lang.String,java.util.Date,int,boolean)>
+$r7 = interfaceinvoke $r5.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r3)@14@<com.artech.common.ServiceHelper: com.artech.common.ServiceDataResult getData(java.lang.String,java.util.Date,int,boolean)>:
+	$z1 = staticinvoke <com.artech.common.ServiceHelper: boolean shouldRetryRequest(int)>($i1)@19@<com.artech.common.ServiceHelper: com.artech.common.ServiceDataResult getData(java.lang.String,java.util.Date,int,boolean)>
+
+
+summary_end

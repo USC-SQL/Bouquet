@@ -1,0 +1,8 @@
+0.5 1 2
+summary_start
+<org.dnalc.threedbrain.downloadBrainTask: java.lang.Integer doInBackground(java.io.File[])>
+$r16 = virtualinvoke $r12.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@43@<org.dnalc.threedbrain.downloadBrainTask: java.lang.Integer doInBackground(java.io.File[])>:
+	$r17 = virtualinvoke $r12.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@47@<org.dnalc.threedbrain.downloadBrainTask: java.lang.Integer doInBackground(java.io.File[])>
+
+
+summary_end

@@ -1,0 +1,13 @@
+0.2857142857142857 2 7
+summary_start
+<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: void onCreate(android.os.Bundle)>
+$r24 = interfaceinvoke $r6.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r7)@213@<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: void onCreate(android.os.Bundle)>:
+	$r30 = specialinvoke $r0.<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: android.graphics.Bitmap LoadImage(java.lang.String,android.graphics.BitmapFactory$Options)>($r16, $r5)@258@<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: void onCreate(android.os.Bundle)>
+	$r30 = specialinvoke $r0.<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: android.graphics.Bitmap LoadImage(java.lang.String,android.graphics.BitmapFactory$Options)>($r16, $r5)@241@<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: void onCreate(android.os.Bundle)>
+
+$r24 = interfaceinvoke $r6.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r7)@288@<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: void onCreate(android.os.Bundle)>:
+	$r30 = specialinvoke $r0.<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: android.graphics.Bitmap LoadImage(java.lang.String,android.graphics.BitmapFactory$Options)>($r16, $r5)@316@<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: void onCreate(android.os.Bundle)>
+	$r30 = specialinvoke $r0.<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: android.graphics.Bitmap LoadImage(java.lang.String,android.graphics.BitmapFactory$Options)>($r16, $r5)@333@<com.custom.BeautifulAssOfSexyGirls.GalleryActivity: void onCreate(android.os.Bundle)>
+
+
+summary_end

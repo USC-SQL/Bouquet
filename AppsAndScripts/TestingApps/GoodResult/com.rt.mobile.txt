@@ -1,0 +1,8 @@
+0.25 1 4
+summary_start
+<com.rt.mobile.http.HttpClient: java.lang.String get(java.net.URL)>
+$r5 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@34@<com.rt.mobile.http.HttpClient: java.lang.String get(java.net.URL)>:
+	$r5 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@39@<com.rt.mobile.http.HttpClient: java.lang.String get(java.net.URL)>
+
+
+summary_end

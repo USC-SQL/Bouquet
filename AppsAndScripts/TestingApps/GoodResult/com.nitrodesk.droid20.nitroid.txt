@@ -1,0 +1,8 @@
+0.1111111111111111 1 9
+summary_start
+<com.nitrodesk.crypto.ew.impl.EDTURLConnection: com.echoworx.edt.common.registry.ConnectionFacade$ConnectionResponse readResponse(java.net.URLConnection)>
+$r4 = virtualinvoke $r1.<java.net.URLConnection: java.io.InputStream getInputStream()>()@2@<com.nitrodesk.crypto.ew.impl.EDTURLConnection: com.echoworx.edt.common.registry.ConnectionFacade$ConnectionResponse readResponse(java.net.URLConnection)>:
+	$r4 = virtualinvoke $r1.<java.net.URLConnection: java.io.InputStream getInputStream()>()@14@<com.nitrodesk.crypto.ew.impl.EDTURLConnection: com.echoworx.edt.common.registry.ConnectionFacade$ConnectionResponse readResponse(java.net.URLConnection)>
+
+
+summary_end

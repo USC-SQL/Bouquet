@@ -1,0 +1,8 @@
+0.3333333333333333 1 3
+summary_start
+<com.totuit.snap.net.http.HttpUrl: java.lang.String getPost(java.lang.String,java.lang.String)>
+$r1 = virtualinvoke $r6.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@18@<com.totuit.snap.net.http.HttpUrl: java.lang.String getPost(java.lang.String,java.lang.String)>:
+	$r9 = virtualinvoke $r6.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@22@<com.totuit.snap.net.http.HttpUrl: java.lang.String getPost(java.lang.String,java.lang.String)>
+
+
+summary_end

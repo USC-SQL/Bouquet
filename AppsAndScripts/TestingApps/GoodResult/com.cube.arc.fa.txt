@@ -1,0 +1,11 @@
+0.2857142857142857 2 7
+summary_start
+<x.lib.AsyncHttpClient$HttpLoader: java.lang.Object doInBackground(java.lang.String[])>
+$r14 = virtualinvoke $r16.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@21@<x.lib.AsyncHttpClient$HttpLoader: java.lang.Object doInBackground(java.lang.String[])>:
+	$r19 = virtualinvoke $r16.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@25@<x.lib.AsyncHttpClient$HttpLoader: java.lang.Object doInBackground(java.lang.String[])>
+
+$r26 = virtualinvoke $r16.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@325@<x.lib.AsyncHttpClient$HttpLoader: java.lang.Object doInBackground(java.lang.String[])>:
+	$r19 = virtualinvoke $r16.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@331@<x.lib.AsyncHttpClient$HttpLoader: java.lang.Object doInBackground(java.lang.String[])>
+
+
+summary_end

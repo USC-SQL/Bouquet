@@ -1,0 +1,8 @@
+0.3333333333333333 1 3
+summary_start
+<org.teleal.cling.transport.impl.StreamClientImpl: org.teleal.cling.model.message.StreamResponseMessage sendRequest(org.teleal.cling.model.message.StreamRequestMessage)>
+$r15 = virtualinvoke $r13.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@39@<org.teleal.cling.transport.impl.StreamClientImpl: org.teleal.cling.model.message.StreamResponseMessage sendRequest(org.teleal.cling.model.message.StreamRequestMessage)>:
+	$r16 = virtualinvoke $r0.<org.teleal.cling.transport.impl.StreamClientImpl: org.teleal.cling.model.message.StreamResponseMessage createResponse(java.net.HttpURLConnection,java.io.InputStream)>($r13, $r15)@40@<org.teleal.cling.transport.impl.StreamClientImpl: org.teleal.cling.model.message.StreamResponseMessage sendRequest(org.teleal.cling.model.message.StreamRequestMessage)>
+
+
+summary_end

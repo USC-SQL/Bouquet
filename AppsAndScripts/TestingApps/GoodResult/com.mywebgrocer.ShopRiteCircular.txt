@@ -1,0 +1,8 @@
+0.16666666666666666 1 6
+summary_start
+<com.mywebgrocer.CircularLibrary.util.DisplayUtils: android.graphics.drawable.Drawable resizeImage(java.net.HttpURLConnection,java.net.URL,int)>
+$r4 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@3@<com.mywebgrocer.CircularLibrary.util.DisplayUtils: android.graphics.drawable.Drawable resizeImage(java.net.HttpURLConnection,java.net.URL,int)>:
+	$r4 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@19@<com.mywebgrocer.CircularLibrary.util.DisplayUtils: android.graphics.drawable.Drawable resizeImage(java.net.HttpURLConnection,java.net.URL,int)>
+
+
+summary_end

@@ -1,0 +1,8 @@
+0.2 1 5
+summary_start
+<org.sympto.android.symptofree.utils.SyncUtil: void doSyncPost(byte[])>
+virtualinvoke $r14.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@38@<org.sympto.android.symptofree.utils.SyncUtil: void doSyncPost(byte[])>:
+	specialinvoke $r0.<org.sympto.android.symptofree.utils.SyncUtil: void doSyncGet()>()@40@<org.sympto.android.symptofree.utils.SyncUtil: void doSyncPost(byte[])>
+
+
+summary_end

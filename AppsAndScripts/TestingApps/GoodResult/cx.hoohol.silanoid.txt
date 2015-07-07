@@ -1,0 +1,22 @@
+0.1875 3 16
+summary_start
+<cx.hoohol.silanoid.server.LastFmLegacyServer: org.cybergarage.xml.Node restRequest(java.lang.String,int,boolean,java.lang.String[])>
+$r15 = virtualinvoke $r17.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@72@<cx.hoohol.silanoid.server.LastFmLegacyServer: org.cybergarage.xml.Node restRequest(java.lang.String,int,boolean,java.lang.String[])>:
+	$r20 = virtualinvoke $r17.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@78@<cx.hoohol.silanoid.server.LastFmLegacyServer: org.cybergarage.xml.Node restRequest(java.lang.String,int,boolean,java.lang.String[])>
+
+
+summary_end
+summary_start
+<cx.hoohol.silanoid.server.GoogleMusicServer: java.lang.String restRequest0(java.lang.String,int,cx.hoohol.util.FormBuilder,java.lang.String[])>
+$r4 = virtualinvoke $r18.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@83@<cx.hoohol.silanoid.server.GoogleMusicServer: java.lang.String restRequest0(java.lang.String,int,cx.hoohol.util.FormBuilder,java.lang.String[])>:
+	$r21 = virtualinvoke $r18.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@89@<cx.hoohol.silanoid.server.GoogleMusicServer: java.lang.String restRequest0(java.lang.String,int,cx.hoohol.util.FormBuilder,java.lang.String[])>
+
+
+summary_end
+summary_start
+<cx.hoohol.util.BitmapCache: android.graphics.Bitmap httpLoadBitmap(java.lang.String,int)>
+$r8 = virtualinvoke $r7.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@18@<cx.hoohol.util.BitmapCache: android.graphics.Bitmap httpLoadBitmap(java.lang.String,int)>:
+	$r8 = virtualinvoke $r7.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@34@<cx.hoohol.util.BitmapCache: android.graphics.Bitmap httpLoadBitmap(java.lang.String,int)>
+
+
+summary_end

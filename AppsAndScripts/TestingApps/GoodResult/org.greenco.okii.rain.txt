@@ -1,0 +1,8 @@
+0.125 1 8
+summary_start
+<org.greenco.okii.rain.b.h: java.lang.String d(java.lang.String)>
+$r8 = virtualinvoke $r5.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@30@<org.greenco.okii.rain.b.h: java.lang.String d(java.lang.String)>:
+	$r8 = virtualinvoke $r5.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@60@<org.greenco.okii.rain.b.h: java.lang.String d(java.lang.String)>
+
+
+summary_end

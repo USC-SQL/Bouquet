@@ -1,0 +1,15 @@
+0.1111111111111111 2 18
+summary_start
+<com.google.gdata.util.ServiceException: void <init>(java.net.HttpURLConnection)>
+$r4 = virtualinvoke $r1.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@2@<com.google.gdata.util.ServiceException: void <init>(java.net.HttpURLConnection)>:
+	virtualinvoke $r2.<com.google.gdata.util.ServiceExceptionInitializer: void parse(java.net.HttpURLConnection)>($r1)@16@<com.google.gdata.util.ServiceException: void <init>(java.net.HttpURLConnection)>
+
+
+summary_end
+summary_start
+<com.google.gdata.client.http.HttpGDataRequest: void execute()>
+$r8 = virtualinvoke $r2.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@48@<com.google.gdata.client.http.HttpGDataRequest: void execute()>:
+	virtualinvoke $r0.<com.google.gdata.client.http.HttpGDataRequest: void checkResponse()>()@86@<com.google.gdata.client.http.HttpGDataRequest: void execute()>
+
+
+summary_end

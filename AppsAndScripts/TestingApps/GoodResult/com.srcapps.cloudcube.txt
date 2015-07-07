@@ -1,0 +1,15 @@
+0.16666666666666666 2 12
+summary_start
+<abz$1: void run()>
+$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@31@<abz$1: void run()>:
+	$r8 = virtualinvoke $r6.<java.net.URLConnection: java.io.InputStream getInputStream()>()@34@<abz$1: void run()>
+
+
+summary_end
+summary_start
+<abx: java.lang.String W(java.lang.String,java.lang.String)>
+$r2 = virtualinvoke $r6.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@27@<abx: java.lang.String W(java.lang.String,java.lang.String)>:
+	$r9 = virtualinvoke $r6.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@31@<abx: java.lang.String W(java.lang.String,java.lang.String)>
+
+
+summary_end

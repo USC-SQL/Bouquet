@@ -1,0 +1,8 @@
+0.14285714285714285 1 7
+summary_start
+<com.smaato.soma.internal.utilities.ImageDownloader: java.lang.Void doInBackground(com.smaato.soma.internal.utilities.ImageDownloadProperties[])>
+virtualinvoke $r15.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@31@<com.smaato.soma.internal.utilities.ImageDownloader: java.lang.Void doInBackground(com.smaato.soma.internal.utilities.ImageDownloadProperties[])>:
+	$r16 = virtualinvoke $r15.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@32@<com.smaato.soma.internal.utilities.ImageDownloader: java.lang.Void doInBackground(com.smaato.soma.internal.utilities.ImageDownloadProperties[])>
+
+
+summary_end

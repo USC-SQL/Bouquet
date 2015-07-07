@@ -1,0 +1,8 @@
+0.2 1 5
+summary_start
+<com.tabatoo.slidingbar.widget.b: android.graphics.drawable.Drawable[] a(java.lang.String[])>
+$r9 = virtualinvoke $r6.<java.net.URLConnection: java.io.InputStream getInputStream()>()@13@<com.tabatoo.slidingbar.widget.b: android.graphics.drawable.Drawable[] a(java.lang.String[])>:
+	$r10 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@14@<com.tabatoo.slidingbar.widget.b: android.graphics.drawable.Drawable[] a(java.lang.String[])>
+
+
+summary_end

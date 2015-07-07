@@ -1,0 +1,8 @@
+0.14285714285714285 1 7
+summary_start
+<com.lyricsfinder.localservice.YoutubeNewService: java.lang.String parseYoutube(com.tfsapps.music.Song)>
+$r12 = interfaceinvoke $r4.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r5)@56@<com.lyricsfinder.localservice.YoutubeNewService: java.lang.String parseYoutube(com.tfsapps.music.Song)>:
+	$r9 = specialinvoke $r0.<com.lyricsfinder.localservice.YoutubeNewService: java.lang.String newParseForUrl(java.lang.String)>($r9)@70@<com.lyricsfinder.localservice.YoutubeNewService: java.lang.String parseYoutube(com.tfsapps.music.Song)>
+
+
+summary_end

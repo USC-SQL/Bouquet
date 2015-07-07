@@ -1,0 +1,15 @@
+0.10526315789473684 2 19
+summary_start
+<fy: org.apache.http.HttpResponse a(fc,java.util.Map)>
+$r9 = virtualinvoke $r13.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@86@<fy: org.apache.http.HttpResponse a(fc,java.util.Map)>:
+	$r26 = staticinvoke <fy: org.apache.http.HttpEntity a(java.net.HttpURLConnection)>($r13)@90@<fy: org.apache.http.HttpResponse a(fc,java.util.Map)>
+
+
+summary_end
+summary_start
+<pc: pa a(android.content.Context,double,double,double,pa,java.lang.String,java.lang.String,android.text.format.Time)>
+$r28 = interfaceinvoke $r26.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r27)@44@<pc: pa a(android.content.Context,double,double,double,pa,java.lang.String,java.lang.String,android.text.format.Time)>:
+	$r28 = interfaceinvoke $r26.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r27)@61@<pc: pa a(android.content.Context,double,double,double,pa,java.lang.String,java.lang.String,android.text.format.Time)>
+
+
+summary_end

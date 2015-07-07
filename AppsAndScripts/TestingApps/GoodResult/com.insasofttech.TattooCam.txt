@@ -1,0 +1,15 @@
+0.13333333333333333 2 15
+summary_start
+<com.tapjoy.TapjoyVideo$1: void run()>
+$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@31@<com.tapjoy.TapjoyVideo$1: void run()>:
+	$r9 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@34@<com.tapjoy.TapjoyVideo$1: void run()>
+
+
+summary_end
+summary_start
+<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>
+$r4 = virtualinvoke $r9.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@28@<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>:
+	$r11 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@32@<com.tapjoy.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>
+
+
+summary_end

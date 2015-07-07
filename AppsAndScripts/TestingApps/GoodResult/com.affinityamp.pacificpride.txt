@@ -1,0 +1,15 @@
+0.18181818181818182 2 11
+summary_start
+<org.quickconnectfamily.hybrid.commandobjects.XmlToJsonRequestBCO: java.lang.Object handleIt(java.util.HashMap)>
+$r17 = virtualinvoke $r9.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@45@<org.quickconnectfamily.hybrid.commandobjects.XmlToJsonRequestBCO: java.lang.Object handleIt(java.util.HashMap)>:
+	$r5 = virtualinvoke $r9.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@50@<org.quickconnectfamily.hybrid.commandobjects.XmlToJsonRequestBCO: java.lang.Object handleIt(java.util.HashMap)>
+
+
+summary_end
+summary_start
+<org.quickconnectfamily.hybrid.QCHTTPHandler: org.quickconnectfamily.hybrid.QCHTTPHandler$QCHTTPResult doPost(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.HashMap)>
+$r6 = virtualinvoke $r15.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@143@<org.quickconnectfamily.hybrid.QCHTTPHandler: org.quickconnectfamily.hybrid.QCHTTPHandler$QCHTTPResult doPost(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.HashMap)>:
+	$r24 = virtualinvoke $r15.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@144@<org.quickconnectfamily.hybrid.QCHTTPHandler: org.quickconnectfamily.hybrid.QCHTTPHandler$QCHTTPResult doPost(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.util.HashMap)>
+
+
+summary_end

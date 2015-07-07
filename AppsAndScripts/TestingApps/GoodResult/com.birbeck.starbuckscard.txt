@@ -1,0 +1,8 @@
+0.25 1 4
+summary_start
+<com.birbeck.starbuckscard.dd: java.lang.Void a()>
+$r22 = interfaceinvoke $r10.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r17)@66@<com.birbeck.starbuckscard.dd: java.lang.Void a()>:
+	interfaceinvoke $r10.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r29)@111@<com.birbeck.starbuckscard.dd: java.lang.Void a()>
+
+
+summary_end

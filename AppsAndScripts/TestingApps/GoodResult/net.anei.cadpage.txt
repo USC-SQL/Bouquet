@@ -1,0 +1,8 @@
+0.5 1 2
+summary_start
+<net.anei.cadpage.HttpService$HttpRequest: void connect()>
+$r7 = virtualinvoke $r10.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@70@<net.anei.cadpage.HttpService$HttpRequest: void connect()>:
+	$r13 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@74@<net.anei.cadpage.HttpService$HttpRequest: void connect()>
+
+
+summary_end

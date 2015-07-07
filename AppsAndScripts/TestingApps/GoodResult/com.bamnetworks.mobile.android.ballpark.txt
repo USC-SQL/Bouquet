@@ -1,0 +1,15 @@
+0.10526315789473684 2 19
+summary_start
+<fi.foyt.foursquare.api.io.DefaultIOHandler: fi.foyt.foursquare.api.io.Response fetchData(java.lang.String,fi.foyt.foursquare.api.io.Method)>
+$r8 = virtualinvoke $r5.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@17@<fi.foyt.foursquare.api.io.DefaultIOHandler: fi.foyt.foursquare.api.io.Response fetchData(java.lang.String,fi.foyt.foursquare.api.io.Method)>:
+	$r10 = virtualinvoke $r5.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@20@<fi.foyt.foursquare.api.io.DefaultIOHandler: fi.foyt.foursquare.api.io.Response fetchData(java.lang.String,fi.foyt.foursquare.api.io.Method)>
+
+
+summary_end
+summary_start
+<com.bamnetworks.mobile.android.gameday.service.h: void run()>
+$r42 = virtualinvoke $r30.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@278@<com.bamnetworks.mobile.android.gameday.service.h: void run()>:
+	$r45 = virtualinvoke $r30.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@281@<com.bamnetworks.mobile.android.gameday.service.h: void run()>
+
+
+summary_end

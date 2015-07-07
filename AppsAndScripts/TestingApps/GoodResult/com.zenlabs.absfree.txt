@@ -1,0 +1,14 @@
+0.21428571428571427 3 14
+summary_start
+<com.thetransactioncompany.jsonrpc2.client.RawResponse: com.thetransactioncompany.jsonrpc2.client.RawResponse parse(java.net.HttpURLConnection)>
+$r6 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@28@<com.thetransactioncompany.jsonrpc2.client.RawResponse: com.thetransactioncompany.jsonrpc2.client.RawResponse parse(java.net.HttpURLConnection)>:
+	$r8 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@43@<com.thetransactioncompany.jsonrpc2.client.RawResponse: com.thetransactioncompany.jsonrpc2.client.RawResponse parse(java.net.HttpURLConnection)>
+
+$r2 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@33@<com.thetransactioncompany.jsonrpc2.client.RawResponse: com.thetransactioncompany.jsonrpc2.client.RawResponse parse(java.net.HttpURLConnection)>:
+	$r8 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@43@<com.thetransactioncompany.jsonrpc2.client.RawResponse: com.thetransactioncompany.jsonrpc2.client.RawResponse parse(java.net.HttpURLConnection)>
+
+$r6 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@7@<com.thetransactioncompany.jsonrpc2.client.RawResponse: com.thetransactioncompany.jsonrpc2.client.RawResponse parse(java.net.HttpURLConnection)>:
+	$r8 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@43@<com.thetransactioncompany.jsonrpc2.client.RawResponse: com.thetransactioncompany.jsonrpc2.client.RawResponse parse(java.net.HttpURLConnection)>
+
+
+summary_end

@@ -1,0 +1,11 @@
+0.2 2 10
+summary_start
+<com.xosdigital.android.util.h: android.graphics.Bitmap a(java.lang.String,int,int,int)>
+$r12 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@27@<com.xosdigital.android.util.h: android.graphics.Bitmap a(java.lang.String,int,int,int)>:
+	$r12 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@52@<com.xosdigital.android.util.h: android.graphics.Bitmap a(java.lang.String,int,int,int)>
+
+$r12 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@58@<com.xosdigital.android.util.h: android.graphics.Bitmap a(java.lang.String,int,int,int)>:
+	$r12 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@52@<com.xosdigital.android.util.h: android.graphics.Bitmap a(java.lang.String,int,int,int)>
+
+
+summary_end

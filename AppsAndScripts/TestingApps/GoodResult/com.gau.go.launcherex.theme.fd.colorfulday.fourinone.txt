@@ -1,0 +1,8 @@
+0.1111111111111111 1 9
+summary_start
+<com.gau.go.launcherex.theme.fd.colorfulday.fourinone.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>
+$r2 = virtualinvoke $r6.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@27@<com.gau.go.launcherex.theme.fd.colorfulday.fourinone.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>:
+	$r9 = virtualinvoke $r6.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@31@<com.gau.go.launcherex.theme.fd.colorfulday.fourinone.TapjoyURLConnection: java.lang.String connectToURL(java.lang.String,java.lang.String)>
+
+
+summary_end

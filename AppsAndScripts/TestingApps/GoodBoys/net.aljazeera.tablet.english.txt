@@ -1,0 +1,8 @@
+0.25 1 4
+summary_start
+<net.aljazeera.util.MisLog$RequestSender: java.lang.Void doInBackground(java.lang.String[])>
+$r9 = interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r4)@31@<net.aljazeera.util.MisLog$RequestSender: java.lang.Void doInBackground(java.lang.String[])>:
+	interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r4)@72@<net.aljazeera.util.MisLog$RequestSender: java.lang.Void doInBackground(java.lang.String[])>
+
+
+summary_end

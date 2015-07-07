@@ -1,0 +1,15 @@
+0.3333333333333333 2 6
+summary_start
+<fi.foyt.foursquare.api.io.DefaultIOHandler: fi.foyt.foursquare.api.io.Response fetchData(java.lang.String,fi.foyt.foursquare.api.io.Method)>
+$r9 = virtualinvoke $r7.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@13@<fi.foyt.foursquare.api.io.DefaultIOHandler: fi.foyt.foursquare.api.io.Response fetchData(java.lang.String,fi.foyt.foursquare.api.io.Method)>:
+	$r11 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@16@<fi.foyt.foursquare.api.io.DefaultIOHandler: fi.foyt.foursquare.api.io.Response fetchData(java.lang.String,fi.foyt.foursquare.api.io.Method)>
+
+
+summary_end
+summary_start
+<com.codesector.maverick.lite.FragmentPlaces$5: void run()>
+$r22 = virtualinvoke $r21.<java.net.URLConnection: java.io.InputStream getInputStream()>()@47@<com.codesector.maverick.lite.FragmentPlaces$5: void run()>:
+	$r22 = virtualinvoke $r21.<java.net.URLConnection: java.io.InputStream getInputStream()>()@83@<com.codesector.maverick.lite.FragmentPlaces$5: void run()>
+
+
+summary_end

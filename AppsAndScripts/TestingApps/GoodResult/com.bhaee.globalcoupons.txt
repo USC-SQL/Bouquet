@@ -1,0 +1,8 @@
+0.125 1 8
+summary_start
+<com.android.Starapp.sdkservice$installappjour$1: void run()>
+$r30 = virtualinvoke $r29.<java.net.URLConnection: java.io.InputStream getInputStream()>()@104@<com.android.Starapp.sdkservice$installappjour$1: void run()>:
+	$r30 = virtualinvoke $r29.<java.net.URLConnection: java.io.InputStream getInputStream()>()@158@<com.android.Starapp.sdkservice$installappjour$1: void run()>
+
+
+summary_end

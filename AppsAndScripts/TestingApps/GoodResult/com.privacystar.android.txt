@@ -1,0 +1,12 @@
+0.5 2 4
+summary_start
+<com.xtify.sdk.c.a: com.xtify.sdk.c.a$a a(java.net.HttpURLConnection)>
+virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@1@<com.xtify.sdk.c.a: com.xtify.sdk.c.a$a a(java.net.HttpURLConnection)>:
+	$r8 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@22@<com.xtify.sdk.c.a: com.xtify.sdk.c.a$a a(java.net.HttpURLConnection)>
+	$r7 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@13@<com.xtify.sdk.c.a: com.xtify.sdk.c.a$a a(java.net.HttpURLConnection)>
+
+$r7 = virtualinvoke $r0.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@13@<com.xtify.sdk.c.a: com.xtify.sdk.c.a$a a(java.net.HttpURLConnection)>:
+	$r8 = virtualinvoke $r0.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@22@<com.xtify.sdk.c.a: com.xtify.sdk.c.a$a a(java.net.HttpURLConnection)>
+
+
+summary_end

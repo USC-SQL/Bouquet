@@ -1,0 +1,15 @@
+0.125 2 16
+summary_start
+<com.tapjoy.TapjoyVideo$1: void run()>
+$r11 = virtualinvoke $r10.<java.net.URLConnection: java.io.InputStream getInputStream()>()@33@<com.tapjoy.TapjoyVideo$1: void run()>:
+	$r11 = virtualinvoke $r9.<java.net.URLConnection: java.io.InputStream getInputStream()>()@36@<com.tapjoy.TapjoyVideo$1: void run()>
+
+
+summary_end
+summary_start
+<com.android.volley.toolbox.HurlStack: org.apache.http.HttpResponse performRequest(com.android.volley.Request,java.util.Map)>
+$r11 = virtualinvoke $r15.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@45@<com.android.volley.toolbox.HurlStack: org.apache.http.HttpResponse performRequest(com.android.volley.Request,java.util.Map)>:
+	$r19 = staticinvoke <com.android.volley.toolbox.HurlStack: org.apache.http.HttpEntity entityFromConnection(java.net.HttpURLConnection)>($r15)@49@<com.android.volley.toolbox.HurlStack: org.apache.http.HttpResponse performRequest(com.android.volley.Request,java.util.Map)>
+
+
+summary_end

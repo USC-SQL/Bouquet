@@ -1,0 +1,15 @@
+0.16666666666666666 2 12
+summary_start
+<com.mygreenz.app.EventDetailView: void downloadData()>
+$r10 = virtualinvoke $r9.<java.net.URLConnection: java.io.InputStream getInputStream()>()@17@<com.mygreenz.app.EventDetailView: void downloadData()>:
+	$r20 = virtualinvoke $r19.<com.mt.utils.MtDrawableManager: android.graphics.Bitmap fetchBitmap(java.lang.String)>($r8)@71@<com.mygreenz.app.EventDetailView: void downloadData()>
+
+
+summary_end
+summary_start
+<com.mygreenz.app.BusinessDetailView: void downloadData()>
+$r11 = virtualinvoke $r10.<java.net.URLConnection: java.io.InputStream getInputStream()>()@20@<com.mygreenz.app.BusinessDetailView: void downloadData()>:
+	$r24 = virtualinvoke $r23.<com.mt.utils.MtDrawableManager: android.graphics.Bitmap fetchBitmap(java.lang.String)>($r9)@82@<com.mygreenz.app.BusinessDetailView: void downloadData()>
+
+
+summary_end

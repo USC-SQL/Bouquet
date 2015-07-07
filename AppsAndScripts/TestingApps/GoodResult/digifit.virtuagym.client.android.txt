@@ -1,0 +1,8 @@
+0.1111111111111111 1 9
+summary_start
+<digifit.android.w: digifit.android.x a(java.lang.String,java.lang.String,java.lang.String,boolean,boolean)>
+$r3 = virtualinvoke $r10.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@64@<digifit.android.w: digifit.android.x a(java.lang.String,java.lang.String,java.lang.String,boolean,boolean)>:
+	$r13 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@65@<digifit.android.w: digifit.android.x a(java.lang.String,java.lang.String,java.lang.String,boolean,boolean)>
+
+
+summary_end

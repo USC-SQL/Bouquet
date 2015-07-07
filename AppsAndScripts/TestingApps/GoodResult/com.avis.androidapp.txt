@@ -1,0 +1,8 @@
+0.14285714285714285 1 7
+summary_start
+<com.compuware.apm.uem.mobile.android.AdkHttpClient: com.compuware.apm.uem.mobile.android.AdkHttpClient$AdkResponse execGetOrPost(com.compuware.apm.uem.mobile.android.AdkHttpClient$AdkRequest)>
+$r19 = virtualinvoke $r6.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@50@<com.compuware.apm.uem.mobile.android.AdkHttpClient: com.compuware.apm.uem.mobile.android.AdkHttpClient$AdkResponse execGetOrPost(com.compuware.apm.uem.mobile.android.AdkHttpClient$AdkRequest)>:
+	$r15 = virtualinvoke $r6.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@55@<com.compuware.apm.uem.mobile.android.AdkHttpClient: com.compuware.apm.uem.mobile.android.AdkHttpClient$AdkResponse execGetOrPost(com.compuware.apm.uem.mobile.android.AdkHttpClient$AdkRequest)>
+
+
+summary_end

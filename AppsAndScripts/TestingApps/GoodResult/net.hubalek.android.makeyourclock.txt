@@ -1,0 +1,8 @@
+0.14285714285714285 1 7
+summary_start
+<com.a.a.a: void run()>
+$r8 = virtualinvoke $r7.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@43@<com.a.a.a: void run()>:
+	virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@50@<com.a.a.a: void run()>
+
+
+summary_end

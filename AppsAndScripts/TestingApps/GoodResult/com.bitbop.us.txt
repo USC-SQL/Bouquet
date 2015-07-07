@@ -1,0 +1,15 @@
+0.13333333333333333 2 15
+summary_start
+<com.tapjoy.aa: void run()>
+$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@28@<com.tapjoy.aa: void run()>:
+	$r8 = virtualinvoke $r6.<java.net.URLConnection: java.io.InputStream getInputStream()>()@31@<com.tapjoy.aa: void run()>
+
+
+summary_end
+summary_start
+<com.tapjoy.x: java.lang.String b(java.lang.String,java.lang.String)>
+$r1 = virtualinvoke $r5.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@24@<com.tapjoy.x: java.lang.String b(java.lang.String,java.lang.String)>:
+	$r8 = virtualinvoke $r5.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@28@<com.tapjoy.x: java.lang.String b(java.lang.String,java.lang.String)>
+
+
+summary_end

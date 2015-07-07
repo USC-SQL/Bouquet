@@ -1,0 +1,13 @@
+#! /bin/bash
+if [ $# -ne 1 ]
+then
+ echo "usage: analyze app"
+ exit;
+fi
+
+filename=${1%.apk}
+rm -r sootOutput
+java -jar soot.jar -android-jars /home/dingli/AppChecker/libs -src-prec apk -f J -process-dir ${filename}.apk -allow-phantom-refs
+ls sootOutput >class
+ls sootOutput | sed -e "s/.jimple//g"> classlist.txt
+java -jar HTTPTester.jar /home/dingli/HTTPChecker/libs /home/dingli/HTTPChecker/${filename}.apk classlist.txt

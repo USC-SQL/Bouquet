@@ -1,0 +1,8 @@
+0.2 1 5
+summary_start
+<com.flintcom.webservice.WebservicesConnect: java.util.ArrayList getAllUpdates(java.lang.String)>
+$r7 = interfaceinvoke $r4.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@10@<com.flintcom.webservice.WebservicesConnect: java.util.ArrayList getAllUpdates(java.lang.String)>:
+	$r12 = virtualinvoke $r0.<com.flintcom.webservice.WebservicesConnect: java.util.ArrayList parseJSON(java.lang.String)>($r1)@22@<com.flintcom.webservice.WebservicesConnect: java.util.ArrayList getAllUpdates(java.lang.String)>
+
+
+summary_end

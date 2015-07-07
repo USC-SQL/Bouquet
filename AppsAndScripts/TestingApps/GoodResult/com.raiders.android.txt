@@ -1,0 +1,8 @@
+0.1111111111111111 1 9
+summary_start
+<com.raiders.android.activity.OffersActivity$2$1: java.lang.String doInBackground(java.lang.Void[])>
+virtualinvoke $r17.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@25@<com.raiders.android.activity.OffersActivity$2$1: java.lang.String doInBackground(java.lang.Void[])>:
+	$r13 = virtualinvoke $r14.<org.brickred.socialauth.util.Response: java.lang.String getResponseBodyAsString(java.lang.String)>("UTF-8")@27@<com.raiders.android.activity.OffersActivity$2$1: java.lang.String doInBackground(java.lang.Void[])>
+
+
+summary_end

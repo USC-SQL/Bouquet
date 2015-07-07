@@ -1,0 +1,75 @@
+0.30952380952380953 13 42
+summary_start
+<com.ssm.asiana.myflight.MyFlight_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@14@<com.ssm.asiana.myflight.MyFlight_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@43@<com.ssm.asiana.myflight.MyFlight_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@361@<com.ssm.asiana.myflight.MyFlight_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@404@<com.ssm.asiana.myflight.MyFlight_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+
+summary_end
+summary_start
+<com.ssm.detailPage.Check_Schedule_Detail: boolean readData(java.lang.String,java.lang.String)>
+$r10 = interfaceinvoke $r9.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r6)@22@<com.ssm.detailPage.Check_Schedule_Detail: boolean readData(java.lang.String,java.lang.String)>:
+	$r10 = interfaceinvoke $r9.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r6)@43@<com.ssm.detailPage.Check_Schedule_Detail: boolean readData(java.lang.String,java.lang.String)>
+
+
+summary_end
+summary_start
+<com.ssm.detailPage.Check_Schedule: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@14@<com.ssm.detailPage.Check_Schedule: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@58@<com.ssm.detailPage.Check_Schedule: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@402@<com.ssm.detailPage.Check_Schedule: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@459@<com.ssm.detailPage.Check_Schedule: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+
+summary_end
+summary_start
+<com.ssm.asiana.dutyFree.Duty_Free_Main: boolean readData(java.lang.String,java.lang.String,boolean)>
+$r11 = virtualinvoke $r9.<java.net.URLConnection: java.io.InputStream getInputStream()>()@12@<com.ssm.asiana.dutyFree.Duty_Free_Main: boolean readData(java.lang.String,java.lang.String,boolean)>:
+	$r11 = virtualinvoke $r9.<java.net.URLConnection: java.io.InputStream getInputStream()>()@26@<com.ssm.asiana.dutyFree.Duty_Free_Main: boolean readData(java.lang.String,java.lang.String,boolean)>
+
+
+summary_end
+summary_start
+<com.ssm.detailPage.Check_Dep_Arr_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@14@<com.ssm.detailPage.Check_Dep_Arr_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@43@<com.ssm.detailPage.Check_Dep_Arr_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@362@<com.ssm.detailPage.Check_Dep_Arr_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r9 = virtualinvoke $r8.<java.net.URLConnection: java.io.InputStream getInputStream()>()@405@<com.ssm.detailPage.Check_Dep_Arr_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+
+summary_end
+summary_start
+<com.ssm.detailPage.Check_Schedule_Detail: boolean readData_Week(java.lang.String,java.lang.String)>
+$r10 = interfaceinvoke $r9.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r6)@22@<com.ssm.detailPage.Check_Schedule_Detail: boolean readData_Week(java.lang.String,java.lang.String)>:
+	$r10 = interfaceinvoke $r9.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r6)@43@<com.ssm.detailPage.Check_Schedule_Detail: boolean readData_Week(java.lang.String,java.lang.String)>
+
+
+summary_end
+summary_start
+<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@73@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@106@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@14@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@73@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+	$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@43@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+	$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@106@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@43@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>:
+	$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@73@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+	$r8 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@106@<com.ssm.asiana.flightFare.FlightFare_Main: boolean loadCountryAndCityCode(boolean,boolean,boolean,boolean,boolean)>
+
+
+summary_end
+summary_start
+<com.ssm.asiana.myflight.MyFlights_Detail: boolean readData()>
+$r9 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@25@<com.ssm.asiana.myflight.MyFlights_Detail: boolean readData()>:
+	$r9 = virtualinvoke $r7.<java.net.URLConnection: java.io.InputStream getInputStream()>()@56@<com.ssm.asiana.myflight.MyFlights_Detail: boolean readData()>
+
+
+summary_end

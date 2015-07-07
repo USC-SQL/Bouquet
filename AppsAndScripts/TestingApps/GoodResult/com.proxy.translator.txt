@@ -1,0 +1,8 @@
+0.3333333333333333 1 3
+summary_start
+<com.proxy.businessobject.ServiceConnector: java.io.InputStream downloadUrl(java.lang.String)>
+virtualinvoke $r4.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@10@<com.proxy.businessobject.ServiceConnector: java.io.InputStream downloadUrl(java.lang.String)>:
+	$r5 = virtualinvoke $r4.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@11@<com.proxy.businessobject.ServiceConnector: java.io.InputStream downloadUrl(java.lang.String)>
+
+
+summary_end

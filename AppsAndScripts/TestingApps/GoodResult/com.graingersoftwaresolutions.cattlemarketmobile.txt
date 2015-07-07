@@ -1,0 +1,22 @@
+0.23076923076923078 3 13
+summary_start
+<com.graingersoftwaresolutions.cattlemarketmobile.AndroidCattleMarketActivity$5: void run()>
+$r5 = interfaceinvoke $r6.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@8@<com.graingersoftwaresolutions.cattlemarketmobile.AndroidCattleMarketActivity$5: void run()>:
+	$r7 = interfaceinvoke $r6.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@11@<com.graingersoftwaresolutions.cattlemarketmobile.AndroidCattleMarketActivity$5: void run()>
+
+
+summary_end
+summary_start
+<com.graingersoftwaresolutions.cattlemarketmobile.CalfCalcExpandableList$6: void run()>
+$r5 = interfaceinvoke $r6.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@8@<com.graingersoftwaresolutions.cattlemarketmobile.CalfCalcExpandableList$6: void run()>:
+	$r5 = interfaceinvoke $r6.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@13@<com.graingersoftwaresolutions.cattlemarketmobile.CalfCalcExpandableList$6: void run()>
+
+
+summary_end
+summary_start
+<com.graingersoftwaresolutions.cattlemarketmobile.ExpandableList$8: void run()>
+$r5 = interfaceinvoke $r6.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@8@<com.graingersoftwaresolutions.cattlemarketmobile.ExpandableList$8: void run()>:
+	$r5 = interfaceinvoke $r6.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r2)@20@<com.graingersoftwaresolutions.cattlemarketmobile.ExpandableList$8: void run()>
+
+
+summary_end

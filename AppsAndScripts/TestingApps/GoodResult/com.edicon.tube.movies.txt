@@ -1,0 +1,25 @@
+0.14814814814814814 4 27
+summary_start
+<com.google.gdata.b.x: void <init>(java.net.HttpURLConnection)>
+$r2 = virtualinvoke $r1.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@2@<com.google.gdata.b.x: void <init>(java.net.HttpURLConnection)>:
+	virtualinvoke $r6.<com.google.gdata.b.y: void a(java.net.HttpURLConnection)>($r1)@16@<com.google.gdata.b.x: void <init>(java.net.HttpURLConnection)>
+
+
+summary_end
+summary_start
+<com.edicon.mytube.video.o: java.lang.String a()>
+$r5 = interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r3)@26@<com.edicon.mytube.video.o: java.lang.String a()>:
+	$r7 = staticinvoke <com.edicon.mytube.b.d: java.lang.String a(java.lang.String,java.lang.String)>($r7, $r1)@35@<com.edicon.mytube.video.o: java.lang.String a()>
+
+$r5 = interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r3)@7@<com.edicon.mytube.video.o: java.lang.String a()>:
+	$r7 = staticinvoke <com.edicon.mytube.b.d: java.lang.String a(java.lang.String,java.lang.String)>($r7, $r1)@35@<com.edicon.mytube.video.o: java.lang.String a()>
+
+
+summary_end
+summary_start
+<com.edicon.mytube.video.x: java.lang.String a(java.net.URI[])>
+$r4 = interfaceinvoke $r2.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r3)@7@<com.edicon.mytube.video.x: java.lang.String a(java.net.URI[])>:
+	$r8 = staticinvoke <com.edicon.mytube.video.VideoListActivity: java.lang.String f(com.edicon.mytube.video.VideoListActivity)>($r7)@10@<com.edicon.mytube.video.x: java.lang.String a(java.net.URI[])>
+
+
+summary_end

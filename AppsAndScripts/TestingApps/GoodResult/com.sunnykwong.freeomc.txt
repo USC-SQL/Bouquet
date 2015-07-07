@@ -1,0 +1,12 @@
+0.2 2 10
+summary_start
+<com.sunnykwong.omc.OpenWeatherMapJSONHandler$1: void run()>
+$r11 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@52@<com.sunnykwong.omc.OpenWeatherMapJSONHandler$1: void run()>:
+	$r11 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@146@<com.sunnykwong.omc.OpenWeatherMapJSONHandler$1: void run()>
+	$r11 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@127@<com.sunnykwong.omc.OpenWeatherMapJSONHandler$1: void run()>
+
+$r11 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@127@<com.sunnykwong.omc.OpenWeatherMapJSONHandler$1: void run()>:
+	$r11 = virtualinvoke $r10.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@146@<com.sunnykwong.omc.OpenWeatherMapJSONHandler$1: void run()>
+
+
+summary_end
