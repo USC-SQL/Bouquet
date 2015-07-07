@@ -1,6 +1,7 @@
 package usc.edu.HTTPChecker.HTTPChecker;
 
 import soot.Unit;
+import soot.baf.internal.BVirtualInvokeInst;
 import soot.jimple.AssignStmt;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
@@ -47,8 +48,77 @@ public class ToolKit {
         }
         return null;
     }
+    public static boolean isURLopen(Unit stmt) {
 
-    public static boolean isHttpOpen(Unit stmt) {
+        // there are many kinds of statements, here we are only
+        // interested in statements containing InvokeStatic
+        // NOTE: there are two kinds of statements may contain
+        // invoke expression: InvokeStmt, and AssignStmt
+        String signature = "";
+        if (stmt instanceof InvokeStmt) {
+            InvokeStmt invoke = (InvokeStmt) stmt;
+            InvokeExpr exp = invoke.getInvokeExpr();
+            signature = exp.getMethod().getSignature();
+            //System.out.println(signature);
+
+
+        } else if (stmt instanceof AssignStmt) {
+            AssignStmt assign = (AssignStmt) stmt;
+            if (assign.containsInvokeExpr()) {
+                InvokeExpr exp = assign.getInvokeExpr();
+                signature = exp.getMethod().getSignature();
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+        if (signature.startsWith("<java.net.URL: java.net.URLConnection openConnection")) {
+            return true;
+        }
+        return false;
+    }
+    public static boolean isGetInputStream(Unit stmt) {
+
+        // there are many kinds of statements, here we are only
+        // interested in statements containing InvokeStatic
+        // NOTE: there are two kinds of statements may contain
+        // invoke expression: InvokeStmt, and AssignStmt
+        String signature = "";
+        if (stmt instanceof InvokeStmt) {
+            InvokeStmt invoke = (InvokeStmt) stmt;
+            InvokeExpr exp = invoke.getInvokeExpr();
+            signature = exp.getMethod().getSignature();
+            //System.out.println(signature);
+
+
+        } else if (stmt instanceof AssignStmt) {
+            AssignStmt assign = (AssignStmt) stmt;
+
+            if (assign.containsInvokeExpr()) {
+                InvokeExpr exp = assign.getInvokeExpr();
+                signature = exp.getMethod().getSignature();
+
+            } else {
+                return false;
+            }
+        }else if(stmt instanceof BVirtualInvokeInst)
+        {
+            BVirtualInvokeInst inv=(BVirtualInvokeInst)stmt;
+            signature = inv.getMethod().getSignature();
+            //System.out.println(signature);
+
+        }
+        else {
+            return false;
+        }
+        if (signature.startsWith("<java.net.URLConnection: java.io.InputStream getInputStream")) {
+            return true;
+        }
+        return false;
+    }
+  public static boolean isHttpOpen(Unit stmt) {
 
         // there are many kinds of statements, here we are only
         // interested in statements containing InvokeStatic
@@ -77,12 +147,6 @@ public class ToolKit {
             return true;
         }
         if (signature.startsWith("<java.net.URLConnection: java.io.InputStream getInputStream")) {
-            return true;
-        }
-        if (signature.startsWith("<java.net.HttpURLConnection: java.lang.String getResponseMessage")) {
-            return true;
-        }
-        if (signature.startsWith("<java.net.URLConnection: java.lang.Object getContent")) {
             return true;
         }
         return false;

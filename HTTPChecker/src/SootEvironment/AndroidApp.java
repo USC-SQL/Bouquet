@@ -6,17 +6,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import CallGraph.StringCallGraph;
-import soot.Scene;
-import soot.SootClass;
-import soot.SootMethod;
+import soot.*;
+import soot.jimple.spark.SparkTransformer;
+import soot.jimple.spark.geom.geomPA.GeomPointsTo;
+import soot.jimple.spark.pag.PAG;
 import soot.jimple.toolkits.callgraph.CHATransformer;
 import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.jimple.toolkits.callgraph.Sources;
@@ -28,6 +24,7 @@ import soot.util.Chain;
 public class AndroidApp {
     private Set<SootClass> appclasses = new HashSet<SootClass>();
     StringCallGraph callgraph;
+    public PAG pointto;
     private Set<String> methodsignatures = new HashSet<String>();
 
     public StringCallGraph getCallgraph() {
@@ -63,10 +60,11 @@ public class AndroidApp {
         Options.v().set_android_jars(androidpath);
         Options.v().set_whole_program(true);
         Options.v().set_verbose(false);
+        Options.v().setPhaseOption("cg.spark", "on");
+        Options.v().set_output_format(Options.src_prec_J);
         Options.v().set_keep_line_number(true);
         Options.v().set_keep_offset(true);
         Options.v().set_allow_phantom_refs(true);
-        //Options.v().set_output_format(Options.src_prec_J);
 
         List<String> stringlist = new LinkedList<String>();
         stringlist.add(ApkPath);
@@ -83,31 +81,14 @@ public class AndroidApp {
                 try {
                     SootClass sc = Scene.v().loadClassAndSupport(line);
                     //System.out.println("sig"+sc.getName());
-                    if (!sc.getName().startsWith("android.support")) ;
+                    if (!sc.getName().startsWith("android.support"))
                     {
                         allmethods.addAll(sc.getMethods());
                         sc.setApplicationClass();
+                        entryPoints.addAll(sc.getMethods());
+
                         appclasses.add(sc);
-                        try {
-                            SootMethod onCreate = sc.getMethodByName("onCreate");
-                            if (onCreate.isConcrete()) {
-                                entryPoints.add(onCreate);
-                                System.out.println(onCreate);
-                            }
 
-                        } catch (Exception e) {
-                            //System.out.println("do not conatin main method");
-                        }
-                        try {
-                            SootMethod doInBackground = sc.getMethodByName("doInBackground");
-                            if (doInBackground.isConcrete()) {
-                                //entryPoints.add(doInBackground);
-                                System.out.println(doInBackground);
-                            }
-
-                        } catch (Exception e) {
-                            //System.out.println("do not conatin the main method");
-                        }
                     }
 
 
@@ -126,9 +107,13 @@ public class AndroidApp {
         }
         Scene.v().loadNecessaryClasses();
         Scene.v().setEntryPoints(entryPoints);
-        CHATransformer.v().transform();
+        PackManager.v().runPacks();
+
+        //CHATransformer.v().transform();
+
         CallGraph cg = Scene.v().getCallGraph();
         this.callgraph = new StringCallGraph(cg, allmethods);
+        this.pointto=(PAG)Scene.v().getPointsToAnalysis();
         //System.out.println(this.callgraph.getRTOdering().size());
         for (SootMethod msm : allmethods) {
             methodsignatures.add(msm.getSignature());

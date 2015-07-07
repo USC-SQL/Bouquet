@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weatherdata>
+  <location>
+    <name>Los Angeles</name>
+    <type/>
+    <country>US</country>
+    <timezone/>
+    <location altitude="0" latitude="34.052231" longitude="-118.243683" geobase="geonames" geobaseid="0"/>
+  </location>
+  <credit/>
+  <meta>
+    <lastupdate/>
+    <calctime>0.6509</calctime>
+    <nextupdate/>
+  </meta>
+  <sun rise="2015-06-17T12:41:19" set="2015-06-18T03:06:41"/>
+  <forecast>
+    <time day="2015-06-17">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="220" code="SW" name="Southwest"/>
+      <windSpeed mps="1.31" name="Calm"/>
+      <temperature day="28.73" min="17.06" max="28.73" night="17.06" eve="27.96" morn="28.73"/>
+      <pressure unit="hPa" value="957.14"/>
+      <humidity value="52" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time day="2015-06-18">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="222" code="SW" name="Southwest"/>
+      <windSpeed mps="1.29" name="Calm"/>
+      <temperature day="26.94" min="13.27" max="29.22" night="17.33" eve="28.5" morn="13.27"/>
+      <pressure unit="hPa" value="958.29"/>
+      <humidity value="57" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time day="2015-06-19">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="174" code="S" name="South"/>
+      <windSpeed mps="1.21" name="Calm"/>
+      <temperature day="26.51" min="13.47" max="28.93" night="18.38" eve="28.92" morn="13.47"/>
+      <pressure unit="hPa" value="956.54"/>
+      <humidity value="57" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time day="2015-06-20">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="157" code="SSE" name="South-southeast"/>
+      <windSpeed mps="0.42" name="Calm"/>
+      <temperature day="26.77" min="14.87" max="29.68" night="19.34" eve="29.68" morn="14.87"/>
+      <pressure unit="hPa" value="970.73"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time day="2015-06-21">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="197" code="SSW" name="South-southwest"/>
+      <windSpeed mps="1.42" name="Calm"/>
+      <temperature day="24.66" min="14.67" max="27.8" night="18.6" eve="27.8" morn="14.67"/>
+      <pressure unit="hPa" value="972.69"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="clear sky" all="2" unit="%"/>
+    </time>
+  </forecast>
+</weatherdata>
+

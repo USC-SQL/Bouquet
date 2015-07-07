@@ -23,6 +23,7 @@ class Parameter {
 public class BCELUtils {
     String methodname = "java.io.InputStream getInputStream(java.net.URLConnection)";
     String classname = "usc.edu.AgentURLConnection";
+    public static int counter=0;
     final static private Hashtable<String, Parameter> AgentMethodTable = new Hashtable<String, Parameter>();
 
     static {
@@ -39,7 +40,7 @@ public class BCELUtils {
         return false;
     }
 
-    public static Instruction getNewInstruction(InstructionHandle ih, ConstantPoolGen cpg, InstructionFactory inf) {
+    public static Instruction getNewInstruction(InstructionHandle ih, ConstantPoolGen cpg, InstructionFactory inf, boolean opt) {
         Instruction ins = ih.getInstruction();
 
         if (ins instanceof InvokeInstruction) {
@@ -61,7 +62,14 @@ public class BCELUtils {
                     newpara[i + 1] = oldpara[i];
                 newpara[0] = invoke.getReferenceType(cpg);
 
-                InvokeInstruction iv = inf.createInvoke(pas.classname, pas.methodname, invoke.getReturnType(cpg), newpara, Constants.INVOKESTATIC);
+                InvokeInstruction iv;
+                if(opt)
+                {
+                    iv= inf.createInvoke(pas.classname, pas.methodname+"OPT", invoke.getReturnType(cpg), newpara, Constants.INVOKESTATIC);
+                }
+                else{
+                    iv= inf.createInvoke(pas.classname, pas.methodname, invoke.getReturnType(cpg), newpara, Constants.INVOKESTATIC);
+                }
                 return iv;
             }
             return null;

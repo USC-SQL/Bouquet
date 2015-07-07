@@ -6,12 +6,16 @@ import java.util.Iterator;
 import java.util.Set;
 
 import SootEvironment.AndroidApp;
-import soot.Body;
-import soot.SootMethod;
-import soot.Unit;
+import soot.*;
+import soot.baf.internal.BVirtualInvokeInst;
+import soot.jimple.InvokeExpr;
 import soot.jimple.ReturnStmt;
 import soot.jimple.ReturnVoidStmt;
 import soot.jimple.Stmt;
+import soot.jimple.spark.geom.geomPA.GeomPointsTo;
+import soot.jimple.spark.pag.Node;
+import soot.jimple.spark.pag.PAG;
+import soot.jimple.spark.sets.PointsToSetInternal;
 import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.graph.UnitGraph;
 import soot.toolkits.scalar.FlowSet;
@@ -36,7 +40,13 @@ public class MethodSummary {
     Set<DominationPoint> internalPostDomination = new HashSet<DominationPoint>();
     Set<SootInstruction> entryPostDominators = new HashSet<SootInstruction>();
     Set<SootInstruction> httpinstructions = new HashSet<SootInstruction>();
+    Set<SootInstruction> inloopinstructions=new HashSet<SootInstruction>();
+    Set<Value> URLopenset=new HashSet<Value>();
     int HTTPcnt;
+    public  Set<DominationPoint> getDominatePoint()
+    {
+        return this.internalPostDomination;
+    }
 
     public String DominatorStrings() {
         String r = "";
@@ -46,7 +56,14 @@ public class MethodSummary {
         }
         return r;
     }
-
+    public String LoopInsStrings(){
+        String r = "";
+        r += sm.getSignature() + "\n           ";
+        for (SootInstruction dp : inloopinstructions) {
+            r += dp.toString() + "\n";
+        }
+        return r;
+    }
     public boolean ReturnHasHTTP() {
         if (entryPostDominators.size() > 0)
             return true;
@@ -57,6 +74,125 @@ public class MethodSummary {
         if (httpinstructions.size() > 0)
             return true;
         return false;
+    }
+    public void AnalyzeLoop(){
+        Body b = this.sm.retrieveActiveBody();
+        UnitGraph g = new BriefUnitGraph(b);
+        LoopAnalyzer httpan = new LoopAnalyzer(g);
+        Chain units = b.getUnits();
+
+        Iterator stmtIt = units.snapshotIterator();
+        int cnt=0;
+        while (stmtIt.hasNext()) {
+            Unit stmt = (Unit) stmtIt.next();
+            FlowSet set=( FlowSet)httpan.getFlowBefore(stmt);
+            if(set.contains(stmt))
+            {
+                SootInstruction ins=new SootInstruction(this.sm,stmt,cnt);
+                inloopinstructions.add(ins);
+            }
+            cnt++;
+        }
+
+
+    }
+    public void AnalyzePointTo(PAG pointana){
+        //PAG pag=(PAG) pointana;
+        //System.out.println("Start point to "+this.sm.getSignature());
+        Body b = this.sm.retrieveActiveBody();
+        UnitGraph g = new BriefUnitGraph(b);
+        Chain units = b.getUnits();
+        HashSet<Stmt> openins=new HashSet<Stmt>();
+        boolean flag=false;
+        Iterator stmtIt = units.snapshotIterator();
+        int cnt=0;
+        while (stmtIt.hasNext()) {
+            Unit stmt = (Unit) stmtIt.next();
+            if(ToolKit.isURLopen(stmt))
+            {
+                flag=true;
+                //URLopenset.add(stmt.getDefBoxes().get(0).getValue());
+                Value localvalue=stmt.getDefBoxes().get(0).getValue();
+                openins.add((Stmt)stmt);
+
+            }
+            cnt++;
+        }
+        stmtIt = units.snapshotIterator();
+        //System.out.println(pointana.getNumAllocNodes());
+        if(flag)
+        {
+            for(Local l: b.getLocals())
+            {
+                Node n=pointana.findLocalVarNode((Local) l);
+                System.out.println(n);
+
+            }
+
+            /*while (stmtIt.hasNext()) {
+                Unit u = (Unit) stmtIt.next();
+                Stmt stmt=(Stmt)u;
+
+                if(stmt.containsInvokeExpr())
+                {
+                    InvokeExpr exp = stmt.getInvokeExpr();
+                    if(exp.getUseBoxes().size()>1)
+                    {
+                        Value l=exp.getUseBoxes().get(0).getValue();
+                        System.out.println(l+" "+stmt);
+                        if(l instanceof Local)
+                        {
+                            Node n=pointana.findLocalVarNode((Local) l);
+                            System.out.println(n);
+                            PointsToSetInternal pset=(PointsToSetInternal)pointana.reachingObjects((Local) l);
+                            System.out.println(pset.size());
+
+                        }
+
+
+
+                    }
+
+                }
+            }*/
+        }
+        /*while (stmtIt.hasNext()) {
+            Unit u = (Unit) stmtIt.next();
+
+            if(ToolKit.isGetInputStream(u))
+            {
+
+                Stmt stmt=(Stmt)u;
+                InvokeExpr exp = stmt.getInvokeExpr();
+                Value l=exp.getUseBoxes().get(0).getValue();
+                System.out.println(stmt);
+
+                System.out.println(l);
+                PointsToSetInternal pset=(PointsToSetInternal)pointana.reachingObjects((Local) l);
+                System.out.println(pset.size());
+                if(!pset.isEmpty())
+                {
+                    System.out.println(this.sm.getSignature());
+                    System.out.println(stmt);
+
+                }
+                for(Stmt targets:openins)
+                {
+                    Value localvalue=targets.getDefBoxes().get(0).getValue();
+                    Node localnode=pointana.findLocalVarNode(localvalue);
+                    if(pset.contains(localnode))
+                    {
+                        System.out.println("Pinted to "+targets);
+                    }
+
+                }
+
+            }
+        }*/
+        /*if(flag)
+        {
+            System.out.println(b);
+        }*/
     }
 
     public void Analyze(HashMap<String, MethodSummary> summarytable) {
@@ -78,7 +214,6 @@ public class MethodSummary {
 
         while (stmtIt.hasNext()) {
             Unit stmt = (Unit) stmtIt.next();
-
             if (ToolKit.isHttpOpen(stmt)) {
                 this.HTTPcnt++;
                 FlowSet set = (FlowSet) httpan.getFlowAfter(stmt);

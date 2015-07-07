@@ -5,47 +5,108 @@ import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.cookie.Cookie;
+import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.params.HttpParams;
 
 import java.io.*;
 import java.net.*;
 import java.security.Permission;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.zip.GZIPInputStream;
 
 /**
  * Created by dingli on 4/22/15.
  */
 public class AgentURLConnection {
     private static int counter = 0;
+    //private static final String proxylink="http://ec2-52-11-252-130.us-west-2.compute.amazonaws.com:1989";
+    //private static final String lookuplink="http://ec2-52-11-252-130.us-west-2.compute.amazonaws.com:1988";
+    private static final String lookuplink="http://dingli.usc.edu:1988";
+    private static final String proxylink="http://dingli.usc.edu:1989";
 
-    public static void LogCallStart() {
-        if (counter == 0) {
+    private static HashMap<String,BundledResponse> reserved=new HashMap<String,BundledResponse>();
+    private static HashMap<String,HttpResponse> HttpClientreserved=new HashMap<String,HttpResponse>();
+    private static Object lock=new Object();
+
+    private static DataOutputStream methodout=null;
+    private static DataOutputStream HTTPout=null;
+    private static PrintWriter HTTPpw=null;
+
+
+    private static void LogMethodLong(long start,long end ){
+
+            try {
+                    OutputStream file = new FileOutputStream("/sdcard/CALL_log", true);
+                    OutputStream buffer = new BufferedOutputStream(file);
+                    methodout = new DataOutputStream(buffer);
+
+                methodout.writeLong(start);
+                methodout.writeLong(end);
+                methodout.close();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+    private static void LogHTTPLong(long start,long end,String link ){
+        try {
+            OutputStream file = new FileOutputStream("/sdcard/HTTP_log", true);
+            HTTPpw=new PrintWriter(file,true);
+            HTTPpw.println(link);
+            HTTPpw.println(start);
+            HTTPpw.println(end);
+
+
+            try{
+                throw new Exception();
+            }
+            catch (Exception e)
+            {
+
+                StackTraceElement[] trace = e.getStackTrace();
+
+                for(int ourCause = 0; ourCause < trace.length; ++ourCause) {
+                    HTTPpw.println("\tat " + trace[ourCause]);
+                }
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static long LogCallStart() {
+        /*if (counter == 0) {
             Long currentmilli = System.currentTimeMillis();
-            System.out.println("Block Starts: " + currentmilli);
+            System.out.println("Block Starts: " + currentmilli+" ");
         }
-        counter++;
-        System.out.println("Start counter: " + counter);
+        counter++;*/
 
-
-    }
-
-    public static void LogCallReturn() {
-        counter--;
         Long currentmilli = System.currentTimeMillis();
-
-        System.out.println("End counter: " + counter + " " + currentmilli);
-        if (counter == 0) {
-            System.out.println("Block Ends: " + currentmilli);
-        }
+        return currentmilli;
 
     }
 
+    public static void LogCallReturn(long starttime) {
+        //counter--;
+        Long currentmilli = System.currentTimeMillis();
+        LogMethodLong(starttime,currentmilli);
+
+        //System.out.println("Method Call: " + starttime+" "+currentmilli);
+        /*if (counter == 0) {
+            System.out.println("Block Ends: " + currentmilli);
+        }*/
+
+    }
     private static String getStringFromInputStream(InputStream is) {
 
         BufferedReader br = null;
@@ -74,7 +135,61 @@ public class AgentURLConnection {
         return sb.toString();
 
     }
+    private static List<BundledResponse> getBundledResponsesFromInputStream(byte[] content) throws IOException {
+        long start=System.currentTimeMillis();
+        //byte[] content=getbytesFromInputStream(is);
+        long end1=System.currentTimeMillis();
+        //System.out.println("In get 1 "+(end1-start));
+        //System.out.println("System "+content.length);
+        LinkedList<BundledResponse> responses=new  LinkedList<BundledResponse>();
+        LinkedList<Integer> anchorpoints=new  LinkedList<Integer>();
+        for(int i=0;i<content.length-3;i++)
+        {
+            if(content[i]=='@'&&content[i+1]=='@'&&content[i+2]=='@')
+            {
+                anchorpoints.add(i + 3);
+            }
+        }
+        anchorpoints.add(content.length);
+        long end2=System.currentTimeMillis();
+        //System.out.println("In get 2 "+(end2-end1));
+        int last=0;
+        for(int s:anchorpoints)
+        {
+            //System.out.println("Anchor "+s);
 
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            buffer.write(content,last,s-last-3);
+            last=s;
+            byte[] allbytes=buffer.toByteArray();
+            //String temps= getStringFromInputStream(new ByteArrayInputStream(allbytes));
+            //System.out.println(temps);
+            BundledResponse br=new BundledResponse(allbytes);
+            //System.out.println(br.link+" link");
+            responses.add(br);
+            //String value=getStringFromInputStream(new ByteArrayInputStream(buffer.toByteArray()));
+           // System.out.println(value);
+        }
+        long end3=System.currentTimeMillis();
+        //System.out.println("In get 3 "+(end3-end2));
+        return responses;
+    }
+
+    private static byte[] getbytesFromInputStream(InputStream is) throws IOException {
+        int nRead;
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        byte[] data = new byte[1024];
+
+        while ((nRead = is.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+
+        buffer.flush();
+
+        return buffer.toByteArray();
+
+    }
     public static Hashtable<String, String> contentcache = new Hashtable<String, String>();
 
     public static boolean getAllowUserInteraction(URLConnection urlconn) {
@@ -171,131 +286,157 @@ public class AgentURLConnection {
     }
 
 
-    /*public static InputStream getInputStream(URLConnection urlconn) throws IOException {
-        System.out.println("It works!");
-        if(urlconn instanceof HttpURLConnection)
-        {
-            long start=System.currentTimeMillis();
+    public static InputStream getInputStreamOPT(URLConnection urlconn) throws IOException {
+        //System.out.println("URLgetInputStreamOPT It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
+        return getInputStreamOPT((HttpURLConnection)urlconn);
+    }
+    public static InputStream getInputStreamOPT(HttpURLConnection urlconn) throws IOException {
+        // System.out.println("HTTPRULgetInputStreamOPT It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
 
-            HttpURLConnection httpconn=(HttpURLConnection)urlconn;
-            String targeturl=httpconn.getURL().toString();
-            if(contentcache.containsKey(targeturl))
-            {
-                String body=contentcache.get(targeturl);
-                InputStream returnstream=new ByteArrayInputStream(body.getBytes());
-                long end=System.currentTimeMillis();
-                System.out.println((end-start));
-                return returnstream;
-            }
-
-            URL url = new URL("http://dingli.usc.edu:1988?targetlink="+ URLEncoder.encode(targeturl));
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            try {
-                //InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                //String s=getStringFromInputStream(in);
-                //System.out.println(getStringFromInputStream(in));
-                //System.out.println(getStringFromInputStream(urlconn.getInputStream()));
-                //InputStream stream = new ByteArrayInputStream(s.getBytes());
-                byte[] buf=new byte[4096];
-                InputStream in=urlConnection.getInputStream();
-                String s=getStringFromInputStream(in);
-                //System.out.println(s);
-                String content[]=s.split("!!!");
-                //System.out.println(content.length);
-
-                for(int i=0;i<content.length;i++)
-                {
-                    String values[]=content[i].split("@@@");
-                    contentcache.put(values[0], values[1]);
-                    //System.out.println(values[1]);
-
-
-                }
-                String body=contentcache.get(targeturl);
-                InputStream returnstream=new ByteArrayInputStream(body.getBytes());
-                long end=System.currentTimeMillis();
-                System.out.println((end-start));
-
-                return returnstream;
-
-
-            }
-            finally {
-                urlConnection.disconnect();
-            }
-        }
-
-
-        return urlconn.getInputStream();
-    }*/
-    //for ground truth
-    /*
-    public static InputStream getInputStream(URLConnection urlconn) throws IOException {
-        System.out.println("It works! "+urlconn.getURL().toString()+" "+urlconn.getDoOutput());
-        long start=System.currentTimeMillis();
-        Log.d("myapp", Log.getStackTraceString(new Exception()));
-
-        InputStream in=urlconn.getInputStream();
-        String s=getStringFromInputStream(in);
-        InputStream returnstream=new ByteArrayInputStream(s.getBytes());
-        long end=System.currentTimeMillis();
-        String content[]=s.split("<");
-        contentcache.put(content[0], content[1]);
-
-        System.out.println((end-start));
-
-        return returnstream;
-    }*/
-    public static InputStream getInputStream(URLConnection urlconn) throws IOException {
-        System.out.println("URLgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
-
-        /*URL url = new URL("http://dingli.usc.edu:1988");
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        urlConnection.addRequestProperty("targetlink", urlconn.getURL().toString());
-        urlConnection.getInputStream();*/
-
-        try {
+        /*try {
             throw new Exception();
         } catch (Exception e) {
             //StackTraceElement[] selem=e.getStackTrace();
-            e.printStackTrace(System.out);
+
             //System.out.println("AT " + selem[1]);
-            //e.printStackTrace();
+            e.printStackTrace(System.out);
+        }*/
+        if(!urlconn.getDoOutput())
+        {
+
+            long start=System.currentTimeMillis();
+            InputStream r=null;
+            if(reserved.containsKey(urlconn.getURL().toString()))
+            {
+                //System.out.println("Hit");
+                BundledResponse br=reserved.get(urlconn.getURL().toString());
+                r=new ByteArrayInputStream(br.buffer.toByteArray());
+
+            }
+            else{
+                // System.out.println("Miss");
+
+                URL url = new URL(proxylink);//to proxy
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.addRequestProperty("targetlink", urlconn.getURL().toString());
+                InputStream in = urlConnection.getInputStream();
+                long end1=System.currentTimeMillis();
+                //System.out.println("end1 "+(end1-start)+" "+urlConnection.getContentLength());
+                byte[] content=getbytesFromInputStream(in);
+                long end2=System.currentTimeMillis();
+                //System.out.println("end2 "+(end2-start));
+
+                List<BundledResponse> res=getBundledResponsesFromInputStream(content);
+                //System.out.println(res.size()+" size");
+                long end21=System.currentTimeMillis();
+                //System.out.println("end21 "+(end21-start));
+                for(BundledResponse br:res)
+                {
+                    reserved.put(br.link,br);
+                    //System.out.println(br.link);
+                    if(br.link.equals(urlconn.getURL().toString()))
+                    {
+                        r=new ByteArrayInputStream(br.buffer.toByteArray());
+                    }
+
+                }
+                long end3=System.currentTimeMillis();
+                //System.out.println("end3 "+(end3-start));
+                //System.out.println(reserved.keySet().size()+" Keys");
+
+            }
+            long end=System.currentTimeMillis();
+            LogHTTPLong(start,end,urlconn.getURL().toString());
+            // System.out.println("NetworkCost: "+(end-start));
+            return r;
+
+
+
+
         }
-        System.out.println("HTTPcall start: " + System.currentTimeMillis());
+        else{
+            //POST not handled yes
+            System.out.println("Big Warning: this is an HTTP Post");
 
-        InputStream in = urlconn.getInputStream();
-        System.out.println("HTTPcall end: " + System.currentTimeMillis());
+            System.out.println("HTTP POST call start: " + System.currentTimeMillis());
+
+            InputStream in = urlconn.getInputStream();
+            System.out.println("HTTPcall end: " + System.currentTimeMillis());
 
 
-        return in;
+            return in;
+        }
+
+    }
+    /*public static InputStream getInputStream(URLConnection urlconn) throws IOException {
+        // System.out.println("URLgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
+        long start=System.currentTimeMillis();
+        InputStream r=urlconn.getInputStream();
+        long end =System.currentTimeMillis();
+        LogHTTPLong(start,end,urlconn.getURL().toString());
+
+        return r;
+
+
+    }
+    public static InputStream getInputStream(HttpURLConnection urlconn) throws IOException {
+        // System.out.println("URLgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
+        long start=System.currentTimeMillis();
+        InputStream r=urlconn.getInputStream();
+        long end =System.currentTimeMillis();
+        LogHTTPLong(start,end,urlconn.getURL().toString());
+
+        return r;
+
+
+    }*/
+    public static InputStream getInputStream(URLConnection urlconn) throws IOException {
+       // System.out.println("URLgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
+        return getInputStream((HttpURLConnection) urlconn);
+
+
     }
 
     public static InputStream getInputStream(HttpURLConnection urlconn) throws IOException {
-        System.out.println("HTTPRULgetInputStream It works! " + urlconn.getURL().toString() + " " + urlconn.getDoOutput() + " " + android.os.Process.myTid() + " " + Thread.currentThread().getId());
 
-        try {
-            throw new Exception();
-        } catch (Exception e) {
-            //StackTraceElement[] selem=e.getStackTrace();
 
-            //System.out.println("AT " + selem[1]);
-            e.printStackTrace(System.out);
-        }
-        /*URL url = new URL("http://dingli.usc.edu:1988");
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        for(String key:urlconn.getHeaderFields().keySet())
+        if(!urlconn.getDoOutput())
         {
-            urlConnection.addRequestProperty(key,urlconn.getHeaderFields().get(key).get(0));
+            long start=System.currentTimeMillis();
+
+            URL url = new URL(lookuplink);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.addRequestProperty("targetlink", urlconn.getURL().toString());
+
+            InputStream in = urlConnection.getInputStream();
+            long end1=System.currentTimeMillis();
+            //System.out.println("end1 "+(end1-start)+" "+in.available());
+            byte[] content=getbytesFromInputStream(in);
+            InputStream r=new ByteArrayInputStream(content);
+            long end2=System.currentTimeMillis();
+            //System.out.println("end2 "+(end2-end1));
+
+            long end=System.currentTimeMillis();
+            LogHTTPLong(start,end,urlconn.getURL().toString());
+
+            //System.out.println("NetworkCost: "+(end-start));
+            return r;
+
+
         }
-        urlConnection.getInputStream();
-        System.out.println(urlconn.getHeaderFields());*/
-        System.out.println("HTTPcall start: " + System.currentTimeMillis());
-        InputStream in = urlconn.getInputStream();
-        System.out.println("HTTPcall end: " + System.currentTimeMillis());
+        else{
+            //POST not handled yes
+            System.out.println("Big Warning: this is an HTTP Post");
+
+            System.out.println("HTTP POST call start: " + System.currentTimeMillis());
+
+            InputStream in = urlconn.getInputStream();
+            System.out.println("HTTPcall end: " + System.currentTimeMillis());
 
 
-        return in;
+            return in;
+        }
+
     }
 
     public static long getLastModified(URLConnection urlconn) {
@@ -393,21 +534,197 @@ public class AgentURLConnection {
     }
 
     //Below are APIs for apache HTTP client
-    /*
-    public static HttpResponse HttpResponseexecute(HttpUriRequest request,HttpClient client) throws IOException, URISyntaxException {
+    public static HttpResponse HttpResponseexecuteOPT(HttpClient client,HttpUriRequest request) throws IOException, URISyntaxException {
+
+        //System.out.println("it works OPT " + request.getURI().toString() + " " + request.getMethod());
+
+        if(request instanceof HttpPost)
+        {
+            long start=System.currentTimeMillis();
+
+            HttpPost post=(HttpPost)request;
+            HttpEntity en=post.getEntity();
+            String query=request.getURI().toString();
+            query+="?";
+            if(en!=null)
+            {
+                String v=getStringFromInputStream(en.getContent());
+                query+=v;
+            }
+            //System.out.println(query);
+            if(reserved.containsKey(query))
+            {
+                //System.out.println("hit");
+                HttpResponse r=HttpClientreserved.get(query);
+                BundledResponse br =reserved.get(query);
+                HttpEntity newentity=new ByteArrayEntity(br.buffer.toByteArray());
+                r.setEntity(newentity);
+                long end=System.currentTimeMillis();
+                LogHTTPLong(start,end,query);
+                return r;
+
+            }
+            URI oldurl=request.getURI();
+           // System.out.println(oldurl.toString());
+            //((HttpPost)request).setURI(new URI("http://ec2-52-24-51-136.us-west-2.compute.amazonaws.com:1988"));
+            ((HttpPost)request).setURI(new URI(proxylink));
+            request.addHeader("targetlink", oldurl.toString());
+            request.setHeader("targetlink", oldurl.toString());
+
+            HttpResponse r=client.execute(request);
+            InputStream instream = r.getEntity().getContent();
+            Header contentEncoding = r.getFirstHeader("content-encoding");
+            if (contentEncoding != null && contentEncoding.getValue().equalsIgnoreCase("gzip")) {
+                instream = new GZIPInputStream(instream);
+            }
+            byte[] content=getbytesFromInputStream(instream);
+            List<BundledResponse> res=getBundledResponsesFromInputStream(content);
+            for(BundledResponse br:res)
+            {
+
+                //System.out.println(br.link+" link");
+                //System.out.println(query+" query");
+                //System.out.println(br.link.equals(query));
+
+                reserved.put(br.link,br);
+                HttpClientreserved.put(br.link,r);
+                if(br.link.equals(query))
+                {
+                    HttpEntity newentity=new ByteArrayEntity(br.buffer.toByteArray());
+                    r.setEntity(newentity);
+
+                }
+
+            }
+            //int mylength=getStringFromInputStream(r.getEntity().getContent()).length();
+            long end=System.currentTimeMillis();
+            LogHTTPLong(start,end,query);
+
+            //System.out.println("NetworkCost: "+(end-start));
+
+            return r;
+        }
+        else if(request instanceof HttpGet)
+        {
+            long start=System.currentTimeMillis();
+
+            URI oldurl=request.getURI();
+            //System.out.println(oldurl.toString()+" GET");
+            //((HttpPost)request).setURI(new URI("http://ec2-52-24-51-136.us-west-2.compute.amazonaws.com:1988"));
+
+            ((HttpGet)request).setURI(new URI(proxylink));
+            request.addHeader("targetlink", oldurl.toString());
+            request.setHeader("targetlink", oldurl.toString());
+            //System.out.println("I am here 111");
+            if(reserved.containsKey(oldurl.toString()))
+            {
+                //System.out.println("hit");
+                HttpResponse r=HttpClientreserved.get(oldurl.toString());
+                BundledResponse br =reserved.get(oldurl.toString());
+                HttpEntity newentity=new ByteArrayEntity(br.buffer.toByteArray());
+                r.setEntity(newentity);
+                long end=System.currentTimeMillis();
+                LogHTTPLong(start,end,oldurl.toString());
+                return r;
+
+            }
+            HttpResponse r=client.execute(request);
+            //System.out.println("I am here le    ");
+            InputStream instream = r.getEntity().getContent();
+            Header contentEncoding = r.getFirstHeader("content-encoding");
+            if (contentEncoding != null && contentEncoding.getValue().equalsIgnoreCase("gzip")) {
+                instream = new GZIPInputStream(instream);
+            }
+            byte[] content=getbytesFromInputStream(instream);
+            String s=new String(content);
+            //System.out.println(s);
+            List<BundledResponse> res=getBundledResponsesFromInputStream(content);
+            for(BundledResponse br:res)
+            {
+                //System.out.println("I am here "+ br.link);
+
+                reserved.put(br.link,br);
+                HttpClientreserved.put(br.link,r);
+                if(br.link.equals(request.getURI().toString()))
+                {
+                    HttpEntity newentity=new ByteArrayEntity(br.buffer.toByteArray());
+                    r.setEntity(newentity);
+
+                }
+
+            }
+            //int mylength=getStringFromInputStream(r.getEntity().getContent()).length();
+            long end=System.currentTimeMillis();
+            LogHTTPLong(start,end,oldurl.toString());
+
+            // System.out.println("NetworkCost: "+(end-start));
+
+            return r;
+        }
+
+        HttpResponse r=client.execute(request);
+        return r;
+    }
+    public static HttpResponse HttpResponseexecute(HttpClient client,HttpUriRequest request) throws IOException, URISyntaxException {
 
         System.out.println("it works " + request.getURI().toString() + " " + request.getMethod());
 
         if(request instanceof HttpPost)
         {
+            long start=System.currentTimeMillis();
+
+            HttpPost post=(HttpPost)request;
+            HttpEntity en=post.getEntity();
+            String query=request.getURI().toString();
+            query+="?";
+            if(en!=null)
+            {
+                String v=getStringFromInputStream(en.getContent());
+                query+=v;
+            }
             URI oldurl=request.getURI();
-            System.out.println(oldurl.toString());
-            ((HttpPost)request).setURI(new URI("http://ec2-52-24-51-136.us-west-2.compute.amazonaws.com:1988"));
+            //System.out.println(oldurl.toString());
+            //((HttpPost)request).setURI(new URI("http://ec2-52-24-51-136.us-west-2.compute.amazonaws.com:1988"));
+            HttpPost newpost=new HttpPost(lookuplink);
+            newpost.addHeader("targetlink", oldurl.toString());
+            Header[] hs=request.getAllHeaders();
+            for(Header h:hs)
+            {
+                newpost.addHeader(h.getName(),h.getValue());
+
+            }
+            newpost.setEntity(((HttpPost) request).getEntity());
+            /*for old version
+            ((HttpPost)request).setURI(new URI(lookuplink));
+            request.addHeader("targetlink", oldurl.toString());
+            request.setHeader("targetlink", oldurl.toString());*/
+
+            HttpResponse r=client.execute(newpost);
+            String output=getStringFromInputStream(r.getEntity().getContent());
+            int mylength=output.length();
+            //int mylength=getStringFromInputStream(r.getEntity().getContent()).length();
+            HttpEntity newentity=	new StringEntity(output);
+            long end=System.currentTimeMillis();
+            r.setEntity(newentity);
+            LogHTTPLong(start,end,query);
+            ((HttpPost) request).setURI(oldurl);
+            //System.out.println("NetworkCost: "+(end-start));
+
+            return r;
+        }
+        else if(request instanceof HttpGet)
+        {
+            long start=System.currentTimeMillis();
+
+            URI oldurl=request.getURI();
+            //System.out.println(oldurl.toString()+" GET");
+            //((HttpPost)request).setURI(new URI("http://ec2-52-24-51-136.us-west-2.compute.amazonaws.com:1988"));
+
+            ((HttpGet)request).setURI(new URI(lookuplink));
             request.addHeader("targetlink", oldurl.toString());
             request.setHeader("targetlink", oldurl.toString());
+            //System.out.println("I am here ");
 
-            request.addHeader("targetmethod", request.getMethod());
-            long start=System.currentTimeMillis();
             HttpResponse r=client.execute(request);
             String output=getStringFromInputStream(r.getEntity().getContent());
             int mylength=output.length();
@@ -415,31 +732,27 @@ public class AgentURLConnection {
             HttpEntity newentity=	new StringEntity(output);
             long end=System.currentTimeMillis();
             r.setEntity(newentity);
-            System.out.println(mylength+" "+(end-start));
+            LogHTTPLong(start,end,oldurl.toString());
+
+            //System.out.println("NetworkCost: "+(end-start));
 
             return r;
         }
 
         HttpResponse r=client.execute(request);
         return r;
-    }*/
-    public static HttpResponse HttpResponseexecute(HttpClient client, HttpUriRequest request) throws IOException, URISyntaxException {
+    }
+    /*public static HttpResponse HttpResponseexecute(HttpClient client, HttpUriRequest request) throws IOException, URISyntaxException {
         System.out.println("HTTP execute it works " + request.getURI().toString() + " " + request.getMethod());
 
-        try {
-            throw new Exception();
-        } catch (Exception e) {
-            //StackTraceElement[] selem=e.getStackTrace();
-
-            // System.out.println("AT "+selem[1]);
-            e.printStackTrace(System.out);
-        }
-        System.out.println("HTTPcall start: " + System.currentTimeMillis());
+        long start=System.currentTimeMillis();
 
         HttpResponse r = client.execute(request);
-        System.out.println("HTTPcall end: " + System.currentTimeMillis());
+        long end=System.currentTimeMillis();
+        LogHTTPLong(start, end, request.getURI().toString());
+
         return r;
 
-    }
+    }*/
 
 }

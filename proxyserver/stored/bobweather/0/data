@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<current>
+  <city id="5368361" name="Los Angeles">
+    <coord lon="-118.24" lat="34.05"/>
+    <country>US</country>
+    <sun rise="2015-06-17T12:41:19" set="2015-06-18T03:06:40"/>
+  </city>
+  <temperature value="28.52" min="19" max="36" unit="celsius"/>
+  <humidity value="64" unit="%"/>
+  <pressure value="1013" unit="hPa"/>
+  <wind>
+    <speed value="5.1" name="Gentle Breeze"/>
+    <direction value="250" code="WSW" name="West-southwest"/>
+  </wind>
+  <clouds value="1" name="clear sky"/>
+  <visibility value="16093"/>
+  <precipitation mode="no"/>
+  <weather number="800" value="sky is clear" icon="01d"/>
+  <lastupdate value="2015-06-17T23:16:30"/>
+</current>
+

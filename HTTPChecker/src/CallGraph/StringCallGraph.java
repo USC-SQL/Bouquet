@@ -1,12 +1,6 @@
 package CallGraph;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
 import soot.SootMethod;
 import soot.jimple.toolkits.callgraph.CallGraph;
@@ -28,7 +22,8 @@ public class StringCallGraph {
     private Set<Node> nodes;
     private Set<Node> heads;
     private Set<Node> nodesinscc;
-    private List<Node> RTOlist;
+    private LinkedList<Node> RTOlist=new LinkedList<Node>();
+    private HashMap<Node, Integer> indegredmap=new HashMap<Node, Integer>();
 
     /*public List<Node> reverseTopologySort(){
 
@@ -45,10 +40,38 @@ public class StringCallGraph {
     }
 
     private void RTOsorting() {
-        Set<Node> visited = new HashSet<Node>();
-        for (Node n : heads) {
-            if (n.getOurdgree() > 0)
-                Visit(n, RTOlist, visited);
+        for(Node n:nodes)
+        {
+            indegredmap.put(n,n.getIndgree());
+        }
+        Set<Node> visited=new HashSet<Node> ();
+        Queue<Node> S=new LinkedList<Node>();
+        S.addAll(heads);
+        while(!S.isEmpty())
+        {
+            Node n=S.poll();
+            visited.add(n);
+            RTOlist.addFirst(n);
+            for(Node m:n.getChildren())
+            {
+                int deg=indegredmap.get(m);
+                deg--;
+                indegredmap.put(m, deg);
+                if(deg<=0&& !visited.contains(m))
+                {
+                    S.add(m);
+                    visited.add(m);
+                }
+            }
+        }
+        for(Node m:indegredmap.keySet())
+        {
+            int deg=indegredmap.get(m);
+            if(deg>0)
+            {
+                System.out.println(m.getMethod().getSignature()+" "+deg+" "+m.getParent());
+            }
+
         }
     }
 

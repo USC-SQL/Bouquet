@@ -1,13 +1,14 @@
 package usc.edu.HTTPChecker.HTTPChecker;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
-import soot.Scene;
-import soot.SootClass;
-import soot.SootMethod;
+import soot.*;
+import soot.jimple.InvokeExpr;
+import soot.jimple.Stmt;
+import soot.jimple.spark.pag.Node;
+import soot.jimple.spark.pag.PAG;
+import soot.jimple.spark.sets.PointsToSetInternal;
 import soot.jimple.toolkits.callgraph.CHATransformer;
 import soot.jimple.toolkits.callgraph.CallGraph;
 import soot.options.Options;
@@ -25,9 +26,8 @@ public class App {
         }
         AndroidApp App = new AndroidApp(args[0], args[1], args[2]);
         GlobalAnalyzer ga = new GlobalAnalyzer(App);
-        PrintWriter ps = new PrintWriter("./result.txt");
-        ga.DumeResult(ps);
-        ps.close();
+        ga.PrintPointTo();
+
 
     }
 }

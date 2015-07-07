@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import soot.SootMethod;
-import soot.Unit;
-import soot.ValueBox;
+import soot.*;
 import soot.jimple.Stmt;
 import soot.jimple.internal.JIdentityStmt;
 import soot.toolkits.graph.DirectedGraph;
@@ -30,17 +28,19 @@ public class HTTPAnalyzer extends BackwardFlowAnalysis {
     HashMap<String, MethodSummary> summarytable = null;
     private Map<Unit, FlowSet> unitToGenerateSet;
     private Hashtable<Unit, Integer> offsettable = new Hashtable<Unit, Integer>();
-
+    //private Set<Value>
     public HTTPAnalyzer(UnitGraph graph) {
         super(graph);
         this.g = graph;
         method = graph.getBody().getMethod();
+        Body body=graph.getBody();
         unitToGenerateSet = new HashMap<Unit, FlowSet>(graph.size() * 2 + 1, 0.7f);
         int offset = 0;
         for (Iterator unitIt = graph.iterator(); unitIt.hasNext(); ) {
             Unit s = (Unit) unitIt.next();
             SootInstruction ins = new SootInstruction(this.method, s, offset);
             FullSet.add(ins);
+
             FlowSet genSet = emptySet.clone();
             if (ToolKit.isHttpOpen((Stmt) s)) {
                 genSet.add(ins);
@@ -79,9 +79,9 @@ public class HTTPAnalyzer extends BackwardFlowAnalysis {
                         genSet.add(ins);
                 }
             }
-            if (genSet.size() > 0) {
+            /*if (genSet.size() > 0) {
                 System.out.println(genSet);
-            }
+            }*/
             unitToGenerateSet.put(s, genSet);
             offsettable.put(s, offset);
             offset++;

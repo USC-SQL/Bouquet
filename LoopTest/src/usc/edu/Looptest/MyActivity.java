@@ -51,15 +51,28 @@ public class MyActivity extends Activity {
 
         StrictMode.setThreadPolicy(policy);
         HttpURLConnection urlConnection = null;
+
         try {
-            for(int i=0;i<5;i++)
+            URL url0 = new URL("http://www.baidu.com");
+
+            urlConnection = (HttpURLConnection) url0.openConnection();
+            long start=System.currentTimeMillis();
+            urlConnection.getInputStream();
+            long end1=System.currentTimeMillis();
+            System.out.println((end1-start));
+            urlConnection.getInputStream().close();
+            long end2=System.currentTimeMillis();
+            System.out.println((end2-end1));
+
+
+            /*for(int i=0;i<5;i++)
             {
-                URL url = new URL("http://dingli.usc.edu:1988?id="+i);
+                URL url = new URL("http://www.google.com");
 
                 urlConnection = (HttpURLConnection) url.openConnection();
-                String s=getStringFromInputStream(urlConnection.getInputStream());
+                 s=getStringFromInputStream(urlConnection.getInputStream());
                 System.out.println(s);
-            }
+            }*/
 
 
         } catch (IOException e) {

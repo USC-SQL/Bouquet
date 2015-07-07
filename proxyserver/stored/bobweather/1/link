@@ -1,0 +1,1 @@
+http://api.openweathermap.org/data/2.5/forecast/daily?q=Los+Angeles&mode=xml&units=metric&cnt=5&APPID=1e38049ae254a0d6c627d624dc13c9fd

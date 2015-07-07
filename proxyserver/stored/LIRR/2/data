@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>MTA LIRR - Departing Schedules</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="mtamenu/css/base.css" />
+<link rel="stylesheet" type="text/css" href="mtamenu/css/grid.css" />
+<link rel="stylesheet" type="text/css" href="mtamenu/css/topbar.css" />
+<link rel="stylesheet" type="text/css" href="mtamenu/css/formalize.css" />
+<link rel="stylesheet" type="text/css"
+	href="mtamenu/css/jquery.datepick.css" />
+<link rel="stylesheet" type="text/css" href="mtamenu/css/template.css" />
+<link rel="stylesheet" type="text/css" href="mtamenu/css/homepage.css" />
+<link rel="stylesheet" type="text/css" href="css/sf.css" />
+<link rel="stylesheet" type="text/css"
+	href="calendar/jsDatePick_ltr.min.css" media="all" />
+<!--[if lt IE 9]>
+			<style>
+              .roundCorners {
+            	border: 1px solid #b4b4b4;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                background: #fff;
+                behavior: url(border-radius.htc);
+              }
+             </style>
+<![endif]-->
+<!--[if IE 6]>
+<style>
+#topbar { margin: 0; padding:0;	height: 122px; width: 961px;}
+#horizontalcssmenu ul#cssmenu1 li{ position: relative; display: inline;	float: left; border: none; }
+</style>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="mtamenu/css/print.css"
+	media="print" />
+<script type="text/javascript" src="js/breadcrumbs.js">functions();</script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="calendar/jsDatePick.min.1.3.js"></script>
+<script type="text/javascript" src="mtamenu/jquery.js"></script>
+
+</head>
+<body>
+	<div id="mainbox">
+    		<div id="topbar">
+		<div id="branding">
+			<a href="http://www.mta.info"><img src="mtamenu/template/images/mta_info.gif" alt="mta.info"/></a>
+		</div>	
+		
+		<div id="middle-header">
+		</div>
+
+		<div id="search">
+			<ul id="topbar-links">
+				<li class="list_h" style="margin-left:4px;"><a href="http://web.mta.info/accessibility">Accessibility</a></li>
+				<li class="list_h" style="margin-left:4px;"><a href="http://assistive.usablenet.com/tt/www.mta.info">Text-only</a></li>				
+                <li class="list_h" style="margin-left:4px;"><a  href="http://web.mta.info/selfserve">Customer Self-Service</a></li>
+                <li class="list_h" style="margin-left:4px;"><a href="http://web.mta.info/faqs.htm">FAQs/Contact Us</a></li>
+
+			</ul><br />
+			<div id="search-box" style="float:right; margin-top:4px; margin-right:0; padding-right:0;">
+			<form id="searchform" method="get" action="http://search.mta.info/search" style="">
+				<input type="hidden" name="site" value="my_collection"/>
+				<input type="hidden" name="client" value="my_collection"/>
+				<input type="hidden" name="proxystylesheet" value="my_collection"/>
+				<input type="hidden" name="output" value="xml_no_dtd"/>				
+				<!--<label for "searchinputbox" style="margin-left:-999px; margin-top:0; font-size:10px;">Enter search term:</label>-->
+				<input  type="text" name="q" id="searchinputbox" alt="searchinputbox" size="15" maxlength="128" value="" style="margin-right:4px;float:left;" />
+	
+				<input  type="submit" name="btnG" value="Search" id="searchbutton"/>
+				
+			</form>
+			</div>	
+
+		</div>
+		<div id="horizontalcssmenu" style="clear: both;">	
+			<ul id="cssmenu1">
+				<li style="width: 71px; border-left: none;"><a href="http://www.mta.info" style="padding-left:18px;">Home</a>
+					<ul> 
+						<li><a href="http://www.mta.info">MTA Home</a></li>
+						<li><a href="http://www.mta.info/nyct">NYC Transit</a></li>
+						<li><a href="http://www.mta.info/lirr">Long Island Rail Road</a></li>
+						<li><a href="http://www.mta.info/mnr">Metro-North Railroad</a></li>
+						<li><a href="http://www.mta.info/bandt">Bridges and Tunnels</a></li>
+						<li><a href="http://www.mta.info/capital">MTA Capital Program</a></li>
+					</ul> 
+
+				</li>
+				<li style="width: 95px;"><a href="http://web.mta.info/schedules">Schedules</a></li>
+				<li style="width: 113px;"><a href="http://web.mta.info/fares">Fares &amp; Tolls</a></li>
+				<li style="width: 61px;"><a href="http://web.mta.info/maps">Maps</a></li>
+
+				<li style="width: 195px;"><a href="http://web.mta.info/service">Planned Service Changes</a></li>
+				<li style="width: 123px;"><a href="http://web.mta.info/about">MTA Info</a></li>
+				<li style="width: 180px;"><a href="http://web.mta.info/business">Doing Business With Us</a></li>
+				<li style="width: 115px;"><a href="http://web.mta.info/accountability" style="padding-right:23px;">Transparency</a>
+					<ul>
+						<li><a href="http://web.mta.info/accountability">Main Page</a></li>
+						<li><a href="http://web.mta.info/mta/boardmaterials.html">Board Materials</a></li>
+						<li><a href="http://web.mta.info/mta/budget/">Budget Info</a></li>
+						<li><a href="http://web.mta.info/mta/capitalprogram.html">Capital Program Info</a></li>
+						<li><a href="http://web..mta.info/capitaldashboard/10_14/CapitalDashBoard7.html">Capital Program Dashboard</a></li>
+						<li><a href="http://web.mta.info/mta/leadership/">MTA Leadership</a></li>
+						<li><a href="http://web.mta.info/mta/ind-perform/">Performance Indicators</a></li>						
+						<li><a href="http://web.mta.info/news/">Press Releases and News</a></li>
+						<li><a href="http://web.mta.info/mta/news/hearings">Public Hearings</a></li>
+					</ul>
+				</li>
+			</ul>	
+		</div>	
+	</div> <!-- close topbar  -->  
+  
+	      	
+    <div id="breadcrumbs">	
+    <script language="JavaScript" type="text/javascript">breadcrumbs();</script>
+    </div> <!-- close breadcrumb -->  
+	    <!-- content below used when there is an emergency banner across top of website -->
+                
+	
+	
+          <div id="contentbox" style="margin-left:0px; padding:0;" >
+					<div class="roundCorners push-1 span-72 pad-10">	
+		      
+   
+		
+    <div class="span-70" style="margin-bottom: 20px;">
+			<h1>Departing Schedules</h1>
+        Wednesday, June 17, 2015<br />
+			<br />
+			<br />
+          
+                   <table style="width: 100%;">
+				<tr>
+					<td><span>From <a
+							href='stationInfo.php?id=107 '>Baldwin </a>
+							To <a href='stationInfo.php?id=109 '>Merrick</a></span>
+						<!--<br /><br />--></td>
+					<td style="text-align: right;">
+                <a name='Next' href='schedules.php?action=next'>Next &nbsp;&gt;&gt;</a>                </td>
+				</tr>
+			</table>
+			<!-- Routes Display -->
+			<table border="0" width="100%" cellspacing="0" cellpadding="20">
+				<tr align=left>
+					<th></th>
+					<!--Bus indicator -->
+					<th class='schedulesTD thAlighRight' width='60'>Depart</th>
+					<th>&nbsp;</th>
+					<!--Extra Space -->
+					<th class='schedulesTD thAlighRight'>Arrive</th>
+					<th>&nbsp;</th>
+					<!--SP Msg text -->
+					<th class='schedulesTD thAlighRight'>Transfer</th>
+					<th>&nbsp;</th>
+					<!--Extra Space -->
+					<th class='schedulesTD thAlighRight'>Leaves</th>
+					<th>&nbsp;</th>
+					<!--Extra Space -->
+					<th class='schedulesTD thAlighRight'>Trip Duration</th>
+					<th class='schedulesTD'>&nbsp;</th>
+					<!--SP Msg Image -->
+					<th class='schedulesTD'>&nbsp;</th>
+				</tr>
+				<!--Peak / Off Peak -->
+
+           		     <tr bgcolor='#FFFFFF' style='height:35px;'><td class='schedulesTD'></td><td class='schedulesTD' style='text-align:right; width=60px;'>7:17 PM</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right; width=60px;'>7:23 PM</td><td class='schedulesTD'  style='text-align:center;'><span class='textdarkred  x-small'><a href="specialMessage.php?postId=0,66928,0">Alert</a></span>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>6 mins</td><td class='schedulesTD'  style='text-align:center;'><input type='button' value='Message' alt='Message' onclick="location.href='specialMessage.php?postId=0,66928,0'" /></td><td class='schedulesTD' style='text-align:right;'><a href='http://web.mta.info/lirr/about/TicketInfo/index.htm#Types'>Peak</a></td></tr>             		     <tr bgcolor='#DFDFDF' style='height:35px;'><td class='schedulesTD'></td><td class='schedulesTD' style='text-align:right; width=60px;'>7:28 PM</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right; width=60px;'>7:34 PM</td><td class='schedulesTD'  style='text-align:center;'><span class='textdarkred  x-small'><a href="specialMessage.php?postId=0,66928,0">Alert</a></span>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>6 mins</td><td class='schedulesTD'  style='text-align:center;'><input type='button' value='Message' alt='Message' onclick="location.href='specialMessage.php?postId=0,66928,0'" /></td><td class='schedulesTD' style='text-align:right;'><a href='http://web.mta.info/lirr/about/TicketInfo/index.htm#Types'>Peak</a></td></tr>             		     <tr bgcolor='#FFFFFF' style='height:35px;'class='bestRoute strong'><td class='schedulesTD'></td><td class='schedulesTD' style='text-align:right; width=60px;'>7:47 PM</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right; width=60px;'>7:53 PM</td><td class='schedulesTD'  style='text-align:center;'><span class='textdarkred  x-small'><a href="specialMessage.php?postId=0,66928,0">Alert</a></span>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>6 mins</td><td class='schedulesTD'  style='text-align:center;'><input type='button' value='Message' alt='Message' onclick="location.href='specialMessage.php?postId=0,66928,0'" /></td><td class='schedulesTD' style='text-align:right;'><a href='http://web.mta.info/lirr/about/TicketInfo/index.htm#Types'>Peak</a></td></tr>             		     <tr bgcolor='#DFDFDF' style='height:35px;'><td class='schedulesTD'></td><td class='schedulesTD' style='text-align:right; width=60px;'>8:22 PM</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right; width=60px;'>8:28 PM</td><td class='schedulesTD'  style='text-align:center;'><span class='textdarkred  x-small'><a href="specialMessage.php?postId=0,66928,0">Alert</a></span>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>6 mins</td><td class='schedulesTD'  style='text-align:center;'><input type='button' value='Message' alt='Message' onclick="location.href='specialMessage.php?postId=0,66928,0'" /></td><td class='schedulesTD' style='text-align:right;'><a href='http://web.mta.info/lirr/about/TicketInfo/index.htm#Types'>Peak</a></td></tr>             		     <tr bgcolor='#FFFFFF' style='height:35px;'><td class='schedulesTD'></td><td class='schedulesTD' style='text-align:right; width=60px;'>8:50 PM</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right; width=60px;'>8:56 PM</td><td class='schedulesTD'  style='text-align:center;'><span class='textdarkred  x-small'><a href="specialMessage.php?postId=0,66928,0">Alert</a></span>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD' style='text-align:right;'>&nbsp;</td><td>&nbsp;</td><td class='schedulesTD'  style='text-align:right;'>6 mins</td><td class='schedulesTD'  style='text-align:center;'><input type='button' value='Message' alt='Message' onclick="location.href='specialMessage.php?postId=0,66928,0'" /></td><td class='schedulesTD' style='text-align:right;'><a href='http://web.mta.info/lirr/about/TicketInfo/index.htm#Types'>Off Peak</a></td></tr>             		   
+         </table>
+			<br />
+			<br />
+			<form action="schedules.php" method="post">
+				<table cellpadding="0" cellspacing="0" border="0" summary=""
+					align="left" width="100%">
+					<tr>
+						<td style="text-align: right;"><input type="submit"
+							value="New Search" name="NewSearch" alt="New Search" /> <input
+							type="submit" value="Return Schedules" name="ReturnSched"
+							alt="Return Schedule" /> <input type="submit" value="Fares"
+							name="fares" alt="See Fare" /> <input type="button"
+							value="Buy Ticket Now" alt="WebTicket"
+							onclick="location.href='https://www.lirrticket.com/webticket/Cart/Welcome?id=002'" /></td>
+					</tr>
+					<tr>
+						<td>                 </td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<!-- close span-70 -->
+          <div class="span-72">
+			<h2>You might also be interested in</h2>
+           		   <div style='height:223px;' class='roundCorners pad-10 span-21 '><h2><a href='http://web.mta.info/lirr/getaways/TrainToTheGame/index.htm'>Take the Train to the Game</a></h2><p><a href='http://web.mta.info/lirr/getaways/TrainToTheGame/index.htm'><img src='http://web.mta.info/lirr/imagesHome/NYMets.jpg' alt='Take the Train to the Game' style='align:center'/></a></p><p style='float: left;'><a href='http://web.mta.info/lirr/getaways/TrainToTheGame/index.htm'>.</a></p></div>           		   <div style='height:223px;' class='roundCorners pad-10 span-21 '><h2><a href='http://web.mta.info/lirr/traintimeapp/index.htm'>LIRR Train Time App</a></h2><p><a href='http://web.mta.info/lirr/traintimeapp/index.htm'><img src='http://web.mta.info/lirr/imagesHome/traintimeapp.jpg' alt='LIRR Train Time App' style='align:center'/></a></p><p style='float: left;'><a href='http://web.mta.info/lirr/traintimeapp/index.htm'>.</a></p></div>           		   <div style='height:223px;' class='roundCorners pad-10 span-21 last '><h2><a href='http://web.mta.info/lirr/getaways/longisland/index.htm'>Long Island Deals & Getaways</a></h2><p><a href='http://web.mta.info/lirr/getaways/longisland/index.htm'><img src='http://web.mta.info/lirr/getaways/longisland/images/lisplishsplash.jpg' alt='Long Island Deals & Getaways' style='align:center'/></a></p><p style='float: left;'><a href='http://web.mta.info/lirr/getaways/longisland/index.htm'>.</a></p></div>                 </div>
+        </div>
+	<!-- close roundcorner -->
+                  	
+<div id="Google-skyscraper-ad" class="push-2 span-16 last roundCorners">
+	<script type="text/javascript">   
+        google_ad_client = "pub-0982027042052701";
+        google_ad_slot = "8916589146";
+        google_ad_width = 160;	
+        google_ad_height = 600; 
+    </script>
+	<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div>
+<!--  Close Google Ads -->
+
+
+         		 
+</div>
+<!-- close contentbox -->
+<div class="container clear">
+	<div class="span-15" style="text-align: left;">
+		<div id="translate">
+			<div id="google_translate_element">
+				<div id="temp_GT" class="span-18">
+					<ul style="margin: 0;">
+						<li class="list_f last_list_f first_list_f"><span
+							style="color: #0055AA; font-weight: bold; margin-right: 5px;">Google
+								Translate</span> <img style="vertical-align: baseline;"
+							src="mtamenu/css/images/google_logo.png" /></li>
+					</ul>
+				</div>
+				<!--close temp_GT -->
+			</div>
+			<!--close google_translate_element -->
+		</div>
+		<!-- close translate -->
+	</div>
+	<!--close span-15 -->
+</div>
+<!-- close container -->
+<!-- JavaScript Includes -->
+<script type="text/javascript" src="mtamenu/js/csshorizontalmenu.js"></script>
+
+<script>
+$(document).ready(function() {
+	$("#printfriendly").click(function() {	    
+		window.open(document.location.pathname + '?print=1', '', 'menubar=no,location=no,status=no');
+		return false;
+	});
+});
+</script>
+ <script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  }, 'google_translate_element');
+}
+
+$("#temp_GT").click(function() {
+	var fileref = document.createElement('script');
+    	fileref.setAttribute("type", "text/javascript");
+    	fileref.setAttribute("src", "http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+
+    	document.getElementsByTagName("head")[0].appendChild(fileref);
+	$("#temp_GT").hide();
+});
+</script>
+</div>
+	<!-- close mainbox -->
+</body>
+</html>
