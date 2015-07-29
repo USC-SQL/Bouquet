@@ -1,5 +1,0 @@
-public annotation interface  org.simpleframework.xml.ElementUnion extends java.lang.Object implements java.lang.annotation.Annotation
-{
-
-    public abstract org.simpleframework.xml.Element[] value();
-}

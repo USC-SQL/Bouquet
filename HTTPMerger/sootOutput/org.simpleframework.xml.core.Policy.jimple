@@ -1,5 +1,0 @@
-interface  org.simpleframework.xml.core.Policy extends java.lang.Object
-{
-
-    public abstract boolean isStrict();
-}

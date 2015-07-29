@@ -1,7 +1,0 @@
-public interface  com.oopsconsultancy.xmltask.XPathAnalyser extends java.lang.Object
-{
-
-    public abstract int analyse(org.w3c.dom.Node, java.lang.String) throws java.lang.Exception;
-
-    public abstract void registerClient(com.oopsconsultancy.xmltask.XPathAnalyserClient, java.lang.Object);
-}

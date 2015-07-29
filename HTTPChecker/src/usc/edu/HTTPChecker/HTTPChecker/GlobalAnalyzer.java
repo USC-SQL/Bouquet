@@ -1,5 +1,6 @@
 package usc.edu.HTTPChecker.HTTPChecker;
 
+import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -30,9 +31,9 @@ public class GlobalAnalyzer {
             SootMethod sm = n.getMethod();
 
             MethodSummary summary = new MethodSummary(sm);
-            //summary.Analyze(summarytable);
+            summary.Analyze(summarytable);
             //summary.AnalyzeLoop();
-            summary.AnalyzePointTo(App.pointto);
+           // summary.AnalyzePointTo();
 
             HTTPcnt += summary.HTTPcnt;
             domicnt += summary.internalPostDomination.size();
@@ -41,6 +42,7 @@ public class GlobalAnalyzer {
         }
 
     }
+
     public void PrintPointTo()
     {
         for (String key : summarytable.keySet()) {
@@ -75,7 +77,22 @@ public class GlobalAnalyzer {
             }
         }
     }
+    public void DumeDoable(PrintWriter out) {
+        double r = ((double) domicnt) / ((double) HTTPcnt);
+        out.println(r + " " + domicnt + " " + HTTPcnt);
+        for (String key : summarytable.keySet()) {
+            MethodSummary sum = summarytable.get(key);
+            if (sum.isInteresting()) {
+                //sum.display();
+                out.println("summary_start");
+                //String printstring=sum.sm.getSignature()+"#"+sum.internalDomination.toString();
+                out.println(sum.DominatorStrings());
+                out.println("summary_end");
+                sum.displaySessions();
 
+            }
+        }
+    }
     public void DumeResult(PrintWriter out) {
         double r = ((double) domicnt) / ((double) HTTPcnt);
         out.println(r + " " + domicnt + " " + HTTPcnt);
@@ -87,6 +104,7 @@ public class GlobalAnalyzer {
                 //String printstring=sum.sm.getSignature()+"#"+sum.internalDomination.toString();
                 out.println(sum.DominatorStrings());
                 out.println("summary_end");
+                sum.displaySessions();
 
             }
         }
@@ -101,6 +119,16 @@ public class GlobalAnalyzer {
                 //String printstring=sum.sm.getSignature()+"#"+sum.internalDomination.toString();
                 out.println(sum.LoopInsStrings());
                 out.println("summary_end");
+
+            }
+        }
+    }
+    public void DumpRules(PrintStream ps,String StringAnalysis) throws IOException {
+        for (String key : summarytable.keySet()) {
+            MethodSummary sum = summarytable.get(key);
+            if (sum.isInteresting()) {
+                //sum.display();
+                sum.DumpRules(ps, StringAnalysis);
 
             }
         }

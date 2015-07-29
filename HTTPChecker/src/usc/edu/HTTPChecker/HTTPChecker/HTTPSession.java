@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /**
  * Created by dingli on 7/14/15.
  */
-public class HTMLSession {
+public class HTTPSession {
     public LinkedList<HTTPUnit> list=new  LinkedList<HTTPUnit>();
     public boolean insert(DominationPoint dp,HashMap<SootInstruction,String> pointtoTable)
     {
@@ -25,7 +25,7 @@ public class HTMLSession {
             }
             return true;
         }
-        if(dp.ins.equals(list.getLast()))
+        if(dp.ins.equals(list.getLast().ins))
         {
             for(SootInstruction ins:dp.Dominators)
             {
@@ -38,12 +38,12 @@ public class HTMLSession {
         }
         for(SootInstruction ins:dp.Dominators)
         {
-            if(ins.equals(list.getFirst()))
+            if(ins.equals(list.getFirst().ins))
             {
                 HTTPUnit u=new HTTPUnit();
-                u.ins=ins;
-                u.linkaddress=pointtoTable.get(ins);
-                list.add(u);
+                u.ins=dp.ins;
+                u.linkaddress=pointtoTable.get(dp.ins);
+                list.addFirst(u);
                 return true;
 
             }

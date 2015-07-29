@@ -1,7 +1,0 @@
-interface  org.simpleframework.xml.core.Decorator extends java.lang.Object
-{
-
-    public abstract void decorate(org.simpleframework.xml.stream.OutputNode);
-
-    public abstract void decorate(org.simpleframework.xml.stream.OutputNode, org.simpleframework.xml.core.Decorator);
-}

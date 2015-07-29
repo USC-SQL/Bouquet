@@ -1,7 +1,0 @@
-public interface  com.oopsconsultancy.xmltask.output.Outputter extends java.lang.Object implements org.xml.sax.ContentHandler
-{
-
-    public abstract void setTransformer(javax.xml.transform.Transformer);
-
-    public abstract void setWriter(java.io.Writer);
-}

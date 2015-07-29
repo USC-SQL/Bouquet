@@ -46,7 +46,8 @@ function querypackGET(options,res, cnt,pack,wholebuffer)
 	//var wholebuffer = new Buffer("");
 	zlib.unzip(contentbuffer, function(err,buffer)
 	{
-		        var responsebuffer = Buffer.concat([linkandseperater,buffer,seperater]);
+
+		      var responsebuffer = Buffer.concat([linkandseperater,buffer,seperater]);
         	if(cnt==0)
         	{
         	  console.log("headers");
@@ -54,22 +55,22 @@ function querypackGET(options,res, cnt,pack,wholebuffer)
 	          //wholebuffer=Buffer.concat([responsebuffer]);
 
         	}
-		wholebuffer=Buffer.concat([wholebuffer,responsebuffer]);
+		      wholebuffer=Buffer.concat([wholebuffer,responsebuffer]);
         	//res.write(responsebuffer)
         	if(cnt>=pack.bundled.length-1)
         	{
-		  console.log(cnt+" "+pack.bundled.length)
-		  end=Date.now();
-		  console.log("server time: "+(end-start));
-		  zlib.gzip(wholebuffer,function(err,result){
-			res.end(result);	
-		  });
+        		  console.log(cnt+" "+pack.bundled.length)
+        		  end=Date.now();
+        		  console.log("server time: "+(end-start));
+        		  zlib.gzip(wholebuffer,function(err,result){
+        			     res.end(result);
+        		  });
         	  //res.end();
         	}
         	else{
         	  querypackGET(options,res,cnt+1,pack,wholebuffer)
         	}
- 		
+
 	})
       //console.log(encoding)
       });

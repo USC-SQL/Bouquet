@@ -1,5 +1,0 @@
-public interface  org.simpleframework.xml.util.Entry extends java.lang.Object
-{
-
-    public abstract java.lang.String getName();
-}

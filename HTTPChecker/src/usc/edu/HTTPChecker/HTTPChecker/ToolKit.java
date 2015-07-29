@@ -46,7 +46,7 @@ public class ToolKit {
                 return signature;
             }
         }
-        return null;
+        return signature;
     }
     public static boolean isURLopen(Unit stmt) {
 

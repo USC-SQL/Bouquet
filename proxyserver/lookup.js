@@ -59,8 +59,15 @@ app.get('/',function(req,res){
 			sendheader["set-cookie"]=header["set-cookie"];
 
 		}
+    sendheader['content-encoding']='gzip';
+
 		res.writeHead(200,sendheader)
-		res.end(f);
+
+    zlib.gzip(f,function(err,result){
+
+      res.end(result);
+    });
+		//res.end(f);
 
 	}
 	else{

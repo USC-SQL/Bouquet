@@ -5,7 +5,9 @@ import soot.Body;
 import soot.SootMethod;
 import soot.Unit;
 import soot.Value;
-import soot.jimple.*;
+import soot.jimple.AssignStmt;
+import soot.jimple.InstanceInvokeExpr;
+import soot.jimple.Stmt;
 import soot.jimple.internal.JAssignStmt;
 import soot.jimple.internal.JCastExpr;
 import soot.jimple.internal.JimpleLocal;
@@ -14,10 +16,7 @@ import soot.toolkits.scalar.ArraySparseSet;
 import soot.toolkits.scalar.FlowSet;
 import soot.toolkits.scalar.ForwardFlowAnalysis;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class HTTPPostAnalysis extends ForwardFlowAnalysis {
     private SootMethod method;
@@ -28,6 +27,7 @@ public class HTTPPostAnalysis extends ForwardFlowAnalysis {
     private Map<Unit, FlowSet> unitToGenerateSet;
     private Hashtable<Unit, Integer> offsettable = new Hashtable<Unit, Integer>();
     private HashMap<String,String> AliasTable=new  HashMap<String,String>();
+    private HashMap<String,Set<NameValuepair>> parametertable=new HashMap<String,Set<NameValuepair>>();
     //private Set<Value>
     public HTTPPostAnalysis(UnitGraph graph) {
         super(graph);
@@ -40,10 +40,11 @@ public class HTTPPostAnalysis extends ForwardFlowAnalysis {
         for (Iterator unitIt = graph.iterator(); unitIt.hasNext(); ) {
             Unit stmt = (Unit) unitIt.next();
             FlowSet genSet = emptySet.clone();
+            //System.out.println(stmt);
 
-            if("<java.net.URL: void <init>(java.lang.String)>".equals(ToolKit.getInvokeSignature(stmt)))
+            if("<java.util.ArrayList: void <init>()>".equals(ToolKit.getInvokeSignature(stmt))
+                    ||"<java.util.ArrayList: void <init>()>".equals(ToolKit.getInvokeSignature(stmt)))
             {
-                SootInstruction ins = new SootInstruction(this.method, stmt, offset);
                 Stmt st=(Stmt)stmt;
                 InstanceInvokeExpr invokeins=(InstanceInvokeExpr)st.getInvokeExpr();
                 AliasPair p=new AliasPair();
@@ -52,21 +53,9 @@ public class HTTPPostAnalysis extends ForwardFlowAnalysis {
                 p.value=key;
                 genSet.add(p);
 
-            }
-            if("<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>".equals(ToolKit.getInvokeSignature(stmt)))
-            {
-                SootInstruction ins = new SootInstruction(this.method, stmt, offset);
-                Stmt st=(Stmt)stmt;
-                InstanceInvokeExpr invokeins=(InstanceInvokeExpr)st.getInvokeExpr();
-                AliasPair p=new AliasPair();
-                String key=invokeins.getBase()+"@"+method.getSignature()+offset;
-                p.key=key;
-                p.value=key;
-                genSet.add(p);
-                System.out.println("AlAs "+key);
-                System.out.println("AlAs "+invokeins);
 
             }
+
             unitToGenerateSet.put(stmt, genSet);
             offsettable.put(stmt, offset);
             offset++;
@@ -109,7 +98,7 @@ public class HTTPPostAnalysis extends ForwardFlowAnalysis {
         FlowSet kill=emptySet.clone();
         int offset=offsettable.get(stmt);
         FlowSet gen = emptySet.clone();
-        if("<java.net.URL: void <init>(java.lang.String)>".equals(ToolKit.getInvokeSignature(stmt)))
+        if("<java.util.ArrayList: void <init>()>".equals(ToolKit.getInvokeSignature(stmt)))
         {
             Stmt s=(Stmt)stmt;
             InstanceInvokeExpr insinvoke=(InstanceInvokeExpr)s.getInvokeExpr();
@@ -133,65 +122,33 @@ public class HTTPPostAnalysis extends ForwardFlowAnalysis {
 
             }
         }
-        else if( "<java.net.URL: java.net.URLConnection openConnection()>".equals(ToolKit.getInvokeSignature(stmt)) ||
-                "<java.net.URLConnection: java.io.InputStream getInputStream()>".equals(ToolKit.getInvokeSignature(stmt)))
-        {
-            if(stmt instanceof JAssignStmt )
-            {
-
-                //prepare the gen set
-                Stmt s=(Stmt)stmt;
-                JAssignStmt as=(JAssignStmt)stmt;
-                Value left=as.getLeftOp();
-                InstanceInvokeExpr insinvoke=(InstanceInvokeExpr)s.getInvokeExpr();
-                Value currentvalue=insinvoke.getBase();
-                for(Object obj:in)
-                {
-                    AliasPair tp=(AliasPair)obj;
-                    String tstringv=tp.key.split("@")[0];
-                    if(currentvalue.toString().equals(tstringv))
-                    {
-                        AliasPair genp=new AliasPair();
-                        genp.key=left.toString()+"@"+method.getSignature()+offset;
-                        genp.value=tp.value;
-                        gen.add(genp);
-                    }
-
-
-                }
-                // kill set
-                for(Object obj:in)
-                {
-                    AliasPair killp=(AliasPair)obj;
-                    String killstringv=killp.key.split("@")[0];
-                    if(left.toString().equals(killstringv))
-                    {
-                        kill.add(killp);
-                    }
-
-
-                }
-
-            }
-
-        }
-        else if( "<org.apache.http.client.methods.HttpGet: void <init>(java.lang.String)>".equals(ToolKit.getInvokeSignature(stmt)))
+        if("<org.apache.http.client.entity.UrlEncodedFormEntity: void <init>(java.util.List)>".equals(ToolKit.getInvokeSignature(stmt)))
         {
             Stmt s=(Stmt)stmt;
             InstanceInvokeExpr insinvoke=(InstanceInvokeExpr)s.getInvokeExpr();
-            Value currentvalue=insinvoke.getBase();
-            //gen
-            String valuekey=currentvalue+"@"+method.getSignature()+offset;
-            AliasPair genp=new AliasPair();
-            genp.key=valuekey;
-            genp.value=valuekey;
-            gen.add(genp);
-            //kill
+            Value base=insinvoke.getBase();
+
+            Value parameter=insinvoke.getArg(0);
+            for(Object obj:in)
+            {
+                AliasPair tp=(AliasPair)obj;
+                String tstringv=tp.key.split("@")[0];
+                if(parameter.toString().equals(tstringv))
+                {
+                    AliasPair genp=new AliasPair();
+                    genp.key=base.toString()+"@"+method.getSignature()+offset;
+                    genp.value=tp.value;
+                    gen.add(genp);
+                }
+
+
+            }
+            // kill set
             for(Object obj:in)
             {
                 AliasPair killp=(AliasPair)obj;
                 String killstringv=killp.key.split("@")[0];
-                if(currentvalue.toString().equals(killstringv))
+                if(base.toString().equals(killstringv))
                 {
                     kill.add(killp);
                 }
@@ -200,6 +157,7 @@ public class HTTPPostAnalysis extends ForwardFlowAnalysis {
             }
 
         }
+
         else if(stmt instanceof JAssignStmt)
         {
             Value right=getRight((JAssignStmt)stmt);

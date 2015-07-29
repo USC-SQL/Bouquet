@@ -1,9 +1,0 @@
-public interface  org.simpleframework.xml.strategy.Type extends java.lang.Object
-{
-
-    public abstract java.lang.annotation.Annotation getAnnotation(java.lang.Class);
-
-    public abstract java.lang.Class getType();
-
-    public abstract java.lang.String toString();
-}

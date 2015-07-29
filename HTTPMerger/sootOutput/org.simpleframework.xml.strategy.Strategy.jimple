@@ -1,7 +1,0 @@
-public interface  org.simpleframework.xml.strategy.Strategy extends java.lang.Object
-{
-
-    public abstract org.simpleframework.xml.strategy.Value read(org.simpleframework.xml.strategy.Type, org.simpleframework.xml.stream.NodeMap, java.util.Map) throws java.lang.Exception;
-
-    public abstract boolean write(org.simpleframework.xml.strategy.Type, java.lang.Object, org.simpleframework.xml.stream.NodeMap, java.util.Map) throws java.lang.Exception;
-}

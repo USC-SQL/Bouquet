@@ -1,7 +1,0 @@
-public annotation interface  org.simpleframework.xml.Order extends java.lang.Object implements java.lang.annotation.Annotation
-{
-
-    public abstract java.lang.String[] attributes();
-
-    public abstract java.lang.String[] elements();
-}

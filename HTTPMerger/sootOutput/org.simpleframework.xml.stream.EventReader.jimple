@@ -1,7 +1,0 @@
-interface  org.simpleframework.xml.stream.EventReader extends java.lang.Object
-{
-
-    public abstract org.simpleframework.xml.stream.EventNode next() throws java.lang.Exception;
-
-    public abstract org.simpleframework.xml.stream.EventNode peek() throws java.lang.Exception;
-}

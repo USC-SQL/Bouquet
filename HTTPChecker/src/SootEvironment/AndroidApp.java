@@ -9,7 +9,9 @@ import java.io.PrintWriter;
 import java.util.*;
 
 import CallGraph.StringCallGraph;
+import org.xmlpull.v1.XmlPullParserException;
 import soot.*;
+import soot.jimple.infoflow.android.SetupApplication;
 import soot.jimple.spark.SparkTransformer;
 import soot.jimple.spark.geom.geomPA.GeomPointsTo;
 import soot.jimple.spark.pag.PAG;
@@ -53,18 +55,20 @@ public class AndroidApp {
 
     }
 
-    public AndroidApp(String androidpath, String ApkPath, String classlist) {
+    public AndroidApp(String androidpath, String ApkPath, String classlist) throws IOException, XmlPullParserException {
         //String rtpath="/home/dingli/AppChecker/libs/rt.jar";
         //String  Path="/home/dingli/HTTPChecker/oriclasses";
+        /*SetupApplication app = new SetupApplication(androidpath, ApkPath);
+        app.calculateSourcesSinksEntrypoints("./SourcesAndSinks.txt");
+        soot.G.reset();*/
         Options.v().set_src_prec(Options.src_prec_apk);
+        Options.v().set_process_dir(Collections.singletonList(ApkPath));
         Options.v().set_android_jars(androidpath);
         Options.v().set_whole_program(true);
-        Options.v().set_verbose(false);
         Options.v().setPhaseOption("cg.spark", "on");
-        Options.v().set_output_format(Options.src_prec_J);
-        Options.v().set_keep_line_number(true);
-        Options.v().set_keep_offset(true);
+        Options.v().set_output_format(Options.output_format_J);
         Options.v().set_allow_phantom_refs(true);
+        Scene.v().loadNecessaryClasses();
 
         List<String> stringlist = new LinkedList<String>();
         stringlist.add(ApkPath);
@@ -83,10 +87,17 @@ public class AndroidApp {
                     //System.out.println("sig"+sc.getName());
                     if (!sc.getName().startsWith("android.support"))
                     {
-                        allmethods.addAll(sc.getMethods());
-                        sc.setApplicationClass();
-                        entryPoints.addAll(sc.getMethods());
+                        for(SootMethod m:sc.getMethods())
+                        {
+                            if(m.isConcrete())
+                            {
+                                allmethods.add(m);
+                                entryPoints.add(m);
+                            }
 
+                        }
+
+                        sc.setApplicationClass();
                         appclasses.add(sc);
 
                     }
@@ -105,15 +116,11 @@ public class AndroidApp {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        Scene.v().loadNecessaryClasses();
-        Scene.v().setEntryPoints(entryPoints);
-        PackManager.v().runPacks();
 
-        //CHATransformer.v().transform();
+        CHATransformer.v().transform();
+        //System.out.println(entryPoint.getActiveBody());
 
-        CallGraph cg = Scene.v().getCallGraph();
-        this.callgraph = new StringCallGraph(cg, allmethods);
-        this.pointto=(PAG)Scene.v().getPointsToAnalysis();
+        this.callgraph= new StringCallGraph(Scene.v().getCallGraph(),allmethods);
         //System.out.println(this.callgraph.getRTOdering().size());
         for (SootMethod msm : allmethods) {
             methodsignatures.add(msm.getSignature());

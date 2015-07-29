@@ -108,16 +108,25 @@ public class HTTPAnalyzer extends BackwardFlowAnalysis {
         FlowSet domsOfSuccs = FullSet.clone();
 
         // for each pred of s
-        Iterator succsIt = g.getSuccsOf(s).iterator();
-        while (succsIt.hasNext()) {
-            Unit succ = (Unit) succsIt.next();
-            FlowSet next = (FlowSet) unitToBeforeFlow.get(succ);
-            in.intersection(next, in);
+        if(ToolKit.isHttpOpen(s))
+        {
+            out.union(gen, out);
+            out.intersection(gen,out);
+
+        }
+        else{
+            Iterator succsIt = g.getSuccsOf(s).iterator();
+            while (succsIt.hasNext()) {
+                Unit succ = (Unit) succsIt.next();
+                FlowSet next = (FlowSet) unitToBeforeFlow.get(succ);
+                in.intersection(next, in);
+            }
+
+
+            out.intersection(in, out);
+            out.union(gen, out);
         }
 
-
-        out.intersection(in, out);
-        out.union(gen, out);
     }
 
     @Override

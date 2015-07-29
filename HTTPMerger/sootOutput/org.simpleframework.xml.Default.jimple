@@ -1,7 +1,0 @@
-public annotation interface  org.simpleframework.xml.Default extends java.lang.Object implements java.lang.annotation.Annotation
-{
-
-    public abstract boolean required();
-
-    public abstract org.simpleframework.xml.DefaultType value();
-}

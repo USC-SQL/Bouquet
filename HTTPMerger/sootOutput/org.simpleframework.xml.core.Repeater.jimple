@@ -1,5 +1,0 @@
-interface  org.simpleframework.xml.core.Repeater extends java.lang.Object implements org.simpleframework.xml.core.Converter
-{
-
-    public abstract java.lang.Object read(org.simpleframework.xml.stream.InputNode, java.lang.Object) throws java.lang.Exception;
-}

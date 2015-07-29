@@ -31,4 +31,5 @@ public class SootInstruction {
         return this.sm.equals(come.sm) && this.u.equals(come.u) && this.offset == come.offset;
 
     }
+
 }
