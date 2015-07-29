@@ -1,9 +1,0 @@
-http://api.openweathermap.org/data/2.5/weather?q=los+angeles&mode=xml&units=metric&APPID=1e38049ae254a0d6c627d624dc13c9fd
-1435187825707
-1435187826073
-http://api.openweathermap.org/data/2.5/forecast/daily?q=los+angeles&mode=xml&units=metric&cnt=5&APPID=1e38049ae254a0d6c627d624dc13c9fd
-1435187826264
-1435187826264
-http://api.worldweatheronline.com/free/v1/tz.ashx?q=los+angeles&format=xml&key=umre32dzkzma6bkwm9k88zgf
-1435187826933
-1435187826933
