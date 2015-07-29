@@ -1,0 +1,24 @@
+http://mis-aljazeera.gos2m.nl/MisLogM2Auth/aljazeera/at/45f9c10d9878fc7294c4ad6db9e67468/1437867951942/startup?store=android&version=1.1.0
+1437867951945
+1437867953169
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.HttpResponseexecute(AgentURLConnection.java:735)
+	at net.aljazeera.util.MisLog$RequestSender.doInBackground(Unknown Source)
+	at net.aljazeera.util.MisLog$RequestSender.doInBackground(Unknown Source)
+	at android.os.AsyncTask$2.call(AsyncTask.java:288)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+	at java.lang.Thread.run(Thread.java:818)
+http://mis-aljazeera.gos2m.nl/MisLogM2Auth/aljazeera/at/45f9c10d9878fc7294c4ad6db9e67468/1437867951942/startup?store=android&version=1.1.0
+1437867953183
+1437867953854
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.HttpResponseexecute(AgentURLConnection.java:735)
+	at net.aljazeera.util.MisLog$RequestSender.doInBackground(Unknown Source)
+	at net.aljazeera.util.MisLog$RequestSender.doInBackground(Unknown Source)
+	at android.os.AsyncTask$2.call(AsyncTask.java:288)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+	at java.lang.Thread.run(Thread.java:818)

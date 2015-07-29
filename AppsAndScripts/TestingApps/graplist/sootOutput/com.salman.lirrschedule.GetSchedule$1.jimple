@@ -1,0 +1,81 @@
+class com.salman.lirrschedule.GetSchedule$1 extends java.lang.Object implements org.apache.http.client.HttpRequestRetryHandler
+{
+    final com.salman.lirrschedule.GetSchedule this$0;
+
+    void <init>(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule$1 $r0;
+        com.salman.lirrschedule.GetSchedule $r1;
+
+        $r0 := @this: com.salman.lirrschedule.GetSchedule$1;
+
+        $r1 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        $r0.<com.salman.lirrschedule.GetSchedule$1: com.salman.lirrschedule.GetSchedule this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean retryRequest(java.io.IOException, int, org.apache.http.protocol.HttpContext)
+    {
+        com.salman.lirrschedule.GetSchedule$1 $r0;
+        java.io.IOException $r1;
+        int $i0;
+        org.apache.http.protocol.HttpContext $r2;
+        boolean $z0;
+        java.lang.Object $r3;
+        org.apache.http.HttpRequest $r4;
+
+        $r0 := @this: com.salman.lirrschedule.GetSchedule$1;
+
+        $r1 := @parameter0: java.io.IOException;
+
+        $i0 := @parameter1: int;
+
+        $r2 := @parameter2: org.apache.http.protocol.HttpContext;
+
+        if $i0 < 5 goto label1;
+
+        return 0;
+
+     label1:
+        $z0 = $r1 instanceof org.apache.http.NoHttpResponseException;
+
+        if $z0 == 0 goto label2;
+
+        return 1;
+
+     label2:
+        $z0 = $r1 instanceof javax.net.ssl.SSLHandshakeException;
+
+        if $z0 != 0 goto label5;
+
+        $r3 = interfaceinvoke $r2.<org.apache.http.protocol.HttpContext: java.lang.Object getAttribute(java.lang.String)>("http.request");
+
+        $r4 = (org.apache.http.HttpRequest) $r3;
+
+        $z0 = $r4 instanceof org.apache.http.HttpEntityEnclosingRequest;
+
+        if $z0 == 0 goto label4;
+
+        $z0 = 0;
+
+     label3:
+        if $z0 == 0 goto label6;
+
+        return 1;
+
+     label4:
+        $z0 = 1;
+
+        goto label3;
+
+     label5:
+        return 0;
+
+     label6:
+        return 0;
+    }
+}

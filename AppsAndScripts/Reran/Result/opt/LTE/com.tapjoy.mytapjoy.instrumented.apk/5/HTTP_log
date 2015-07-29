@@ -1,0 +1,36 @@
+https://ws.tapjoyads.com/videos?device_type=android&language_code=en&country_code=US&device_manufacturer=samsung&display_multiplier=1.0&sdk_type=offers&timestamp=1437783268&store_view=true&carrier_country_code=us&publisher_user_id=352311063444090&tjc_version=2.0&share_googleplus=true&connection_type=wifi&session_id=b80be862ff120256af03145b1bb3e6986e10635b9c3223a23df880c401d8938b&mobile_network_code=260&share_facebook=false&udid=352311063444090&library_version=9.1.0&android_id=955524a8cff49e40&verifier=156aa8575da2636f64ed702a3c0f6b7616f57e6b58b31d9df7c65500f7beea47&share_linkedin=false&screen_layout_size=2&app_id=a7c31715-1a6e-417f-9fbf-eda77b0357b1&device_location=false&share_twitter=false&screen_density=480&plugin=native&mobile_country_code=310&platform=android&serial_id=32080aead8b071c5&app_version=1.3.2&device_name=SM-G900H&os_version=5.0&bridge_version=1.0.0
+1437783271999
+1437783273373
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.getInputStreamOPT(AgentURLConnection.java:349)
+	at com.tapjoy.TapjoyURLConnection.getResponseFromURL(Unknown Source)
+	at com.tapjoy.TapjoyURLConnection.getResponseFromURL(Unknown Source)
+	at com.tapjoy.TapjoyURLConnection.getResponseFromURL(Unknown Source)
+	at com.tapjoy.TapjoyVideo$1.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:818)
+https://ws.tapjoyads.com/connect?device_type=android&language_code=en&country_code=US&device_manufacturer=samsung&display_multiplier=1.0&sdk_type=offers&timestamp=1437783268&store_view=true&carrier_country_code=us&publisher_user_id=352311063444090&tjc_version=2.0&share_googleplus=true&connection_type=wifi&session_id=b80be862ff120256af03145b1bb3e6986e10635b9c3223a23df880c401d8938b&mobile_network_code=260&share_facebook=false&udid=352311063444090&library_version=9.1.0&android_id=955524a8cff49e40&verifier=156aa8575da2636f64ed702a3c0f6b7616f57e6b58b31d9df7c65500f7beea47&share_linkedin=false&screen_layout_size=2&app_id=a7c31715-1a6e-417f-9fbf-eda77b0357b1&device_location=false&share_twitter=false&screen_density=480&plugin=native&mobile_country_code=310&platform=android&serial_id=32080aead8b071c5&app_version=1.3.2&device_name=SM-G900H&os_version=5.0&bridge_version=1.0.0
+1437783271362
+1437783274155
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.getInputStreamOPT(AgentURLConnection.java:349)
+	at com.tapjoy.TapjoyURLConnection.getResponseFromURL(Unknown Source)
+	at com.tapjoy.TapjoyURLConnection.getResponseFromURL(Unknown Source)
+	at com.tapjoy.TapjoyURLConnection.getResponseFromURL(Unknown Source)
+	at com.tapjoy.TapjoyConnectCore$ConnectThread.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:818)
+https://s3.amazonaws.com/tapjoy/videos/assets/watermark.png
+1437783276019
+1437783276692
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.getInputStreamOPT(AgentURLConnection.java:349)
+	at usc.edu.AgentURLConnection.getInputStreamOPT(AgentURLConnection.java:291)
+	at com.tapjoy.TapjoyVideo$1.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:818)
+https://s3.amazonaws.com/tapjoy/videos/assets/watermark.png
+1437783276711
+1437783276711
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.getInputStreamOPT(AgentURLConnection.java:349)
+	at usc.edu.AgentURLConnection.getInputStreamOPT(AgentURLConnection.java:291)
+	at com.tapjoy.TapjoyVideo$1.run(Unknown Source)
+	at java.lang.Thread.run(Thread.java:818)

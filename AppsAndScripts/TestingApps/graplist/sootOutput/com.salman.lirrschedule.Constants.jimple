@@ -1,0 +1,1197 @@
+public class com.salman.lirrschedule.Constants extends java.lang.Object
+{
+    public static final java.lang.String CURRENT_VERSIOn;
+    public static final java.lang.String DEPART_AM_PM_LABEL;
+    public static final java.lang.String DEPART_DAY_LABEL;
+    public static final java.lang.String DEPART_MONTH_LABEL;
+    public static final java.lang.String DEPART_TIME_LABEL;
+    public static final java.lang.String DEPART_YEAR_LABEL;
+    public static final java.lang.String FROM_STATION_TXT_NAME_LABEL;
+    public static final java.lang.String LIRR_INDEX_URL;
+    public static final java.lang.String LIRR_SCHEDULES_URL;
+    public static final java.lang.String PREFS_FILE;
+    public static final java.lang.String REQUEST_AMPM_LABLE;
+    public static final java.lang.String REQUEST_DATE_LABLE;
+    public static final java.lang.String REQUEST_FROM_STATION_LABEL;
+    public static final java.lang.String REQUEST_SCHEDULE_X_LABLE;
+    public static final java.lang.String REQUEST_SCHEDULE_Y_LABLE;
+    public static final java.lang.String REQUEST_SORT_BY;
+    public static final java.lang.String REQUEST_TIME_LABLE;
+    public static final java.lang.String REQUEST_TO_STATION_LABEL;
+    public static final java.lang.String REVERSE_ROUTE_LABLE;
+    public static final java.lang.String TO_STATION_TXT_NAME_LABEL;
+    public static final java.lang.String USER_VIEW_PREF_KEY;
+    public static final int USE_NEW_STYLE;
+    public static final int USE_OLD_STYLE;
+    public static java.lang.String[][] stations;
+    public static java.lang.String[] times;
+
+    static void <clinit>()
+    {
+        java.lang.String[] $r0;
+        java.lang.String[][] $r1;
+
+        <com.salman.lirrschedule.Constants: int USE_OLD_STYLE> = 1;
+
+        <com.salman.lirrschedule.Constants: int USE_NEW_STYLE> = 2;
+
+        <com.salman.lirrschedule.Constants: java.lang.String USER_VIEW_PREF_KEY> = "user_view_pref";
+
+        <com.salman.lirrschedule.Constants: java.lang.String TO_STATION_TXT_NAME_LABEL> = "toStationTxtName";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REVERSE_ROUTE_LABLE> = "reverseRoute";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REQUEST_TO_STATION_LABEL> = "ToStation";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REQUEST_TIME_LABLE> = "RequestTime";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REQUEST_SORT_BY> = "sortBy";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REQUEST_SCHEDULE_Y_LABLE> = "schedules.y";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REQUEST_SCHEDULE_X_LABLE> = "schedules.x";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REQUEST_FROM_STATION_LABEL> = "FromStation";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REQUEST_DATE_LABLE> = "RequestDate";
+
+        <com.salman.lirrschedule.Constants: java.lang.String REQUEST_AMPM_LABLE> = "RequestAMPM";
+
+        <com.salman.lirrschedule.Constants: java.lang.String PREFS_FILE> = "LirrUserPrefsFile";
+
+        <com.salman.lirrschedule.Constants: java.lang.String LIRR_SCHEDULES_URL> = "http://lirr42.mta.info/schedules.php";
+
+        <com.salman.lirrschedule.Constants: java.lang.String LIRR_INDEX_URL> = "http://lirr42.mta.info/index.php";
+
+        <com.salman.lirrschedule.Constants: java.lang.String FROM_STATION_TXT_NAME_LABEL> = "fromStationTxtName";
+
+        <com.salman.lirrschedule.Constants: java.lang.String DEPART_YEAR_LABEL> = "departYear";
+
+        <com.salman.lirrschedule.Constants: java.lang.String DEPART_TIME_LABEL> = "departTime";
+
+        <com.salman.lirrschedule.Constants: java.lang.String DEPART_MONTH_LABEL> = "departMonth";
+
+        <com.salman.lirrschedule.Constants: java.lang.String DEPART_DAY_LABEL> = "departDay";
+
+        <com.salman.lirrschedule.Constants: java.lang.String DEPART_AM_PM_LABEL> = "departAMPM";
+
+        <com.salman.lirrschedule.Constants: java.lang.String CURRENT_VERSIOn> = "0.4.2";
+
+        $r1 = newarray (java.lang.String[])[125];
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Albertson";
+
+        $r0[1] = "44";
+
+        $r1[0] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Amagansett";
+
+        $r0[1] = "137";
+
+        $r1[1] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Amityville";
+
+        $r0[1] = "115";
+
+        $r1[2] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Atlantic Terminal";
+
+        $r0[1] = "12";
+
+        $r1[3] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Auburndale";
+
+        $r0[1] = "21";
+
+        $r1[4] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Babylon";
+
+        $r0[1] = "118";
+
+        $r1[5] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Baldwin";
+
+        $r0[1] = "107";
+
+        $r1[6] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Bay Shore";
+
+        $r0[1] = "119";
+
+        $r1[7] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Bayside";
+
+        $r0[1] = "22";
+
+        $r1[8] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Bellerose";
+
+        $r0[1] = "33";
+
+        $r1[9] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Bellmore";
+
+        $r0[1] = "110";
+
+        $r1[10] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Bellport";
+
+        $r0[1] = "126";
+
+        $r1[11] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Belmont Park";
+
+        $r0[1] = "32";
+
+        $r1[12] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Bethpage";
+
+        $r0[1] = "68";
+
+        $r1[13] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Brentwood";
+
+        $r0[1] = "73";
+
+        $r1[14] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Bridgehampton";
+
+        $r0[1] = "135";
+
+        $r1[15] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Broadway";
+
+        $r0[1] = "20";
+
+        $r1[16] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Carle Place";
+
+        $r0[1] = "54";
+
+        $r1[17] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Cedarhurst";
+
+        $r0[1] = "96";
+
+        $r1[18] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Central Islip";
+
+        $r0[1] = "74";
+
+        $r1[19] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Centre Avenue";
+
+        $r0[1] = "101";
+
+        $r1[20] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Cold Spring Harbor";
+
+        $r0[1] = "59";
+
+        $r1[21] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Copiague";
+
+        $r0[1] = "116";
+
+        $r1[22] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Country Life Press";
+
+        $r0[1] = "38";
+
+        $r1[23] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Deer Park";
+
+        $r0[1] = "72";
+
+        $r1[24] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Douglaston";
+
+        $r0[1] = "23";
+
+        $r1[25] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "East Hampton";
+
+        $r0[1] = "136";
+
+        $r1[26] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "East New York";
+
+        $r0[1] = "14";
+
+        $r1[27] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "East Rockaway";
+
+        $r0[1] = "102";
+
+        $r1[28] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "East Williston";
+
+        $r0[1] = "43";
+
+        $r1[29] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Far Rockaway";
+
+        $r0[1] = "99";
+
+        $r1[30] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Farmingdale";
+
+        $r0[1] = "69";
+
+        $r1[31] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Floral Park";
+
+        $r0[1] = "34";
+
+        $r1[32] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Flushing Main Street";
+
+        $r0[1] = "18";
+
+        $r1[33] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Forest Hills";
+
+        $r0[1] = "10";
+
+        $r1[34] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Freeport";
+
+        $r0[1] = "108";
+
+        $r1[35] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Garden City";
+
+        $r0[1] = "37";
+
+        $r1[36] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Gibson";
+
+        $r0[1] = "93";
+
+        $r1[37] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Glen Cove";
+
+        $r0[1] = "50";
+
+        $r1[38] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Glen Head";
+
+        $r0[1] = "47";
+
+        $r1[39] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Glen Street";
+
+        $r0[1] = "49";
+
+        $r1[40] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Great Neck";
+
+        $r0[1] = "25";
+
+        $r1[41] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Great River";
+
+        $r0[1] = "121";
+
+        $r1[42] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Greenlawn";
+
+        $r0[1] = "61";
+
+        $r1[43] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Greenport";
+
+        $r0[1] = "82";
+
+        $r1[44] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Greenvale";
+
+        $r0[1] = "46";
+
+        $r1[45] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Hampton Bays";
+
+        $r0[1] = "132";
+
+        $r1[46] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Hempstead";
+
+        $r0[1] = "39";
+
+        $r1[47] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Hempstead Gardens";
+
+        $r0[1] = "91";
+
+        $r1[48] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Hewlett";
+
+        $r0[1] = "94";
+
+        $r1[49] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Hicksville";
+
+        $r0[1] = "56";
+
+        $r1[50] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Hollis";
+
+        $r0[1] = "30";
+
+        $r1[51] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Hunterspoint Avenue";
+
+        $r0[1] = "2";
+
+        $r1[52] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Huntington";
+
+        $r0[1] = "60";
+
+        $r1[53] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Inwood";
+
+        $r0[1] = "98";
+
+        $r1[54] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Island Park";
+
+        $r0[1] = "104";
+
+        $r1[55] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Islip";
+
+        $r0[1] = "120";
+
+        $r1[56] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Jamaica";
+
+        $r0[1] = "15";
+
+        $r1[57] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Kew Gardens";
+
+        $r0[1] = "11";
+
+        $r1[58] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Kings Park";
+
+        $r0[1] = "63";
+
+        $r1[59] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Lakeview";
+
+        $r0[1] = "90";
+
+        $r1[60] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Laurelton";
+
+        $r0[1] = "85";
+
+        $r1[61] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Lawrence";
+
+        $r0[1] = "97";
+
+        $r1[62] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Lindenhurst";
+
+        $r0[1] = "117";
+
+        $r1[63] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Little Neck";
+
+        $r0[1] = "24";
+
+        $r1[64] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Locust Manor";
+
+        $r0[1] = "84";
+
+        $r1[65] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Locust Valley";
+
+        $r0[1] = "51";
+
+        $r1[66] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Long Beach";
+
+        $r0[1] = "105";
+
+        $r1[67] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Long Island City";
+
+        $r0[1] = "1";
+
+        $r1[68] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Lynbrook";
+
+        $r0[1] = "100";
+
+        $r1[69] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Malverne";
+
+        $r0[1] = "89";
+
+        $r1[70] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Manhasset";
+
+        $r0[1] = "26";
+
+        $r1[71] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Massapequa";
+
+        $r0[1] = "113";
+
+        $r1[72] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Massapequa Park";
+
+        $r0[1] = "114";
+
+        $r1[73] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Mastic-Shirley";
+
+        $r0[1] = "127";
+
+        $r1[74] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Mattituck";
+
+        $r0[1] = "80";
+
+        $r1[75] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Meadowlands";
+
+        $r0[1] = "508";
+
+        $r1[76] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Medford";
+
+        $r0[1] = "77";
+
+        $r1[77] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Merillon Avenue";
+
+        $r0[1] = "41";
+
+        $r1[78] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Merrick";
+
+        $r0[1] = "109";
+
+        $r1[79] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Mets-Willets Point";
+
+        $r0[1] = "17";
+
+        $r1[80] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Mineola";
+
+        $r0[1] = "42";
+
+        $r1[81] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Montauk";
+
+        $r0[1] = "138";
+
+        $r1[82] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Murray Hill";
+
+        $r0[1] = "19";
+
+        $r1[83] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Nassau Boulevard";
+
+        $r0[1] = "36";
+
+        $r1[84] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "New Hyde Park";
+
+        $r0[1] = "40";
+
+        $r1[85] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Northport";
+
+        $r0[1] = "62";
+
+        $r1[86] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Nostrand Avenue";
+
+        $r0[1] = "13";
+
+        $r1[87] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Oakdale";
+
+        $r0[1] = "122";
+
+        $r1[88] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Oceanside";
+
+        $r0[1] = "103";
+
+        $r1[89] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Oyster Bay";
+
+        $r0[1] = "53";
+
+        $r1[90] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Patchogue";
+
+        $r0[1] = "124";
+
+        $r1[91] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Penn Station";
+
+        $r0[1] = "8";
+
+        $r1[92] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Pinelawn";
+
+        $r0[1] = "70";
+
+        $r1[93] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Plandome";
+
+        $r0[1] = "27";
+
+        $r1[94] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Port Jefferson";
+
+        $r0[1] = "67";
+
+        $r1[95] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Port Washington";
+
+        $r0[1] = "28";
+
+        $r1[96] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Queens Village";
+
+        $r0[1] = "31";
+
+        $r1[97] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Riverhead";
+
+        $r0[1] = "79";
+
+        $r1[98] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Rockville Centre";
+
+        $r0[1] = "106";
+
+        $r1[99] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Ronkonkoma";
+
+        $r0[1] = "75";
+
+        $r1[100] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Rosedale";
+
+        $r0[1] = "86";
+
+        $r1[101] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Roslyn";
+
+        $r0[1] = "45";
+
+        $r1[102] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Saint Albans";
+
+        $r0[1] = "83";
+
+        $r1[103] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Saint James";
+
+        $r0[1] = "65";
+
+        $r1[104] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Sayville";
+
+        $r0[1] = "123";
+
+        $r1[105] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Sea Cliff";
+
+        $r0[1] = "48";
+
+        $r1[106] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Seaford";
+
+        $r0[1] = "112";
+
+        $r1[107] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Smithtown";
+
+        $r0[1] = "64";
+
+        $r1[108] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Southampton";
+
+        $r0[1] = "134";
+
+        $r1[109] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Southold";
+
+        $r0[1] = "81";
+
+        $r1[110] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Speonk";
+
+        $r0[1] = "129";
+
+        $r1[111] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Stewart Manor";
+
+        $r0[1] = "35";
+
+        $r1[112] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Stony Brook";
+
+        $r0[1] = "66";
+
+        $r1[113] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Syosset";
+
+        $r0[1] = "58";
+
+        $r1[114] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Valley Stream";
+
+        $r0[1] = "87";
+
+        $r1[115] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Wantagh";
+
+        $r0[1] = "111";
+
+        $r1[116] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "West Hempstead";
+
+        $r0[1] = "92";
+
+        $r1[117] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Westbury";
+
+        $r0[1] = "55";
+
+        $r1[118] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Westhampton";
+
+        $r0[1] = "130";
+
+        $r1[119] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Westwood";
+
+        $r0[1] = "88";
+
+        $r1[120] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Woodmere";
+
+        $r0[1] = "95";
+
+        $r1[121] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Woodside";
+
+        $r0[1] = "9";
+
+        $r1[122] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Wyandanch";
+
+        $r0[1] = "71";
+
+        $r1[123] = $r0;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "Yaphank";
+
+        $r0[1] = "78";
+
+        $r1[124] = $r0;
+
+        <com.salman.lirrschedule.Constants: java.lang.String[][] stations> = $r1;
+
+        $r0 = newarray (java.lang.String)[48];
+
+        $r0[0] = "01:00";
+
+        $r0[1] = "01:15";
+
+        $r0[2] = "01:30";
+
+        $r0[3] = "01:45";
+
+        $r0[4] = "02:00";
+
+        $r0[5] = "02:15";
+
+        $r0[6] = "02:30";
+
+        $r0[7] = "02:45";
+
+        $r0[8] = "03:00";
+
+        $r0[9] = "03:15";
+
+        $r0[10] = "03:30";
+
+        $r0[11] = "03:45";
+
+        $r0[12] = "04:00";
+
+        $r0[13] = "04:15";
+
+        $r0[14] = "04:30";
+
+        $r0[15] = "04:45";
+
+        $r0[16] = "05:00";
+
+        $r0[17] = "05:15";
+
+        $r0[18] = "05:30";
+
+        $r0[19] = "05:45";
+
+        $r0[20] = "06:00";
+
+        $r0[21] = "06:15";
+
+        $r0[22] = "06:30";
+
+        $r0[23] = "06:45";
+
+        $r0[24] = "07:00";
+
+        $r0[25] = "07:15";
+
+        $r0[26] = "07:30";
+
+        $r0[27] = "07:45";
+
+        $r0[28] = "08:00";
+
+        $r0[29] = "08:15";
+
+        $r0[30] = "08:30";
+
+        $r0[31] = "08:45";
+
+        $r0[32] = "09:00";
+
+        $r0[33] = "09:15";
+
+        $r0[34] = "09:30";
+
+        $r0[35] = "09:45";
+
+        $r0[36] = "10:00";
+
+        $r0[37] = "10:15";
+
+        $r0[38] = "10:30";
+
+        $r0[39] = "10:45";
+
+        $r0[40] = "11:00";
+
+        $r0[41] = "11:15";
+
+        $r0[42] = "11:30";
+
+        $r0[43] = "11:45";
+
+        $r0[44] = "12:00";
+
+        $r0[45] = "12:15";
+
+        $r0[46] = "12:30";
+
+        $r0[47] = "12:45";
+
+        <com.salman.lirrschedule.Constants: java.lang.String[] times> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.Constants $r0;
+
+        $r0 := @this: com.salman.lirrschedule.Constants;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

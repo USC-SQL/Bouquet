@@ -1,0 +1,36 @@
+http://lirr42.mta.info/index.php?
+1437704751121
+1437704752459
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.HttpResponseexecute(AgentURLConnection.java:709)
+	at com.salman.lirrschedule.GetSchedule$getSchedules.doInBackground(Unknown Source)
+	at com.salman.lirrschedule.GetSchedule$getSchedules.doInBackground(Unknown Source)
+	at android.os.AsyncTask$2.call(AsyncTask.java:288)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+	at java.lang.Thread.run(Thread.java:818)
+http://lirr42.mta.info/index.php?FromStation=105&ToStation=1&RequestDate=07%2F24%2F2015&RequestTime=11%3A30&RequestAMPM=AM&sortBy=1&schedules.x=44&schedules.y=52
+1437704752472
+1437704753799
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.HttpResponseexecute(AgentURLConnection.java:709)
+	at com.salman.lirrschedule.GetSchedule$getSchedules.doInBackground(Unknown Source)
+	at com.salman.lirrschedule.GetSchedule$getSchedules.doInBackground(Unknown Source)
+	at android.os.AsyncTask$2.call(AsyncTask.java:288)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+	at java.lang.Thread.run(Thread.java:818)
+http://lirr42.mta.info/schedules.php?FromStation=105&ToStation=1&RequestDate=07%2F24%2F2015&RequestTime=11%3A30&RequestAMPM=AM&sortBy=1&schedules.x=44&schedules.y=52
+1437704753811
+1437704755147
+	at usc.edu.AgentURLConnection.LogHTTPLong(AgentURLConnection.java:68)
+	at usc.edu.AgentURLConnection.HttpResponseexecute(AgentURLConnection.java:709)
+	at com.salman.lirrschedule.GetSchedule$getSchedules.doInBackground(Unknown Source)
+	at com.salman.lirrschedule.GetSchedule$getSchedules.doInBackground(Unknown Source)
+	at android.os.AsyncTask$2.call(AsyncTask.java:288)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
+	at java.lang.Thread.run(Thread.java:818)

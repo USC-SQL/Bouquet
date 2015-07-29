@@ -1,0 +1,651 @@
+public class com.salman.lirrschedule.GetSchedule extends android.app.Activity
+{
+    public static final java.lang.String USER_AGENT;
+    private java.lang.String ampm;
+    private java.lang.StringBuilder builder;
+    private org.apache.http.client.HttpClient client;
+    private java.lang.String day;
+    private java.lang.String fromStation;
+    private java.lang.String fromStationTxtName;
+    private java.lang.String month;
+    private boolean reverseRoute;
+    private java.lang.String sortResultsBy;
+    private java.util.ArrayList tablerowArray;
+    private java.lang.String time;
+    private android.widget.TableLayout tl;
+    private java.lang.String toStation;
+    private java.lang.String toStationTxtName;
+    private android.widget.TableRow trow;
+    private android.widget.TextView tv;
+    private java.lang.String year;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.StringBuilder $r1;
+        org.apache.http.impl.client.DefaultHttpClient $r2;
+        java.util.ArrayList $r3;
+
+        $r0 := @this: com.salman.lirrschedule.GetSchedule;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.StringBuilder builder> = $r1;
+
+        $r3 = new java.util.ArrayList;
+
+        specialinvoke $r3.<java.util.ArrayList: void <init>()>();
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.util.ArrayList tablerowArray> = $r3;
+
+        $r2 = specialinvoke $r0.<com.salman.lirrschedule.GetSchedule: org.apache.http.impl.client.DefaultHttpClient getThreadSafeHttpClient()>();
+
+        $r0.<com.salman.lirrschedule.GetSchedule: org.apache.http.client.HttpClient client> = $r2;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: boolean reverseRoute> = 0;
+
+        return;
+    }
+
+    static org.apache.http.client.HttpClient access$0(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        org.apache.http.client.HttpClient r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: org.apache.http.client.HttpClient client>;
+
+        return r1;
+    }
+
+    static boolean access$1(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        boolean z0;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        z0 = $r0.<com.salman.lirrschedule.GetSchedule: boolean reverseRoute>;
+
+        return z0;
+    }
+
+    static java.lang.String access$10(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String time>;
+
+        return r1;
+    }
+
+    static java.lang.String access$11(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String ampm>;
+
+        return r1;
+    }
+
+    static java.lang.String access$12(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String sortResultsBy>;
+
+        return r1;
+    }
+
+    static java.lang.StringBuilder access$13(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.StringBuilder r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.StringBuilder builder>;
+
+        return r1;
+    }
+
+    static java.lang.String access$14(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String fromStationTxtName>;
+
+        return r1;
+    }
+
+    static java.lang.String access$15(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String toStationTxtName>;
+
+        return r1;
+    }
+
+    static void access$16(com.salman.lirrschedule.GetSchedule, android.widget.TableRow)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        android.widget.TableRow $r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        $r1 := @parameter1: android.widget.TableRow;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: android.widget.TableRow trow> = $r1;
+
+        return;
+    }
+
+    static void access$17(com.salman.lirrschedule.GetSchedule, android.widget.TextView)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        android.widget.TextView $r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        $r1 := @parameter1: android.widget.TextView;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: android.widget.TextView tv> = $r1;
+
+        return;
+    }
+
+    static android.widget.TableRow access$18(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        android.widget.TableRow r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: android.widget.TableRow trow>;
+
+        return r1;
+    }
+
+    static android.widget.TextView access$19(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        android.widget.TextView r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: android.widget.TextView tv>;
+
+        return r1;
+    }
+
+    static void access$2(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        specialinvoke $r0.<com.salman.lirrschedule.GetSchedule: void needRouteReversal()>();
+
+        return;
+    }
+
+    static java.util.ArrayList access$20(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.util.ArrayList r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.util.ArrayList tablerowArray>;
+
+        return r1;
+    }
+
+    static android.widget.TableLayout access$21(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        android.widget.TableLayout r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: android.widget.TableLayout tl>;
+
+        return r1;
+    }
+
+    static org.apache.http.impl.client.DefaultHttpClient access$3(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        org.apache.http.impl.client.DefaultHttpClient $r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        $r1 = specialinvoke $r0.<com.salman.lirrschedule.GetSchedule: org.apache.http.impl.client.DefaultHttpClient getThreadSafeHttpClient()>();
+
+        return $r1;
+    }
+
+    static void access$4(com.salman.lirrschedule.GetSchedule, org.apache.http.client.HttpClient)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        org.apache.http.client.HttpClient $r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        $r1 := @parameter1: org.apache.http.client.HttpClient;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: org.apache.http.client.HttpClient client> = $r1;
+
+        return;
+    }
+
+    static java.lang.String access$5(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String fromStation>;
+
+        return r1;
+    }
+
+    static java.lang.String access$6(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String toStation>;
+
+        return r1;
+    }
+
+    static java.lang.String access$7(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String month>;
+
+        return r1;
+    }
+
+    static java.lang.String access$8(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String day>;
+
+        return r1;
+    }
+
+    static java.lang.String access$9(com.salman.lirrschedule.GetSchedule)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.GetSchedule;
+
+        r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String year>;
+
+        return r1;
+    }
+
+    private org.apache.http.impl.client.DefaultHttpClient getThreadSafeHttpClient()
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        org.apache.http.impl.client.DefaultHttpClient $r1;
+        org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager $r2;
+        com.salman.lirrschedule.GetSchedule$1 $r3;
+        org.apache.http.params.BasicHttpParams $r4;
+        org.apache.http.conn.scheme.SchemeRegistry $r5;
+        java.lang.Integer $r6;
+        org.apache.http.HttpVersion $r7;
+        org.apache.http.conn.scheme.Scheme $r8;
+        org.apache.http.conn.scheme.PlainSocketFactory $r9;
+        org.apache.http.conn.ssl.SSLSocketFactory $r10;
+        org.apache.http.conn.ssl.X509HostnameVerifier $r11;
+
+        $r0 := @this: com.salman.lirrschedule.GetSchedule;
+
+        $r4 = new org.apache.http.params.BasicHttpParams;
+
+        specialinvoke $r4.<org.apache.http.params.BasicHttpParams: void <init>()>();
+
+        interfaceinvoke $r4.<org.apache.http.params.HttpParams: org.apache.http.params.HttpParams setParameter(java.lang.String,java.lang.Object)>("http.useragent", "Mozilla/5.0 (Linux; U; Android 1.1; en-us;dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2");
+
+        $r6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(3000);
+
+        interfaceinvoke $r4.<org.apache.http.params.HttpParams: org.apache.http.params.HttpParams setParameter(java.lang.String,java.lang.Object)>("http.connection.timeout", $r6);
+
+        $r7 = <org.apache.http.HttpVersion: org.apache.http.HttpVersion HTTP_1_0>;
+
+        staticinvoke <org.apache.http.params.HttpProtocolParams: void setVersion(org.apache.http.params.HttpParams,org.apache.http.ProtocolVersion)>($r4, $r7);
+
+        staticinvoke <org.apache.http.params.HttpProtocolParams: void setContentCharset(org.apache.http.params.HttpParams,java.lang.String)>($r4, "UTF-8");
+
+        $r5 = new org.apache.http.conn.scheme.SchemeRegistry;
+
+        specialinvoke $r5.<org.apache.http.conn.scheme.SchemeRegistry: void <init>()>();
+
+        $r8 = new org.apache.http.conn.scheme.Scheme;
+
+        $r9 = staticinvoke <org.apache.http.conn.scheme.PlainSocketFactory: org.apache.http.conn.scheme.PlainSocketFactory getSocketFactory()>();
+
+        specialinvoke $r8.<org.apache.http.conn.scheme.Scheme: void <init>(java.lang.String,org.apache.http.conn.scheme.SocketFactory,int)>("http", $r9, 80);
+
+        virtualinvoke $r5.<org.apache.http.conn.scheme.SchemeRegistry: org.apache.http.conn.scheme.Scheme register(org.apache.http.conn.scheme.Scheme)>($r8);
+
+        $r10 = staticinvoke <org.apache.http.conn.ssl.SSLSocketFactory: org.apache.http.conn.ssl.SSLSocketFactory getSocketFactory()>();
+
+        $r11 = <org.apache.http.conn.ssl.SSLSocketFactory: org.apache.http.conn.ssl.X509HostnameVerifier ALLOW_ALL_HOSTNAME_VERIFIER>;
+
+        virtualinvoke $r10.<org.apache.http.conn.ssl.SSLSocketFactory: void setHostnameVerifier(org.apache.http.conn.ssl.X509HostnameVerifier)>($r11);
+
+        $r8 = new org.apache.http.conn.scheme.Scheme;
+
+        specialinvoke $r8.<org.apache.http.conn.scheme.Scheme: void <init>(java.lang.String,org.apache.http.conn.scheme.SocketFactory,int)>("https", $r10, 443);
+
+        virtualinvoke $r5.<org.apache.http.conn.scheme.SchemeRegistry: org.apache.http.conn.scheme.Scheme register(org.apache.http.conn.scheme.Scheme)>($r8);
+
+        $r2 = new org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+
+        specialinvoke $r2.<org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager: void <init>(org.apache.http.params.HttpParams,org.apache.http.conn.scheme.SchemeRegistry)>($r4, $r5);
+
+        $r1 = new org.apache.http.impl.client.DefaultHttpClient;
+
+        specialinvoke $r1.<org.apache.http.impl.client.DefaultHttpClient: void <init>(org.apache.http.conn.ClientConnectionManager,org.apache.http.params.HttpParams)>($r2, $r4);
+
+        $r3 = new com.salman.lirrschedule.GetSchedule$1;
+
+        specialinvoke $r3.<com.salman.lirrschedule.GetSchedule$1: void <init>(com.salman.lirrschedule.GetSchedule)>($r0);
+
+        virtualinvoke $r1.<org.apache.http.impl.client.DefaultHttpClient: void setHttpRequestRetryHandler(org.apache.http.client.HttpRequestRetryHandler)>($r3);
+
+        return $r1;
+    }
+
+    private void needRouteReversal()
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        java.lang.String $r1, $r2;
+
+        $r0 := @this: com.salman.lirrschedule.GetSchedule;
+
+        $r1 = new java.lang.String;
+
+        specialinvoke $r1.<java.lang.String: void <init>()>();
+
+        $r2 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String toStation>;
+
+        $r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String fromStation>;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String fromStation> = $r2;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String toStation> = $r1;
+
+        $r2 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String toStationTxtName>;
+
+        $r1 = $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String fromStationTxtName>;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String fromStationTxtName> = $r2;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String toStationTxtName> = $r1;
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        android.os.Bundle $r1;
+        java.lang.Exception $r2, $r10;
+        android.content.Intent $r3;
+        android.view.View $r4;
+        android.widget.TableLayout $r5;
+        android.widget.Toast $r6;
+        java.lang.String $r7;
+        boolean $z0;
+        com.salman.lirrschedule.GetSchedule$getSchedules $r8;
+        java.lang.Void[] $r9;
+
+        $r0 := @this: com.salman.lirrschedule.GetSchedule;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<com.salman.lirrschedule.GetSchedule: void setContentView(int)>(2130903041);
+
+        $r4 = virtualinvoke $r0.<com.salman.lirrschedule.GetSchedule: android.view.View findViewById(int)>(2131230720);
+
+        $r5 = (android.widget.TableLayout) $r4;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: android.widget.TableLayout tl> = $r5;
+
+        $r3 = virtualinvoke $r0.<com.salman.lirrschedule.GetSchedule: android.content.Intent getIntent()>();
+
+        $r1 = virtualinvoke $r3.<android.content.Intent: android.os.Bundle getExtras()>();
+
+        if $r1 != null goto label01;
+
+        $r3 = new android.content.Intent;
+
+        specialinvoke $r3.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "com/salman/lirrschedule/StationPicker");
+
+        $r6 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Required params not found, sending you back to main screen.", 0);
+
+        virtualinvoke $r6.<android.widget.Toast: void show()>();
+
+        virtualinvoke $r0.<com.salman.lirrschedule.GetSchedule: void startActivity(android.content.Intent)>($r3);
+
+        return;
+
+     label01:
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("departTime");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String time> = $r7;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("departAMPM");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String ampm> = $r7;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("departDay");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String day> = $r7;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("departMonth");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String month> = $r7;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("departYear");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String year> = $r7;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("FromStation");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String fromStation> = $r7;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("ToStation");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String toStation> = $r7;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("fromStationTxtName");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String fromStationTxtName> = $r7;
+
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("toStationTxtName");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String toStationTxtName> = $r7;
+
+        $z0 = virtualinvoke $r1.<android.os.Bundle: boolean getBoolean(java.lang.String)>("reverseRoute");
+
+        $r0.<com.salman.lirrschedule.GetSchedule: boolean reverseRoute> = $z0;
+
+     label02:
+        $r7 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("sortBy");
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equalsIgnoreCase(java.lang.String)>("Arrive by");
+
+     label03:
+        if $z0 == 0 goto label10;
+
+     label04:
+        $r7 = "2";
+
+     label05:
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String sortResultsBy> = $r7;
+
+     label06:
+        $r5 = $r0.<com.salman.lirrschedule.GetSchedule: android.widget.TableLayout tl>;
+
+        virtualinvoke $r5.<android.widget.TableLayout: void setStretchAllColumns(boolean)>(1);
+
+        $r5 = $r0.<com.salman.lirrschedule.GetSchedule: android.widget.TableLayout tl>;
+
+        virtualinvoke $r5.<android.widget.TableLayout: void setBackgroundColor(int)>(-3355444);
+
+        $r8 = new com.salman.lirrschedule.GetSchedule$getSchedules;
+
+     label07:
+        specialinvoke $r8.<com.salman.lirrschedule.GetSchedule$getSchedules: void <init>(com.salman.lirrschedule.GetSchedule,com.salman.lirrschedule.GetSchedule$getSchedules)>($r0, null);
+
+        $r9 = newarray (java.lang.Void)[0];
+
+        virtualinvoke $r8.<com.salman.lirrschedule.GetSchedule$getSchedules: android.os.AsyncTask execute(java.lang.Object[])>($r9);
+
+     label08:
+        return;
+
+     label09:
+        $r2 := @caughtexception;
+
+        virtualinvoke $r2.<java.lang.Exception: void printStackTrace()>();
+
+        return;
+
+     label10:
+        $r7 = "1";
+
+        goto label05;
+
+     label11:
+        $r10 := @caughtexception;
+
+        $r0.<com.salman.lirrschedule.GetSchedule: java.lang.String sortResultsBy> = "1";
+
+        goto label06;
+
+        catch java.lang.Exception from label02 to label03 with label11;
+        catch java.lang.Exception from label04 to label06 with label11;
+        catch java.lang.Exception from label07 to label08 with label09;
+    }
+
+    protected void onPause()
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        org.apache.http.client.HttpClient $r1;
+        org.apache.http.conn.ClientConnectionManager $r2;
+        com.salman.lirrschedule.GetSchedule$getSchedules $r3;
+        java.lang.Exception $r4;
+
+        $r0 := @this: com.salman.lirrschedule.GetSchedule;
+
+        specialinvoke $r0.<android.app.Activity: void onPause()>();
+
+     label1:
+        $r1 = $r0.<com.salman.lirrschedule.GetSchedule: org.apache.http.client.HttpClient client>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.client.HttpClient: org.apache.http.conn.ClientConnectionManager getConnectionManager()>();
+
+        interfaceinvoke $r2.<org.apache.http.conn.ClientConnectionManager: void shutdown()>();
+
+        $r3 = new com.salman.lirrschedule.GetSchedule$getSchedules;
+
+        specialinvoke $r3.<com.salman.lirrschedule.GetSchedule$getSchedules: void <init>(com.salman.lirrschedule.GetSchedule,com.salman.lirrschedule.GetSchedule$getSchedules)>($r0, null);
+
+        virtualinvoke $r3.<com.salman.lirrschedule.GetSchedule$getSchedules: boolean cancel(boolean)>(1);
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    protected void onStop()
+    {
+        com.salman.lirrschedule.GetSchedule $r0;
+        org.apache.http.client.HttpClient $r1;
+        org.apache.http.conn.ClientConnectionManager $r2;
+        com.salman.lirrschedule.GetSchedule$getSchedules $r3;
+        java.lang.Exception $r4;
+
+        $r0 := @this: com.salman.lirrschedule.GetSchedule;
+
+        specialinvoke $r0.<android.app.Activity: void onStop()>();
+
+     label1:
+        $r1 = $r0.<com.salman.lirrschedule.GetSchedule: org.apache.http.client.HttpClient client>;
+
+        $r2 = interfaceinvoke $r1.<org.apache.http.client.HttpClient: org.apache.http.conn.ClientConnectionManager getConnectionManager()>();
+
+        interfaceinvoke $r2.<org.apache.http.conn.ClientConnectionManager: void shutdown()>();
+
+        $r3 = new com.salman.lirrschedule.GetSchedule$getSchedules;
+
+        specialinvoke $r3.<com.salman.lirrschedule.GetSchedule$getSchedules: void <init>(com.salman.lirrschedule.GetSchedule,com.salman.lirrschedule.GetSchedule$getSchedules)>($r0, null);
+
+        virtualinvoke $r3.<com.salman.lirrschedule.GetSchedule$getSchedules: boolean cancel(boolean)>(1);
+
+     label2:
+        return;
+
+     label3:
+        $r4 := @caughtexception;
+
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public static void <clinit>()
+    {
+        <com.salman.lirrschedule.GetSchedule: java.lang.String USER_AGENT> = "Mozilla/5.0 (Linux; U; Android 1.1; en-us;dream) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2";
+
+        return;
+    }
+}

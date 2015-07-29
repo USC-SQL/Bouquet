@@ -1,0 +1,25 @@
+public final class com.salman.lirrschedule.R$color extends java.lang.Object
+{
+    public static final int alt_1;
+    public static final int alt_2;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.R$color $r0;
+
+        $r0 := @this: com.salman.lirrschedule.R$color;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.salman.lirrschedule.R$color: int alt_2> = 2130968577;
+
+        <com.salman.lirrschedule.R$color: int alt_1> = 2130968576;
+
+        return;
+    }
+}

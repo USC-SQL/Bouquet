@@ -1,8 +1,0 @@
-0.1111111111111111 1 9
-summary_start
-<com.swarmconnect.cd: java.lang.String connectToURL(java.lang.String,java.lang.String)>
-$r4 = virtualinvoke $r7.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@25@<com.swarmconnect.cd: java.lang.String connectToURL(java.lang.String,java.lang.String)>:
-	$r10 = virtualinvoke $r7.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@29@<com.swarmconnect.cd: java.lang.String connectToURL(java.lang.String,java.lang.String)>
-
-
-summary_end

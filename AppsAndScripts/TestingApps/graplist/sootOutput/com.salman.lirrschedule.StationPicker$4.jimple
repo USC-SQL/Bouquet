@@ -1,0 +1,68 @@
+class com.salman.lirrschedule.StationPicker$4 extends java.lang.Object implements android.app.DatePickerDialog$OnDateSetListener
+{
+    final com.salman.lirrschedule.StationPicker this$0;
+
+    void <init>(com.salman.lirrschedule.StationPicker)
+    {
+        com.salman.lirrschedule.StationPicker$4 $r0;
+        com.salman.lirrschedule.StationPicker $r1;
+
+        $r0 := @this: com.salman.lirrschedule.StationPicker$4;
+
+        $r1 := @parameter0: com.salman.lirrschedule.StationPicker;
+
+        $r0.<com.salman.lirrschedule.StationPicker$4: com.salman.lirrschedule.StationPicker this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onDateSet(android.widget.DatePicker, int, int, int)
+    {
+        com.salman.lirrschedule.StationPicker$4 $r0;
+        android.widget.DatePicker $r1;
+        int $i0, $i1, $i2;
+        com.salman.lirrschedule.StationPicker $r2, $r3;
+
+        $r0 := @this: com.salman.lirrschedule.StationPicker$4;
+
+        $r1 := @parameter0: android.widget.DatePicker;
+
+        $i0 := @parameter1: int;
+
+        $i1 := @parameter2: int;
+
+        $i2 := @parameter3: int;
+
+        $r2 = $r0.<com.salman.lirrschedule.StationPicker$4: com.salman.lirrschedule.StationPicker this$0>;
+
+        staticinvoke <com.salman.lirrschedule.StationPicker: void access$3(com.salman.lirrschedule.StationPicker,int)>($r2, $i0);
+
+        $r2 = $r0.<com.salman.lirrschedule.StationPicker$4: com.salman.lirrschedule.StationPicker this$0>;
+
+        staticinvoke <com.salman.lirrschedule.StationPicker: void access$4(com.salman.lirrschedule.StationPicker,int)>($r2, $i1);
+
+        $r2 = $r0.<com.salman.lirrschedule.StationPicker$4: com.salman.lirrschedule.StationPicker this$0>;
+
+        staticinvoke <com.salman.lirrschedule.StationPicker: void access$5(com.salman.lirrschedule.StationPicker,int)>($r2, $i2);
+
+        $r3 = $r0.<com.salman.lirrschedule.StationPicker$4: com.salman.lirrschedule.StationPicker this$0>;
+
+        $r2 = $r0.<com.salman.lirrschedule.StationPicker$4: com.salman.lirrschedule.StationPicker this$0>;
+
+        $i2 = staticinvoke <com.salman.lirrschedule.StationPicker: int access$6(com.salman.lirrschedule.StationPicker)>($r2);
+
+        $r2 = $r0.<com.salman.lirrschedule.StationPicker$4: com.salman.lirrschedule.StationPicker this$0>;
+
+        $i1 = staticinvoke <com.salman.lirrschedule.StationPicker: int access$7(com.salman.lirrschedule.StationPicker)>($r2);
+
+        $r2 = $r0.<com.salman.lirrschedule.StationPicker$4: com.salman.lirrschedule.StationPicker this$0>;
+
+        $i0 = staticinvoke <com.salman.lirrschedule.StationPicker: int access$8(com.salman.lirrschedule.StationPicker)>($r2);
+
+        staticinvoke <com.salman.lirrschedule.StationPicker: void access$9(com.salman.lirrschedule.StationPicker,int,int,int)>($r3, $i2, $i1, $i0);
+
+        return;
+    }
+}

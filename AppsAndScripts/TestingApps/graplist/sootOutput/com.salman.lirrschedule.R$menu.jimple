@@ -1,0 +1,22 @@
+public final class com.salman.lirrschedule.R$menu extends java.lang.Object
+{
+    public static final int prefs_menu;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.R$menu $r0;
+
+        $r0 := @this: com.salman.lirrschedule.R$menu;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.salman.lirrschedule.R$menu: int prefs_menu> = 2131165184;
+
+        return;
+    }
+}

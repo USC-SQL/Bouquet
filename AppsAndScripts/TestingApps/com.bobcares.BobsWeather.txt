@@ -1,5 +1,0 @@
-com.bobcares.BobsWeather.apk
-com.bobcares.BobsWeather.txt
-grapclisslist.sh
-libs
-soot.jar

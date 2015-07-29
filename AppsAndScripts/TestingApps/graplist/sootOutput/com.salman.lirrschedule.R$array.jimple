@@ -1,0 +1,25 @@
+public final class com.salman.lirrschedule.R$array extends java.lang.Object
+{
+    public static final int station_array;
+    public static final int time_array;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.R$array $r0;
+
+        $r0 := @this: com.salman.lirrschedule.R$array;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.salman.lirrschedule.R$array: int time_array> = 2131099649;
+
+        <com.salman.lirrschedule.R$array: int station_array> = 2131099648;
+
+        return;
+    }
+}

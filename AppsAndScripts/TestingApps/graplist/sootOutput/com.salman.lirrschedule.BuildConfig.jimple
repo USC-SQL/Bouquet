@@ -1,0 +1,15 @@
+public final class com.salman.lirrschedule.BuildConfig extends java.lang.Object
+{
+    public static final boolean DEBUG;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.BuildConfig $r0;
+
+        $r0 := @this: com.salman.lirrschedule.BuildConfig;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

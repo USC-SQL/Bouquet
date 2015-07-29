@@ -1,0 +1,272 @@
+public class com.salman.lirrschedule.LSUserPreferences extends android.app.Activity
+{
+    private android.widget.AutoCompleteTextView actv_from_station;
+    private android.widget.AutoCompleteTextView actv_to_station;
+    private android.content.SharedPreferences prefs;
+    private android.widget.Button saveprefs_btn;
+    private int use_spinner_view;
+    private java.lang.String user_default_from_station;
+    private java.lang.String user_default_from_station_name;
+    private java.lang.String user_default_to_station;
+    private java.lang.String user_default_to_station_name;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.LSUserPreferences $r0;
+
+        $r0 := @this: com.salman.lirrschedule.LSUserPreferences;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: int use_spinner_view> = 0;
+
+        return;
+    }
+
+    static void access$0(com.salman.lirrschedule.LSUserPreferences, java.lang.String)
+    {
+        com.salman.lirrschedule.LSUserPreferences $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.LSUserPreferences;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_from_station> = $r1;
+
+        return;
+    }
+
+    static void access$1(com.salman.lirrschedule.LSUserPreferences, java.lang.String)
+    {
+        com.salman.lirrschedule.LSUserPreferences $r0;
+        java.lang.String $r1;
+
+        $r0 := @parameter0: com.salman.lirrschedule.LSUserPreferences;
+
+        $r1 := @parameter1: java.lang.String;
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_to_station> = $r1;
+
+        return;
+    }
+
+    static void access$2(com.salman.lirrschedule.LSUserPreferences)
+    {
+        com.salman.lirrschedule.LSUserPreferences $r0;
+
+        $r0 := @parameter0: com.salman.lirrschedule.LSUserPreferences;
+
+        specialinvoke $r0.<com.salman.lirrschedule.LSUserPreferences: void savePrefs()>();
+
+        return;
+    }
+
+    private void savePrefs()
+    {
+        com.salman.lirrschedule.LSUserPreferences $r0;
+        android.content.Intent $r1;
+        android.widget.AutoCompleteTextView $r2;
+        android.text.Editable $r3;
+        java.lang.String $r4;
+        boolean $z0;
+        android.content.SharedPreferences $r5;
+        android.content.SharedPreferences$Editor $r6;
+        int $i0;
+        android.widget.Toast $r7;
+
+        $r0 := @this: com.salman.lirrschedule.LSUserPreferences;
+
+        $r2 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_from_station>;
+
+        $r3 = virtualinvoke $r2.<android.widget.AutoCompleteTextView: android.text.Editable getText()>();
+
+        $r4 = interfaceinvoke $r3.<android.text.Editable: java.lang.String toString()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 == 0 goto label1;
+
+        $r4 = staticinvoke <com.salman.lirrschedule.Utils: java.lang.String findStationIdByName(java.lang.String)>("Penn Station");
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_from_station> = $r4;
+
+     label1:
+        $r2 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_to_station>;
+
+        $r3 = virtualinvoke $r2.<android.widget.AutoCompleteTextView: android.text.Editable getText()>();
+
+        $r4 = interfaceinvoke $r3.<android.text.Editable: java.lang.String toString()>();
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 == 0 goto label2;
+
+        $r4 = staticinvoke <com.salman.lirrschedule.Utils: java.lang.String findStationIdByName(java.lang.String)>("Penn Station");
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_to_station> = $r4;
+
+     label2:
+        $r5 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.content.SharedPreferences prefs>;
+
+        $r6 = interfaceinvoke $r5.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        $i0 = $r0.<com.salman.lirrschedule.LSUserPreferences: int use_spinner_view>;
+
+        interfaceinvoke $r6.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putInt(java.lang.String,int)>("user_view_pref", $i0);
+
+        $r4 = $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_from_station>;
+
+        interfaceinvoke $r6.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)>("FromStation", $r4);
+
+        $r4 = $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_to_station>;
+
+        interfaceinvoke $r6.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)>("ToStation", $r4);
+
+        interfaceinvoke $r6.<android.content.SharedPreferences$Editor: boolean commit()>();
+
+        $r7 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,java.lang.CharSequence,int)>($r0, "Saved preferences. Returning to search screen.", 0);
+
+        virtualinvoke $r7.<android.widget.Toast: void show()>();
+
+        $r1 = new android.content.Intent;
+
+        specialinvoke $r1.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r0, class "com/salman/lirrschedule/StationPicker");
+
+        virtualinvoke $r0.<com.salman.lirrschedule.LSUserPreferences: void startActivity(android.content.Intent)>($r1);
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        com.salman.lirrschedule.LSUserPreferences $r0;
+        android.os.Bundle $r1;
+        android.widget.ArrayAdapter $r2;
+        android.content.res.Resources $r3;
+        java.lang.String[] $r4;
+        android.view.View $r5;
+        android.widget.AutoCompleteTextView $r6;
+        android.widget.Button $r7;
+        android.content.SharedPreferences $r8;
+        int $i0;
+        java.lang.String $r9;
+        com.salman.lirrschedule.LSUserPreferences$1 $r10;
+        com.salman.lirrschedule.LSUserPreferences$2 $r11;
+        com.salman.lirrschedule.LSUserPreferences$3 $r12;
+
+        $r0 := @this: com.salman.lirrschedule.LSUserPreferences;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<com.salman.lirrschedule.LSUserPreferences: void setContentView(int)>(2130903044);
+
+        $r3 = virtualinvoke $r0.<com.salman.lirrschedule.LSUserPreferences: android.content.res.Resources getResources()>();
+
+        $r4 = virtualinvoke $r3.<android.content.res.Resources: java.lang.String[] getStringArray(int)>(2131099648);
+
+        $r2 = new android.widget.ArrayAdapter;
+
+        specialinvoke $r2.<android.widget.ArrayAdapter: void <init>(android.content.Context,int,java.lang.Object[])>($r0, 2130903040, $r4);
+
+        $r5 = virtualinvoke $r0.<com.salman.lirrschedule.LSUserPreferences: android.view.View findViewById(int)>(2131230745);
+
+        $r6 = (android.widget.AutoCompleteTextView) $r5;
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_from_station> = $r6;
+
+        $r5 = virtualinvoke $r0.<com.salman.lirrschedule.LSUserPreferences: android.view.View findViewById(int)>(2131230746);
+
+        $r6 = (android.widget.AutoCompleteTextView) $r5;
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_to_station> = $r6;
+
+        $r5 = virtualinvoke $r0.<com.salman.lirrschedule.LSUserPreferences: android.view.View findViewById(int)>(2131230747);
+
+        $r7 = (android.widget.Button) $r5;
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.Button saveprefs_btn> = $r7;
+
+        $r8 = virtualinvoke $r0.<com.salman.lirrschedule.LSUserPreferences: android.content.SharedPreferences getSharedPreferences(java.lang.String,int)>("LirrUserPrefsFile", 0);
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: android.content.SharedPreferences prefs> = $r8;
+
+        $r8 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.content.SharedPreferences prefs>;
+
+        $i0 = interfaceinvoke $r8.<android.content.SharedPreferences: int getInt(java.lang.String,int)>("user_view_pref", 2);
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: int use_spinner_view> = $i0;
+
+        $r8 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.content.SharedPreferences prefs>;
+
+        $r9 = interfaceinvoke $r8.<android.content.SharedPreferences: java.lang.String getString(java.lang.String,java.lang.String)>("FromStation", "8");
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_from_station> = $r9;
+
+        $r8 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.content.SharedPreferences prefs>;
+
+        $r9 = interfaceinvoke $r8.<android.content.SharedPreferences: java.lang.String getString(java.lang.String,java.lang.String)>("ToStation", "8");
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_to_station> = $r9;
+
+        $r6 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_from_station>;
+
+        virtualinvoke $r6.<android.widget.AutoCompleteTextView: void setAdapter(android.widget.ListAdapter)>($r2);
+
+        $r6 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_from_station>;
+
+        $r10 = new com.salman.lirrschedule.LSUserPreferences$1;
+
+        specialinvoke $r10.<com.salman.lirrschedule.LSUserPreferences$1: void <init>(com.salman.lirrschedule.LSUserPreferences)>($r0);
+
+        virtualinvoke $r6.<android.widget.AutoCompleteTextView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)>($r10);
+
+        $r6 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_to_station>;
+
+        virtualinvoke $r6.<android.widget.AutoCompleteTextView: void setAdapter(android.widget.ListAdapter)>($r2);
+
+        $r6 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_to_station>;
+
+        $r11 = new com.salman.lirrschedule.LSUserPreferences$2;
+
+        specialinvoke $r11.<com.salman.lirrschedule.LSUserPreferences$2: void <init>(com.salman.lirrschedule.LSUserPreferences)>($r0);
+
+        virtualinvoke $r6.<android.widget.AutoCompleteTextView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)>($r11);
+
+        $r9 = $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_from_station>;
+
+        $r9 = staticinvoke <com.salman.lirrschedule.Utils: java.lang.String findStationNameById(java.lang.String)>($r9);
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_from_station_name> = $r9;
+
+        $r9 = $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_to_station>;
+
+        $r9 = staticinvoke <com.salman.lirrschedule.Utils: java.lang.String findStationNameById(java.lang.String)>($r9);
+
+        $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_to_station_name> = $r9;
+
+        $r6 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_from_station>;
+
+        $r9 = $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_from_station_name>;
+
+        virtualinvoke $r6.<android.widget.AutoCompleteTextView: void setText(java.lang.CharSequence)>($r9);
+
+        $r6 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.AutoCompleteTextView actv_to_station>;
+
+        $r9 = $r0.<com.salman.lirrschedule.LSUserPreferences: java.lang.String user_default_to_station_name>;
+
+        virtualinvoke $r6.<android.widget.AutoCompleteTextView: void setText(java.lang.CharSequence)>($r9);
+
+        $r7 = $r0.<com.salman.lirrschedule.LSUserPreferences: android.widget.Button saveprefs_btn>;
+
+        $r12 = new com.salman.lirrschedule.LSUserPreferences$3;
+
+        specialinvoke $r12.<com.salman.lirrschedule.LSUserPreferences$3: void <init>(com.salman.lirrschedule.LSUserPreferences)>($r0);
+
+        virtualinvoke $r7.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r12);
+
+        return;
+    }
+}

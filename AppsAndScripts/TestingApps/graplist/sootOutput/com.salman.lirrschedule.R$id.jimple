@@ -1,0 +1,109 @@
+public final class com.salman.lirrschedule.R$id extends java.lang.Object
+{
+    public static final int ampmRadGrp_auto_complete_view;
+    public static final int ampmRadGrp_spinner_view;
+    public static final int autocomplete_from_station;
+    public static final int autocomplete_from_station_userprefs;
+    public static final int autocomplete_to_station;
+    public static final int autocomplete_to_station_userprefs;
+    public static final int dateButton_auto_complete_view;
+    public static final int dateButton_spinner_view;
+    public static final int dateTxtView_auto_complete_view;
+    public static final int dateTxtView_spinner_view;
+    public static final int fromStationSpinner;
+    public static final int linearlayout_autocomplete;
+    public static final int radbtnAM_auto_complete_view;
+    public static final int radbtnAM_spinner_view;
+    public static final int radbtnPM_auto_complete_view;
+    public static final int radbtnPM_spinner_view;
+    public static final int radbtn_arrive_by;
+    public static final int radbtn_depart_by;
+    public static final int radgrp_arrive_depart_by;
+    public static final int restore_use_tofrom_menu;
+    public static final int reverseRouteChkBox_auto_complete_view;
+    public static final int reverseRouteChkBox_spinner_view;
+    public static final int saveprefs_btn;
+    public static final int searchButton_auto_complete_view;
+    public static final int searchButton_spinner_view;
+    public static final int timeSpinner_auto_complete_view;
+    public static final int timeSpinner_spinner_view;
+    public static final int tlayout;
+    public static final int toStationSpinner;
+    public static final int view_menu_button;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.R$id $r0;
+
+        $r0 := @this: com.salman.lirrschedule.R$id;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.salman.lirrschedule.R$id: int view_menu_button> = 2131230748;
+
+        <com.salman.lirrschedule.R$id: int toStationSpinner> = 2131230736;
+
+        <com.salman.lirrschedule.R$id: int tlayout> = 2131230720;
+
+        <com.salman.lirrschedule.R$id: int timeSpinner_spinner_view> = 2131230737;
+
+        <com.salman.lirrschedule.R$id: int timeSpinner_auto_complete_view> = 2131230727;
+
+        <com.salman.lirrschedule.R$id: int searchButton_spinner_view> = 2131230744;
+
+        <com.salman.lirrschedule.R$id: int searchButton_auto_complete_view> = 2131230734;
+
+        <com.salman.lirrschedule.R$id: int saveprefs_btn> = 2131230747;
+
+        <com.salman.lirrschedule.R$id: int reverseRouteChkBox_spinner_view> = 2131230743;
+
+        <com.salman.lirrschedule.R$id: int reverseRouteChkBox_auto_complete_view> = 2131230733;
+
+        <com.salman.lirrschedule.R$id: int restore_use_tofrom_menu> = 2131230749;
+
+        <com.salman.lirrschedule.R$id: int radgrp_arrive_depart_by> = 2131230724;
+
+        <com.salman.lirrschedule.R$id: int radbtn_depart_by> = 2131230726;
+
+        <com.salman.lirrschedule.R$id: int radbtn_arrive_by> = 2131230725;
+
+        <com.salman.lirrschedule.R$id: int radbtnPM_spinner_view> = 2131230739;
+
+        <com.salman.lirrschedule.R$id: int radbtnPM_auto_complete_view> = 2131230729;
+
+        <com.salman.lirrschedule.R$id: int radbtnAM_spinner_view> = 2131230740;
+
+        <com.salman.lirrschedule.R$id: int radbtnAM_auto_complete_view> = 2131230730;
+
+        <com.salman.lirrschedule.R$id: int linearlayout_autocomplete> = 2131230721;
+
+        <com.salman.lirrschedule.R$id: int fromStationSpinner> = 2131230735;
+
+        <com.salman.lirrschedule.R$id: int dateTxtView_spinner_view> = 2131230741;
+
+        <com.salman.lirrschedule.R$id: int dateTxtView_auto_complete_view> = 2131230731;
+
+        <com.salman.lirrschedule.R$id: int dateButton_spinner_view> = 2131230742;
+
+        <com.salman.lirrschedule.R$id: int dateButton_auto_complete_view> = 2131230732;
+
+        <com.salman.lirrschedule.R$id: int autocomplete_to_station_userprefs> = 2131230746;
+
+        <com.salman.lirrschedule.R$id: int autocomplete_to_station> = 2131230723;
+
+        <com.salman.lirrschedule.R$id: int autocomplete_from_station_userprefs> = 2131230745;
+
+        <com.salman.lirrschedule.R$id: int autocomplete_from_station> = 2131230722;
+
+        <com.salman.lirrschedule.R$id: int ampmRadGrp_spinner_view> = 2131230738;
+
+        <com.salman.lirrschedule.R$id: int ampmRadGrp_auto_complete_view> = 2131230728;
+
+        return;
+    }
+}

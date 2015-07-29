@@ -1,0 +1,34 @@
+public final class com.salman.lirrschedule.R$layout extends java.lang.Object
+{
+    public static final int list_item;
+    public static final int main;
+    public static final int station_picker_autocomplete;
+    public static final int station_picker_view;
+    public static final int user_prefs;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.R$layout $r0;
+
+        $r0 := @this: com.salman.lirrschedule.R$layout;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.salman.lirrschedule.R$layout: int user_prefs> = 2130903044;
+
+        <com.salman.lirrschedule.R$layout: int station_picker_view> = 2130903043;
+
+        <com.salman.lirrschedule.R$layout: int station_picker_autocomplete> = 2130903042;
+
+        <com.salman.lirrschedule.R$layout: int main> = 2130903041;
+
+        <com.salman.lirrschedule.R$layout: int list_item> = 2130903040;
+
+        return;
+    }
+}

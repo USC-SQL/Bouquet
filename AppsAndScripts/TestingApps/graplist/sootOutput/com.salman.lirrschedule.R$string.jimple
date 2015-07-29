@@ -1,0 +1,55 @@
+public final class com.salman.lirrschedule.R$string extends java.lang.Object
+{
+    public static final int app_name;
+    public static final int date_time_label;
+    public static final int fromStationSpinner_title;
+    public static final int prefs_choose_layout;
+    public static final int prefs_view;
+    public static final int radbtn_arrive_by;
+    public static final int radbtn_depart_by;
+    public static final int restore_user_tofrom;
+    public static final int saveprefs_btn_title;
+    public static final int timeSpinner_title;
+    public static final int toStationSpinner_title;
+    public static final int view_menu_title;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.R$string $r0;
+
+        $r0 := @this: com.salman.lirrschedule.R$string;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.salman.lirrschedule.R$string: int view_menu_title> = 2131034118;
+
+        <com.salman.lirrschedule.R$string: int toStationSpinner_title> = 2131034114;
+
+        <com.salman.lirrschedule.R$string: int timeSpinner_title> = 2131034112;
+
+        <com.salman.lirrschedule.R$string: int saveprefs_btn_title> = 2131034120;
+
+        <com.salman.lirrschedule.R$string: int restore_user_tofrom> = 2131034119;
+
+        <com.salman.lirrschedule.R$string: int radbtn_depart_by> = 2131034121;
+
+        <com.salman.lirrschedule.R$string: int radbtn_arrive_by> = 2131034122;
+
+        <com.salman.lirrschedule.R$string: int prefs_view> = 2131034116;
+
+        <com.salman.lirrschedule.R$string: int prefs_choose_layout> = 2131034117;
+
+        <com.salman.lirrschedule.R$string: int fromStationSpinner_title> = 2131034113;
+
+        <com.salman.lirrschedule.R$string: int date_time_label> = 2131034115;
+
+        <com.salman.lirrschedule.R$string: int app_name> = 2131034123;
+
+        return;
+    }
+}

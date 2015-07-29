@@ -1,0 +1,25 @@
+public final class com.salman.lirrschedule.R$drawable extends java.lang.Object
+{
+    public static final int icon;
+    public static final int train_icon;
+
+    public void <init>()
+    {
+        com.salman.lirrschedule.R$drawable $r0;
+
+        $r0 := @this: com.salman.lirrschedule.R$drawable;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.salman.lirrschedule.R$drawable: int train_icon> = 2130837505;
+
+        <com.salman.lirrschedule.R$drawable: int icon> = 2130837504;
+
+        return;
+    }
+}

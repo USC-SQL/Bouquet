@@ -1,8 +1,0 @@
-0.2 1 5
-summary_start
-<x.lib.AsyncHttpClient$HttpLoader: java.lang.Object doInBackground(java.lang.String[])>
-$r14 = virtualinvoke $r16.<java.net.HttpURLConnection: java.lang.String getResponseMessage()>()@32@<x.lib.AsyncHttpClient$HttpLoader: java.lang.Object doInBackground(java.lang.String[])>:
-	$r22 = virtualinvoke $r16.<java.net.HttpURLConnection: java.io.InputStream getInputStream()>()@36@<x.lib.AsyncHttpClient$HttpLoader: java.lang.Object doInBackground(java.lang.String[])>
-
-
-summary_end
